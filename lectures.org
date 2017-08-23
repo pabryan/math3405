@@ -3,92 +3,91 @@
 #+OPTIONS: num:nil toc:nil
 
 * Schedule
-| Week | Mon                                  | Wed                                     | Fri                                |
-|------+--------------------------------------+-----------------------------------------+------------------------------------|
-|    6 | Recap of regular curves and surfaces | Orientation                             | Gauss Map                          |
-|    7 | SFF                                  | SFF                                     | Geodesic and Normal Curvature      |
-|    8 | Principal Curvatures                 | MC and GC                               | Local Taylor Approximation         |
-|    9 | *Bonus*: Minimal Surfaces            | Isometries and Intrinsic Geometry       | Isometries and Instrinsic Geometry |
-|   10 | *Holiday*                            | Theorema Egregium                       | Theorema Egregium                  |
-|   11 | *Bonus*: Conformal Geometry and maps | Vector Fields and Covariant Derivatives | Parallel Transport and Geodesics   |
-|   12 | Gauss-Bonnet (local)                 | Gauss-Bonnet (local)                    | Gauss-Bonnet (global)              |
-|   13 | Gauss-Bonnet (global)                | Global Geometry                         | *Catch Up*                         |
-|      |                                      |                                         |                                    |
+** Timetable
 
-** Week 6
-*** Lecture 6.1: Recap
-- Chapters 1 and 2
-- Curves
-  - Parametrisation
-  - Frenet Frame
-  - Curvature
-  - Global results
-- Regular Surfaces
-  - Local Parametrisations
-  - Tangent Plane
-  - Differentiable maps
-  - Metric
-*** Lecture 6.2: Orientation
+| Week | Mon                                  | Wed                                | Fri                                     |
+|------+--------------------------------------+------------------------------------+-----------------------------------------|
+|    7 | Recap of regular curves and surfaces | Orientation and Gauss Map          | SFF and Shape                           |
+|    8 | SFF and Shape                        | Geodesic and Normal Curvature      | Principal Curvatures, MC and GC         |
+|    9 | Local Taylor Approx                  | Isometries and Instrinsic Geometry | Isometries and Instrinsic Geometry      |
+|      | *Mid-Semester*                       | *Mid-Semester*                     | *Mid-Semester*                          |
+|   10 | *Holiday*                            | *Bonus*: Minimal Surfaces          | *Bonus*: Conformal Geometry and maps    |
+|   11 | Theorema Egregium                    | Theorema Egregium                  | Vector Fields and Covariant Derivatives |
+|   12 | Parallel Transport and Geodesics     | Gauss-Bonnet (local)               | Gauss-Bonnet (local)                    |
+|   13 | Gauss-Bonnet (global)                | Global Geometry                    | *Catch Up*                              |
+|      |                                      |                                    |                                         |
+
 ** Week 7
-*** Lecture 1.1: Review
-- Chapters 1 and 2
+*** Lecture 7.1: Recap
+- Ref: Chapters 1 and 2
 - Curves
   - Parametrisation
+  - Arc length and total length
+    - polygonal approximation and Riemann sum
+    - Application: straight lines are shortest! \(|\gamma(t_2) - \gamma(t_1)| \leq \int_{t_1}^{t_2} |\gamma'(t)| dt = L(\gamma)\)
+  - Curvature and Torsion
   - Frenet Frame
-  - Curvature
-  - Global results
+  - Examples
 - Regular Surfaces
   - Local Parametrisations
+    - \(S \subset \RR^3\)
+    - \(S = \union V_{\alpha}\) where \(V_{\alpha} = \phi_{\alpha} (U_{\alpha})\)
+  - Change of params = diffeomorphism
   - Tangent Plane
   - Differentiable maps
   - Metric
-*** Lecture 1.2: Curvature
-- Chapter 3.2, 3.3
-- Orientation
-- Gauss Map
-*** Lecture 1.3: Curvature
-- Chapter 3.2, 3.3
-- Second Fundamental Form
-- Principle Curvatures
+  - Examples
+    - Inverse image of regular points, give a list
+    - Graphs, give a list
+    - Surface of revolution, give a list
+*** Lecture 7.2: Orientation and Gauss Map
+- Ref: 2.6, 3.2
+*** Lecture 7.3: SFF and Shape
+- Ref: 3.2, 3.3
 ** Week 8
-*** Lecture 2.1: Curvature
-- Chapter 3.2, 3.3
+*** Lecture 8.1: SFF and Shape
+- Ref: 3.2, 3.3
+*** Lecture 8.2: Geodesic and Normal Curvature
+*** Lecture 8.3: Principal, Mean and Gauss Curvatures
+- 3.2, 3.3
+** Week 9
+*** Lecture 9.1: Local Taylor Approximation
+- Ref: 3.3
 - Interpretation of Gauss Curvature
 - Umbilic surfaces
-*** Lecture 2.2: Extension Lecture - Minimal Surfaces
-- Chapter 3.5
-*** Lecture 2.2: Isometries
-** Week 9
-*** Lecture 3.1: Isometries
-- Chapter 4.2
-*** Lecture 3.2: Gauss Theorem
-- Chapter 4.3
-*** Lecture 3.3: Gauss Theorem
-- Chapter 4.3
+*** Lecture 9.2: Isometries
+- Ref: 4.2
+*** Lecture 9.3: Isometries
+- Ref: 4.2
 ** Week 10
-*** Lecture 4.1: Extension Lecture - Conformal maps and map making
-*** Lecture 4.2: Vector Fields and Covariant Derivatives
-- Chapter 3.4, 4.4
-*** Lecture 4.3: Parallel Transport and Geodesics
-- Chapter 4.4
-
+*** Lecture 10.1: *Holiday*
+*** Lecture 10.2: *Bonus*: Minimal Surfaces
+- Ref: 3.5
+*** Lecture 10.3: *Bonus*: Conformal Maps
+- Ref: 4.2
 ** Week 11
-*** Lecture 5.1: Extension Lecture - Vector Fields and Dynamical Systems
-- Chapter 3.4
-*** Lecture 5.2: Gauss-Bonnet Theorem (Local)
-- Chapter 4.5
-*** Lecture 5.3: Gauss-Bonnet Theorem (Local)
-- Chapter 4.5
+*** Lecture 11.1: Theorema Egregium
+- Ref: 4.3
+*** Lecture 11.2: Theorema Egregium
+- Ref: 4.3
 - Alternative proof of Gauss Theorem: Use characterisation as limits of areas of shrinking regions
   -  http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
+*** Lecture 11.3: Vector Fields and Covariant Derivatives
+- Ref: 3.4, 4.4
 ** Week 12
-*** Lecture 6.1: Gauss-Bonnet Theorem (Global)
-- Chapter 4.5
-*** Lecture 6.2: Extension Lecture: Global Geometry
-- Applications of Gauss-Bonnet
-- Chapter 4.5
-*** Lecture 6.3: Review
+*** Lecture 12.1: Parallel Transport and Geodesics
+- Ref: 4.4
+*** Lecture 12.2: Gauss-Bonnet Theorem (Local)
+- Ref: 4.5
+*** Lecture 12.3: Gauss-Bonnet Theorem (Local)
+- Ref: 4.5
 ** Week 13
+*** Lecture 13.1: Gauss-Bonnet Theorem (Global)
+- Ref: 4.5
+*** Lecture 13.2: Extension Lecture: Global Geometry
+- Ref: 4.5
+- Applications of Gauss-Bonnet
+*** Lecture 13.3: Review
 * Review
 ** Curves
 ** Regular Surfaces
