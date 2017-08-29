@@ -30,28 +30,71 @@
 * Lectures
 
 ** Week 7
-*** Lecture 7.1: Recap
-- Ref: Chapters 1 and 2
-- Curves
-  - Parametrisation
-  - Arc length and total length
-    - polygonal approximation and Riemann sum
-    - Application: straight lines are shortest! \(|\gamma(t_2) - \gamma(t_1)| \leq \int_{t_1}^{t_2} |\gamma'(t)| dt = L(\gamma)\)
-  - Curvature and Torsion
-  - Frenet Frame
-  - Examples
-- Regular Surfaces
-  - Local Parametrisations
-    - \(S \subset \RR^3\)
-    - \(S = \union V_{\alpha}\) where \(V_{\alpha} = \phi_{\alpha} (U_{\alpha})\)
-  - Change of params = diffeomorphism
-  - Tangent Plane
-  - Differentiable maps
-  - Metric
-  - Examples
-    - Inverse image of regular points, give a list
-    - Graphs, give a list
-    - Surface of revolution, give a list
+*** Lecture 7.1: Recap on Regular Curves and Surfaces
+    :PROPERTIES:
+    :Ref: Chapters 1 and 2
+    :END:
+**** Regular Curves
+
+#+BEGIN_definition
+A /regular, parametrised curve/ is a \(C^1\) function
+\[
+\gamma : I \to \RR^2 \text{ or } \RR^3
+\]
+where \(I = (a, b) \subseteq \RR\) is an open interval and such that \(\gamma'(t) \ne 0\) for all \(t \in I\).
+#+END_definition
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 1
+   :END:
+
+**** Arc length
+
+#+BEGIN_definition
+\[
+s(t) = \int_{t_0}^t \abs{\gamma'(u)} du
+\]
+for any choice of fixed \(t_0 \in I = (a, b)\).
+#+END_definition
+
+Satisfies \(\partial_t s(t) = \abs{\gamma'(t)} \ne 0\) and so is invertible: \(t = t(s)\).
+
+\pause
+
+***** Arc Length Parametrisation
+
+\[
+\gamma(s) = \gamma(t(s)), s \in \left(-\int_a^{t_0} \abs{\gamma'(u)} du, \int_{t_0}^b \abs{\gamma'(u)} du\right) = (s(a), s(b)).
+\]
+
+\pause
+
+Satisfies
+\[
+\abs{\partial_s \gamma(s)} = \abs{\frac{dt}{ds} (s) \gamma'(t(s))} = \frac{1}{\abs{\gamma'}} \abs{\gamma'} = 1.
+\]
+
+**** Geometric Interpretation of Arc length
+- polygonal approximation and Riemann sum
+- Application: straight lines are shortest! \(|\gamma(t_2) - \gamma(t_1)| \leq \int_{t_1}^{t_2} |\gamma'(t)| dt = L(\gamma)\)
+**** Curvature and Torsion
+ - Frenet Frame
+ - Examples
+**** Regular Surfaces
+ - Local Parametrisations
+   - \(S \subset \RR^3\)
+   - \(S = \union V_{\alpha}\) where \(V_{\alpha} = \phi_{\alpha} (U_{\alpha})\)
+ - Change of params = diffeomorphism
+ - Tangent Plane
+ - Differentiable maps
+ - Metric
+ - Examples
+   - Inverse image of regular points, give a list
+   - Graphs, give a list
+   - Surface of revolution, give a list
 *** Lecture 7.2: Orientation and Gauss Map
 - Ref: 2.6, 3.2
 *** Lecture 7.3: SFF and Shape
