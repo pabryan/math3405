@@ -207,9 +207,16 @@ Satisfies
 * Notes 							   :noexport:
 ** General
 - Make use of Ximera?
+
 - SageMath resources:
   - SageManifolds: http://sagemanifolds.obspm.fr/ and  http://doc.sagemath.org/html/en/reference/manifolds/index.html
   - Parametrised Surfaces: http://doc.sagemath.org/html/en/reference/riemannian_geometry/sage/geometry/riemannian_manifolds/parametrized_surface3d.html
+
+- Use this Lewis Carol quote:
+  https://medium.com/@awoodruff/your-maps-are-not-lying-to-you-9c8c31c5991f
+
+- In relation to Gauss' Theorema Egregium and map making:
+  https://en.wikipedia.org/wiki/Theorema_Egregium#Elementary_applications
 
 ** Course Material
 *** Review
