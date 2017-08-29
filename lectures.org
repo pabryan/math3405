@@ -80,8 +80,31 @@ Satisfies
 \]
 
 **** Geometric Interpretation of Arc length
-- polygonal approximation and Riemann sum
-- Application: straight lines are shortest! \(|\gamma(t_2) - \gamma(t_1)| \leq \int_{t_1}^{t_2} |\gamma'(t)| dt = L(\gamma)\)
+
+Partition \(I = (a, b)\) into
+\[
+t_0 = a < t_1 < \cdots < t_k = b.
+\]
+
+\pause
+
+****** Length as Riemann Sum
+
+\[
+L[\gamma] = \lim_{k\to\infty} \sum_{i=1}^k \frac{\abs{\gamma(t_i) - \gamma(t_{i-1})}}{t_i - t_{i-1}} (t_i - t_{i-1}) = \int_a^b \abs{\gamma'(t)} dt.
+\]
+
+\pause
+
+****** Shortest Path
+
+Straight lines are shortest!
+\[
+\abs{\gamma(t_2) - \gamma(t_1)} \leq \int_{t_1}^{t_2} \abs{\gamma'(t)} dt = L(\gamma)
+\]
+
+\pause
+
 **** Curvature and Torsion
  - Frenet Frame
  - Examples
