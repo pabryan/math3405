@@ -51,6 +51,8 @@ where \(I = (a, b) \subseteq \RR\) is an open interval and such that \(\gamma'(t
    :BEAMER_col: 1
    :END:
 
+[[file:img/regular_curve.png]]
+
 **** Arc length
 
 #+BEGIN_definition
