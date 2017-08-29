@@ -1,21 +1,33 @@
 #+TITLE: MATH3405 Differential Geometry - UQ
 #+AUTHOR: Paul Bryan
-#+OPTIONS: num:nil toc:nil
+#+EMAIL: pabryan@gmail.com
 
-* Schedule
-** Timetable
+#+SETUPFILE: ~/.emacs.d/org-templates/bibliography.org
 
-| Week | Mon                                  | Wed                                | Fri                                     |
-|------+--------------------------------------+------------------------------------+-----------------------------------------|
-|    7 | Recap of regular curves and surfaces | Orientation and Gauss Map          | SFF and Shape                           |
-|    8 | SFF and Shape                        | Geodesic and Normal Curvature      | Principal Curvatures, MC and GC         |
-|    9 | Local Taylor Approx                  | Isometries and Instrinsic Geometry | Isometries and Instrinsic Geometry      |
-|      | *Mid-Semester*                       | *Mid-Semester*                     | *Mid-Semester*                          |
-|   10 | *Holiday*                            | *Bonus*: Minimal Surfaces          | *Bonus*: Conformal Geometry and maps    |
-|   11 | Theorema Egregium                    | Theorema Egregium                  | Vector Fields and Covariant Derivatives |
-|   12 | Parallel Transport and Geodesics     | Gauss-Bonnet (local)               | Gauss-Bonnet (local)                    |
-|   13 | Gauss-Bonnet (global)                | Global Geometry                    | *Catch Up*                              |
-|      |                                      |                                    |                                         |
+#+OPTIONS: H:2 toc:t
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: Boadilla
+#+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
+
+# #+LaTeX_HEADER: \input{local_definitions}
+
+
+* Timetable							   :noexport:
+
+| Week     | Mon                                  | Wed                                | Fri                                     |
+|----------+--------------------------------------+------------------------------------+-----------------------------------------|
+| 7 04/09  | Recap of regular curves and surfaces | Orientation and Gauss Map          | SFF and Shape                           |
+| 8 11/09  | SFF and Shape                        | Geodesic and Normal Curvature      | Principal Curvatures, MC and GC         |
+| 9 18/09  | Local Taylor Approx                  | Isometries and Instrinsic Geometry | Isometries and Instrinsic Geometry      |
+| 25/09    | *Mid-Semester*                       | *Mid-Semester*                     | *Mid-Semester*                          |
+| 10 02/10 | *Holiday*                            | *Bonus*: Minimal Surfaces          | *Bonus*: Conformal Geometry and maps    |
+| 11 09/10 | Theorema Egregium                    | Theorema Egregium                  | Vector Fields and Covariant Derivatives |
+| 12 16/10 | Parallel Transport and Geodesics     | Gauss-Bonnet (local)               | Gauss-Bonnet (local)                    |
+| 13 23/10 | Gauss-Bonnet (global)                | Global Geometry                    | *Catch Up*                              |
+|          |                                      |                                    |                                         |
+
+* Lectures
 
 ** Week 7
 *** Lecture 7.1: Recap
