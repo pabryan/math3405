@@ -97,23 +97,67 @@ Satisfies
    - Surface of revolution, give a list
 *** Lecture 7.2: Orientation and Gauss Map
 - Ref: 2.6, 3.2
+- Orientation in the plane
+  - Orientation preserving and reversing linear maps
+  - Examples
+- Orientation of the tangent plane
+- Global orientation
+  - Two possible orientations
+  - Examples
+    - Sphere
+    - \mobius{} strip
+    - Graphs, surfaces of revolultion
+- Gauss map
+  - Orientability iff continuous normal exists
+  - Examples
 *** Lecture 7.3: SFF and Shape
 - Ref: 3.2, 3.3
+- Weingarten shape operator: Differential of Gauss map
+- Examples
+- Self-adjoint
+- Second Fundamental Form
+  - Coordinates
+  - Examples
+- Compare curvature of a curve
+  - \(\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}\)
+  - \(W = -dN\) measures two-dimensional bending
 ** Week 8
 *** Lecture 8.1: SFF and Shape
 - Ref: 3.2, 3.3
+- Local coordinate expressions
+- Examples
 *** Lecture 8.2: Geodesic and Normal Curvature
+- Normal curvature
+- Geodesic (intrinsic) curvature
+- Examples
+  - e.g. curves in the plane \(S = \RR^2 = \{z=0\}\)
+- SFF is tensorial (Prop 2 Meusnier)
 *** Lecture 8.3: Principal, Mean and Gauss Curvatures
 - 3.2, 3.3
+- Self adjoint operators and eigenvalues
+- Principal curvatures
+- Principal directions
+- \(H\) and \(K\)
 ** Week 9
 *** Lecture 9.1: Local Taylor Approximation
-- Ref: 3.3
-- Interpretation of Gauss Curvature
-- Umbilic surfaces
+- Ref: 3.2, 3.3
+- Umbilic points
+  - umbilic surfaces are planes and spheres
+- Elliptic, parabolic, hyperbolic and planar points
+- Local Taylor approximation
+- Orientation preservation/reversal of Gauss map
 *** Lecture 9.2: Isometries
 - Ref: 4.2
-*** Lecture 9.3: Isometries
-- Ref: 4.2
+- Definition of isometry
+- Examples
+  - cylinder, plane, sphere, \mobius{}
+  - polar coordinates
+- Prop 1
+  - metrics agree in common param = locally isometric
+*** Lecture 9.3: Isometries and Intrinsic Geometry
+- Ref: 2.4, 3.3, 4.2
+- Length, angle, area preserved
+- Interpretation of Gauss Curvature
 ** Week 10
 *** Lecture 10.1: *Holiday*
 *** Lecture 10.2: *Bonus*: Minimal Surfaces
@@ -143,39 +187,133 @@ Satisfies
 - Ref: 4.5
 - Applications of Gauss-Bonnet
 *** Lecture 13.3: Review
-* Review
-** Curves
-** Regular Surfaces
-* Curvature (The Gauss Map)
-** Orientation
-- do Carmo, Sections 2.6, 3.2
-** Gauss Map
-- do Carmo, Section 3.2
-** Second Fundamental Form
-- do Carmo, Section 3.2
-** Principle Curvatures
-- do Carmo, Sections 3.2, 3.3
-- Classification of points (elliptic, parabolic,..., umbilic, saddle points, convex points, ...)
-- Gauss and Mean Curvatures
-** Minimal Surfaces
-
-* Global Geometry
-** Isometries
-*** Textbook reference
-- do Carmo, Section
-** Gauss' Theorem
-*** Textbook reference
-- do Carmo, Section
-** Vector Fields and Covariant Differentiation
-*** Textbook reference
-- do Carmo, Section
-** Gauss-Bonnet Theorem
-*** Textbook reference
-- do Carmo, Section
-
-* General Notes							   :noexport:
+* Assignments							   :noexport:
+*** Assignment 1
+- Due Tuesday 3rd Oct, Week 10
+- Topics Weeks 7-9
+  - Orientation
+  - SFF and Shape
+  - Various curvatures
+  - Local Taylor Approximation
+*** Assignment 3
+- Due Thursday 26th Oct, Week 13
+- Topics Weeks 10-13
+  - Isometries
+  - Intrinsic geometry
+  - Gauss Theorem
+  - Covariant derivatives, parallel transport and geodesics
+  - Gauss-Bonnet (local)
+* Exam								   :noexport:
+* Notes 							   :noexport:
+** General
 - Make use of Ximera?
 - SageMath resources:
   - SageManifolds: http://sagemanifolds.obspm.fr/ and  http://doc.sagemath.org/html/en/reference/manifolds/index.html
   - Parametrised Surfaces: http://doc.sagemath.org/html/en/reference/riemannian_geometry/sage/geometry/riemannian_manifolds/parametrized_surface3d.html
-   
+
+** Course Material
+*** Review
+**** Curves
+**** Regular Surfaces
+***** Curvature (The Gauss Map)
+*** Orientation
+- do Carmo, Sections 2.6, 3.2
+*** Gauss Map
+- do Carmo, Section 3.2
+*** Second Fundamental Form
+- do Carmo, Section 3.2
+*** Principle Curvatures
+- do Carmo, Sections 3.2, 3.3
+- Classification of points (elliptic, parabolic,..., umbilic, saddle points, convex points, ...)
+- Gauss and Mean Curvatures
+*** Minimal Surfaces
+
+**** Global Geometry
+*** Isometries
+**** Textbook reference
+- do Carmo, Section
+*** Gauss' Theorem
+**** Textbook reference
+- do Carmo, Section
+*** Vector Fields and Covariant Differentiation
+**** Textbook reference
+- do Carmo, Section
+*** Gauss-Bonnet Theorem
+**** Textbook reference
+- do Carmo, Section
+
+** Alt Course Material
+*** Schedule
+| Week | Mon                | Wed                               | Fri                               |
+|------+--------------------+-----------------------------------+-----------------------------------|
+|    7 |                    | Orientation and Gauss Map         | SFF                               |
+|    8 | SFF                | Curvature                         | Principal Curvatures              |
+|    9 | MC and GC          | Taylor Approximation              | *Bonus*: Minimal Surfaces         |
+|   10 | *Holiday*          | Isometries and Intrinsic Geometry | Isometries and Intrinsic Geometry |
+|   11 | Conformal Geometry | Theorema Egregium                 | Theorema Egregium                 |
+|   12 | Parallel Transport | Geodesics                         | Gauss-Bonnet                      |
+|   13 | Gauss-Bonnet       | Gauss-Bonnet                      | *Catch Up*                        |
+|      |                    |                                   |                                   |
+
+*** Recap
+**** Regular Curves
+**** Regular Surfaces
+*** Curvature
+**** Orientation and Gauss Map
+- Orientation
+- Gauss Map
+- Local Coordinates
+**** Second Fundamental Form and Weingarten Shape Operator
+- Shape Operator
+- Shape Operator is Self-Adjoint
+- Second Fundamental Form
+- Local Coordinates
+- Geodesic Curvature of Curves
+- Normal Curvature
+**** Principal Curvatures, Mean Curvature and Gauss Curvature
+- Principal Curvatures as Eigenvalues and as Min/Max curvatures
+- Principal Directions and Lines of Curvature
+- Mean Curvature and Gauss Curvature
+- Interpretation of Mean Curvature
+- Interpretation of Gauss Curvature
+**** Local Taylor Approximation
+- Classification of Points (Elliptic, hyperbolic, parabolic, planar)
+- Umbilical Points
+- Taylor Approximation Over Tangent Plane
+- Image of Gauss Map for Closed Surfaces
+**** Bonus: Minimal Surfaces
+- Variations
+- Minimal Surface Equation
+*** Intrinsic Geometry
+**** Isometries and Intrinsic Geometry
+- Isometries
+- Length, Angles and Area are Local Invariants
+**** Conformal Geometry
+- Conformal maps
+- Map Making Examples
+**** Theorema Egregium
+**** Vector Fields and Parallel Transport
+- Vector Fields
+- Flows
+- Covariant Derivative
+- Parallel Transport
+***** Bonus: Dynamical Systems
+- Mechanics Example
+  - Motion Constrained to a Regular Surface
+  - Conservation of Energy
+
+**** Geodesics
+- Defn
+- Length Minimisation
+- Curvature
+**** Gauss-Bonnet
+***** Local Gauss-Bonnet
+- Piecewise Curves
+- Turning Tangents
+- Local Gauss-Bonnet
+***** Global Gauss-Bonnet
+- Triangulation
+- Euler Characteristic
+- Handle Bodies
+- Global Gauss-Bonnet
+***** Applications
