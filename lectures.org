@@ -146,7 +146,7 @@ B
    :BEAMER_col: 1
    :END:
 
-[[file:img/regular_curve.png]]
+[[file:img/frenet_serret.png]]
 
 **** Curvature of Plane Curves
 ***** Curvature
