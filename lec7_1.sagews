@@ -1,4 +1,4 @@
-︠df190b74-2cda-4391-bac3-285106650140s︠
+︠68a73697-b1fe-4b8c-a6a1-73817acc2ae4s︠
 # Regular Curve Picture
 
 # Parameter space
@@ -44,7 +44,49 @@ plot.axes(False)
 plot.show()
 
 plot.save("img/regular_curve.png")
-︡5004958a-ef73-4af2-9d2c-cea386bd1c75︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/778/tmp_gYAdsd.svg","show":true,"text":null,"uuid":"b6d7eb41-0471-4ecc-b740-63f5617e189d"},"once":false}︡{"done":true}︡
+︡72e486c3-6be5-4681-829a-03eef5fcbc0f︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/3761/tmp_nlNrWi.svg","show":true,"text":null,"uuid":"b629004e-8c0b-4861-b99f-6742be781a25"},"once":false}︡{"done":true}︡
+︠cc5378be-0bf4-44a5-b02a-2a6a9ecc09c9s︠
+# Frenet Frame Picture
+%var u
+%var a, b
+
+gamma = vector([sin(a * u), cos( a* u), b * u])
+gammap = gamma.diff(u)
+gammapp = gammap.diff(u)
+
+#v = gammap.norm()
+#%var t
+#assume(t>0)
+#s = integrate(v, (u, 0, t))
+#s = s.subs(t==u)
+
+v = sqrt(a^2 + b^2)
+s = v * u
+
+sigma = gamma.subs({a:1, b:1/10})
+sigmap = gammap.subs({a:1, b:1/10})
+sigmapp = gammapp.subs({a:1, b:1/10})
+w = v.subs({a:1, b:1/10})
+
+T = (1/w) * sigmap
+N = (1/sigmapp.norm()) * sigmapp
+Btemp = N.cross_product(T)
+B = Btemp/Btemp.norm()
+
+curve = parametric_plot3d(sigma, (u, 0, 15), thickness=5, color='green', frame=False)
+
+u0 = 6.5
+P = gamma.subs({a:1, b:1/10}) (u=u0)
+
+Tplot = arrow(P, P + T(u=u0), color="black")
+Nplot = arrow(P, P + N(u=u0), color="black")
+Bplot = arrow(P, P + B(u=u0), color="black")
+
+P = curve + Tplot + Nplot + Bplot
+P.show()
+P.save("img/frenet_serret.png")
+︡0bf51244-9513-4f88-847c-acba753b17de︡{"file":{"filename":"5d64a38b-71b9-4005-aa00-26202576f175.sage3d","uuid":"5d64a38b-71b9-4005-aa00-26202576f175"}}︡{"done":true}︡
+︠28921584-7f38-4e16-91ac-4f9156f358b8︠
 
 
 
