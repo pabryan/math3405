@@ -166,7 +166,7 @@ has a sign - i.e. it can be positive or negative.
    :BEAMER_col: 1
    :END:
 
-[[file:img/regular_curve.png]]
+[[file:img/plane_curvature.png]]
 
 **** Regular Surfaces
 
