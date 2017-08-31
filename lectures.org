@@ -116,6 +116,12 @@ T = \partial_s \gamma, \quad N = \frac{\partial_s T}{\abs{\partial_s T}}, \quad 
 \pause
 
 ***** Frenet-Serret Equations
+****** Text
+
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+
 
 #+BEGIN_latex
 \[
@@ -141,10 +147,11 @@ B
 
 \pause
 
-***** Picture
-   :PROPERTIES:
-   :BEAMER_col: 1
-   :END:
+****** Picture
+
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
 
 [[file:img/frenet_serret.png]]
 
