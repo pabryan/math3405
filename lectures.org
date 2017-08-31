@@ -160,11 +160,13 @@ B
 
 In the plane: Let \(N = e^{i\pi/2} \cdot T\) (complex multiplication!) and
 \[
-\kappa = \ip{\partial_s T}{N}
+\kappa = \ip{\partial_s T}{N}.
 \]
-has a sign - i.e. it can be positive or negative.
+\(\partial_s T = \kappa N\): \(\kappa > 0\) if \(\partial_s T\) points in the direction \(N\), \(\kappa < 0\) for \(-N\).
 
-/Note/: Opposite orientation (clockwise) obtained by setting \(N = e^{-i\pi/2} \cdot T\).
+\pause
+
+/Note/: Opposite orientation (clockwise) obtained by setting \(N = e^{-i\pi/2} \cdot T\). \(\kappa\) changes sign but \(\kappa N\) is invariant.
 
 \pause
 
