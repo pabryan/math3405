@@ -80,20 +80,188 @@ Satisfies
 \]
 
 **** Geometric Interpretation of Arc length
-- polygonal approximation and Riemann sum
-- Application: straight lines are shortest! \(|\gamma(t_2) - \gamma(t_1)| \leq \int_{t_1}^{t_2} |\gamma'(t)| dt = L(\gamma)\)
+
+Partition \(I = (a, b)\) into
+\[
+t_0 = a < t_1 < \cdots < t_k = b.
+\]
+
+\pause
+
+****** Length as Riemann Sum
+
+\[
+L[\gamma] = \lim_{k\to\infty} \sum_{i=1}^k \frac{\abs{\gamma(t_i) - \gamma(t_{i-1})}}{t_i - t_{i-1}} (t_i - t_{i-1}) = \int_a^b \abs{\gamma'(t)} dt.
+\]
+
+\pause
+
+****** Shortest Path
+
+Straight lines are shortest!
+\[
+\abs{\gamma(t_2) - \gamma(t_1)} \leq \int_{t_1}^{t_2} \abs{\gamma'(t)} dt = L(\gamma)
+\]
+
+\pause
+
 **** Curvature and Torsion
- - Frenet Frame
- - Examples
+
+***** Unit Tangent, Normal, Bi-Normal
+Let
+\[
+T = \partial_s \gamma, \quad N = \frac{\partial_s T}{\abs{\partial_s T}}, \quad B = T \times N.
+\]
+
+\pause
+
+***** Frenet-Serret Equations
+
+#+BEGIN_latex
+\[
+\partial_s
+\begin{pmatrix}
+T \\
+N \\
+B
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & \kappa & 0 \\
+-\kappa & 0 & -\tau \\
+0 & \tau & 0
+\end{pmatrix}
+\begin{pmatrix}
+T \\
+N \\
+B
+\end{pmatrix}
+\]
+#+END_latex
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 1
+   :END:
+
+[[file:img/regular_curve.png]]
+
+**** Curvature of Plane Curves
+***** Curvature
+
+In the plane: Let \(N = e^{i\pi/2} \cdot T\) (complex multiplication!) and
+\[
+\kappa = \ip{\partial_s T}{N}
+\]
+has a sign - i.e. it can be positive or negative.
+
+/Note/: Opposite orientation (clockwise) obtained by setting \(N = e^{-i\pi/2} \cdot T\).
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 1
+   :END:
+
+[[file:img/regular_curve.png]]
+
 **** Regular Surfaces
- - Local Parametrisations
-   - \(S \subset \RR^3\)
-   - \(S = \union V_{\alpha}\) where \(V_{\alpha} = \phi_{\alpha} (U_{\alpha})\)
- - Change of params = diffeomorphism
- - Tangent Plane
- - Differentiable maps
- - Metric
- - Examples
+
+#+BEGIN_definition
+A regular surface, \(S \subseteq \RR^3\) is subset of \(\RR^3\) such that there exists smooth /local parametrisations/ \(\varphi_{\alpha} : U_{\alpha} \subseteq \RR^2 \to \RR^3\) satisfying for each \(\alpha\),
+
+1. \(S = \union_{\alpha} V_{\alpha}\) where \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha})\),
+2. \(\varphi_{\alpha}\) is a homeomorphism onto it's image \(V_{\alpha} = \varphi_{\alpha} (U_{\alpha})\)
+3. \(d\varphi_{\alpha}|_x : \RR^2 \to \RR^3\) is injective for each \(x \in U_{\alpha}\).
+#+END_definition
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 1
+   :END:
+
+[[file:img/regular_curve.png]]
+
+**** Change of Parameters
+
+The third condition implies that for each $\alpha,\beta$, the /change of parameters/
+\[
+\tau_{\alpha\beta} = \varphi_{\alpha}^{-1} \circ \varphi_{\beta} : \varphi_{\beta}^{-1} (V_{\alpha}) \subseteq \RR^2 \to \varphi_{\alpha}^{-1} (V_{\beta}) \subseteq \RR^2
+\]
+is a *diffeomorphism*.
+
+That is, \(\tau_{\alpha\beta}\) is smooth with a smooth inverse. The inverse is in fact \(\tau_{\beta\alpha}\).
+
+\pause
+
+- We could replace condition three, with the condition that \(\tau_{\alpha\beta}\) is smooth.
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 1
+   :END:
+
+[[file:img/regular_curve.png]]
+
+**** Key Property of Change of Parameters
+
+Recall \(\tau_{\alpha\beta}\) is a diffeomorphism.
+
+*Fact*:
+  \[
+  \Phi_{\alpha\beta} : f \in C^{\infty}(\varphi_{\alpha}^{-1} (V_{\beta}), \RR) \mapsto f \circ \tau_{\alpha\beta} \in C^{\infty}(\varphi_{\beta}^{-1} (V_{\alpha}), \RR)
+  \]
+  is a bijection.
+
+\pause
+
+***** Calculus is diffeomorphism invariant!
+
+Therefore, $\Phi_{\alpha\beta}$ establishes a one-to-one correspondence of smooth functions in one parametrisation with smooth functions in another parametrisation.
+**** Smooth Maps
+\[
+f : \RR \to S, \quad f : S \to \RR, \quad f : S \to S', \dots
+\]
+
+\pause
+
+For example, \(f : S \to S'\) is smooth if 
+\[
+\psi \circ f \circ \phi^{-1} : \phi[f^{-1}[Z] \cap V] \subseteq U \subseteq \RR^2 \to W \subseteq \RR^2
+\]
+is smooth for every pair of local parametrisations
+\[
+\phi : U \to V \subseteq S, \quad \psi : W \to Z \subset S'
+\]
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 1
+   :END:
+
+[[file:img/regular_curve.png]]
+
+**** Tangent Plane
+
+- 
+
+**** Differentiable maps
+**** Metric (First Fundamental Form)
+
+- Metric
+- Length and Angle
+- Area
+
+**** Gallery of Regular Surface
    - Inverse image of regular points, give a list
    - Graphs, give a list
    - Surface of revolution, give a list
