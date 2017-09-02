@@ -131,7 +131,8 @@ P += legend
 P.show(axes=False)
 P.save("img/plane_curvature.png", axes=False)
 ︡ba482ba7-1551-4098-9104-ba104fa51347︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/103/tmp_NcvGE2.svg","show":true,"text":null,"uuid":"86265af5-a203-4541-9832-e04437d23d4d"},"once":false}︡{"done":true}︡
-︠910c7f85-1180-4687-816c-308a58d14e0bs︠
+︠910c7f85-1180-4687-816c-308a58d14e0b︠
+# Regular Surface
 u, v, z = var('u,v,z')
 
 umin = -1
@@ -175,7 +176,7 @@ P = S + X + Y + Z
 P.save('img/regular_surface.png')
 
 ︡3e02d50d-0b7d-4fe6-8660-652c1218df91︡{"done":true}︡
-︠e142692e-88f6-4172-894f-c52426b43909︠
+︠e142692e-88f6-4172-894f-c52426b43909s︠
 # Change of Parameters
 u,v = var('u,v')
 
@@ -203,9 +204,44 @@ P = S + U1 + U2 + U12 + U21 + V1 + V2 + V12 + A1 + A2 + A
 P.show(axes=False)
 P.save('img/change_of_param.png', axes=False)
 
-︡0c026b2b-3c85-4f56-84c1-9614e1ebd380︡{"stderr":"Error in lines 9-9\n"}︡{"stderr":"Traceback (most recent call last):\n  File \"/cocalc/lib/python2.7/site-packages/smc_sagews/sage_server.py\", line 995, in execute\n    exec compile(block+'\\n', '', 'single') in namespace, locals\n  File \"\", line 1, in <module>\n  File \"/ext/sage/sage-8.0/local/lib/python2.7/site-packages/sage/misc/decorators.py\", line 564, in wrapper\n    return func(*args, **options)\n  File \"/ext/sage/sage-8.0/local/lib/python2.7/site-packages/sage/plot/contour_plot.py\", line 1515, in region_plot\n    for func in f_all[neqs::]], dtype=float)\n  File \"/ext/sage/sage-8.0/local/lib/python2.7/site-packages/sage/plot/contour_plot.py\", line 1600, in <lambda>\n    return lambda x, y: -1 if f(x, y) else 1\n  File \"\", line 1, in <lambda>\n  File \"src/cysignals/signals.pyx\", line 251, in cysignals.signals.python_check_interrupt (build/src/cysignals/signals.c:2721)\n  File \"src/cysignals/signals.pyx\", line 94, in cysignals.signals.sig_raise_exception (build/src/cysignals/signals.c:1328)\nKeyboardInterrupt\n"}︡{"done":true}︡
-︠99825023-d998-4bb8-91b4-df73db61b010︠
+︡9589e916-a32f-4b56-8bcf-4db425db69cb︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/119/tmp_Yo8Hnb.svg","show":true,"text":null,"uuid":"5c2c7941-aae8-40eb-b739-75a12d0ddd50"},"once":false}︡{"done":true}︡
+︠99825023-d998-4bb8-91b4-df73db61b010s︠
+# Tangent Plane
+u, v, z, t = var('u,v,z,t')
 
+umin = -1
+umax = 1
+vmin = -1
+vmax = 1
+
+num_points=40
+
+f(u, v) = 2 - u^2-v^2
+fu = f.diff(u)
+fv = f.diff(v)
+Tu = vector([1, 0, fu])
+Tv = vector([0, 1, fv])
+
+S = plot3d(f, (u,umin,umax), (v,vmin,vmax), plot_points=num_points, frame=False, aspect_ratio=(2, 2, 1), color='blue')
+
+u0 = 1/2
+v0 = 1/5
+f0 = f(u=u0, v=v0)
+p0 = vector([u0, v0, f0])
+
+Tu0 = Tu(u=u0, v=v0)
+Tv0 = Tv(u=u0, v=v0)
+
+Lu0 = parametric_plot3d(p0 + t * Tu0, (t, -1,1), color="gray")
+Lv0 = parametric_plot3d(p0 + t * Tv0, (t, -1,1), color="gray")
+
+T0 = parametric_plot3d(p0 + u * Tu0 + v * Tv0, (u, -1,1), (v, -1, 1), color="lightgray", opacity=0.7)
+
+P = S + Lu0 + Lv0 + T0
+
+P.show()
+P.save('img/tangent_plane.png')
+︡5250f1df-4658-4d93-86e5-f4c6e2b7b28c︡{"file":{"filename":"23eccab4-59b6-4e23-a903-9dadb4219a49.sage3d","uuid":"23eccab4-59b6-4e23-a903-9dadb4219a49"}}︡{"done":true}︡
 
 
 

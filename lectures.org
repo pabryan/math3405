@@ -276,7 +276,7 @@ Equivalent Descriptions
    :BEAMER_col: 1
    :END:
 
-[[file:img/regular_curve.png]]
+[[file:img/tangent_plane.png]]
 
 **** The Differential
 
