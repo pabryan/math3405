@@ -232,16 +232,16 @@ p0 = vector([u0, v0, f0])
 Tu0 = Tu(u=u0, v=v0)
 Tv0 = Tv(u=u0, v=v0)
 
-Lu0 = parametric_plot3d(p0 + t * Tu0, (t, -1,1), color="gray")
-Lv0 = parametric_plot3d(p0 + t * Tv0, (t, -1,1), color="gray")
+Lu0 = parametric_plot3d(p0 + t * Tu0, (t, -1,1), color="black")
+Lv0 = parametric_plot3d(p0 + t * Tv0, (t, -1,1), color="black")
 
 T0 = parametric_plot3d(p0 + u * Tu0 + v * Tv0, (u, -1,1), (v, -1, 1), color="lightgray", opacity=0.7)
 
 P = S + Lu0 + Lv0 + T0
 
 P.show()
-P.save('img/tangent_plane.png')
-︡5250f1df-4658-4d93-86e5-f4c6e2b7b28c︡{"file":{"filename":"23eccab4-59b6-4e23-a903-9dadb4219a49.sage3d","uuid":"23eccab4-59b6-4e23-a903-9dadb4219a49"}}︡{"done":true}︡
+P.save('img/tangent_plane.png', dpi=500)
+︡8c231e12-93ca-4b7d-bd87-c21d2ed9272d︡{"file":{"filename":"b6b0ae0f-8861-483c-b046-5d907c6124a3.sage3d","uuid":"b6b0ae0f-8861-483c-b046-5d907c6124a3"}}︡{"done":true}︡
 
 
 
