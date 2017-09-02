@@ -128,10 +128,84 @@ legend += text(r"$\kappa$N", (20, 7), color="red")
 
 P += legend
 
-P.show()
+P.show(axes=False)
 P.save("img/plane_curvature.png", axes=False)
-︡be839ceb-260c-4671-b316-0d0bfdb2275b︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/533/tmp_LKubaw.svg","show":true,"uuid":"acaf1369-c255-4731-92b6-8a381c0c2cb3"},"once":false}︡{"done":true}︡{"stderr":"Error in lines 13-13\nTraceback (most recent call last):\n  File \"/cocalc/lib/python2.7/site-packages/smc_sagews/sage_server.py\", line 995, in execute\n    exec compile(block+'\\n', '', 'single') in namespace, locals\n  File \"\", line 1, in <module>\nTypeError: 'Graphics' object is not callable\n"}︡{"done":true}
-︠910c7f85-1180-4687-816c-308a58d14e0b︠
+︡ba482ba7-1551-4098-9104-ba104fa51347︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/103/tmp_NcvGE2.svg","show":true,"text":null,"uuid":"86265af5-a203-4541-9832-e04437d23d4d"},"once":false}︡{"done":true}︡
+︠910c7f85-1180-4687-816c-308a58d14e0bs︠
+u, v, z = var('u,v,z')
+
+umin = -1
+umax = 1
+vmin = -1
+vmax = 1
+
+num_points=100
+
+S = plot3d(u^2-v^2, (u,umin,umax), (v,vmin,vmax), plot_points=num_points, frame=False, aspect_ratio=(2, 2, 1), color='lightgray')
+
+r = 5/12
+
+umin = -2/3
+umax = 1/3
+vmin = -1
+vmax = 0
+zmin=-1
+zmax=1
+
+uX = umin + (umax-umin)/3
+vX = vmin + (vmax-vmin)/2
+
+Xregion = lambda u,v,z: r^2 - (u-uX)^2 - (v-vX)^2
+Yregion = lambda u,v,z: r^2 - (u-uY)^2 - (v-vY)^2
+Zregion = lambda u,v,z: min(Xregion(u,v,z), Yregion(u,v,z))
+
+uY = umax - (umax-umin)/3
+vY = -1/2
+
+f = lambda u,v, z: u^2 - v^2 - z
+
+X = implicit_plot3d(f, (u,umin,umax), (v,vmin,vmax), (z,zmin,zmax), region = Xregion, frame=False, aspect_ratio=(2, 2, 1), color='blue', plot_points=2*num_points)
+Y = implicit_plot3d(f, (u,umin,umax), (v,vmin,vmax), (z,zmin,zmax), region = Yregion, frame=False, aspect_ratio=(2, 2, 1), color='blue', plot_points=2*num_points)
+Z = implicit_plot3d(f, (u,umin,umax), (v,vmin,vmax), (z,zmin,zmax), region = Zregion, frame=False, aspect_ratio=(2, 2, 1), color='darkblue', plot_points=2*num_points)
+
+
+P = S + X + Y + Z
+
+#P.show()
+P.save('img/regular_surface.png')
+
+︡3e02d50d-0b7d-4fe6-8660-652c1218df91︡{"done":true}︡
+︠e142692e-88f6-4172-894f-c52426b43909︠
+# Change of Parameters
+u,v = var('u,v')
+
+U1 = circle((-1/2,-1/2), 1/4, color="blue") + text(r"$U_{\alpha}$", ((-1/2, -1/2)), color="blue")
+U2 = circle((1/2,-1/2), 1/4, color="red") + text(r"$U_{\beta}$", ((1/2, -1/2)), color="red")
+
+U12 = region_plot(lambda u,v : min((1/4)^2 - (u+1/2)^2 - (v+1/2)^2, (1/4)^2 - (u+1/7)^2 - (v+1/2)^2) >= 0, (u,-1, 1), (v,-1, 1), plot_points=500, incol='gray')
+U21 = region_plot(lambda u,v : min((1/4)^2 - (u-1/2)^2 - (v+1/2)^2, (1/4)^2 - (u-1/7)^2 - (v+1/2)^2) >= 0, (u,-1, 1), (v,-1, 1), plot_points=500, incol='gray')
+
+S = ellipse((0,1/2), 1, 1/3, color="black") + text("S", (-1/2, 1/2), color="black")
+
+V1 = circle((-1/7,1/2), 1/5, color="blue") + text(r"$V_{\alpha}$", ((-1/7, 1/2)), color="blue")
+V2 = circle((1/7,1/2), 1/5, color="red") + text(r"$V_{\beta}$", ((1/7, 1/2)), color="red")
+
+V12 = region_plot(lambda u,v : min((1/5)^2 - (u+1/7)^2 - (v-1/2)^2, (1/5)^2 - (u-1/7)^2 - (v-1/2)^2) >= 0, (u,-1, 1), (v,-1, 1), plot_points=500, incol='gray')
+
+epsilon = 1/8
+A1 = arrow((-1/4-epsilon,-epsilon), (-1/4+epsilon,epsilon), color="blue") + text(r"$\varphi_{\alpha}$", (-1/2, 0), color="blue")
+A2 = arrow((1/4+epsilon,-epsilon), (1/4-epsilon,epsilon), color="red") + text(r"$\varphi_{\beta}$", (1/2, 0), color="red")
+
+A = arrow((-epsilon, -1/2), (epsilon, -1/2), color="black") + text(r"$\tau_{\alpha\beta} = \varphi_{\beta}^{-1} \circ \varphi_{\alpha}$", (0, -1/2 - 2*epsilon), color="black")
+
+P = S + U1 + U2 + U12 + U21 + V1 + V2 + V12 + A1 + A2 + A
+
+P.show(axes=False)
+P.save('img/change_of_param.png', axes=False)
+
+︡0c026b2b-3c85-4f56-84c1-9614e1ebd380︡{"stderr":"Error in lines 9-9\n"}︡{"stderr":"Traceback (most recent call last):\n  File \"/cocalc/lib/python2.7/site-packages/smc_sagews/sage_server.py\", line 995, in execute\n    exec compile(block+'\\n', '', 'single') in namespace, locals\n  File \"\", line 1, in <module>\n  File \"/ext/sage/sage-8.0/local/lib/python2.7/site-packages/sage/misc/decorators.py\", line 564, in wrapper\n    return func(*args, **options)\n  File \"/ext/sage/sage-8.0/local/lib/python2.7/site-packages/sage/plot/contour_plot.py\", line 1515, in region_plot\n    for func in f_all[neqs::]], dtype=float)\n  File \"/ext/sage/sage-8.0/local/lib/python2.7/site-packages/sage/plot/contour_plot.py\", line 1600, in <lambda>\n    return lambda x, y: -1 if f(x, y) else 1\n  File \"\", line 1, in <lambda>\n  File \"src/cysignals/signals.pyx\", line 251, in cysignals.signals.python_check_interrupt (build/src/cysignals/signals.c:2721)\n  File \"src/cysignals/signals.pyx\", line 94, in cysignals.signals.sig_raise_exception (build/src/cysignals/signals.c:1328)\nKeyboardInterrupt\n"}︡{"done":true}︡
+︠99825023-d998-4bb8-91b4-df73db61b010︠
+
 
 
 

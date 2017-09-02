@@ -194,7 +194,7 @@ A regular surface, \(S \subseteq \RR^3\) is subset of \(\RR^3\) such that there 
    :BEAMER_col: 1
    :END:
 
-[[file:img/regular_curve.png]]
+[[file:img/regular_surface.png]]
 
 **** Change of Parameters
 
@@ -217,7 +217,7 @@ That is, \(\tau_{\alpha\beta}\) is smooth with a smooth inverse. The inverse is 
    :BEAMER_col: 1
    :END:
 
-[[file:img/regular_curve.png]]
+[[file:img/change_of_param.png]]
 
 **** Key Property of Change of Parameters
 
