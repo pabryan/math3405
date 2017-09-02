@@ -338,10 +338,6 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 - Curve length: \(L(\gamma) = \int_a^b \abs{\gamma'(t)} dt\),
 - Area: \(A(R) = \int_R \sqrt{\det g}\).
 
-**** Gallery of Regular Surface
-   - Inverse image of regular points, give a list
-   - Graphs, give a list
-   - Surface of revolution, give a list
 *** Lecture 7.2: Orientation and Gauss Map
 - Ref: 2.6, 3.2
 - Orientation in the plane
