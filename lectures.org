@@ -306,9 +306,35 @@ df_x : T_x S &\to T_{f(x)} S' \\
 
 **** Metric (First Fundamental Form)
 
-- Metric
-- Length and Angle
-- Area
+#+BEGIN_definition
+The metric \(g\) on \(S\) is an inner product \(g_x\) at each point \(x \in S\) defined for tangent vectors \(V = \gamma'(0)\), \(W = \sigma'(0)\) \(\in T_x S\) by\pause
+\[
+g_x(V, W) = \ip{\gamma'(0)}{\sigma'(0)}_{\RR^3}.
+\]
+#+END_definition
+
+\pause
+
+- First Fundamental Form: \(I(V) = g(V, V) = \abs{\gamma'(0)}^2\).
+
+\pause
+
+Equivalently
+\[
+g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}}.
+\]
+
+**** Geometry
+***** Length and Angle of Tangent Vectors
+
+- Length: \(\abs{V} = \sqrt{(g(V, V))}\),
+- Angle: \(\cos \theta = \frac{g(V, W)}{\abs{V}\abs{W}}\).
+
+\pause
+
+***** Arc Length and Area
+- Curve length: \(L(\gamma) = \int_a^b \abs{\gamma'(t)} dt\),
+- Area: \(A(R) = \int_R \sqrt{\det g}\).
 
 **** Gallery of Regular Surface
    - Inverse image of regular points, give a list
