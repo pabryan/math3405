@@ -276,7 +276,10 @@ Equivalent Descriptions
    :BEAMER_col: 1
    :END:
 
+#+BEGIN_center
+#+ATTR_LATEX: :width .9\textwidth :height .4\textheight
 [[file:img/tangent_plane.png]]
+#+END_center
 
 **** The Differential
 
