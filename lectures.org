@@ -276,7 +276,10 @@ Equivalent Descriptions
    :BEAMER_col: 1
    :END:
 
+#+BEGIN_center
+#+ATTR_LATEX: :width .9\textwidth :height .4\textheight
 [[file:img/tangent_plane.png]]
+#+END_center
 
 **** The Differential
 
@@ -292,6 +295,17 @@ df_x : T_x S &\to T_{f(x)} S' \\
 #+END_latex
 #+END_definition
 
+\pause
+
+***** Coordinate Description
+
+Let \(F(u, v) = \psi^{-1} \circ f \circ \varphi (u, v) = (F_1(u, v), F_2 (u, v))\) with \(x = f(u_0, v_0)\):
+\[
+df_x = \begin{pmatrix}
+\frac{\partial F_1}{\partial u}(v_0, u_0) & \frac{\partial F_1}{\partial v}(v_0, u_0) \\
+\frac{\partial F_2}{\partial u}(v_0, u_0) & \frac{\partial F_2}{\partial v}(v_0, u_0)
+\end{pmatrix}
+\]
 **** Metric (First Fundamental Form)
 
 #+BEGIN_definition
