@@ -353,7 +353,7 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 - Gauss map
   - Orientability iff continuous normal exists
   - Examples
-*** Lecture 7.3: SFF and Shape
+*** Lecture 7.3: Curvature
 - Ref: 3.2, 3.3
 - Weingarten shape operator: Differential of Gauss map
 - Examples
@@ -365,7 +365,7 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
   - \(\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}\)
   - \(W = -dN\) measures two-dimensional bending
 ** Week 8
-*** Lecture 8.1: SFF and Shape
+*** Lecture 8.1: Curvature
 - Ref: 3.2, 3.3
 - Local coordinate expressions
 - Examples
