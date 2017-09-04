@@ -29,7 +29,7 @@
 
 * Lectures
 
-** Week 7
+** MATH3405 Differential Geometry: Week 7
 *** Lecture 7.1: Recap on Regular Curves and Surfaces
     :PROPERTIES:
     :Ref: Chapters 1 and 2
