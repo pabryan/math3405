@@ -339,18 +339,37 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 - Area: \(A(R) = \int_R \sqrt{\det g}\).
 
 *** Lecture 7.2: Orientation and Gauss Map
-- Ref: 2.6, 3.2
-- Orientation in the plane
-  - Orientation preserving and reversing linear maps
+**** Orientation of Euclidean Space
+
+#+BEGIN_definition
+An orientation on \(\RR^n\) is an equivalence class of /ordered/ bases \(\mathcal{E} = \{e_1, \cdots, e_n\}\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
+#+END_definition
+
+Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence class, and there are /precisely two equivalence classes/.
+
+#+BEGIN_example
+Compute the change of basis from \(\mathcal{E} = \{e_1, e_2\}\) to
+\[
+\{e_1, e_1 + e_2\}, \quad \{e_1, -e_2\}, \quad \{e_2, e_1\}.
+\]
+What corresponds to clockwise, and what corresponds to anti-clockwise?
+#+END_example
+
+#+BEGIN_example
+- Right hand orientation: \(\{e_1, e_2, e_3\}, \{e_1, e_3, -e_2\}, \dots\)
+- Left hand orientation: \(\{e_2, e_1, e_3\}, \{e_1, -e_2, e_3\}, \dots\)
+#+END_example
+
+**** Orientation preserving and reversing linear maps
   - Examples
-- Orientation of the tangent plane
-- Global orientation
-  - Two possible orientations
-  - Examples
-    - Sphere
-    - \mobius{} strip
-    - Graphs, surfaces of revolultion
-- Gauss map
+**** Orientation of the tangent plane
+**** Global orientation
+- Two possible orientations
+- Examples
+  - Sphere
+  - \mobius{} strip
+  - Graphs, surfaces of revolultion
+**** Gauss map
   - Orientability iff continuous normal exists
   - Examples
 *** Lecture 7.3: Curvature
@@ -364,7 +383,7 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 - Compare curvature of a curve
   - \(\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}\)
   - \(W = -dN\) measures two-dimensional bending
-** Week 8
+** MATH3405 Differential Geometry: Week 8
 *** Lecture 8.1: Curvature
 - Ref: 3.2, 3.3
 - Local coordinate expressions
@@ -381,7 +400,7 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 - Principal curvatures
 - Principal directions
 - \(H\) and \(K\)
-** Week 9
+** MATH3405 Differential Geometry: Week 9
 *** Lecture 9.1: Local Taylor Approximation
 - Ref: 3.2, 3.3
 - Umbilic points
@@ -401,13 +420,13 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 - Ref: 2.4, 3.3, 4.2
 - Length, angle, area preserved
 - Interpretation of Gauss Curvature
-** Week 10
+** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: *Holiday*
 *** Lecture 10.2: *Bonus*: Minimal Surfaces
 - Ref: 3.5
 *** Lecture 10.3: *Bonus*: Conformal Maps
 - Ref: 4.2
-** Week 11
+** MATH3405 Differential Geometry: Week 11
 *** Lecture 11.1: Theorema Egregium
 - Ref: 4.3
 *** Lecture 11.2: Theorema Egregium
@@ -416,14 +435,14 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
   -  http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
 *** Lecture 11.3: Vector Fields and Covariant Derivatives
 - Ref: 3.4, 4.4
-** Week 12
+** MATH3405 Differential Geometry: Week 12
 *** Lecture 12.1: Parallel Transport and Geodesics
 - Ref: 4.4
 *** Lecture 12.2: Gauss-Bonnet Theorem (Local)
 - Ref: 4.5
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
 - Ref: 4.5
-** Week 13
+** MATH3405 Differential Geometry: Week 13
 *** Lecture 13.1: Gauss-Bonnet Theorem (Global)
 - Ref: 4.5
 *** Lecture 13.2: Extension Lecture: Global Geometry
