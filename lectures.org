@@ -433,7 +433,7 @@ Local parametrisation: \(\varphi : U \to S\).
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .9\textwidth :height .4\textheight
-[[file:img/tangent_plane.png]]
+[[file:img/oriented_tangent_plane.png]]
 #+END_center
 
 \pause
