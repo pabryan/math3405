@@ -345,20 +345,23 @@ g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \va
 An orientation on \(\RR^n\) is an equivalence class of /ordered/ bases \(\mathcal{E} = \{e_1, \cdots, e_n\}\) where \(\mathcal{E} \sim \mathcal{F}\) if the change of basis matrix \(A_{\mathcal{E}\mathcal{F}}\) has positive determinant.
 #+END_definition
 
-Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence class, and there are /precisely two equivalence classes/.
+\pause
 
-#+BEGIN_example
-Compute the change of basis from \(\mathcal{E} = \{e_1, e_2\}\) to
-\[
-\{e_1, e_1 + e_2\}, \quad \{e_1, -e_2\}, \quad \{e_2, e_1\}.
-\]
-What corresponds to clockwise, and what corresponds to anti-clockwise?
-#+END_example
+Since \(\det \left(A_{\mathcal{E}\mathcal{F}} A_{\mathcal{F}\mathcal{G}}\right) = \det \left(A_{\mathcal{E}\mathcal{F}}\right) \det\left(A_{\mathcal{F}\mathcal{G}}\right)\), we do indeed have an equivalence relation, and there are /precisely two equivalence classes/.
 
-#+BEGIN_example
-- Right hand orientation: \(\{e_1, e_2, e_3\}, \{e_1, e_3, -e_2\}, \dots\)
-- Left hand orientation: \(\{e_2, e_1, e_3\}, \{e_1, -e_2, e_3\}, \dots\)
-#+END_example
+\pause
+
+\begin{example}
+Compute the change of basis from \(\mathcal{E} = \{e_1, e_2\}\) to \(\{e_1, e_1 + e_2\}, \quad \{e_1, -e_2\}, \quad \{e_2, e_1\}.\)
+\end{example}
+
+\pause
+
+\begin{example}
+Right hand orientation: \(\{e_1, e_2, e_3\}, \{e_1, e_3, -e_2\}, \dots\)
+
+Left hand orientation: \(\{e_2, e_1, e_3\}, \{e_1, -e_2, e_3\}, \dots\)
+\end{example}
 
 **** Orientation preserving and reversing linear maps
   - Examples
