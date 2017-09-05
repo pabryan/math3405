@@ -1,4 +1,4 @@
-︠1ce82a7a-f77a-4532-96cc-097bb9a83c91s︠
+︠1ce82a7a-f77a-4532-96cc-097bb9a83c91︠
 u,v,t = var('u,v, t')
 
 umin = 0
@@ -45,7 +45,7 @@ P.save("img/mobius.png")
 
 
 ︡a9f6aaba-770c-401c-995d-10a6bc0240c4︡{"file":{"filename":"d73b342d-65eb-48ce-878f-a25f9f05bdad.sage3d","uuid":"d73b342d-65eb-48ce-878f-a25f9f05bdad"}}︡{"done":true}︡
-︠5794c809-e905-4271-9e54-76c5a580afd5s︠
+︠5794c809-e905-4271-9e54-76c5a580afd5︠
 from numpy import linspace, concatenate
 n = 200
 
@@ -98,24 +98,14 @@ tmin = (0.1)*(pi/2)
 tmax = (0.9)*(pi/2)
 gamma = p0 + (1/2)* cos(t) * Tu0 + (1/2) * sin(t) * Tv0
 gammap = gamma.diff(t)
-arc = parametric_plot3d(gamma, (t, tmin, tmax), color="black") + arrow3d(gamma(t=tmax), gamma(t=tmax) + (0.1)*gammap(t=tmax), color="black")
+arc = parametric_plot3d(gamma, (t, tmin, tmax), color="red", thickness=2) + arrow3d(gamma(t=tmax), gamma(t=tmax) + (0.2)*gammap(t=tmax), color="red", width=5, arrow_radius=50)
 
 P = S + Lu0 + Lv0 + T0 + arc
 
 P.show()
 P.save('img/oriented_tangent_plane.png', dpi=500)
-︡fb4d3bb2-1a86-452b-9167-3c88af4be5ea︡{"file":{"filename":"cb18d7fe-a879-4c2c-85f9-bc2c6c181bd5.sage3d","uuid":"cb18d7fe-a879-4c2c-85f9-bc2c6c181bd5"}}︡{"done":true}︡
+︡65bfe954-174c-47a6-a4dd-bafd64895b46︡{"file":{"filename":"8aef8964-0154-441d-b170-85e50e2d6ffe.sage3d","uuid":"8aef8964-0154-441d-b170-85e50e2d6ffe"}}︡{"done":true}︡
 ︠083a16d7-c20c-4cc2-aa74-3f20baaa834c︠
-
-
-
-
-
-
-
-
-
-p0 + (1/2)* cos(t) * Tu0 + (1/2) * sin(t) * Tv0p0 + (1/2)* cos(t) * Tu0 + (1/2) * sin(t) * Tv0p0 + (1/2)* cos(t) * Tu0 + (1/2) * sin(t) * Tv0
 
 
 
