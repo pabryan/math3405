@@ -416,6 +416,32 @@ T = \begin{pmatrix}
 \end{example}
 
 **** Orientation of the tangent plane
+***** Tangent Plane Orientations
+****** Text
+      :PROPERTIES:
+      :BEAMER_col: 0.5
+      :END:
+
+Local parametrisation: \(\varphi : U \to S\).
+\[
+\left\{\frac{\partial \varphi}{\partial u}, \frac{\partial \varphi}{\partial v}\right\}, \quad \left\{\frac{\partial \varphi}{\partial v}, \frac{\partial \varphi}{\partial u}\right\}
+\]
+****** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.5
+      :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .9\textwidth :height .4\textheight
+[[file:img/tangent_plane.png]]
+#+END_center
+
+\pause
+***** Definition
+The orientation induced by \(\varphi\) is /compatible/ with the orientation induced by \(\psi\) if \(\det d(\psi \circ \phi^{-1}) > 0\).
+\pause
+A regular surface, \(S\) is /orientable/ if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) > 0\) for all \(\alpha, \beta\).
+
 **** Global orientation
 - Two possible orientations
 - Examples
