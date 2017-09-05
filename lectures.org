@@ -442,15 +442,68 @@ The orientation induced by \(\varphi\) is /compatible/ with the orientation indu
 \pause
 A regular surface, \(S\) is /orientable/ if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) > 0\) for all \(\alpha, \beta\).
 
-**** Global orientation
-- Two possible orientations
-- Examples
-  - Sphere
-  - \mobius{} strip
-  - Graphs, surfaces of revolultion
-**** Gauss map
-  - Orientability iff continuous normal exists
-  - Examples
+**** Examples
+
+- The sphere is orientable
+- The \mobius{} strip is /not/ orientable
+- Graphs, are orientable
+- Inverse images of regular point are orientable
+- Surfaces of revolution may or may not be orientable
+
+**** Orientation of surfaces
+
+#+BEGIN_theorem
+A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors. That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all $X \in T_x S$.
+#+END_theorem
+
+\pause
+
+*Remember there are precisely two orientations!*
+
+\pause
+
+There are two possible unit normal fields, \(N\) and \(-N\). Choosing an orientation is equivalent to choosing a normal field.
+
+\pause
+
+- The proof of the theorem follows from the following lemma:
+
+#+BEGIN_lemma
+Let \(\varphi (u, v) : U \subseteq \RR^2 \to S\) and \(\psi (s, t) : V \subseteq \RR^2 \to S\) be local parametrisations. Then
+\[
+\partial_u \varphi \times \partial_v \varphi = \left[\det d(\psi^{-1} \circ \varphi)\right] \partial_s \psi \times \partial_t \psi.
+\]
+#+END_lemma
+
+**** Gauss Map
+
+#+BEGIN_definition
+ An orientable surface \(S\) along with a choice of orientation is called an /oriented surface/.
+#+END_definition
+
+\pause
+
+#+BEGIN_definition
+Let \(S\) be an oriented surface. The /Gauss Map/ is the unit normal map
+\[
+x \in S \mapsto N(x) \in \sphere^2 = \{X \in \RR^3 : \|X\| = 1\}.
+\]
+#+END_definition
+
+\pause
+
+With respect to a local parametrisation
+\[
+N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
+\]
+
+**** Examples
+
+- Sphere
+- Graph
+- Surface of revolution
+- Inverse image of regular point
+
 *** Lecture 7.3: Curvature
 - Ref: 3.2, 3.3
 - Weingarten shape operator: Differential of Gauss map
