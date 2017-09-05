@@ -364,7 +364,57 @@ Left hand orientation: \(\{e_2, e_1, e_3\}, \{e_1, -e_2, e_3\}, \dots\)
 \end{example}
 
 **** Orientation preserving and reversing linear maps
-  - Examples
+
+Choose an orientation \(\mathcal{O} = \{e_1, \cdots, e_n\}\) on \(\RR^n\).
+
+#+BEGIN_definition
+An /invertible/ linear map \(T : \RR^n \to \RR^n\) is orientation preserving if \(T(\mathcal{O}) = \mathcal{O}\). That is, if
+\[
+\det \begin{pmatrix}
+T(e_1), \cdots, T(e_n)
+\end{pmatrix}
+= \det \begin{pmatrix}
+e_1, \cdots, e_n
+\end{pmatrix}
+\]
+or equivalently if \(\det T > 0\).
+#+END_definition
+
+\pause
+
+\begin{example}
+\[
+\text{Preserving:} \quad
+T = \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+1 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 & 1 \\
+3 & 5
+\end{pmatrix}.
+\]
+\[
+\text{Reversing:} \quad
+T = \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}, \quad
+T = \begin{pmatrix}
+2 & 1 \\
+3 & 1
+\end{pmatrix}.
+\]
+\end{example}
+
 **** Orientation of the tangent plane
 **** Global orientation
 - Two possible orientations
