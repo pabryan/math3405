@@ -505,10 +505,26 @@ N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi 
 
 **** Examples
 
-- Sphere
-- Graph
-- Surface of revolution
-- Inverse image of regular point
+***** Sphere:
+
+\[
+S = \{x^2 + y^2 + z^2 = 1\}, \quad N(p) = p
+\]
+
+\pause
+
+***** Graph:
+\[
+S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+\]
+
+\pause
+
+***** Inverse image of regular point
+
+\[
+S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+\]
 
 *** Lecture 7.3: Curvature
 - Ref: 3.2, 3.3
