@@ -527,10 +527,87 @@ S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
 \]
 
 *** Lecture 7.3: Curvature
-- Ref: 3.2, 3.3
-- Weingarten shape operator: Differential of Gauss map
-- Examples
-- Self-adjoint
+
+**** Weingarten Shape Operator
+
+#+BEGIN_definition
+The /Weingarten/ or /Shape/ Operator at \(p \in S\) is the linear map
+\[
+\mathcal{W} = -dN_p : T_p S \to T_p S.
+\]
+#+END_definition
+
+\pause
+
+Note that $N : S \to \sphere^2$ so that $dN_p : T_p S \to T_{N(p)} \sphere^2$. But by definition
+\[
+N(p) \perp T_p S
+\]
+\pause
+On the sphere, \(N_{\sphere^2} (p) = p\) and hence
+\[
+N(p) \perp T_{N(p)} \sphere^2.
+\]
+\pause
+
+Therefore, \(T_{N(p)} \sphere^2\) is parallel to \(T_p S\) so we may /identify/ them.
+
+**** Examples
+***** Plane
+
+\[
+S = \{a x + by + c z = 0\}
+\]
+\[
+N(p) = (a, b, c)
+\]
+\[
+dN_p \equiv 0
+\]
+
+\pause
+***** Sphere
+
+\[
+S = \sphere^2 = \{x^2 + y^2 + z^2 = 1\}
+\]
+\[
+N(p) = p
+\]
+\[
+dN_p = \operatorname{Id}.
+\]
+
+**** Examples
+
+***** Cylinder
+
+\[
+C = \{x^2 + y^2 = 1, -1 < z < 1\}
+\]
+\[
+N(p) = \pi_{(x,y)} (p): N(x, y, z) = (x, y, 0).
+\]
+\[
+dN_p = \pi_{x,y}
+\]
+
+\pause
+
+Tangent vectors at \(p = (\cos \theta, \sin \theta, z_0)\):
+\[
+X = (-\sin\theta, \cos\theta, 0), \quad Y = (0, 0, 1)
+\]
+
+\pause
+
+\begin{align*}
+dN_{p} X &= \left.\frac{d}{dt}\right|_{t=0} N(\cos (\theta + t), \sin (\theta + t), z) = X \\
+dN_{p} Y &= \left.\frac{d}{dt}\right|_{t=0} N(\cos \theta, \sin \theta , z + t) = 0.
+\end{align*}
+
+
+**** Symmetry
 - Second Fundamental Form
   - Coordinates
   - Examples
