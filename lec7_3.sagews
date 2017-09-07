@@ -35,12 +35,12 @@ cross = gammap.cross_product(gammapp)
 kR = (1/v^3) * cross.norm()
 show(kR)
 
-C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red")
+C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red", thickness=5)
 
 P = S + C
 P.show(frame=False)
 P.save("img/cylinderandcircle.png", frame=False)
-︡b7f61da8-6337-4b33-8465-74accce441ac︡{"html":"<div align='center'>$\\displaystyle \\frac{\\sqrt{{\\left| \\cos\\left(t\\right)^{2} + \\sin\\left(t\\right)^{2} \\right|}^{2}}}{{\\left({\\left| \\cos\\left(t\\right) \\right|}^{2} + {\\left| \\sin\\left(t\\right) \\right|}^{2}\\right)}^{\\frac{3}{2}}}$</div>"}︡{"file":{"filename":"3c183637-dc8f-464a-8a81-80fc659da684.sage3d","uuid":"3c183637-dc8f-464a-8a81-80fc659da684"}}︡{"done":true}︡
+︡5a01274a-eba0-4ddf-89fb-107951b882ff︡{"html":"<div align='center'>$\\displaystyle \\frac{\\sqrt{{\\left| \\cos\\left(t\\right)^{2} + \\sin\\left(t\\right)^{2} \\right|}^{2}}}{{\\left({\\left| \\cos\\left(t\\right) \\right|}^{2} + {\\left| \\sin\\left(t\\right) \\right|}^{2}\\right)}^{\\frac{3}{2}}}$</div>"}︡{"file":{"filename":"88e5d1d7-170d-4dae-aef4-299e908a46f6.sage3d","uuid":"88e5d1d7-170d-4dae-aef4-299e908a46f6"}}︡{"done":true}︡
 ︠7dca3489-e59a-403b-83c4-0a239e533bdes︠
 gamma = vector([1, 0, t])
 gammap = gamma.diff(t)
@@ -52,12 +52,12 @@ cross = gammap.cross_product(gammapp)
 kR = (1/v^3) * cross.norm()
 show(kR)
 
-C = parametric_plot3d(gamma, (t, -1, 1), color="red")
+C = parametric_plot3d(gamma, (t, -1, 1), color="red", thickness=5)
 
 P = S + C
 P.show(frame=False)
 P.save("img/cylinderandline.png", frame=False)
-︡2d4d30b4-2d47-4ec3-9eb3-43ea55212976︡{"html":"<div align='center'>$\\displaystyle 0$</div>"}︡{"file":{"filename":"1c308941-9d59-4f5f-b924-56635aaa7f2b.sage3d","uuid":"1c308941-9d59-4f5f-b924-56635aaa7f2b"}}︡{"done":true}︡
+︡487b05af-29e8-4517-9fd5-b2596410451c︡{"html":"<div align='center'>$\\displaystyle 0$</div>"}︡{"file":{"filename":"6d8f1fb9-c647-44f9-b0c3-b9dcc73e8c4e.sage3d","uuid":"6d8f1fb9-c647-44f9-b0c3-b9dcc73e8c4e"}}︡{"done":true}︡
 ︠60a11cd9-8d59-4937-90d6-1f08ccd5d452s︠
 gamma = vector([cos(t), sin(t), t/(2*pi)])
 gammap = gamma.diff(t)
@@ -69,13 +69,13 @@ cross = gammap.cross_product(gammapp)
 kR = (1/v^3) * cross.norm()
 show(kR)
 
-C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red")
+C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red", thickness=5)
 
 P = S + C
 P.show(frame=False)
 P.save("img/cylinderandhelix.png", frame=False)
 
-︡90aff022-e6af-41b1-ae8b-2de177225126︡{"html":"<div align='center'>$\\displaystyle \\frac{\\sqrt{{\\left| \\cos\\left(t\\right)^{2} + \\sin\\left(t\\right)^{2} \\right|}^{2} + \\frac{{\\left| \\cos\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}} + \\frac{{\\left| \\sin\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}}}}{{\\left({\\left| \\cos\\left(t\\right) \\right|}^{2} + {\\left| \\sin\\left(t\\right) \\right|}^{2} + \\frac{1}{4 \\, \\pi^{2}}\\right)}^{\\frac{3}{2}}}$</div>"}︡{"file":{"filename":"45bbb15c-8ea6-4723-a508-92bdc26ea731.sage3d","uuid":"45bbb15c-8ea6-4723-a508-92bdc26ea731"}}︡{"done":true}︡
+︡589b89e7-7ff9-40e9-b339-a895cd17ea0a︡{"html":"<div align='center'>$\\displaystyle \\frac{\\sqrt{{\\left| \\cos\\left(t\\right)^{2} + \\sin\\left(t\\right)^{2} \\right|}^{2} + \\frac{{\\left| \\cos\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}} + \\frac{{\\left| \\sin\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}}}}{{\\left({\\left| \\cos\\left(t\\right) \\right|}^{2} + {\\left| \\sin\\left(t\\right) \\right|}^{2} + \\frac{1}{4 \\, \\pi^{2}}\\right)}^{\\frac{3}{2}}}$</div>"}︡{"file":{"filename":"fb14ba0f-065b-40f8-b086-3b2204ba78ad.sage3d","uuid":"fb14ba0f-065b-40f8-b086-3b2204ba78ad"}}︡{"done":true}︡
 ︠4a8e8ba1-7b9a-475f-925e-530d2eb3c0ces︠
 g = vector([cos(t), sin(t)])
 gp = g.diff(t)
@@ -98,12 +98,12 @@ NS = Df(*g) * gpp
 kSvec = gammapp - (gammapp * Ng) * Ng
 kS = kSvec * NS
 
-C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red")
+C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red", thickness=5)
 
 P = S + C
 P.show(frame=False)
 P.save("img/cylinderandflatcircle.png", frame=False)
-︡cee54230-99ea-48ef-b75b-ee1a3753a557︡{"file":{"filename":"2e643f9c-a2a5-4062-a8f9-13e8709a7848.sage3d","uuid":"2e643f9c-a2a5-4062-a8f9-13e8709a7848"}}︡{"done":true}︡
+︡d28a8efb-7525-4f04-831d-9fb8cfec1201︡{"file":{"filename":"07319935-2e5e-4b85-9b59-2ba4b508dce5.sage3d","uuid":"07319935-2e5e-4b85-9b59-2ba4b508dce5"}}︡{"done":true}︡
 ︠3b3b60f6-8880-4727-87a8-8967bb81372es︠
 show(r"$\gamma'$")
 show(gammap)
