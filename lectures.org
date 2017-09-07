@@ -322,9 +322,15 @@ g_x(V, W) = \ip{\gamma'(0)}{\sigma'(0)}_{\RR^3}.
 \pause
 
 Equivalently
+#+BEGIN_latex
 \[
-g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}}.
+\begin{split}
+g(V, W) &= \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}} \\
+&= c_1 d_1 \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} + c_2 d_2 \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}} + (c_1d_2 + c_2 d_1) \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
+&= c_1 d_1 E + c_2 d_2 G + (c_1 d_2 + c_2 d_1) F.
+\end{split}
 \]
+#+END_latex
 
 **** Geometry
 ***** Length and Angle of Tangent Vectors
@@ -442,31 +448,282 @@ The orientation induced by \(\varphi\) is /compatible/ with the orientation indu
 \pause
 A regular surface, \(S\) is /orientable/ if there is a cover \(\varphi_{\alpha} : U_{\alpha} \to S\) such that \(\det(\tau_{\alpha\beta}) > 0\) for all \(\alpha, \beta\).
 
-**** Global orientation
-- Two possible orientations
-- Examples
-  - Sphere
-  - \mobius{} strip
-  - Graphs, surfaces of revolultion
-**** Gauss map
-  - Orientability iff continuous normal exists
-  - Examples
+**** Examples
+
+- The sphere is orientable
+- The \mobius{} strip is /not/ orientable
+- Graphs, are orientable
+- Inverse images of regular point are orientable
+- Surfaces of revolution may or may not be orientable
+
+**** Orientation of surfaces
+
+#+BEGIN_theorem
+A surface \(S\) is orientable if and only if there is a differentiable field, \(N\) of unit normal vectors. That is, if and only there exists a differentiable map \(N : S \to \RR^3\) such that \(\abs{N(x)} = 1\) for all \(x \in S\) and such that \(N(x) \perp X\) for all $X \in T_x S$.
+#+END_theorem
+
+\pause
+
+*Remember there are precisely two orientations!*
+
+\pause
+
+There are two possible unit normal fields, \(N\) and \(-N\). Choosing an orientation is equivalent to choosing a normal field.
+
+\pause
+
+- The proof of the theorem follows from the following lemma:
+
+#+BEGIN_lemma
+Let \(\varphi (u, v) : U \subseteq \RR^2 \to S\) and \(\psi (s, t) : V \subseteq \RR^2 \to S\) be local parametrisations. Then
+\[
+\partial_u \varphi \times \partial_v \varphi = \left[\det d(\psi^{-1} \circ \varphi)\right] \partial_s \psi \times \partial_t \psi.
+\]
+#+END_lemma
+
+**** Gauss Map
+
+#+BEGIN_definition
+ An orientable surface \(S\) along with a choice of orientation is called an /oriented surface/.
+#+END_definition
+
+\pause
+
+#+BEGIN_definition
+Let \(S\) be an oriented surface. The /Gauss Map/ is the unit normal map
+\[
+x \in S \mapsto N(x) \in \sphere^2 = \{X \in \RR^3 : \|X\| = 1\}.
+\]
+#+END_definition
+
+\pause
+
+With respect to a local parametrisation
+\[
+N = \frac{\partial_u \varphi \times \partial_v \varphi}{\abs{\partial_u \varphi \times \partial_v \varphi}}.
+\]
+
+**** Examples
+
+***** Sphere:
+
+\[
+S = \{x^2 + y^2 + z^2 = 1\}, \quad N(p) = p
+\]
+
+\pause
+
+***** Graph:
+\[
+S = \{(x, y, f(x, y))\}, \quad N(x, y, f(x)) = \frac{1}{\sqrt{1 + f_x^2 + f_y^2}} (-f_x, -f_y, 1).
+\]
+
+\pause
+
+***** Inverse image of regular point
+
+\[
+S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
+\]
+
 *** Lecture 7.3: Curvature
-- Ref: 3.2, 3.3
-- Weingarten shape operator: Differential of Gauss map
-- Examples
-- Self-adjoint
-- Second Fundamental Form
-  - Coordinates
-  - Examples
-- Compare curvature of a curve
-  - \(\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}\)
-  - \(W = -dN\) measures two-dimensional bending
+**** Weingarten Shape Operator
+
+#+BEGIN_definition
+The /Weingarten/ or /Shape/ Operator at \(p \in S\) is the linear map
+\[
+\mathcal{W} = -dN_p : T_p S \to T_p S.
+\]
+#+END_definition
+
+\pause
+
+Note that $N : S \to \sphere^2$ so that $dN_p : T_p S \to T_{N(p)} \sphere^2$. But by definition
+\[
+N(p) \perp T_p S
+\]
+\pause
+On the sphere, \(N_{\sphere^2} (p) = p\) and hence
+\[
+N(p) \perp T_{N(p)} \sphere^2.
+\]
+\pause
+
+Therefore, \(T_{N(p)} \sphere^2\) is parallel to \(T_p S\) so we may /identify/ them.
+
+**** Examples
+***** Plane
+
+\[
+S = \{a x + by + c z = 0\}
+\]
+\[
+N(p) = (a, b, c)
+\]
+\[
+dN_p \equiv 0
+\]
+
+\pause
+***** Sphere
+
+\[
+S = \sphere^2 = \{x^2 + y^2 + z^2 = 1\}
+\]
+\[
+N(p) = p
+\]
+\[
+dN_p = \operatorname{Id}.
+\]
+
+**** Examples
+***** Cylinder
+
+\[
+C = \{x^2 + y^2 = 1, -1 < z < 1\}
+\]
+\[
+N(p) = \pi_{(x,y)} (p): N(x, y, z) = (x, y, 0).
+\]
+\[
+dN_p = \pi_{x,y}
+\]
+
+\pause
+
+Tangent vectors at \(p = (\cos \theta, \sin \theta, z_0)\):
+\[
+X = (-\sin\theta, \cos\theta, 0), \quad Y = (0, 0, 1)
+\]
+
+\pause
+
+\begin{align*}
+dN_{p} X &= \left.\frac{d}{dt}\right|_{t=0} N(\cos (\theta + t), \sin (\theta + t), z) = X \\
+dN_{p} Y &= \left.\frac{d}{dt}\right|_{t=0} N(\cos \theta, \sin \theta , z + t) = 0.
+\end{align*}
+
+**** Interpretation of \(\mathcal{W}\)
+***** Curvature of a plane curve
+
+\[
+\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}
+\]
+Measures the change of \(T\), or equivalently, \(N\) along the curve.
+
+\pause
+
+***** Curvature of a surface
+
+- For surfaces \(T_p S\) is /two-dimensional/.
+
+- \(\mathcal{W}(V) = -dN(V)\) measures change of \(N\) in the direction \(V\):
+  \pause
+
+  Let \(\gamma\) be a curve with \(\gamma(0) = p\), and \(V = \gamma'(0)\). Then
+  \[
+  dN_p (V) = \partial_t|_{t=0} N(\gamma(t)) = \text{ deviation of \(N\) along the curve \(\gamma\)}.
+  \]
+\pause
+- Thus \(dN\) is measures how the surface is curved in two-dimensions.
+**** Geodesic and normal Curvature
+
+- Let \(\gamma : I \to S\) be a curve on \(S\), \(p = \gamma(0)\), \(V = \gamma'(0) \in T_p S\). \pause
+
+- *Note*: The normal (in \(\RR^3\)) \(n_{\RR^3}\) to \(\gamma\) may be tangent to \(S\), or may be normal to \(S\), or some linear combination thereof. \pause
+
+- As a curve in \(\RR^3\), \(\gamma\) may have curvature, \(\kappa_{\RR^3} \ne 0\) simply because \(S\) has curvature! \pause
+
+#+BEGIN_definition
+The /normal curvature/ of \(\gamma\) is the part of the curvature normal to \(S\):
+\[
+\kappa_N = \ip{\kappa n_{\RR^3}}{N}.
+\] \pause
+The geodesic curvature vector, \(\overrightarrow{\kappa}_S\) (along \(S\)) is the projection of the curvature vector \(\kappa_{\RR^3} n_{\RR^3}\) onto the tangent plane:
+\[
+\overrightarrow{\kappa}_S = \pi_{T_p S} (\kappa_{\RR^3} n_{\RR^3}) = \kappa_{\RR^3} n_{\RR^3} - \ip{\kappa_{\RR^3} n_{\RR^3}}{N} N.
+\] \pause
+Let \(n_S \in T_p S\) be such that \(n_S \perp \gamma'(0)\) and \(\{\gamma'(0), n_S\}\) has positive orientation. The geodesic curvature is \(\kappa_S = \ip{\overrightarrow{\kappa}_S}{n_S}\).
+#+END_definition
+
+**** Example
+
+Consider the Cylinder:
+\[
+C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).
+\]
+
+\pause
+
+***** Example
+
+\[
+\gamma(t) = (\cos t, \sin t, z_0), \gamma'(t) = (-\sin t, \cos t, 0), \gamma''(t) = (-\cos t, - \sin, 0).
+\]
+\[
+N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
+\]
+\[
+\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\]
+
+\pause
+
+***** Example
+
+\[
+\gamma(t) = (1, 0, t), \gamma'(t) = (0, 0, 1), \gamma''(t) = (0, 0, 0).
+\]
+\[
+N(\gamma(t)) = (1, 0, 0), n_S(\gamma(t)) = (0, 1, 0).
+\]
+\[
+\kappa_{\RR^3} = \kappa_{N} = \kappa_{S} = 0.
+\]
+
+**** Example
+
+***** Example
+
+\[
+\gamma(t) = (\cos t, \sin t, t), \gamma'(t) = (-\sin t, \cos t, 1), \gamma''(t) = (-\cos t, - \sin, 0).
+\]
+\[
+N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
+\]
+\[
+\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\]
+
+***** Example
+
+(u, v) \mapsto (\cos u, \sin u, v)
+
+u = cos t, v = sin t
+
+\[
+\gamma(t) = (\cos(\cos t), \sin(\cos t), \sin t), \gamma'(t) = (\sin(\cos t) \sin t, ), \gamma''(t) = (-\cos t, - \sin, 0).
+\]
+\[
+N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
+\]
+\[
+\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\]
+
 ** MATH3405 Differential Geometry: Week 8
 *** Lecture 8.1: Curvature
-- Ref: 3.2, 3.3
-- Local coordinate expressions
-- Examples
+**** Dependence of normal curvature on direction
+
+#+BEGIN_theorem
+Let \(\gamma, \sigma : I \to S\) with \(\gamma(0) = \sigma(0)
+#+END_theorem
+
+**** The Second Fundamental Form
+**** Examples
+**** Symmetry
+**** Curvature
 *** Lecture 8.2: Geodesic and Normal Curvature
 - Normal curvature
 - Geodesic (intrinsic) curvature
