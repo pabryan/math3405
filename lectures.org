@@ -322,9 +322,15 @@ g_x(V, W) = \ip{\gamma'(0)}{\sigma'(0)}_{\RR^3}.
 \pause
 
 Equivalently
+#+BEGIN_latex
 \[
-g(V, W) = \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}}.
+\begin{split}
+g(V, W) &= \ip{c_1 \frac{\partial \varphi}{\partial x_1} + c_2 \frac{\partial \varphi}{\partial x_2}}{d_1 \frac{\partial \varphi}{\partial x_1} + d_2 \frac{\partial \varphi}{\partial x_2}} \\
+&= c_1 d_1 \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_1}} + c_2 d_2 \ip{\frac{\partial \varphi}{\partial x_2}}{\frac{\partial \varphi}{\partial x_2}} + (c_1d_2 + c_2 d_1) \ip{\frac{\partial \varphi}{\partial x_1}}{\frac{\partial \varphi}{\partial x_2}} \\
+&= c_1 d_1 E + c_2 d_2 G + (c_1 d_2 + c_2 d_1) F.
+\end{split}
 \]
+#+END_latex
 
 **** Geometry
 ***** Length and Angle of Tangent Vectors
