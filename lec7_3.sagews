@@ -69,13 +69,13 @@ cross = gammap.cross_product(gammapp)
 kR = (1/v^3) * cross.norm()
 show(kR)
 
-C = parametric_plot3d(gamma, (t, 0, 2*pi), color="red", thickness=5)
+C = parametric_plot3d(gamma, (t, -2*pi, 2*pi), color="red", thickness=5)
 
 P = S + C
 P.show(frame=False)
 P.save("img/cylinderandhelix.png", frame=False)
 
-︡589b89e7-7ff9-40e9-b339-a895cd17ea0a︡{"html":"<div align='center'>$\\displaystyle \\frac{\\sqrt{{\\left| \\cos\\left(t\\right)^{2} + \\sin\\left(t\\right)^{2} \\right|}^{2} + \\frac{{\\left| \\cos\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}} + \\frac{{\\left| \\sin\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}}}}{{\\left({\\left| \\cos\\left(t\\right) \\right|}^{2} + {\\left| \\sin\\left(t\\right) \\right|}^{2} + \\frac{1}{4 \\, \\pi^{2}}\\right)}^{\\frac{3}{2}}}$</div>"}︡{"file":{"filename":"fb14ba0f-065b-40f8-b086-3b2204ba78ad.sage3d","uuid":"fb14ba0f-065b-40f8-b086-3b2204ba78ad"}}︡{"done":true}︡
+︡7d6234fd-e829-480f-a948-42200970ba26︡{"html":"<div align='center'>$\\displaystyle \\frac{\\sqrt{{\\left| \\cos\\left(t\\right)^{2} + \\sin\\left(t\\right)^{2} \\right|}^{2} + \\frac{{\\left| \\cos\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}} + \\frac{{\\left| \\sin\\left(t\\right) \\right|}^{2}}{4 \\, \\pi^{2}}}}{{\\left({\\left| \\cos\\left(t\\right) \\right|}^{2} + {\\left| \\sin\\left(t\\right) \\right|}^{2} + \\frac{1}{4 \\, \\pi^{2}}\\right)}^{\\frac{3}{2}}}$</div>"}︡{"file":{"filename":"e7ad7385-c2bf-41d2-ac92-ef6d612cc72f.sage3d","uuid":"e7ad7385-c2bf-41d2-ac92-ef6d612cc72f"}}︡{"done":true}︡
 ︠4a8e8ba1-7b9a-475f-925e-530d2eb3c0ces︠
 g = vector([cos(t), sin(t)])
 gp = g.diff(t)
