@@ -527,7 +527,6 @@ S = \{F^{-1}(c)\}, \quad N(p) = \frac{\nabla F(p)}{|\nabla F(p)|}.
 \]
 
 *** Lecture 7.3: Curvature
-
 **** Weingarten Shape Operator
 
 #+BEGIN_definition
@@ -579,7 +578,6 @@ dN_p = \operatorname{Id}.
 \]
 
 **** Examples
-
 ***** Cylinder
 
 \[
@@ -606,19 +604,126 @@ dN_{p} X &= \left.\frac{d}{dt}\right|_{t=0} N(\cos (\theta + t), \sin (\theta + 
 dN_{p} Y &= \left.\frac{d}{dt}\right|_{t=0} N(\cos \theta, \sin \theta , z + t) = 0.
 \end{align*}
 
+**** Interpretation of \(\mathcal{W}\)
+***** Curvature of a plane curve
 
-**** Symmetry
-- Second Fundamental Form
-  - Coordinates
-  - Examples
-- Compare curvature of a curve
-  - \(\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}\)
-  - \(W = -dN\) measures two-dimensional bending
+\[
+\kappa = \ip{\partial_s T}{N} = - \ip{T}{\partial_s N}
+\]
+Measures the change of \(T\), or equivalently, \(N\) along the curve.
+
+\pause
+
+***** Curvature of a surface
+
+- For surfaces \(T_p S\) is /two-dimensional/.
+
+- \(\mathcal{W}(V) = -dN(V)\) measures change of \(N\) in the direction \(V\):
+  \pause
+
+  Let \(\gamma\) be a curve with \(\gamma(0) = p\), and \(V = \gamma'(0)\). Then
+  \[
+  dN_p (V) = \partial_t|_{t=0} N(\gamma(t)) = \text{ deviation of \(N\) along the curve \(\gamma\)}.
+  \]
+\pause
+- Thus \(dN\) is measures how the surface is curved in two-dimensions.
+**** Geodesic and normal Curvature
+
+- Let \(\gamma : I \to S\) be a curve on \(S\), \(p = \gamma(0)\), \(V = \gamma'(0) \in T_p S\). \pause
+
+- *Note*: The normal (in \(\RR^3\)) \(n_{\RR^3}\) to \(\gamma\) may be tangent to \(S\), or may be normal to \(S\), or some linear combination thereof. \pause
+
+- As a curve in \(\RR^3\), \(\gamma\) may have curvature, \(\kappa_{\RR^3} \ne 0\) simply because \(S\) has curvature! \pause
+
+#+BEGIN_definition
+The /normal curvature/ of \(\gamma\) is the part of the curvature normal to \(S\):
+\[
+\kappa_N = \ip{\kappa n_{\RR^3}}{N}.
+\] \pause
+The geodesic curvature vector, \(\overrightarrow{\kappa}_S\) (along \(S\)) is the projection of the curvature vector \(\kappa_{\RR^3} n_{\RR^3}\) onto the tangent plane:
+\[
+\overrightarrow{\kappa}_S = \pi_{T_p S} (\kappa_{\RR^3} n_{\RR^3}) = \kappa_{\RR^3} n_{\RR^3} - \ip{\kappa_{\RR^3} n_{\RR^3}}{N} N.
+\] \pause
+Let \(n_S \in T_p S\) be such that \(n_S \perp \gamma'(0)\) and \(\{\gamma'(0), n_S\}\) has positive orientation. The geodesic curvature is \(\kappa_S = \ip{\overrightarrow{\kappa}_S}{n_S}\).
+#+END_definition
+
+**** Example
+
+Consider the Cylinder:
+\[
+C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).
+\]
+
+\pause
+
+***** Example
+
+\[
+\gamma(t) = (\cos t, \sin t, z_0), \gamma'(t) = (-\sin t, \cos t, 0), \gamma''(t) = (-\cos t, - \sin, 0).
+\]
+\[
+N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
+\]
+\[
+\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\]
+
+\pause
+
+***** Example
+
+\[
+\gamma(t) = (1, 0, t), \gamma'(t) = (0, 0, 1), \gamma''(t) = (0, 0, 0).
+\]
+\[
+N(\gamma(t)) = (1, 0, 0), n_S(\gamma(t)) = (0, 1, 0).
+\]
+\[
+\kappa_{\RR^3} = \kappa_{N} = \kappa_{S} = 0.
+\]
+
+**** Example
+
+***** Example
+
+\[
+\gamma(t) = (\cos t, \sin t, t), \gamma'(t) = (-\sin t, \cos t, 1), \gamma''(t) = (-\cos t, - \sin, 0).
+\]
+\[
+N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
+\]
+\[
+\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\]
+
+***** Example
+
+(u, v) \mapsto (\cos u, \sin u, v)
+
+u = cos t, v = sin t
+
+\[
+\gamma(t) = (\cos(\cos t), \sin(\cos t), \sin t), \gamma'(t) = (\sin(\cos t) \sin t, ), \gamma''(t) = (-\cos t, - \sin, 0).
+\]
+\[
+N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
+\]
+\[
+\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\]
+
 ** MATH3405 Differential Geometry: Week 8
 *** Lecture 8.1: Curvature
-- Ref: 3.2, 3.3
-- Local coordinate expressions
-- Examples
+**** Dependence of normal curvature on direction
+
+#+BEGIN_theorem
+Let \(\gamma, \sigma : I \to S\) with \(\gamma(0) = \sigma(0)
+#+END_theorem
+
+**** The Second Fundamental Form
+**** Examples
+**** Symmetry
+**** Curvature
 *** Lecture 8.2: Geodesic and Normal Curvature
 - Normal curvature
 - Geodesic (intrinsic) curvature
