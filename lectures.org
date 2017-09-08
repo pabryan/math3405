@@ -649,18 +649,18 @@ Let \(n_S \in T_p S\) be such that \(n_S \perp \gamma'(0)\) and \(\{\gamma'(0), 
 
 **** Example
 
-Consider the Cylinder:
-\[
-C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).
-\]
+Cylinder: \(C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).\)
 
-\pause
+***** Text
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
 
-***** Example
-
-\[
-\gamma(t) = (\cos t, \sin t, z_0), \gamma'(t) = (-\sin t, \cos t, 0), \gamma''(t) = (-\cos t, - \sin, 0).
-\]
+\begin{align*}
+\gamma(t) &= (\cos t, \sin t, z_0) \\
+\gamma'(t) &= (-\sin t, \cos t, 0) \\
+\gamma''(t) &= (-\cos t, - \sin, 0).
+\end{align*}
 \[
 N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 \]
@@ -670,11 +670,30 @@ N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 
 \pause
 
-***** Example
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
 
-\[
-\gamma(t) = (1, 0, t), \gamma'(t) = (0, 0, 1), \gamma''(t) = (0, 0, 0).
-\]
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandcircle.png]]
+#+END_center
+
+**** Example
+
+Cylinder: \(C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).\)
+
+***** Text
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+\begin{align*}
+\gamma(t) &= (1, 0, t) \\
+\gamma'(t) &= (0, 0, 1) \\
+\gamma''(t) &= (0, 0, 0).
+\end{align*}
 \[
 N(\gamma(t)) = (1, 0, 0), n_S(\gamma(t)) = (0, 1, 0).
 \]
@@ -682,13 +701,32 @@ N(\gamma(t)) = (1, 0, 0), n_S(\gamma(t)) = (0, 1, 0).
 \kappa_{\RR^3} = \kappa_{N} = \kappa_{S} = 0.
 \]
 
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandline.png]]
+#+END_center
+
 **** Example
 
-***** Example
+Cylinder: \(C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).\)
 
-\[
-\gamma(t) = (\cos t, \sin t, t), \gamma'(t) = (-\sin t, \cos t, 1), \gamma''(t) = (-\cos t, - \sin, 0).
-\]
+***** Text
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+\begin{align*}
+\gamma(t) &= (\cos t, \sin t, t) \\
+\gamma'(t) &= (-\sin t, \cos t, 1) \\
+\gamma''(t) &= (-\cos t, - \sin, 0).
+\end{align*}
 \[
 N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 \]
@@ -696,21 +734,66 @@ N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 \kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
 \]
 
-***** Example
+\pause
 
-(u, v) \mapsto (\cos u, \sin u, v)
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
 
-u = cos t, v = sin t
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
 
-\[
-\gamma(t) = (\cos(\cos t), \sin(\cos t), \sin t), \gamma'(t) = (\sin(\cos t) \sin t, ), \gamma''(t) = (-\cos t, - \sin, 0).
-\]
+**** Example
+
+Cylinder: \(C = \{x^2 + y^2 = 1, -1 < z < 1\}, \quad  N(x, y, z) = (x, y, 0).\)
+
+***** Text
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+\begin{align*}
+\gamma(t) &= (\cos(\cos t), \sin(\cos t), \sin t) \\
+\gamma'(t) &= (\sin(\cos t) \sin t, ) \\
+\gamma''(t) &= (-\cos t, - \sin, 0).
+\end{align*}
 \[
 N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 \]
 \[
-\kappa_{\RR^3} =  \kappa_{N} = 1, \kappa_{S} = 0.
+\kappa_{\RR^3} =  \kappa_{N} = ?, \kappa_{S} = 1.
 \]
+
+\pause
+
+***** Picture
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandflatcircle.png]]
+#+END_center
+
+**** Example
+
+#+BEGIN_latex
+\[
+\begin{split}
+\kappa_{\RR^3} &= \frac{1}{{\left({\left| \cos\left(\cos\left(t\right)\right) \sin\left(t\right) \right|}^{2} + {\left| \sin\left(t\right) \sin\left(\cos\left(t\right)\right) \right|}^{2} + {\left| \cos\left(t\right) \right|}^{2}\right)}^{\frac{3}{2}}} \times \\
+& \quad \sqrt{} \left| -{\left(\cos\left(\cos\left(t\right)\right) \sin\left(t\right)^{2} - \cos\left(t\right) \sin\left(\cos\left(t\right)\right)\right)} \cos\left(\cos\left(t\right)\right) \sin\left(t\right) \right. \\
+&\quad {\left. - {\left(\sin\left(t\right)^{2} \sin\left(\cos\left(t\right)\right) + \cos\left(t\right) \cos\left(\cos\left(t\right)\right)\right)} \sin\left(t\right) \sin\left(\cos\left(t\right)\right) \right|}^{2} \\
+&\quad + \left| \cos\left(\cos\left(t\right)\right) \sin\left(t\right)^{2}\right. \\
+&\quad {\left. + {\left(\sin\left(t\right)^{2} \sin\left(\cos\left(t\right)\right) + \cos\left(t\right) \cos\left(\cos\left(t\right)\right)\right)} \cos\left(t\right) \right|}^{2} \\
+&\quad + \left| \sin\left(t\right)^{2} \sin\left(\cos\left(t\right)\right) \right. \\
+&\quad {\left.- {\left(\cos\left(\cos\left(t\right)\right) \sin\left(t\right)^{2} - \cos\left(t\right) \sin\left(\cos\left(t\right)\right)\right)} \cos\left(t\right) \right|}^{2}
+\end{split}
+\]
+#+END_latex
 
 ** MATH3405 Differential Geometry: Week 8
 *** Lecture 8.1: Curvature
