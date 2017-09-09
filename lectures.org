@@ -800,8 +800,59 @@ N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 **** Dependence of normal curvature on direction
 
 #+BEGIN_theorem
-Let \(\gamma, \sigma : I \to S\) with \(\gamma(0) = \sigma(0)
+Let \(\gamma, \sigma : I \to S\) with \(\gamma(t_0) = \sigma(t_0)\) and \(\gamma'(t_0) = \sigma'(t_0)\) for some \(t_0 \in I\). Then
+\[
+\kappa_N(\gamma) (t_0) = \kappa_N(\sigma) (t_0).
+\]
+That is, the normal curvature \(\kappa_N\) depends only the tangent vector \(V = \gamma'(t_0) = \sigma'(t_0)\) at the point \(p = \gamma(t_0) = \sigma(t_0)\).
 #+END_theorem
+
+\pause
+
+/Note/: Both \(\kappa_{\RR^3}\) and \(\kappa_S\) also depend on \(\gamma''(t_0)\) (resp. \(\sigma''(t_0)\)) and so /will in general differ/ for \(\gamma\) and \(\sigma\) if \(\gamma''(t_0) \ne \sigma''(t_0)\).
+
+\pause
+
+Thus \(\kappa_N\) measures the curvature of \(S\) itself in the direction \(V\) independently of the choice of curve \(\gamma, \sigma\).
+
+\pause
+
+Whereas \(\kappa_S\) measures the "left-over" curvature of \(\gamma\) after removing the curvature of \(S\) itself.
+
+**** Proof of Theorem
+
+We will show that
+\[
+\kappa_N = -\ip{dN(\gamma')}{\gamma'}.
+\]
+
+\pause
+
+Let \(\gamma\) be parametrised by arc-length, \(s\). Then
+\[
+\kappa_{\RR^3} n_{\RR^3} = \gamma''.
+\]
+
+\pause
+
+Therefore,
+\[
+\kappa_N = \ip{\kappa_{\RR^3} n_{\RR^3}}{N} = \ip{\gamma''}{N}.
+\]
+
+\pause
+
+On the other hand, since \(\ip{\gamma'}{N} = 0\) we have
+\[
+0 = \partial_s \ip{\gamma'}{N} = \ip{\gamma''}{N} + \ip{\gamma'}{dN(\gamma')}.
+\]
+
+\pause
+
+Hence,
+\[
+\kappa_N = \ip{\gamma''}{N} = - \ip{\gamma'}{dN(\gamma')}.
+\]
 
 *** Lecture 8.2: Curvature and the Second Fundamental Form
 **** The Second Fundamental Form
