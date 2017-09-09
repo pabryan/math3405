@@ -627,6 +627,8 @@ Measures the change of \(T\), or equivalently, \(N\) along the curve.
   \]
 \pause
 - Thus \(dN\) is measures how the surface is curved in two-dimensions.
+** MATH3405 Differential Geometry: Week 8
+*** Lecture 8.1: Geodesic and Normal Curvature
 **** Geodesic and normal Curvature
 
 - Let \(\gamma : I \to S\) be a curve on \(S\), \(p = \gamma(0)\), \(V = \gamma'(0) \in T_p S\). \pause
@@ -795,19 +797,18 @@ N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 \]
 #+END_latex
 
-** MATH3405 Differential Geometry: Week 8
-*** Lecture 8.1: Curvature
 **** Dependence of normal curvature on direction
 
 #+BEGIN_theorem
 Let \(\gamma, \sigma : I \to S\) with \(\gamma(0) = \sigma(0)
 #+END_theorem
 
+*** Lecture 8.2: Curvature and the Second Fundamental Form
 **** The Second Fundamental Form
 **** Examples
 **** Symmetry
 **** Curvature
-*** Lecture 8.2: Geodesic and Normal Curvature
+
 - Normal curvature
 - Geodesic (intrinsic) curvature
 - Examples
