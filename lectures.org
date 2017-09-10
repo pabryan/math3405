@@ -856,15 +856,30 @@ Hence,
 
 *** Lecture 8.2: Curvature and the Second Fundamental Form
 **** The Second Fundamental Form
-**** Examples
-**** Symmetry
-**** Curvature
 
-- Normal curvature
-- Geodesic (intrinsic) curvature
-- Examples
-  - e.g. curves in the plane \(S = \RR^2 = \{z=0\}\)
-- SFF is tensorial (Prop 2 Meusnier)
+#+BEGIN_definition
+The /second fundamental form/, or /extrinsic curvature/ of \(S\) is defined to be
+\[
+A(X, Y) = \ip{\mathcal{W} (X)}{Y} = \ip{-dN(X)}{Y}
+\]
+for \(X, Y\) tangent vectors to \(S\).
+#+END_definition
+
+\pause
+
+The theorem from the previous lecture shows that for any curve \(\gamma\) on \(S\),
+\[
+\kappa_N = \ip{-DN(\gamma')}{\gamma'}.
+\]
+
+**** Examples
+
+***** Spheres
+
+\[
+A(X, Y) = \ip{-DN(X)}{Y} = -\ip{X}{Y}
+\]
+**** Symmetry
 *** Lecture 8.3: Principal, Mean and Gauss Curvatures
 - 3.2, 3.3
 - Self adjoint operators and eigenvalues
