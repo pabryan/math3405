@@ -797,6 +797,7 @@ N(\gamma(t)) = (\cos t, \sin t, 0), n_S(\gamma(t)) = (0, 0, 1).
 \]
 #+END_latex
 
+*** Lecture 8.2: Curvature and the Second Fundamental Form
 **** Dependence of normal curvature on direction
 
 #+BEGIN_theorem
@@ -854,31 +855,49 @@ Hence,
 \kappa_N = \ip{\gamma''}{N} = - \ip{\gamma'}{dN(\gamma')}.
 \]
 
-*** Lecture 8.2: Curvature and the Second Fundamental Form
 **** The Second Fundamental Form
 
 #+BEGIN_definition
 The /second fundamental form/, or /extrinsic curvature/ of \(S\) is defined to be
 \[
-A(X, Y) = \ip{\mathcal{W} (X)}{Y} = \ip{-dN(X)}{Y}
+A(X, Y) = g(\mathcal{W}(X), Y) = \ip{\mathcal{W} (X)}{Y} = \ip{-dN(X)}{Y}
 \]
 for \(X, Y\) tangent vectors to \(S\).
 #+END_definition
 
 \pause
 
-The theorem from the previous lecture shows that for any curve \(\gamma\) on \(S\),
+The theorem shows that for any curve \(\gamma\) on \(S\),
 \[
-\kappa_N = \ip{-DN(\gamma')}{\gamma'}.
+\kappa_N = \ip{-dN(\gamma')}{\gamma'}.
 \]
 
-**** Examples
+**** Spheres
 
-***** Spheres
+***** Radius 1: \(\sphere^2 = \{x^2 + y^2 + z^2 = 1\}\)
 
+Choose \(N(p) = - p\) (inward pointing). Then \(dN_p(X) = -X\) and
 \[
-A(X, Y) = \ip{-DN(X)}{Y} = -\ip{X}{Y}
+A(X, Y) = \ip{-dN(X)}{Y} = \ip{X}{Y} = g(X, Y)
 \]
+
+\pause
+
+***** Radius \(r\): \(\sphere^2(r) = \{x^2 + y^2 + z^2 = r^2\}\)
+
+Choose \(N(p) = -\frac{1}{r}p\) Then \(dN_p(X) = -\frac{1}{r}X\) and
+\[
+A(X, Y) = \ip{-dN(X)}{Y} = \frac{1}{r} \ip{X}{Y} = \frac{1}{r} g(X, Y)
+\]
+
+\pause
+
+***** Equators (Great Circles)
+
+\(\gamma(\theta) = (r \cos(\theta), r\sin(\theta), 0)\): \(\kappa_{\RR^3} = \kappa_N = \frac{1}{r}\). \pause
+\(A(\gamma', \gamma') = \frac{1}{r} g(\gamma', \gamma') =\frac{1}{r} r^2 =  r \ne \kappa_N\) *?????* \pause
+
+\(A(\gamma', \gamma') = |\gamma'|^2 \kappa_N\) - *not arc-length!*
 **** Symmetry
 *** Lecture 8.3: Principal, Mean and Gauss Curvatures
 - 3.2, 3.3
