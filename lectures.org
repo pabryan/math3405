@@ -867,9 +867,16 @@ for \(X, Y\) tangent vectors to \(S\).
 
 \pause
 
+Classically, the second fundamental form is the /quadratic form/:
+\[
+\rm{II} (X) = A(X, X).
+\]
+
+\pause
+
 The theorem shows that for any curve \(\gamma\) on \(S\),
 \[
-\kappa_N = \ip{-dN(\gamma')}{\gamma'}.
+\kappa_N = \ip{-dN(\gamma')}{\gamma'} = A(\gamma', \gamma') = \rm{II}(\gamma').
 \]
 
 **** Spheres
@@ -899,6 +906,59 @@ A(X, Y) = \ip{-dN(X)}{Y} = \frac{1}{r} \ip{X}{Y} = \frac{1}{r} g(X, Y)
 
 \(A(\gamma', \gamma') = |\gamma'|^2 \kappa_N\) - *not arc-length!*
 **** Symmetry
+
+\onslide<1->
+#+BEGIN_theorem
+The second fundamental form is /symmetric/: \(A(X, Y) = A(Y, X)\). Equivalently, the Weingarten shape operator is /self-adjoint/ with respect to \(g\): \(g(\mathcal{W}(X), Y) = g(X, \mathcal{W}(Y))\).
+#+END_theorem
+
+\onslide<2->
+#+BEGIN_proof
+Recall \(A(X, Y) = -\ip{dN(X)}{Y}\).
+
+Let \(\gamma(s) \in S\) be a curve with \(\gamma'(0) = X\).
+
+Then since \(\ip{N(\gamma(s))}{Y(\gamma(s))} = 0\) we have,
+#+BEGIN_latex
+\[
+\begin{split}
+\onslide<3->{0 &= \partial_s \ip{N(\gamma(s))}{Y(\gamma(s))} \\}
+\onslide<4->{&= \ip{dN(\gamma')}{Y} + \ip{N}{dY(\gamma')} \\}
+\onslide<5->{&= \ip{dN(X)}{Y} + \ip{N}{dY(X)}.}
+\end{split}
+\]
+#+END_latex
+
+\onslide<6->Likewise \(0 = \ip{dN(Y)}{X} + \ip{N}{dX(Y)}\).
+#+END_proof
+
+**** Symmetry (proof continued)
+
+#+BEGIN_proof
+We have \(A(X, Y) =- \ip{N}{dX(Y)}\) and \(A(Y, X) = - \ip{N}{dY(X)}\).
+
+\pause
+
+The required result is equivalent to the statement that \(dX(Y) - dY(X)\) is tangential, since then \pause
+\[
+A(X, Y) - A(Y, X) = -\ip{N}{dX(Y) - dY(X)} = 0.
+\]
+
+\pause
+
+Let's take the case, \(X = \partial_u \varphi\), \(Y = \partial_v \varphi\) in a local parametrisation \(\varphi\):
+
+\pause
+
+In this case,
+\[
+\ip{N}{dX(Y)} = \ip{N}{\partial_u \partial_v \varphi} = \ip{N}{\partial_v \partial_u \varphi} = \ip{N}{dY(X)}.
+\]
+
+\pause
+
+The general result follows by bi-linearity of \(A\) and that \(\{\partial_u \varphi, \partial_v \varphi\}\) is a basis so \(X, Y\) are linear combinations of them. \pause *exercise!*
+#+END_proof
 *** Lecture 8.3: Principal, Mean and Gauss Curvatures
 - 3.2, 3.3
 - Self adjoint operators and eigenvalues
