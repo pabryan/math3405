@@ -1176,6 +1176,162 @@ A linear map \(T : V \to V\) is self-adjoint if and only if \(B_g (T)\) is a sym
 
 **** Eigenvalues and Eigenvectors
 
+#+BEGIN_theorem
+A self adjoint operator \(T\) is /diagonalisable/. That is, there is a basis \(\{e_i\}_{i=1}^n\) of eigenvalues.
+#+END_theorem
+
+#+BEGIN_proof
+Consider the case \(\operatorname{dim} V = 2\).
+
+\pause
+
+Let us write
+\[
+\abs{X}_g = \sqrt{g(X, X)}.
+\]
+
+\pause
+
+From a basis \(\{X_1, X_2\}\) Gram-Schmidt gives an orthonormal basis:
+\[
+\tilde{e}_1 = \frac{X_1}{\abs{X_1}_g}, \tilde{e}_2 = \frac{X_2 - g(X_2, \tilde{e}_1)\tilde{e}_1}{\abs{X_2 - g(X_2, \tilde{e}_1)\tilde{e}_1}_g}.
+\]
+
+\pause
+\[
+g(\tilde{e_i}, \tilde{e_j}) = \delta_{ij} := \begin{cases}
+1,& i = j \\
+0,& i \ne j.
+\end{cases}
+\]
+#+END_proof
+
+**** Eigenvalues and Eigenvectors
+
+#+BEGIN_proof
+We may thus write
+\[
+\sphere^1 = \{X : g(X, X) = 1\} = \{\cos\theta \tilde{e}_1 + \sin\theta \tilde{e}_2 : \theta \in [0, 2\pi]\}.
+\]
+
+\pause
+
+Let \(\lambda_1 = \min \{g(T(X), X) : X \in \sphere^1\}\).
+
+\pause
+
+The map
+\[
+\theta \in [0, 2\pi] \mapsto g(T(\cos\theta \tilde{e}_1 + \sin\theta \tilde{e}_2), \cos\theta \tilde{e}_1 + \sin\theta \tilde{e}_2)
+\]
+is continuous hence there exists a \(\theta_0 \in [0, 2\pi]\) such that
+\[
+\lambda_1 = g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2).
+\]
+
+\pause
+
+Our desired basis is the orthonormal (why?) pair:
+#+BEGIN_latex
+\[
+\begin{split}
+e_1 &= \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2 \\
+e_2 &= -\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** Eigenvalues and Eigenvectors
+
+#+BEGIN_proof
+By definition, \(\theta_0\) is a critical point of
+\[
+g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2)
+\]
+
+\pause
+
+hence
+#+BEGIN_latex
+\[
+\begin{split}
+0 &= \partial_{\theta}|_{\theta=\theta_0} g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
+&= 2 g(dT(-\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
+&= 2 g(T(-\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
+&= 2g(T(e_2), e_1).
+\end{split}
+\]
+
+\pause
+
+Therefore \(T(e_2) \perp_g e_1\) and hence \pause
+\[
+T(e_2) = \lambda_2 e_2
+\]
+for some \(\lambda_2\) \pause and so \(e_2\) is an eigenvector with eigenvalue \(\lambda_2\).
+#+END_latex
+
+#+END_proof
+
+**** Eigenvalues and Eigenvectors
+
+#+BEGIN_proof
+It remains to show that \(e_1\) is an eigenvector (in fact with eigenvalue \(\lambda_1\)).
+
+\pause
+
+Here we use that \(T\) is self-adjoint:
+
+\pause
+
+\[
+g(T(e_1), e_2) = g(e_1, T(e_2)) = \lambda_2 g(e_1, e_2) = 0.
+\]
+
+\pause
+
+Thus \(T(e_1) \perp_g e_2\) and hence
+\[
+T(e_1) = c e_1
+\]
+for some \(c\).
+
+\pause
+
+Finally,
+\[
+c = c g(e_1, e_1) = g(c e_1, e_1) = g(T(e_1), e_1) = \lambda_1.
+\]
+#+END_proof
+
+**** Remarks on Eigenvalues and Eigenvectors
+
+- In fact \(\lambda_2 = \max\{g(T(X), X) : g(X, X) = 1\}\). \pause
+- By an induction argument, and using the same ideas, one can prove the general case of \(n\) dimensions. \pause
+- With respect to the basis of eigenvectors \(e_1, e_2\), \(T\) is diagonal:
+  \[
+  T(X^1 e_1 + X^2 e_2) = X^1T(e_1) + X^2T(e_2) = X^1 \lambda_1 e_1 + X^2 \lambda_2 e_2.
+  \]
+  \pause
+- As a matrix
+  #+BEGIN_latex
+  \[
+  \begin{pmatrix}
+  \lambda_1 & 0 \\
+  0 & \lambda_2
+  \end{pmatrix}
+  \begin{pmatrix}
+  X^1 \\
+  X^2
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  \lambda_1 X^1 \\
+  \lambda_2 X^2
+  \end{pmatrix}.
+  \]
+  #+END_latex
 **** Principal curvatures and Principal Directions
 
 **** Mean Curvature and Gauss Curvature
