@@ -960,11 +960,225 @@ In this case,
 The general result follows by bi-linearity of \(A\) and that \(\{\partial_u \varphi, \partial_v \varphi\}\) is a basis so \(X, Y\) are linear combinations of them. \pause *exercise!*
 #+END_proof
 *** Lecture 8.3: Principal, Mean and Gauss Curvatures
-- 3.2, 3.3
-- Self adjoint operators and eigenvalues
-- Principal curvatures
-- Principal directions
-- \(H\) and \(K\)
+**** Symmetric Bilinear Forms
+
+#+BEGIN_definition
+Let \(V\) be a real, finite dimensional vector space.
+
+e.g. \(\RR, \RR^2, \RR^3, \cdots, \RR^n, \dots\)
+
+\pause
+
+A /bilinear form/ \(B\) on \(V\) is a map
+\[
+B : V \times V \to \RR
+\]
+\pause
+such that for all \(c_1, c_2 \in \RR\) and \(X_1, X_2, Y \in V\):
+\[
+B(c_1 X_1 + c_2 X_2, Y) = c_1 B(X_1, Y) + c_2 B(X_2, Y)
+\]
+\pause
+and
+\[
+B(Y, c_1 X_1 + c_2 X_2) = c_1 B(Y, X_1) + c_2 B(Y, X_2) 
+\]
+
+\pause
+
+\(B\) is /symmetric/ if for every \(X, Y \in V\):
+\[
+B(X, Y) = B(Y, X).
+\]
+#+END_definition
+
+**** Inner Products
+
+#+BEGIN_definition
+An /inner-product/ \(g\) is a /positive-definite/ bilinear form. That is, \(g\) is a bilinear form such that for all \(X \in V\),
+\[
+g(X, X) \geq 0, \quad g(X, X) = 0 \Rightarrow X = 0.
+\]
+#+END_definition
+
+\pause
+
+\begin{example}
+Let \(V = \RR^2\), \(X = (x_1, x_2)\), and \(Y = (y_1, y_2)\). Define the \emph{standard} inner product:
+\[
+g(X, Y) = \ip{X}{Y} := x_1 y_1 + x_2 y_2.
+\]
+\end{example}
+
+**** Inner Products
+
+\begin{example}
+Let \(A\) be any positive-definite, symmetric matrix. Define
+\[
+g(X, Y) := X^T A Y = \ip{X}{A Y}. 
+\]
+For example, let
+\[
+A = \begin{pmatrix}
+2 && 1 \\
+1 && 3
+\end{pmatrix}.
+\]
+Then
+\[
+g(X, Y) = 2 x_1 y_1 + x_1 y_2 + x_2 y_1 + 3 x_2 y_2.
+\]
+\end{example}
+
+**** Canonical Isomorphism
+
+#+BEGIN_lemma
+Let \(g\) be an inner-product on \(V\). Then \(g\) induces a linear isomorphism between the vector space \(\operatorname{Hom}(V)\) of linear transformations \(V \to V\) and the vector space \(B^2(V)\) of bilinear forms on \(V\).
+#+END_lemma
+
+\pause
+
+The vector space structure on \(\operatorname{Hom}(V)\) is given by letting for each \(X \in V\),
+\[
+(c_1 T_1 + c_2 T_2) (X) := c_1 T_1(X) + c_2 T_2(X).
+\]
+
+\pause
+
+That is, given real constants \(c_1, c_2 \in \RR\) and linear transformations \(T_1, T_2 : V \to V\), we define the linear transformation \(c_1 T_1 + c_2 T_2\) by specifying it's value for each \(X \in V\).
+
+\pause
+
+On the right hand side, note that \(T_1(X) \in V\) so \(c_1 (T_1(X))\) is scalar multiplication using the vector space structure on \(V\). Likewise for \(c_2 (T_2(X))\). The sum \((c_1 T_1(X)) + (c_2 T_2(X))\) is vector addition in \(V\).
+
+\pause
+
+The vector space structure on linear maps \(V \to V\) is defined /pointwise/.
+
+\pause
+
+*Exercise*: Figure out the vector space structure on bilinear forms. /Hint/: It's also defined pointwise.
+
+**** Canonical Isomorphism
+
+#+BEGIN_proof
+Choose any basis \(\{e_1, \dots, e_n\}\) for \(V\), and write for \(X \in V\):
+\[
+X = X^1 e_1 + \cdots + X^n e_n.
+\]
+
+\pause
+
+A basis for \(\operatorname{Hom}(V)\) is given by the linear transformations
+\[
+T^i_j (X^1e_1 + \cdots X^n e_n) = X^ie_j.
+\]
+
+\pause
+
+A basis for \(B^2(V)\) is given by the bilinear forms
+\[
+B^{ij} (X^1e_1 + \cdots X^n e_n, Y^1e_1 + \cdots + Y^ne_n) = X^iY^j.
+\]
+
+\pause
+
+Thus,
+\[
+\operatorname{dim} \operatorname{Hom}(V) = \operatorname{dim} B^2(V) = n^2.
+\]
+
+\pause
+
+Thus they are isomorphic, being vector spaces of the same dimension, but something else is needed to get a /canonical/ isomorphism...
+#+END_proof
+
+**** Canonical Isomorphism
+
+\begin{example}
+Let \(e_1 = (1, 0, \dots, 0), e_2 = (0, 1, 0, \dots, 0), \dots, e_n = (0, \dots, 0, 1)\) be the standard basis for \(\RR^n\).
+
+The isomorphism induced by the standard inner-product defined on basis elements by \(T^i_j \mapsto B^{ij}\) and then extended by linearity.
+\end{example}
+
+\pause
+
+#+BEGIN_proof
+In general, given \(T \in \operatorname{Hom}(V)\) define
+\[
+B_g(T) (X, Y) = g(T(X), Y).
+\]
+
+\pause
+
+Then \(B_g(T)\) is a bilinear form.
+
+\pause
+
+The map
+\[
+B_g : T \mapsto B_g(T)
+\]
+is our desired isomorphism.
+
+\pause
+
+*exercise*: Verify linearity of the map \(B_g\).
+#+END_proof
+
+**** Canonical Isomorphism
+
+#+BEGIN_proof
+That \(B_g\) is an isomorphism follows since if \(B_g(T_1) = B_g(T_2)\), then for every \(X, Y \in V\):
+\[
+0 = (B_g(T_1) - B_g(T_2)) (X, Y) = g(T_1(X) - T_2(X), Y).
+\]
+
+\pause
+
+In particular for \(Y = T_1(X) - T_2(X)\) we get that for every \(X\)
+\[
+0 = g(T_1(X) - T_2(X), T_1(X) - T_2(X)) \Rightarrow T_1(X) - T_2(X) = 0
+\]
+since \(g\) is positive-definite.
+
+\pause
+
+Therefore, \(B_g(T_1) = B_g(T_2) \Rightarrow T_1 = T_2\) and the map \(B_g\) is /injective/.
+
+\pause
+
+Since \(\operatorname{dim} \operatorname{Hom}(V) = \operatorname{dim} B^2(V) = n^2 < \infty\), the map is also surjective and hence an isomorphism.
+#+END_proof
+
+**** Self-adjoint operators
+
+Let \(g\) be an inner-product on a finite-dimensional vector space \(V\).
+
+\begin{definition}
+A \emph{self-adjoint operator} (with respect to \(g\)) is an linear map \(T : V \to V\) such that for every \(X, Y \in V\)
+\[
+g(T(X), Y) = g(X, T(Y))
+\]
+\end{definition}
+
+\pause
+
+#+BEGIN_lemma
+A linear map \(T : V \to V\) is self-adjoint if and only if \(B_g (T)\) is a symmetric bilinear form.
+#+END_lemma
+
+\pause
+
+#+BEGIN_proof
+*exercise*: Back of the envelope calculation directly using the definitions.
+#+END_proof
+
+**** Eigenvalues and Eigenvectors
+
+**** Principal curvatures and Principal Directions
+
+**** Mean Curvature and Gauss Curvature
 ** MATH3405 Differential Geometry: Week 9
 *** Lecture 9.1: Local Taylor Approximation
 - Ref: 3.2, 3.3
