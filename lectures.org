@@ -959,7 +959,7 @@ In this case,
 
 The general result follows by bi-linearity of \(A\) and that \(\{\partial_u \varphi, \partial_v \varphi\}\) is a basis so \(X, Y\) are linear combinations of them. \pause *exercise!*
 #+END_proof
-*** Lecture 8.3: Principal, Mean and Gauss Curvatures
+*** Lecture 8.3: Self Adjoint Operators and Eigenvalues/vectors
 **** Symmetric Bilinear Forms
 
 #+BEGIN_definition
@@ -1332,18 +1332,24 @@ c = c g(e_1, e_1) = g(c e_1, e_1) = g(T(e_1), e_1) = \lambda_1.
   \end{pmatrix}.
   \]
   #+END_latex
+** MATH3405 Differential Geometry: Week 9
+*** Lecture 9.1: Principal, Mean and Gauss Curvatures
 **** Principal curvatures and Principal Directions
 
 **** Mean Curvature and Gauss Curvature
-** MATH3405 Differential Geometry: Week 9
-*** Lecture 9.1: Local Taylor Approximation
+
+*** Lecture 9.2: Local Taylor Approximation
 - Ref: 3.2, 3.3
 - Umbilic points
   - umbilic surfaces are planes and spheres
 - Elliptic, parabolic, hyperbolic and planar points
 - Local Taylor approximation
 - Orientation preservation/reversal of Gauss map
-*** Lecture 9.2: Isometries
+*** Lecture 9.3: *Bonus*: Minimal Surfaces
+- Ref: 3.5
+** MATH3405 Differential Geometry: Week 10
+*** Lecture 10.1: *Holiday*
+*** Lecture 10.2: Isometries
 - Ref: 4.2
 - Definition of isometry
 - Examples
@@ -1351,16 +1357,11 @@ c = c g(e_1, e_1) = g(c e_1, e_1) = g(T(e_1), e_1) = \lambda_1.
   - polar coordinates
 - Prop 1
   - metrics agree in common param = locally isometric
-*** Lecture 9.3: Isometries and Intrinsic Geometry
+*** Lecture 10.3: Isometries and Intrinsic Geometry
 - Ref: 2.4, 3.3, 4.2
 - Length, angle, area preserved
 - Interpretation of Gauss Curvature
-** MATH3405 Differential Geometry: Week 10
-*** Lecture 10.1: *Holiday*
-*** Lecture 10.2: *Bonus*: Minimal Surfaces
-- Ref: 3.5
-*** Lecture 10.3: *Bonus*: Conformal Maps
-- Ref: 4.2
+
 ** MATH3405 Differential Geometry: Week 11
 *** Lecture 11.1: Theorema Egregium
 - Ref: 4.3
