@@ -1332,6 +1332,43 @@ c = c g(e_1, e_1) = g(c e_1, e_1) = g(T(e_1), e_1) = \lambda_1.
   \end{pmatrix}.
   \]
   #+END_latex
+**** Quadratic Forms
+
+Let \(B\) be a symmetric bi-linear form.
+
+\pause
+
+Define the /quadratic form/ \(Q\):
+\[
+Q(X) = B(X, X).
+\]
+
+\pause
+
+\(Q\) is quadratic in the sense that
+\[
+Q(cX) = B(cX, cX) = c^2 B(X, X) = c^2 Q(X).
+\]
+
+\pause
+
+Notice that
+#+BEGIN_latex
+\[
+\begin{split}
+Q(X + Y) &= B(X + Y, X + Y) = B(X, X + Y) + B(Y, X + Y) \\
+&= B(X, X) + B(X, Y) + B(Y, X) + B(Y, Y) \\
+&= Q(X) + 2B(X, Y) + Q(Y)
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+Thus, by symmetry and bi-linearity we may recover \(B\) from \(Q\):
+\[
+B(X, Y) = \frac{1}{2}\left[Q(X + Y) - Q(X) - Q(Y)\right].
+\]
 ** MATH3405 Differential Geometry: Week 9
 *** Lecture 9.1: Principal, Mean and Gauss Curvatures
 **** Principal curvatures and Principal Directions
