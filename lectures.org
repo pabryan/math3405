@@ -1478,7 +1478,7 @@ K := \det (dN) = \kappa_1 \kappa_2.
 **** Umbilic Points
 
 #+BEGIN_theorem
-A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* point of \(S\) is umbilic, then \(S\) is entirely contained in a plane, or a sphere.
+A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* point of a /connected/ regular surface \(S\) is umbilic, then \(S\) is entirely contained in a plane, or a sphere.
 #+END_theorem
 
 \pause
