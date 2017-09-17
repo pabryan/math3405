@@ -1425,6 +1425,56 @@ dN = \begin{pmatrix}
 
 **** Mean Curvature and Gauss Curvature
 
+#+BEGIN_definition
+The /Mean Curvature/ is
+\[
+H := \operatorname{Tr} (dN) = \frac{1}{2} \left(\kappa_1 + \kappa_2\right).
+\]
+\pause
+The /Gauss Curvature/ is
+\[
+K := \det (dN) = \kappa_1 \kappa_2.
+\]
+#+END_definition
+
+\pause
+
+***** Examples
+
+****** Example: Plane \(\RR^2\)
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+*Plane \(\RR^2\)*
+
+- \(H = 0\)
+- \(K = 0\).
+
+\pause
+
+****** Example: Sphere \(\sphere^2\)
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+*Sphere \(\sphere^2\)*
+
+- \(H = \frac{1}{r}\)
+- \(K = \frac{1}{r^2}\).
+
+\pause
+
+****** Example: Cylinder \(\mathbb{C}^2(r)\)
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+*Cylinder \(\mathbb{C}^2(r)\)*
+
+- \(H = \frac{1}{2r}\)
+- \(K = 0\).
+
 *** Lecture 9.2: Local Taylor Approximation
 - Ref: 3.2, 3.3
 - Umbilic points
