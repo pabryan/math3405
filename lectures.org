@@ -1570,8 +1570,8 @@ A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* p
   \begin{align*}
   \kappa_{\varphi} &\equiv \text{constant} \\
   & \begin{cases}
-  N_{\varphi} \equiv \text{const}, \ip{\varphi}{N_{\varphi}} \equiv 0, & \kappa_{\varphi} = 0 \\
-  \varphi - \frac{1}{\kappa_{\varphi}} \equiv y_{\varphi}, & \kappa_{\varphi} \ne 0
+  N_{\varphi} \equiv \text{const}, \ip{\varphi}{N_{\varphi}} \equiv C_{\varphi}, & \kappa_{\varphi} = 0 \Rightarrow S_{\varphi} \subseteq \RR^2(N_{\varphi}, C_{\varphi}) \\
+  \varphi - \frac{1}{\kappa_{\varphi}} \equiv y_{\varphi}, & \kappa_{\varphi} \ne 0 \Rightarrow S_{\varphi} \subseteq \sphere^2(\tfrac{1}{\abs{\kappa_{\varphi}}}, y_{\varphi})
   \end{cases}
   \end{align*}
   #+END_latex
