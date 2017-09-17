@@ -1245,69 +1245,99 @@ e_2 &= -\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2
 **** Eigenvalues and Eigenvectors
 
 #+BEGIN_proof
-By definition, \(\theta_0\) is a critical point of
+Let us write
 \[
-g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2)
+E_1(\theta) = \cos\theta \tilde{e}_1 + \sin\theta \tilde{e}_2, \quad E_2(\theta) = -\sin\theta \tilde{e}_1 + \cos\theta \tilde{e}_2
 \]
-
 \pause
-
-hence
-#+BEGIN_latex
+so that
 \[
-\begin{split}
-0 &= \partial_{\theta}|_{\theta=\theta_0} g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
-&= 2 g(dT(-\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
-&= 2 g(T(-\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
-&= 2g(T(e_2), e_1).
-\end{split}
+E_1(\theta_0) = e_1, \quad E_2(\theta_0) = e_2
 \]
-
 \pause
-
-Therefore \(T(e_2) \perp_g e_1\) and hence \pause
+and
 \[
-T(e_2) = \lambda_2 e_2
+E_1'(\theta) = E_2(\theta), \quad E_2'(\theta) = -E_1(\theta)
 \]
-for some \(\lambda_2\) \pause and so \(e_2\) is an eigenvector with eigenvalue \(\lambda_2\).
-#+END_latex
 
 #+END_proof
 
 **** Eigenvalues and Eigenvectors
 
 #+BEGIN_proof
-It remains to show that \(e_1\) is an eigenvector (in fact with eigenvalue \(\lambda_1\)).
-
-\pause
-
-Here we use that \(T\) is self-adjoint:
-
-\pause
-
+By definition, \(\theta_0\) is a critical point of
 \[
-g(T(e_1), e_2) = g(e_1, T(e_2)) = \lambda_2 g(e_1, e_2) = 0.
+g(T(E_1(\theta)), E_1(\theta))
 \]
+\pause
+hence
+#+BEGIN_latex
+\[
+\begin{split}
+0 &= \partial_{\theta}|_{\theta=\theta_0} g(T(E_1(\theta)), E_2(\theta)) \\
+&= g(dT(e_2), e_1) + g(T(e_1), e_2) \\
+&= g(T(e_2), e_1) + g(T(e_1), e_2).
+\end{split}
+\]
+#+END_latex
+#+END_proof
 
+**** Eigenvalues and Eigenvectors
+
+#+BEGIN_proof
+We just obtained that
+\[
+g(T(e_1), e_2) = - g(e_1, T(e_2)).
+\]
+\pause
+But \(T\) is self-adjoint and hence
+\[
+g(T(e_1), e_2) = g(e_1, T(e_2))
+\]
+\pause
+Thus
+\[
+g(T(e_1), e_2) = - g(T(e_1), e_2) \Rightarrow g(T(e_1), e_2) = 0.
+\]
 \pause
 
-Thus \(T(e_1) \perp_g e_2\) and hence
+Therefore \(T(e_1) \perp e_2\) and hence
 \[
 T(e_1) = c e_1
 \]
-for some \(c\).
+for some \(c\) (possibly \(c = 0\) but that's okay).
+#+END_proof
 
-\pause
+**** Eigenvalues and Eigenvectors
 
+#+BEGIN_proof
 Finally,
 \[
 c = c g(e_1, e_1) = g(c e_1, e_1) = g(T(e_1), e_1) = \lambda_1.
 \]
+so that
+\[
+T(e_1) = \lambda_1 e_1
+\]
+as claimed.
+\pause
+A similar argument gives \(T(e_2) = \lambda_2 e_2\) for some \(\lambda_2\).
+\pause
+In fact \(\lambda_2 = \max \{g(T(X), X) : X \in \sphere^1\}\) because: \pause
+#+BEGIN_latex
+\[
+\begin{split}
+g(T(X), X) &= g(T(X^1 e_1 + X^2 e_2), X^1e_1 + X^2 e_2) \\
+&= g(X^1 \lambda_1 e_1 + X^2 \lambda_2 e_2, X^1e_1 + X^2 e_2) \\
+&\underset{e_1, e_2 \text{ o/n}}{=} \lambda_1 X_1^2 + \lambda_2 X^2 \\
+&\underset{\lambda_1 = \min}{\leq} \lambda_2 (X_1^2 + X_2^2) \underset{g(X, X) = 1}{=} \lambda_2.
+\end{split}
+\]
+#+END_latex
 #+END_proof
 
 **** Remarks on Eigenvalues and Eigenvectors
 
-- In fact \(\lambda_2 = \max\{g(T(X), X) : g(X, X) = 1\}\). \pause
 - By an induction argument, and using the same ideas, one can prove the general case of \(n\) dimensions. \pause
 - With respect to the basis of eigenvectors \(e_1, e_2\), \(T\) is diagonal:
   \[
