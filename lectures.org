@@ -1517,9 +1517,7 @@ A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* p
   \kappa_v \varphi_u = \kappa_u \varphi_v \Rightarrow \kappa_v = \kappa_u = 0 \Rightarrow \kappa \equiv \text{constant}
   \]
   since \(\varphi_u, \varphi_v\) are linearly independent.
-**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\) or \(S \subseteq \sphere^2\).
-
-***** Case 1: \(\kappa = 0\)
+**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\)
 
 - We have
   \[
@@ -1538,10 +1536,55 @@ A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* p
   \pause
   Therefore \(\ip{\varphi}{N} = \text{constant}\) and the points \(\varphi(u, v)\) lie in a plane.
 
-**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\) or \(S \subseteq \sphere^2\).
+**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \sphere^2\).
 
-***** Case 2: \(\kappa \ne 0\)
+- We have
+  \[
+  dN = \kappa \operatorname{Id}, \quad \kappa \ne 0
+  \]
+  \pause
+- Therefore
+  \[
+  \partial_u \left(\varphi - \tfrac{1}{\kappa} N\right) \underset{\kappa \equiv \text{const}}{=} \varphi_u - \frac{1}{\kappa} dN(\varphi_u) \pause \underset{dN=\kappa\operatorname{Id}}{=} \varphi_u - \frac{1}{\kappa} \kappa \varphi_u = 0.
+  \]
+  \pause
+- Likewise
+  \[
+  \partial_v \left(\varphi - \tfrac{1}{\kappa} N\right) = 0.
+  \]
+  \pause
+- Therefore
+  \[
+  \varphi - \frac{1}{\kappa} N = y_0 \in \RR^3 \text{ is constant}.
+  \]
+  \pause
+- and hence
+  \[
+  \abs{\varphi(u, v) - y_0} = \frac{1}{\abs{\kappa}} \Rightarrow \varphi(u, v) \in \sphere^2(\frac{1}{\abs{\lambda}}, y_0).
+  \]
 
+**** Proof of Umbilic Theorem: Global
+
+- The local theorem establishes, for each local parametrisation \(\varphi\):
+  #+BEGIN_latex
+  \begin{align*}
+  \kappa_{\varphi} &\equiv \text{constant} \\
+  & \begin{cases}
+  N_{\varphi} \equiv \text{const}, \ip{\varphi}{N_{\varphi}} \equiv 0, & \kappa_{\varphi} = 0 \\
+  \varphi - \frac{1}{\kappa_{\varphi}} \equiv y_{\varphi}, & \kappa_{\varphi} \ne 0
+  \end{cases}
+  \end{align*}
+  #+END_latex
+  \pause
+- In any overlap of charts, \(U_{\alpha} \cap U_{\beta}\) all the constants must agree. \pause
+- \(S\) connected, means for any two points \(p, q \in S\) there is a continuous path \(\gamma : [0, 1] \to S\) such that \(\gamma(0) = p\), \(\gamma(1) = q\). \pause
+- Cover the image \(\gamma([0, 1])\) by local parametrisations \(\varphi_{\alpha}(U_{\alpha})\) which gives a cover of \([0, 1]\):
+  \[
+  \varphi_{\alpha}^{-1}(U_{\alpha})
+  \]
+  \pause
+- \([0, 1]\) is /compact/ so there is a finite cover \(\{\varphi_i\}_{i=1}^n\). with \(p \in \varphi_1(U_1)\), \(q \in \varphi_n(U_n)\), \(U_i \cap U_{i+1} \ne \emptyset\) \pause
+- Thus \(\kappa(p) = \kappa_{\varphi_1} = \kappa_{\varphi_2} = \cdots = \kappa_{\varphi_n} = \kappa(q)\). Similar for the other constants so the plane (or sphere) is globally defined. \(\qed\)
 *** Lecture 9.2: Local Taylor Approximation
 - Ref: 3.2, 3.3
 - Umbilic points
