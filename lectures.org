@@ -1530,6 +1530,26 @@ K := \det (dN) = \kappa_1 \kappa_2.
   - SFF and Shape
   - Various curvatures
   - Local Taylor Approximation
+**** Question 1
+
+Prove the Gauss map of a /closed/ surface is surjective.
+
+**** Question 2
+
+Compute the second fundamental form of a surface of revolution.
+
+**** Question 3 (or part of 2?)
+
+Show that the psuedosphere has constant Gauss curvature \(K = -1\).
+
+**** Question 4 (also could be part of 2!)
+
+Prove something (e.g. Catenoid) is a minimal surface.
+
+**** Question 5
+
+Prove the cylinder is orientable but the \mobius{} strip is not.
+
 *** Assignment 3
 - Due Thursday 26th Oct, Week 13
 - Topics Weeks 10-13
