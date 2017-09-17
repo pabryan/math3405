@@ -1517,6 +1517,31 @@ A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* p
   \kappa_v \varphi_u = \kappa_u \varphi_v \Rightarrow \kappa_v = \kappa_u = 0 \Rightarrow \kappa \equiv \text{constant}
   \]
   since \(\varphi_u, \varphi_v\) are linearly independent.
+**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\) or \(S \subseteq \sphere^2\).
+
+***** Case 1: \(\kappa = 0\)
+
+- We have
+  \[
+  dN \equiv 0.
+  \]
+  \pause
+- Therefore
+  \[
+  \partial_u \ip{\varphi}{N} \underset{\text{prod rule}}{=} \ip{\varphi_u}{N} + \ip{\varphi}{dN(\varphi_u)} \pause \underset{dN \equiv 0}{=} \ip{\varphi_u}{N} \pause \underset{\varphi_u \text{ tang}} = 0
+  \]
+  \pause
+  Likewise
+  \[
+  \partial_v \ip{\varphi}{N} = 0.
+  \]
+  \pause
+  Therefore \(\ip{\varphi}{N} = \text{constant}\) and the points \(\varphi(u, v)\) lie in a plane.
+
+**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\) or \(S \subseteq \sphere^2\).
+
+***** Case 2: \(\kappa \ne 0\)
+
 *** Lecture 9.2: Local Taylor Approximation
 - Ref: 3.2, 3.3
 - Umbilic points
