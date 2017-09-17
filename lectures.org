@@ -1390,6 +1390,39 @@ dN = \begin{pmatrix}
 \end{pmatrix}.
 \]
 
+**** Examples
+
+#+BEGIN_latex
+\begin{example}
+The sphere \(\sphere^2(r) = \{x^2 + y^2 + z^2 = r^2\}\). \pause
+\begin{itemize}
+\item \(dN = -\tfrac{1}{r}\operatorname{Id}\): \(\kappa_1 = \kappa_2 = \tfrac{1}{r}\). \pause
+\item All directions are principal directions!
+\end{itemize}
+\end{example}
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{example}
+The cylinder \(\mathbb{C}^2(r) = \{x^2 + y^2 = r^2\}\).
+\begin{itemize}
+\item \(dN = -\tfrac{1}{r} \pi_{\{z=0\}}\) \pause
+\item In the local parametrisation \((r\cos\theta, r\sin\theta, z)\):
+\[
+dN = \begin{pmatrix}
+0 & 0 \\
+0 & \tfrac{1}{r}
+\end{pmatrix}.
+\]
+\pause
+\item \(\kappa_1(r, \theta) = 0\), \quad \(e_1(r, \theta) = (0, 0, 1)\). \pause
+\item \(\kappa_2(r, \theta) = \frac{1}{r}\), \quad \(e_2(r, \theta) = (-\sin\theta, \cos\theta, 0)\)
+\end{itemize}
+\end{example}
+#+END_latex
+
 **** Mean Curvature and Gauss Curvature
 
 *** Lecture 9.2: Local Taylor Approximation
