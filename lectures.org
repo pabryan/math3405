@@ -1373,6 +1373,23 @@ B(X, Y) = \frac{1}{2}\left[Q(X + Y) - Q(X) - Q(Y)\right].
 *** Lecture 9.1: Principal, Mean and Gauss Curvatures
 **** Principal curvatures and Principal Directions
 
+#+BEGIN_definition
+The /principal curvatures/ \(\kappa_1, \kappa_2\) are the eigenvalues of the Weingarten shape operator. The eigenvectors, \(e_1, e_2\) are called /principal directions/.
+#+END_definition
+
+\pause
+
+- Note that the principal curvatures (and directions) vary from point to point, since \(dN\) varies from point to point. \pause
+- From Lecture 8.2: /Curvature and the Second Fundamental Form/, we know that \(dN\) is self-adjoint. \pause
+- From Lecture 8.3: /Self Adjoint Operators and Eigenvalues and Eigenvectors/ we know that \(\kappa_1,\kappa_2\) exist and that there exists an orthonormal basis \(e_1, e_2\) of eigenvectors. \pause
+- With respect to \(e_1, e_2\),
+\[
+dN = \begin{pmatrix}
+\kappa_1 & 0 \\
+0 & \kappa_2
+\end{pmatrix}.
+\]
+
 **** Mean Curvature and Gauss Curvature
 
 *** Lecture 9.2: Local Taylor Approximation
@@ -1382,7 +1399,7 @@ B(X, Y) = \frac{1}{2}\left[Q(X + Y) - Q(X) - Q(Y)\right].
 - Elliptic, parabolic, hyperbolic and planar points
 - Local Taylor approximation
 - Orientation preservation/reversal of Gauss map
-*** Lecture 9.3: *Bonus*: Minimal Surfaces
+*** Lecture 9.3: Minimal Surfaces
 - Ref: 3.5
 ** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: *Holiday*
