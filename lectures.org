@@ -1475,6 +1475,48 @@ K := \det (dN) = \kappa_1 \kappa_2.
 - \(H = \frac{1}{2r}\)
 - \(K = 0\).
 
+**** Umbilic Points
+
+#+BEGIN_theorem
+A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* point of \(S\) is umbilic, then \(S\) is entirely contained in a plane, or a sphere.
+#+END_theorem
+
+\pause
+
+- At an umbilic point \(p\),
+  \[
+  dN_p = \kappa(p) \operatorname{Id}
+  \]
+  where \(\kappa_1(p) = \kappa_2(p) = \kappa(p)\). \pause
+- Therefore, umbilic points are points where the surface curves the same way in all directions. \pause
+- The basic idea is to show that \(\kappa(p) \equiv \text{constant}\).
+
+**** Proof of Umbilic Point Theorem: \(\kappa \equiv \text{constant}\).
+
+- With respect to a local parametrisation with \(\varphi_u = \partial_u \varphi, \varphi_v = \partial_v \varphi\):
+  \[
+  dN(\varphi_u) = \partial_u N, \quad dN(\varphi_v) = \partial_v N.
+  \]
+  \pause
+- Thus \(dN = \kappa \operatorname{Id}\) gives,
+  \[
+  \partial_u N = \kappa \varphi_u, \quad \partial_v N = \kappa \varphi_v.
+  \]
+  \pause
+- What's next? \pause Differentiate!
+  \[
+  \partial_v \partial_u N = \kappa_v \varphi_u + \kappa \partial_v \partial_u \varphi
+  \]
+  and
+  \[
+  \partial_u \partial_v N = \kappa_u \varphi_v + \kappa \partial_u \partial_v \varphi
+  \]
+  \pause
+- Subtracting and use Claireaut's Theorem for mixed partial derivatives:
+  \[
+  \kappa_v \varphi_u = \kappa_u \varphi_v \Rightarrow \kappa_v = \kappa_u = 0 \Rightarrow \kappa \equiv \text{constant}
+  \]
+  since \(\varphi_u, \varphi_v\) are linearly independent.
 *** Lecture 9.2: Local Taylor Approximation
 - Ref: 3.2, 3.3
 - Umbilic points
