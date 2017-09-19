@@ -1616,12 +1616,63 @@ A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* p
 - \([0, 1]\) is /compact/ so there is a finite cover \(\{\varphi_i\}_{i=1}^n\). with \(p \in \varphi_1(U_1)\), \(q \in \varphi_n(U_n)\), \(U_i \cap U_{i+1} \ne \emptyset\) \pause
 - Thus \(\kappa(p) = \kappa_{\varphi_1} = \kappa_{\varphi_2} = \cdots = \kappa_{\varphi_n} = \kappa(q)\). Similar for the other constants so the plane (or sphere) is globally defined. \(\qed\)
 *** Lecture 9.2: Local Taylor Approximation
-- Ref: 3.2, 3.3
-- Umbilic points
-  - umbilic surfaces are planes and spheres
-- Elliptic, parabolic, hyperbolic and planar points
-- Local Taylor approximation
-- Orientation preservation/reversal of Gauss map
+
+**** The local shape
+
+#+BEGIN_definition
+A point \(p \in S\) is called,
+- Elliptic if \(K > 0\) (\(\kappa_1\) and \(\kappa_2\) have the same sign) \pause
+- Hyperbolic if  \(K < 0\) (\(\kappa_1\) and \(\kappa_2\) have the opposite sign) \pause
+- Parabolic if \(K = 0\) but \(dN_p \ne 0\) (\(\kappa_1 = 0\) and \(\kappa_2 \ne 0\)) \pause
+- Planar if \(dN_p = 0\) and hence \(K = 0\) (\(\kappa_1 = \kappa_2 = 0\))
+#+END_definition
+
+**** Some Pictures
+***** Elliptic Point
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+***** Hyperbolic Point
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+**** Some Pictures
+***** Planar Point
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+***** Parabolic Point
+
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+**** Local Coordinate Expressions
+**** Local Taylor approximation
+**** Orientation preservation/reversal of Gauss map
 *** Lecture 9.3: Minimal Surfaces
 - Ref: 3.5
 ** MATH3405 Differential Geometry: Week 10
