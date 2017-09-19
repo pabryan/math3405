@@ -1935,6 +1935,28 @@ A_{vv} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\
 A_{uv} = A_{vu} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{uv}}
 \]
 
+
+**** Example: The Torus
+
+Recall
+\[
+\varphi(u, v) = ((\frac{1}{2} \cos(u) + 1)\cos (v), (\frac{1}{2} \cos(u) + 1)\sin (v), \frac{1}{2} \sin(u))
+\]
+\pause
+
+#+BEGIN_latex
+\begin{align*}
+\varphi_u &= (-\frac{1}{2} \sin(u) \cos (v), -\frac{1}{2} sin(u) \sin (v), \frac{1}{2} \cos(u)) \\
+\varphi_v &= (-(\frac{1}{2} \cos(u) + 1)\sin (v), (\frac{1}{2} \cos(u) + 1)\cos (v), 0) \\
+\varphi_{uu} &= (-\frac{1}{2} \cos(u) \cos (v), -\frac{1}{2} cos(u) \sin (v), -\frac{1}{2} \sin(u)) \\
+\varphi_{vv} &= (-(\frac{1}{2} \cos(u) + 1)\cos (v), -(\frac{1}{2} \cos(u) + 1)\sin (v), 0) \\
+\varphi_{uv} &= (\frac{1}{2} \sin(u) \sin (v), -\frac{1}{2} sin(u) \cos (v), 0) \\
+\end{align*}
+#+END_latex
+
+\pause
+
+*Exercise*: Check that \(K\) is as before!
 *** Lecture 9.3: Minimal Surfaces
 - Ref: 3.5
 ** MATH3405 Differential Geometry: Week 10
