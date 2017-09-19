@@ -1671,6 +1671,68 @@ A point \(p \in S\) is called,
 #+END_center
 
 **** Local Coordinate Expressions
+
+Let \(S\) be oriented with
+\[
+N = \frac{\varphi_u \times \varphi_v}{|\varphi_u \times \varphi_v|}
+\]
+\pause
+
+Tangent vectors are all of the form
+\[
+X = \partial_t|_{t=0} \varphi(\gamma(t)) = u' \varphi_u + v' \varphi_v.
+\]
+where
+\[
+\gamma(t) = (u(t), v(t)).
+\]
+
+\pause
+
+In this basis write, \(X = X^u \varphi_u + X^v \varphi_v\) (i.e. \(X^u = u', X^v = v'\)) and
+#+BEGIN_latex
+\[
+dN(X) = \begin{pmatrix}
+dN_{uu} & dN_{uv} \\
+dN_{vu} & dN_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\]
+#+END_latex
+\pause
+
+*The matrix \(dN\) is only symmetric if \(\varphi_u, \varphi_v\) is orthonormal  with respect to \(g\)!*
+
+**** Local Coordinate Expressions
+- Remember \(\mathcal{W} = -dN\). \pause
+- Mean Curvature
+  \[
+  H = -\frac{1}{2} (dN_{uu} + dN_{vv}).
+  \]
+  \pause
+- Gauss Curvature
+  \[
+  K = dN_{uu} dN_{vv} - dN_{uv} dN_{vu}.
+  \]
+  \pause
+- Principal Curvatures \(\kappa\): roots of the characteristic equation
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  0 &= \det(-dN - \kappa \operatorname{Id}) \\
+  &= -\left[\kappa^2 + (dN_{uu} + dN_{vv})\kappa + dN_{uu} dN_{vv} - dN_{uv} dN_{vu}\right].
+  \end{split}
+  \]
+  #+END_latex
+  \pause
+- Characteristic equation in terms of \(H, K\):
+  \[
+  \kappa^2 - 2H \kappa + K = 0
+  \]
+
 **** Local Taylor approximation
 **** Orientation preservation/reversal of Gauss map
 *** Lecture 9.3: Minimal Surfaces
