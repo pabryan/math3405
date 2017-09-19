@@ -1785,8 +1785,156 @@ K &= \frac{\cos(u)}{\cos(u) + 2}
 \end{align*}
 #+END_latex
 
-**** Local Taylor approximation
-**** Orientation preservation/reversal of Gauss map
+**** Local Coordinate Expressions
+
+Recall the metric:
+#+BEGIN_latex
+\[
+g = \begin{pmatrix}
+\abs{\varphi_u}^2 & \ip{\varphi_u}{\varphi_v} \\
+\ip{\varphi_v}{\varphi_u} & \abs{\varphi_v}^2
+\end{pmatrix}
+=: \begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}.
+\]
+#+END_latex
+\pause
+
+Therefore
+#+BEGIN_latex
+\[
+\begin{split}
+A(X, X) &= g(-dN(X), X) \\
+& = -\left[\begin{pmatrix}
+dN_{uu} & dN_{uv} \\
+dN_{vu} & dN_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\right]^T
+\begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\\
+&= (dN_{uu}g_{uu} + dN_{vu}g_{vu}) (X^u)^2 \\
+&\quad + (dN_{uu} g_{uv} + dN_{vv}g_{vu}) X^u X^v \\
+&\quad + (dN_{uv} g_{uv} + dN_{vv} g_{vv}) (X^v)^2.
+\end{split}
+\]
+#+END_latex
+
+**** Local Coordinate Expressions
+
+On the other hand,
+#+BEGIN_latex
+\[
+\begin{split}
+A(X, X) &= A(X^u \varphi_u + X^v \varphi_v, X^u \varphi_u + X^v \varphi_v) \\
+&= A(\varphi_u, \varphi_u) (X^u)^2 + 2(\varphi_u, \varphi_v) X^u X^v + A(\varphi_v, \varphi_v) (X^v)^2
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+In matrix form
+#+BEGIN_latex
+\[
+\begin{split}
+A(X, X) &= \begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}^T
+\begin{pmatrix}
+A_{uu} & A_{uv} \\
+A_{vu} & A_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\\
+&= -\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}^T
+\begin{pmatrix}
+dN_{uu} & dN_{uv} \\
+dN_{vu} & dN_{vv}
+\end{pmatrix}^T
+\begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\end{split}
+\]
+#+END_latex
+**** Local Coordinate Expressions
+We have
+\[
+A = -dN^T g.
+\]
+
+\pause
+
+Since \(A, g\) are symmetric
+\[
+A = A^T = - g^T dN = - gdN
+\]
+or
+\[
+dN = -g^{-1} A.
+\]
+
+\pause
+
+Therefore
+\[
+K = \det dN = \frac{\det A}{\det g} = \frac{A_{uu}A_{vv} - A_{uv}^2}{g_{uu}g_{vv} - g_{uv}^2}.
+\]
+
+**** Local Coordinate Expressions
+
+For the torus, it was easy to write \(dN(\varphi_u)\) and \(dN(\varphi_v)\) as a linear combination of \(\varphi_u, \varphi_v\). But in general this may not be so easy. Instead...
+
+\pause
+
+Recall that
+\[
+\det g = \abs{\varphi_u \times \varphi_v}^2
+\]
+so we may express \(\det g\) in terms of the derivatives of \(\varphi\).
+
+\pause
+
+Similarly we may express \(A\):
+\[
+A_{uu} = -\ip{dN(\varphi_u)}{\varphi_u} = -\partial_u \ip{N}{\varphi_u} + \ip{N}{\varphi_{uu}} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{uu}}
+\]
+
+\pause
+
+\[
+A_{vv} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{vv}}
+\]
+
+\[
+A_{uv} = A_{vu} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{uv}}
+\]
+
 *** Lecture 9.3: Minimal Surfaces
 - Ref: 3.5
 ** MATH3405 Differential Geometry: Week 10
