@@ -1733,6 +1733,58 @@ X^v
   \kappa^2 - 2H \kappa + K = 0
   \]
 
+**** Example: The Torus
+
+Parametrise part of a torus by,
+\[
+\varphi(u, v) = ((\frac{1}{2} \cos(u) + 1)\cos (v), (\frac{1}{2} \cos(u) + 1)\sin (v), \frac{1}{2} \sin(u))
+\]
+\pause
+
+#+BEGIN_latex
+\begin{align*}
+\varphi_u &= (-\frac{1}{2} \sin(u) \cos (v), -\frac{1}{2} sin(u) \sin (v), \frac{1}{2} \cos(v)) \\
+\varphi_v &= (-(\frac{1}{2} \cos(u) + 1)\sin (v), (\frac{1}{2} \cos(u) + 1)\cos (v), 0)
+\end{align*}
+#+END_latex
+\pause
+
+\[
+N = (\cos(u) \cos(v), \cos(u) \sin(v), \sin(u))
+\]
+
+**** Example: The Torus
+
+Compute \(dN\):
+
+#+BEGIN_latex
+\begin{align*}
+\partial_u N &= (-\sin(u) \cos(v), -\sin(u) \sin(v), \cos(u)) = \frac{1}{2} \varphi_u \\
+\partial_v N &= (-\cos(u) \sin(v), \cos(u) \cos(v), 0) = \frac{\cos(u)}{(\frac{1}{2} \cos(u) + 1)} \varphi_v
+\end{align*}
+#+END_latex
+
+\pause
+
+That is
+#+BEGIN_latex
+\[
+dN = \begin{pmatrix}
+1/2 & 0 \\
+0 & \frac{\cos(u)}{\frac{1}{2} \cos(u) + 1}
+\end{pmatrix}
+\]
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{align*}
+H &= \left(\frac{1}{4} + \frac{\cos(u)}{\cos(u) + 2}\right) \\
+K &= \frac{\cos(u)}{\cos(u) + 2}
+\end{align*}
+#+END_latex
+
 **** Local Taylor approximation
 **** Orientation preservation/reversal of Gauss map
 *** Lecture 9.3: Minimal Surfaces
