@@ -1958,7 +1958,28 @@ Recall
 
 *Exercise*: Check that \(K\) is as before!
 *** Lecture 9.3: Minimal Surfaces
-- Ref: 3.5
+**** Minimal or Area Minimising?
+
+#+BEGIN_defn
+An /area minimising/ surface is a surface whose area is less than all other surfaces in some family (such as surfaces with the same boundary).
+#+END_defn
+
+\pause
+
+#+BEGIN_definition
+A /minimal surface/ is a /critical point/ for the area functional.
+#+END_definition
+
+\pause
+
+The term /minimal surface/ is due to Lagrange. Unfortunately, it does not mean area-minimising as one might expect but the terminology has become standard.
+
+\pause
+
+Now we explain what all this means!
+
+**** Variations 
+
 ** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: *Holiday*
 *** Lecture 10.2: Isometries
