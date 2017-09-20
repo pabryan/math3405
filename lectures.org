@@ -1960,9 +1960,9 @@ Recall
 *** Lecture 9.3: Minimal Surfaces
 **** Minimal or Area Minimising?
 
-#+BEGIN_defn
+#+BEGIN_definition
 An /area minimising/ surface is a surface whose area is less than all other surfaces in some family (such as surfaces with the same boundary).
-#+END_defn
+#+END_definition
 
 \pause
 
@@ -1980,6 +1980,83 @@ Now we explain what all this means!
 
 **** Variations 
 
+Choose a local parametrisation \(\varphi : U \to S\). Let \(\bar{D} \subseteq U\) be a bounded domain (e.g. closed unit disc \(D(r) = \{u^2 + v^2 \leq r\}\)).
+
+\pause
+
+#+BEGIN_definition
+A /normal variation/ of \(S\) over \(D\) is a map of the form
+\[
+\Phi (u, v, t) = \varphi(u, v) + t h(u, v) N(u, v) \in \RR^3
+\]
+where \(N\) is the normal vector to \(S\) and \(h : \bar{D} \to \RR\) is a smooth function and \(-\epsilon < t < \epsilon\) for some \(\epsilon > 0\).
+#+END_definition
+
+\pause
+
+- For each fixed \(t_0\),
+  \[
+  \varphi_{t_0}(u, v) := \Phi(u, v, t_0)
+  \]
+  parametrises a regular surface \(S_t\): \pause \(d\varphi_t = d\varphi + t d(hN)\) is injective for small \(t\). \pause
+- \(\varphi_0 = \varphi\) parametrises \(S\).
+
+**** Variation of Area
+
+Let us write \(D_t = \varphi_t(D)\). \pause
+
+Recall that the area of \(D_t\) is:
+\[
+A(t) := \operatorname{Area}(D_t) = \int_D \sqrt{\det g_t} dudv = \int_D |\partial_u \varphi_t \times \partial_v \varphi_t| du dv.
+\]
+
+\pause
+
+#+BEGIN_definition
+The regular surface \(D_0\) is a /minimal surface/ if
+\[
+A'(0) = 0
+\]
+for every smooth function \(h : \bar{D} \to \RR\).
+#+END_definition
+
+\pause
+
+Recall \(h\) is the /normal speed/ of the variation \(\varphi(u, v) + t h(u, v) N(u, v)\).
+
+\pause
+
+#+BEGIN_theorem
+The regular surface \(D_0\) is minimal if and only if the mean curvature \(H = 0\).
+#+END_theorem
+
+**** Minimal Surfaces
+
+- The previous definition and theorem says that locally (i.e. on \(\bar{D}\)) a surface is minimal if the mean curvature vanishes on \(\bar{D}\). \pause
+- The mean curvature of \(D_0\) is just the mean curvature of \(S\) restricted to \(S\). \pause
+- We may then make a /global/ definition of minimal surface. \pause
+
+#+BEGIN_definition
+A regular surface \(S\) is a minimal surface if \(H = 0\) everywhere on \(S\).
+#+END_definition
+
+**** Examples
+- Any plane,
+  \[
+  P = \{p \in \RR^3 : \ip{p}{V_0} = C_0\}
+  \]
+  is minimal. \pause
+- The sphere, cylinder and torus are *not* minimal. \pause
+- The graph of a function \(f : U \subseteq \RR^2 \to \RR\) is minimal if and only if
+  \[
+  (1 + (f_u)^2)f_{vv} + (1 + f_v)^2 f_{uu} - 2 f_u f_v f_{uv} = 0, \quad \text{minimal surface equation}
+  \]
+  \pause
+- Bee hives! The walls of honeycomb are minimal surfaces. \pause
+- catenoid, helicoid, Costa's surface, Enneper surface, ...
+
+**** A Gallery of Minimal Surfaces
+**** Proof of Theorem
 ** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: *Holiday*
 *** Lecture 10.2: Isometries
