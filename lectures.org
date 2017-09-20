@@ -11,7 +11,7 @@
 #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
 #+LaTeX_HEADER: \input{local_definitions}
-
+# #+LaTeX_HEADER: \usepackage[shortlabels]{enumitem}
 
 * Timetable							   :noexport:
 
@@ -1998,7 +1998,14 @@ Recall
 - Applications of Gauss-Bonnet
 *** Lecture 13.3: Review
 * Assignments							   :noexport:
-*** Assignment 1
+*** MATH3405: Assignment 3
+
+#+BEGIN_latex
+\begin{center}
+\textbf{Due: 3 Oct 2017, 15:00}
+\end{center}
+#+END_latex
+
 **** Notes							   :noexport:
 - Due Tuesday 3rd Oct, Week 10
 - Topics Weeks 7-9
@@ -2011,15 +2018,22 @@ Recall
 
 A closed surface \(S \subseteq \RR^3\) is a regular surface such that
 1. $S$ is a closed subset of \(\RR^3\),
-2. There exists an \(R > 0\) such that \(S \subseteq B_R(0) = \{x^2 + y^2 + z^2 \leq R^2\}\).
+2. $S$ is bounded: there exists an \(R > 0\) such that
+\[
+S \subseteq B_R(0) = \{x^2 + y^2 + z^2 \leq R^2\}.
+\]
 
 Prove that the Gauss map of a closed, oriented surface (compact, no boundary) $S$ is surjective as follows:
 
-a. Suppose there is a plane $P$ intersecting $S$ at $x_0$ such that in an open neighbourhood $V\subset S$ of $x_0$, $S$ lies on one side of $P$, i.e. for $x\in V$ we have $\ip{x - x_0}{\nor}\rangle \geq 0$ where $\nor$ is the normal vector to $P$. Prove that $P$ is the tangent plane to $S$ at $x_0$. \label{itm:GM_a}
+a. Suppose there is a plane $P$ intersecting $S$ at $x_0$ such that in an open neighbourhood $V\subset S$ of $x_0$, $S$ lies on one side of $P$, i.e. for $x\in V$ we have $\ip{x - x_0}{\nor} \geq 0$ where $\nor$ is the normal vector to $P$. Prove that $P$ is the tangent plane to $S$ at $x_0$. \label{itm:GM_a}
+
+   \hfill\textbf{[5]}
 
    /Hint/: In a local parametrisation $\phi: U \to V$, the function $f(u,v) = \ip{\phi(u,v)-x_0}{\nor}$ has a local minimum at $(u_0, v_0) = \phi^{-1}(x_0)$.  Hence the first derivative test implies that $\pd{u} f = \pd{v} f = 0$. Now what are the coordinate tangent vectors at $(u_0,v_0)$?
 
-b. Using the definition of closed surface above, show that for any unit vector $\nor\in S^2$, there exists a plane $P$ with unit normal vector $\nor$ such that $P \cap S = \emptyset$. \label{itm:GM_b}
+b. Using the definition of closed surface above, show that for any unit vector $\nor\in \RR^3$, there exists a plane $P$ with unit normal vector $\nor$ such that $P \cap S = \emptyset$. \label{itm:GM_b}
+
+   \hfill\textbf{[3]}
 
 c. Let \(P\) be the plane from part \ref{itm:GM_b}. Consider the map
    \[
@@ -2029,9 +2043,15 @@ c. Let \(P\) be the plane from part \ref{itm:GM_b}. Consider the map
 
    Show that there exists a \(t_0 \in \RR\) such that $P(t_0) \cap S \ne \emptyset$ and $S$ lies on one side of $P(t_0)$. That is, letting \(x_0 \in P(t_0) \cap S\), either for every \(x \in S\), \(\ip{x - x_0}{\nor} \geq 0\) or for every \(x \in S\), \(\ip{x - x_0}{\nor} \leq 0\). \label{itm:GM_c}
 
+   \hfill\textbf{[5]}
+
 d. Using part \ref{itm:GM_a} conclude that the plane from part \ref{itm:GM_c}. is the tangent plane at \(x_0\) and hence \(N(x_0) = \nor\), and hence the Gauss map is surjective. \label{itm:GM_d}
 
-e. Prove that the Gauss curvature $\gausscurv \geq 0$ at the point of intersection \(x_0\) of $P$ with $S$ from part \ref{itm:GM_a}. /Hint/: Use the local Taylor approximation. \label{itm:GM_e}
+   \hfill\textbf{[3]}
+
+e. Prove that the Gauss curvature $\gausscurv \geq 0$ at the point of intersection \(x_0\) of $P$ with $S$ from part \ref{itm:GM_a}. /Hint/: Show it's not a hyperbolic point. \label{itm:GM_e}
+
+   \hfill\textbf{[4]}
 
 **** Surfaces of Revolution
 \label{q:surf_rev}
@@ -2051,35 +2071,46 @@ a. Show that the matrix representation of $g$ in these coordinates is
    \end{pmatrix}.
    \]
 
-b. Show that $x$ is an isometry between the open subset of the plane $\{(z,\theta) \in \RR^2: -\infty < z < \infty, 0<\theta<2\pi\}$ and it's image, if and only if $f(z) = 1$ is constant.
+   \hfill\textbf{[4]}
 
-c. Show that the matrix representation and $A$ in these coordinates is
+b. Show that the matrix representation and $A$ in these coordinates is
    \[
-   A = \frac{1}{\sqrt{1 + (f')^2}} \begin{pmatrix}
+   A = \pm \frac{1}{\sqrt{1 + (f')^2}} \begin{pmatrix}
    -f'' & 0 \\
    0 & f
    \end{pmatrix}
    \]
    and that the matrix representation of $dN$ is
    \[
-   dN = \frac{1}{\sqrt{1+(f')^2}} \begin{pmatrix}
+   dN = \pm \frac{1}{\sqrt{1+(f')^2}} \begin{pmatrix}
    \frac{f''}{1+(f')^2} & 0 \\
    0 & \frac{-1}{f}
    \end{pmatrix}.
    \]
+   where \(\pm\) depends on your chosen orientation.
 
-d. Show that $(1,0)$ and $(0,1)$ are eigenvectors of $dN$ and show that the corresponding eigenvalues are
+   \hfill\textbf{[4]}
+
+c. Show that $(1,0)$ and $(0,1)$ are eigenvectors of $dN$ and show that the corresponding eigenvalues are
    \[
    k_1 = \tfrac{f''}{(1+(f')^2)^{3/2}}, \quad k_2 = \tfrac{-1}{f\sqrt{1+(f')^2}}.
    \]
 
-e. Calculate $H,K$.
+   \hfill\textbf{[2]}
 
-f. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for $a,b\in\RR$. Notice then that $K$ may be identically zero even if $x$ is not an isometry
+d. Calculate $H,K$.
+
+   \hfill\textbf{[4]}
+
+e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
+
+   \hfill\textbf{[2]}
 
 **** Constant Curvature Spaces
 
 1. Let \(P \subset \RR^3\) be a plane. Show that \(dN \equiv 0\) and conclude that \(K \equiv 0\).
+
+   \hfill\textbf{[2]}
 
 2. The sphere is the surface of revolution given by
    \[
@@ -2087,11 +2118,15 @@ f. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for $a,b\in\RR$. Notice
    \]
    Using the formulae from \ref{q:surf_rev}, show that \(K \equiv 1\).
 
+   \hfill\textbf{[8]}
+
 3. The psuedo-sphere is more easily expressed as the surface of revolution given by
    \[
    \varphi(z, \theta) = (\sech (z) \cos(\theta), \sech(z) \sin(\theta), z - \tanh(z)), \quad 0 \leq \theta < 2\pi, -\infty < z < \infty
    \]
    Adapting the formulae from \ref{q:surf_rev}, show that \(K \equiv -1\).
+
+   \hfill\textbf{[10]}
 
 *** Assignment 3
 - Due Thursday 26th Oct, Week 13
