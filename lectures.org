@@ -2088,6 +2088,162 @@ A regular surface \(S\) is a minimal surface if \(H = 0\) everywhere on \(S\).
 
 **** A Gallery of Minimal Surfaces
 **** Proof of Theorem
+
+Recall that
+\[
+\varphi_t(u, v) = \varphi(u, v) + t h(u, v) N(u, v).
+\]
+
+\pause
+
+We have
+\begin{align*}
+\partial_u \varphi_t &= \partial_u \varphi + t (\partial_u h) N + t h \partial_u N \\
+\partial_v \varphi_t &= \partial_v \varphi + t (\partial_v h) N + t h \partial_v N
+\end{align*}
+
+\pause
+
+The metric is given by
+#+BEGIN_latex
+\[
+\begin{split}
+g_{uu}(t) &= \ip{\partial_u \varphi_t}{\partial_u \varphi_t} \\
+&= \ip{\partial_u \varphi + t (\partial_u h) N + t h \partial_u N}{\partial_u \varphi + t (\partial_u h) N + t h \partial_u N} \\
+&= g_{uu} + 2 t \left(\partial_u h \ip{\partial_u \varphi}{N} + h\ip{\partial_u \varphi}{\partial_u N}\right) + t^2 \text{ terms} \\
+&= g_{uu} + 2t h A_{uu} + t^2 \text{ terms}
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+Plus similar expressions for \(g_{uv}(t) = g_{vu}(t)\) and \(g_{vv}(t)\).
+
+**** Proof of Theorem
+
+We have
+\[
+g(t) = g + 2t h A + t^2 \text{ terms}.
+\]
+
+\pause
+
+Differentiating and evaluating at \(t = 0\):
+\[
+g'(0) = 2 h A.
+\]
+
+\pause
+
+Recall the area is given by
+\[
+A(t) = \int_{\bar{D}} \sqrt{\det g(t)} du dv.
+\]
+
+\pause
+
+Therefore
+\[
+A'(0) = \int \frac{1}{2 \sqrt{\det g(0)}} \partial_t|_{t=0} (\det g(t)) du dv.
+\]
+and we need to differentiate the determinant.
+
+**** Proof of Theorem
+
+Differentiating a determinant:
+#+BEGIN_latex
+\[
+\begin{split}
+\partial_t \det g(t) &= \partial_t \left[g_{uu}(t) g_{vv}(t) - g_{uv}(t)^2 \right] \\
+&= g_{uu} \partial_t g_{vv} + g_{vv} \partial_t g_{uu} - 2g_{uv} \partial_t g_{uv}.
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+Now the clever part:
+#+BEGIN_latex
+\[
+\begin{split}
+g^{-1} \partial_t g &= \frac{1}{\det g} \begin{pmatrix}
+g_{vv} & -g_{uv} \\
+-g_{vu} & g_{uu}
+\end{pmatrix}
+\begin{pmatrix}
+\partial_t g_{uu} & \partial_t g_{uv} \\
+\partial_t g_{vu} & \partial_t g_{vv}
+\end{pmatrix} \\
+&=
+\frac{1}{\det g} \begin{pmatrix}
+g_{vv}\partial_t g_{uu} - g_{uv} \partial_t g_{vu} & g_{vv}\partial_t g_{uv} - g_{uv} \partial_t g_{vv} \\
+-g_{vu}\partial_t g_{uu} + g_{uu} \partial_t g_{vu} & -g_{vu}\partial_t g_{uv} + g_{uu} \partial_t g_{vv}
+\end{pmatrix}
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\[
+\begin{split}
+\operatorname{Trace} \left(g^{-1} \partial_t g\right) &= \frac{1}{\det g} \left(g_{uu} \partial_t g_{vv} + g_{vv} \partial_t g_{uu} - 2g_{uv} \partial_t g_{uv}\right) \\
+&= \frac{1}{\det g} \partial_t \det g.
+\end{split}
+\]
+#+END_latex
+
+**** Proof of Theorem
+
+So we have
+\[
+\partial_t \det g = \det g \operatorname{Trace} \left(g^{-1} \partial_t g\right).
+\]
+
+\pause
+
+Thus we obtain
+#+BEGIN_latex
+\[
+\begin{split}
+A'(0) &= \int \frac{1}{2 \sqrt{\det g(0)}} \partial_t|_{t=0} (\det g(t)) du dv \\
+&= \int \frac{1}{2 \sqrt{\det g(0)}} \det g(0) \operatorname{Trace} (g^{-1} (0) \partial_t|_{t=0} g) du dv \\
+&= \int \frac{1}{2} \operatorname{Trace} (g^{-1} (0) g'(0)) \sqrt{\det g(0)} du dv 
+\end{split}
+\]
+#+END_latex
+
+**** Proof of Theorem
+
+Recall that
+\[
+g'(0) = 2h A(0).
+\]
+
+\pause
+
+Hence
+\[
+\frac{1}{2} \operatorname{Trace} (g^{-1}(0) g'(0)) = \frac{1}{2} \operatorname{Trace} (g^{-1}(0) 2 h A(0)) = h \operatorname{Trace} dN = -2hH.
+\]
+
+\pause
+
+Finally we arrive at
+\[
+A'(0) = -2 \int_{\bar{D}} h H \sqrt{\det g} du dv.
+\]
+
+\pause
+
+Therefore, \(\bar{D}\) is minimal if and only if for every \(h\), \(A'(0) = 0\) if and only if \(H = 0\).
+
+\pause
+
+For example, to show that for an arbitrary \(p\), \(H(p) = 0\) choose \(h = \rho H\) where \(\rho(p) = 1\) and \(\rho \equiv 0\) outside a small neighbourhood around \(p\).
+
 ** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: *Holiday*
 *** Lecture 10.2: Isometries
