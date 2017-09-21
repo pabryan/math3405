@@ -1615,7 +1615,7 @@ A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* p
   \pause
 - \([0, 1]\) is /compact/ so there is a finite cover \(\{\varphi_i\}_{i=1}^n\). with \(p \in \varphi_1(U_1)\), \(q \in \varphi_n(U_n)\), \(U_i \cap U_{i+1} \ne \emptyset\) \pause
 - Thus \(\kappa(p) = \kappa_{\varphi_1} = \kappa_{\varphi_2} = \cdots = \kappa_{\varphi_n} = \kappa(q)\). Similar for the other constants so the plane (or sphere) is globally defined. \(\qed\)
-*** Lecture 9.2: Local Taylor Approximation
+*** Lecture 9.2: Local Expressions of Curvature
 
 **** The local shape
 
@@ -1908,9 +1908,41 @@ K = \det dN = \frac{\det A}{\det g} = \frac{A_{uu}A_{vv} - A_{uv}^2}{g_{uu}g_{vv
 
 **** Local Coordinate Expressions
 
-For the torus, it was easy to write \(dN(\varphi_u)\) and \(dN(\varphi_v)\) as a linear combination of \(\varphi_u, \varphi_v\). But in general this may not be so easy. Instead...
+For the torus, it was easy to write \(dN(\varphi_u)\) and \(dN(\varphi_v)\) as a linear combination of \(\varphi_u, \varphi_v\). But in general this may not be so easy.
 
 \pause
+
+In general we need to solve
+\[
+\partial_u N = dN(\varphi_u) = dN_{uu} \varphi_u + dN_{vu} \varphi_v
+\]
+and
+\[
+\partial_v N = dN(\varphi_v) = dN_{uv} \varphi_u + dN_{vv} \varphi_v
+\]
+
+for \(dN_{uu}, dN_{vu}, dN_{uv}, dN_{vv}\).
+
+\pause
+
+We know:
+\[
+\varphi_u, \varphi_v, N
+\]
+is a basis and we know the components in the standard basis of \(\RR^3\), e.g:
+\[
+\varphi_u = (\partial_u x, \partial_u y, \partial_u z \text{ where } \varphi(u, v) = (x(u, v), y(u, v), z(u, v)).
+\]
+
+\pause
+
+Compute the change of basis matrix!
+
+\pause
+
+Another approach is...
+
+**** Local Coordinate Expressions
 
 Recall that
 \[
@@ -1934,7 +1966,6 @@ A_{vv} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\
 \[
 A_{uv} = A_{vu} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{uv}}
 \]
-
 
 **** Example: The Torus
 
