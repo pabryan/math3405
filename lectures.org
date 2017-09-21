@@ -1931,7 +1931,7 @@ We know:
 \]
 is a basis and we know the components in the standard basis of \(\RR^3\), e.g:
 \[
-\varphi_u = (\partial_u x, \partial_u y, \partial_u z \text{ where } \varphi(u, v) = (x(u, v), y(u, v), z(u, v)).
+\varphi_u = (\partial_u x, \partial_u y, \partial_u z) \text{ where } \varphi(u, v) = (x(u, v), y(u, v), z(u, v)).
 \]
 
 \pause
