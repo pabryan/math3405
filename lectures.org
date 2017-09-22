@@ -2084,9 +2084,17 @@ A regular surface \(S\) is a minimal surface if \(H = 0\) everywhere on \(S\).
   \]
   \pause
 - Bee hives! The walls of honeycomb are minimal surfaces. \pause
-- catenoid, helicoid, Costa's surface, Enneper surface, ...
+- Catenoid, Helicoid \pause
+- Enneper surface: Not embedded. That is, it intersects itself. \pause
+- Costa's surface: Discovered in 1982 disproving the conjecture that the Plane, Helicoid and Catenoid are the only embedded minimal surfaces formed by puncturing a compact surface. Sparked of a new era of minimal surface research!
 
 **** A Gallery of Minimal Surfaces
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .8\textheight
+[[file:img/minimal_surfaces.png]]
+#+END_center
+
 **** Proof of Theorem
 
 Recall that
