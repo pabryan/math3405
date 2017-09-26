@@ -10,8 +10,8 @@
 #+BEAMER_THEME: Boadilla
 #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
-# #+LaTeX_HEADER: \input{local_definitions}
-
+#+LaTeX_HEADER: \input{local_definitions}
+# #+LaTeX_HEADER: \usepackage[shortlabels]{enumitem}
 
 * Timetable							   :noexport:
 
@@ -1245,69 +1245,99 @@ e_2 &= -\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2
 **** Eigenvalues and Eigenvectors
 
 #+BEGIN_proof
-By definition, \(\theta_0\) is a critical point of
+Let us write
 \[
-g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2)
+E_1(\theta) = \cos\theta \tilde{e}_1 + \sin\theta \tilde{e}_2, \quad E_2(\theta) = -\sin\theta \tilde{e}_1 + \cos\theta \tilde{e}_2
 \]
-
 \pause
-
-hence
-#+BEGIN_latex
+so that
 \[
-\begin{split}
-0 &= \partial_{\theta}|_{\theta=\theta_0} g(T(\cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
-&= 2 g(dT(-\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
-&= 2 g(T(-\sin\theta_0 \tilde{e}_1 + \cos\theta_0 \tilde{e}_2), \cos\theta_0 \tilde{e}_1 + \sin\theta_0 \tilde{e}_2) \\
-&= 2g(T(e_2), e_1).
-\end{split}
+E_1(\theta_0) = e_1, \quad E_2(\theta_0) = e_2
 \]
-
 \pause
-
-Therefore \(T(e_2) \perp_g e_1\) and hence \pause
+and
 \[
-T(e_2) = \lambda_2 e_2
+E_1'(\theta) = E_2(\theta), \quad E_2'(\theta) = -E_1(\theta)
 \]
-for some \(\lambda_2\) \pause and so \(e_2\) is an eigenvector with eigenvalue \(\lambda_2\).
-#+END_latex
 
 #+END_proof
 
 **** Eigenvalues and Eigenvectors
 
 #+BEGIN_proof
-It remains to show that \(e_1\) is an eigenvector (in fact with eigenvalue \(\lambda_1\)).
-
-\pause
-
-Here we use that \(T\) is self-adjoint:
-
-\pause
-
+By definition, \(\theta_0\) is a critical point of
 \[
-g(T(e_1), e_2) = g(e_1, T(e_2)) = \lambda_2 g(e_1, e_2) = 0.
+g(T(E_1(\theta)), E_1(\theta))
 \]
+\pause
+hence
+#+BEGIN_latex
+\[
+\begin{split}
+0 &= \partial_{\theta}|_{\theta=\theta_0} g(T(E_1(\theta)), E_2(\theta)) \\
+&= g(dT(e_2), e_1) + g(T(e_1), e_2) \\
+&= g(T(e_2), e_1) + g(T(e_1), e_2).
+\end{split}
+\]
+#+END_latex
+#+END_proof
 
+**** Eigenvalues and Eigenvectors
+
+#+BEGIN_proof
+We just obtained that
+\[
+g(T(e_1), e_2) = - g(e_1, T(e_2)).
+\]
+\pause
+But \(T\) is self-adjoint and hence
+\[
+g(T(e_1), e_2) = g(e_1, T(e_2))
+\]
+\pause
+Thus
+\[
+g(T(e_1), e_2) = - g(T(e_1), e_2) \Rightarrow g(T(e_1), e_2) = 0.
+\]
 \pause
 
-Thus \(T(e_1) \perp_g e_2\) and hence
+Therefore \(T(e_1) \perp e_2\) and hence
 \[
 T(e_1) = c e_1
 \]
-for some \(c\).
+for some \(c\) (possibly \(c = 0\) but that's okay).
+#+END_proof
 
-\pause
+**** Eigenvalues and Eigenvectors
 
+#+BEGIN_proof
 Finally,
 \[
 c = c g(e_1, e_1) = g(c e_1, e_1) = g(T(e_1), e_1) = \lambda_1.
 \]
+so that
+\[
+T(e_1) = \lambda_1 e_1
+\]
+as claimed.
+\pause
+A similar argument gives \(T(e_2) = \lambda_2 e_2\) for some \(\lambda_2\).
+\pause
+In fact \(\lambda_2 = \max \{g(T(X), X) : X \in \sphere^1\}\) because: \pause
+#+BEGIN_latex
+\[
+\begin{split}
+g(T(X), X) &= g(T(X^1 e_1 + X^2 e_2), X^1e_1 + X^2 e_2) \\
+&= g(X^1 \lambda_1 e_1 + X^2 \lambda_2 e_2, X^1e_1 + X^2 e_2) \\
+&\underset{e_1, e_2 \text{ o/n}}{=} \lambda_1 X_1^2 + \lambda_2 X^2 \\
+&\underset{\lambda_1 = \min}{\leq} \lambda_2 (X_1^2 + X_2^2) \underset{g(X, X) = 1}{=} \lambda_2.
+\end{split}
+\]
+#+END_latex
 #+END_proof
 
 **** Remarks on Eigenvalues and Eigenvectors
 
-- In fact \(\lambda_2 = \max\{g(T(X), X) : g(X, X) = 1\}\). \pause
 - By an induction argument, and using the same ideas, one can prove the general case of \(n\) dimensions. \pause
 - With respect to the basis of eigenvectors \(e_1, e_2\), \(T\) is diagonal:
   \[
@@ -1373,46 +1403,916 @@ B(X, Y) = \frac{1}{2}\left[Q(X + Y) - Q(X) - Q(Y)\right].
 *** Lecture 9.1: Principal, Mean and Gauss Curvatures
 **** Principal curvatures and Principal Directions
 
+#+BEGIN_definition
+The /principal curvatures/ \(\kappa_1, \kappa_2\) are the eigenvalues of the Weingarten shape operator. The eigenvectors, \(e_1, e_2\) are called /principal directions/.
+#+END_definition
+
+\pause
+
+- Note that the principal curvatures (and directions) vary from point to point, since \(dN\) varies from point to point. \pause
+- From Lecture 8.2: /Curvature and the Second Fundamental Form/, we know that \(dN\) is self-adjoint. \pause
+- From Lecture 8.3: /Self Adjoint Operators and Eigenvalues and Eigenvectors/ we know that \(\kappa_1,\kappa_2\) exist and that there exists an orthonormal basis \(e_1, e_2\) of eigenvectors. \pause
+- With respect to \(e_1, e_2\),
+\[
+dN = \begin{pmatrix}
+\kappa_1 & 0 \\
+0 & \kappa_2
+\end{pmatrix}.
+\]
+
+**** Examples
+
+#+BEGIN_latex
+\begin{example}
+The sphere \(\sphere^2(r) = \{x^2 + y^2 + z^2 = r^2\}\). \pause
+\begin{itemize}
+\item \(dN = -\tfrac{1}{r}\operatorname{Id}\): \(\kappa_1 = \kappa_2 = \tfrac{1}{r}\). \pause
+\item All directions are principal directions!
+\end{itemize}
+\end{example}
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{example}
+The cylinder \(\mathbb{C}^2(r) = \{x^2 + y^2 = r^2\}\).
+\begin{itemize}
+\item \(dN = -\tfrac{1}{r} \pi_{\{z=0\}}\) \pause
+\item In the local parametrisation \((r\cos\theta, r\sin\theta, z)\):
+\[
+dN = \begin{pmatrix}
+0 & 0 \\
+0 & \tfrac{1}{r}
+\end{pmatrix}.
+\]
+\pause
+\item \(\kappa_1(r, \theta) = 0\), \quad \(e_1(r, \theta) = (0, 0, 1)\). \pause
+\item \(\kappa_2(r, \theta) = \frac{1}{r}\), \quad \(e_2(r, \theta) = (-\sin\theta, \cos\theta, 0)\)
+\end{itemize}
+\end{example}
+#+END_latex
+
 **** Mean Curvature and Gauss Curvature
 
-*** Lecture 9.2: Local Taylor Approximation
-- Ref: 3.2, 3.3
-- Umbilic points
-  - umbilic surfaces are planes and spheres
-- Elliptic, parabolic, hyperbolic and planar points
-- Local Taylor approximation
-- Orientation preservation/reversal of Gauss map
-*** Lecture 9.3: *Bonus*: Minimal Surfaces
-- Ref: 3.5
+#+BEGIN_definition
+The /Mean Curvature/ is
+\[
+H := \operatorname{Tr} (dN) = \frac{1}{2} \left(\kappa_1 + \kappa_2\right).
+\]
+\pause
+The /Gauss Curvature/ is
+\[
+K := \det (dN) = \kappa_1 \kappa_2.
+\]
+#+END_definition
+
+\pause
+
+***** Examples
+
+****** Example: Plane \(\RR^2\)
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+*Plane \(\RR^2\)*
+
+- \(H = 0\)
+- \(K = 0\).
+
+\pause
+
+****** Example: Sphere \(\sphere^2\)
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+*Sphere \(\sphere^2\)*
+
+- \(H = \frac{1}{r}\)
+- \(K = \frac{1}{r^2}\).
+
+\pause
+
+****** Example: Cylinder \(\mathbb{C}^2(r)\)
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+*Cylinder \(\mathbb{C}^2(r)\)*
+
+- \(H = \frac{1}{2r}\)
+- \(K = 0\).
+
+**** Umbilic Points
+
+#+BEGIN_theorem
+A point \(p \in S\) is called /umbilic/ if \(\kappa_1 = \kappa_2\). If *every* point of a /connected/ regular surface \(S\) is umbilic, then \(S\) is entirely contained in a plane, or a sphere.
+#+END_theorem
+
+\pause
+
+- At an umbilic point \(p\),
+  \[
+  dN_p = \kappa(p) \operatorname{Id}
+  \]
+  where \(\kappa_1(p) = \kappa_2(p) = \kappa(p)\). \pause
+- Therefore, umbilic points are points where the surface curves the same way in all directions. \pause
+- The basic idea is to show that \(\kappa(p) \equiv \text{constant}\).
+
+**** Proof of Umbilic Point Theorem: \(\kappa \equiv \text{constant}\).
+
+- With respect to a local parametrisation with \(\varphi_u = \partial_u \varphi, \varphi_v = \partial_v \varphi\):
+  \[
+  dN(\varphi_u) = \partial_u N, \quad dN(\varphi_v) = \partial_v N.
+  \]
+  \pause
+- Thus \(dN = \kappa \operatorname{Id}\) gives,
+  \[
+  \partial_u N = \kappa \varphi_u, \quad \partial_v N = \kappa \varphi_v.
+  \]
+  \pause
+- What's next? \pause Differentiate!
+  \[
+  \partial_v \partial_u N = \kappa_v \varphi_u + \kappa \partial_v \partial_u \varphi
+  \]
+  and
+  \[
+  \partial_u \partial_v N = \kappa_u \varphi_v + \kappa \partial_u \partial_v \varphi
+  \]
+  \pause
+- Subtracting and use Claireaut's Theorem for mixed partial derivatives:
+  \[
+  \kappa_v \varphi_u = \kappa_u \varphi_v \Rightarrow \kappa_v = \kappa_u = 0 \Rightarrow \kappa \equiv \text{constant}
+  \]
+  since \(\varphi_u, \varphi_v\) are linearly independent.
+**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \RR^2\)
+
+- We have
+  \[
+  dN \equiv 0.
+  \]
+  \pause
+- Therefore
+  \[
+  \partial_u \ip{\varphi}{N} \underset{\text{prod rule}}{=} \ip{\varphi_u}{N} + \ip{\varphi}{dN(\varphi_u)} \pause \underset{dN \equiv 0}{=} \ip{\varphi_u}{N} \pause \underset{\varphi_u \text{ tang}} = 0
+  \]
+  \pause
+  Likewise
+  \[
+  \partial_v \ip{\varphi}{N} = 0.
+  \]
+  \pause
+  Therefore \(\ip{\varphi}{N} = \text{constant}\) and the points \(\varphi(u, v)\) lie in a plane.
+
+**** Proof of Umbilic Point Theorem: Locally \(S \subseteq \sphere^2\).
+
+- We have
+  \[
+  dN = \kappa \operatorname{Id}, \quad \kappa \ne 0
+  \]
+  \pause
+- Therefore
+  \[
+  \partial_u \left(\varphi - \tfrac{1}{\kappa} N\right) \underset{\kappa \equiv \text{const}}{=} \varphi_u - \frac{1}{\kappa} dN(\varphi_u) \pause \underset{dN=\kappa\operatorname{Id}}{=} \varphi_u - \frac{1}{\kappa} \kappa \varphi_u = 0.
+  \]
+  \pause
+- Likewise
+  \[
+  \partial_v \left(\varphi - \tfrac{1}{\kappa} N\right) = 0.
+  \]
+  \pause
+- Therefore
+  \[
+  \varphi - \frac{1}{\kappa} N = y_0 \in \RR^3 \text{ is constant}.
+  \]
+  \pause
+- and hence
+  \[
+  \abs{\varphi(u, v) - y_0} = \frac{1}{\abs{\kappa}} \Rightarrow \varphi(u, v) \in \sphere^2(\frac{1}{\abs{\lambda}}, y_0).
+  \]
+
+**** Proof of Umbilic Theorem: Global
+
+- The local theorem establishes, for each local parametrisation \(\varphi\):
+  #+BEGIN_latex
+  \begin{align*}
+  \kappa_{\varphi} &\equiv \text{constant} \\
+  & \begin{cases}
+  N_{\varphi} \equiv \text{const}, \ip{\varphi}{N_{\varphi}} \equiv C_{\varphi}, & \kappa_{\varphi} = 0 \Rightarrow S_{\varphi} \subseteq \RR^2(N_{\varphi}, C_{\varphi}) \\
+  \varphi - \frac{1}{\kappa_{\varphi}} \equiv y_{\varphi}, & \kappa_{\varphi} \ne 0 \Rightarrow S_{\varphi} \subseteq \sphere^2(\tfrac{1}{\abs{\kappa_{\varphi}}}, y_{\varphi})
+  \end{cases}
+  \end{align*}
+  #+END_latex
+  \pause
+- In any overlap of charts, \(U_{\alpha} \cap U_{\beta}\) all the constants must agree. \pause
+- \(S\) connected, means for any two points \(p, q \in S\) there is a continuous path \(\gamma : [0, 1] \to S\) such that \(\gamma(0) = p\), \(\gamma(1) = q\). \pause
+- Cover the image \(\gamma([0, 1])\) by local parametrisations \(\varphi_{\alpha}(U_{\alpha})\) which gives a cover of \([0, 1]\):
+  \[
+  \varphi_{\alpha}^{-1}(U_{\alpha})
+  \]
+  \pause
+- \([0, 1]\) is /compact/ so there is a finite cover \(\{\varphi_i\}_{i=1}^n\). with \(p \in \varphi_1(U_1)\), \(q \in \varphi_n(U_n)\), \(U_i \cap U_{i+1} \ne \emptyset\) \pause
+- Thus \(\kappa(p) = \kappa_{\varphi_1} = \kappa_{\varphi_2} = \cdots = \kappa_{\varphi_n} = \kappa(q)\). Similar for the other constants so the plane (or sphere) is globally defined. \(\qed\)
+*** Lecture 9.2: Local Expressions of Curvature
+
+**** The local shape
+
+#+BEGIN_definition
+A point \(p \in S\) is called,
+- Elliptic if \(K > 0\) (\(\kappa_1\) and \(\kappa_2\) have the same sign) \pause
+- Hyperbolic if  \(K < 0\) (\(\kappa_1\) and \(\kappa_2\) have the opposite sign) \pause
+- Parabolic if \(K = 0\) but \(dN_p \ne 0\) (\(\kappa_1 = 0\) and \(\kappa_2 \ne 0\)) \pause
+- Planar if \(dN_p = 0\) and hence \(K = 0\) (\(\kappa_1 = \kappa_2 = 0\))
+#+END_definition
+
+**** Some Pictures
+***** Elliptic Point
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+***** Hyperbolic Point
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+**** Some Pictures
+***** Planar Point
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+***** Parabolic Point
+
+   :PROPERTIES:
+   :BEAMER_col: 0.5
+   :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/cylinderandhelix.png]]
+#+END_center
+
+**** Local Coordinate Expressions
+
+Let \(S\) be oriented with
+\[
+N = \frac{\varphi_u \times \varphi_v}{|\varphi_u \times \varphi_v|}
+\]
+\pause
+
+Tangent vectors are all of the form
+\[
+X = \partial_t|_{t=0} \varphi(\gamma(t)) = u' \varphi_u + v' \varphi_v.
+\]
+where
+\[
+\gamma(t) = (u(t), v(t)).
+\]
+
+\pause
+
+In this basis write, \(X = X^u \varphi_u + X^v \varphi_v\) (i.e. \(X^u = u', X^v = v'\)) and
+#+BEGIN_latex
+\[
+dN(X) = \begin{pmatrix}
+dN_{uu} & dN_{uv} \\
+dN_{vu} & dN_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\]
+#+END_latex
+\pause
+
+*The matrix \(dN\) is only symmetric if \(\varphi_u, \varphi_v\) is orthonormal  with respect to \(g\)!*
+
+**** Local Coordinate Expressions
+- Remember \(\mathcal{W} = -dN\). \pause
+- Mean Curvature
+  \[
+  H = -\frac{1}{2} (dN_{uu} + dN_{vv}).
+  \]
+  \pause
+- Gauss Curvature
+  \[
+  K = dN_{uu} dN_{vv} - dN_{uv} dN_{vu}.
+  \]
+  \pause
+- Principal Curvatures \(\kappa\): roots of the characteristic equation
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  0 &= \det(-dN - \kappa \operatorname{Id}) \\
+  &= -\left[\kappa^2 + (dN_{uu} + dN_{vv})\kappa + dN_{uu} dN_{vv} - dN_{uv} dN_{vu}\right].
+  \end{split}
+  \]
+  #+END_latex
+  \pause
+- Characteristic equation in terms of \(H, K\):
+  \[
+  \kappa^2 - 2H \kappa + K = 0
+  \]
+
+**** Example: The Torus
+
+Parametrise part of a torus by,
+\[
+\varphi(u, v) = ((\frac{1}{2} \cos(u) + 1)\cos (v), (\frac{1}{2} \cos(u) + 1)\sin (v), \frac{1}{2} \sin(u))
+\]
+\pause
+
+#+BEGIN_latex
+\begin{align*}
+\varphi_u &= (-\frac{1}{2} \sin(u) \cos (v), -\frac{1}{2} sin(u) \sin (v), \frac{1}{2} \cos(v)) \\
+\varphi_v &= (-(\frac{1}{2} \cos(u) + 1)\sin (v), (\frac{1}{2} \cos(u) + 1)\cos (v), 0)
+\end{align*}
+#+END_latex
+\pause
+
+\[
+N = (\cos(u) \cos(v), \cos(u) \sin(v), \sin(u))
+\]
+
+**** Example: The Torus
+
+Compute \(dN\):
+
+#+BEGIN_latex
+\begin{align*}
+\partial_u N &= (-\sin(u) \cos(v), -\sin(u) \sin(v), \cos(u)) = \frac{1}{2} \varphi_u \\
+\partial_v N &= (-\cos(u) \sin(v), \cos(u) \cos(v), 0) = \frac{\cos(u)}{(\frac{1}{2} \cos(u) + 1)} \varphi_v
+\end{align*}
+#+END_latex
+
+\pause
+
+That is
+#+BEGIN_latex
+\[
+dN = \begin{pmatrix}
+1/2 & 0 \\
+0 & \frac{\cos(u)}{\frac{1}{2} \cos(u) + 1}
+\end{pmatrix}
+\]
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{align*}
+H &= \left(\frac{1}{4} + \frac{\cos(u)}{\cos(u) + 2}\right) \\
+K &= \frac{\cos(u)}{\cos(u) + 2}
+\end{align*}
+#+END_latex
+
+**** Local Coordinate Expressions
+
+Recall the metric:
+#+BEGIN_latex
+\[
+g = \begin{pmatrix}
+\abs{\varphi_u}^2 & \ip{\varphi_u}{\varphi_v} \\
+\ip{\varphi_v}{\varphi_u} & \abs{\varphi_v}^2
+\end{pmatrix}
+=: \begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}.
+\]
+#+END_latex
+\pause
+
+Therefore
+#+BEGIN_latex
+\[
+\begin{split}
+A(X, X) &= g(-dN(X), X) \\
+& = -\left[\begin{pmatrix}
+dN_{uu} & dN_{uv} \\
+dN_{vu} & dN_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\right]^T
+\begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\\
+&= (dN_{uu}g_{uu} + dN_{vu}g_{vu}) (X^u)^2 \\
+&\quad + (dN_{uu} g_{uv} + dN_{vv}g_{vu}) X^u X^v \\
+&\quad + (dN_{uv} g_{uv} + dN_{vv} g_{vv}) (X^v)^2.
+\end{split}
+\]
+#+END_latex
+
+**** Local Coordinate Expressions
+
+On the other hand,
+#+BEGIN_latex
+\[
+\begin{split}
+A(X, X) &= A(X^u \varphi_u + X^v \varphi_v, X^u \varphi_u + X^v \varphi_v) \\
+&= A(\varphi_u, \varphi_u) (X^u)^2 + 2(\varphi_u, \varphi_v) X^u X^v + A(\varphi_v, \varphi_v) (X^v)^2
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+In matrix form
+#+BEGIN_latex
+\[
+\begin{split}
+A(X, X) &= \begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}^T
+\begin{pmatrix}
+A_{uu} & A_{uv} \\
+A_{vu} & A_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\\
+&= -\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}^T
+\begin{pmatrix}
+dN_{uu} & dN_{uv} \\
+dN_{vu} & dN_{vv}
+\end{pmatrix}^T
+\begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+X^u \\
+X^v
+\end{pmatrix}
+\end{split}
+\]
+#+END_latex
+**** Local Coordinate Expressions
+We have
+\[
+A = -dN^T g.
+\]
+
+\pause
+
+Since \(A, g\) are symmetric
+\[
+A = A^T = - g^T dN = - gdN
+\]
+or
+\[
+dN = -g^{-1} A.
+\]
+
+\pause
+
+Therefore
+\[
+K = \det dN = \frac{\det A}{\det g} = \frac{A_{uu}A_{vv} - A_{uv}^2}{g_{uu}g_{vv} - g_{uv}^2}.
+\]
+
+**** Local Coordinate Expressions
+
+For the torus, it was easy to write \(dN(\varphi_u)\) and \(dN(\varphi_v)\) as a linear combination of \(\varphi_u, \varphi_v\). But in general this may not be so easy.
+
+\pause
+
+In general we need to solve
+\[
+\partial_u N = dN(\varphi_u) = dN_{uu} \varphi_u + dN_{vu} \varphi_v
+\]
+and
+\[
+\partial_v N = dN(\varphi_v) = dN_{uv} \varphi_u + dN_{vv} \varphi_v
+\]
+
+for \(dN_{uu}, dN_{vu}, dN_{uv}, dN_{vv}\).
+
+\pause
+
+We know:
+\[
+\varphi_u, \varphi_v, N
+\]
+is a basis and we know the components in the standard basis of \(\RR^3\), e.g:
+\[
+\varphi_u = (\partial_u x, \partial_u y, \partial_u z) \text{ where } \varphi(u, v) = (x(u, v), y(u, v), z(u, v)).
+\]
+
+\pause
+
+Compute the change of basis matrix!
+
+\pause
+
+Another approach is...
+
+**** Local Coordinate Expressions
+
+Recall that
+\[
+\det g = \abs{\varphi_u \times \varphi_v}^2
+\]
+so we may express \(\det g\) in terms of the derivatives of \(\varphi\).
+
+\pause
+
+Similarly we may express \(A\):
+\[
+A_{uu} = -\ip{dN(\varphi_u)}{\varphi_u} = -\partial_u \ip{N}{\varphi_u} + \ip{N}{\varphi_{uu}} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{uu}}
+\]
+
+\pause
+
+\[
+A_{vv} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{vv}}
+\]
+
+\[
+A_{uv} = A_{vu} = \frac{1}{|\varphi_u \times \varphi_v|}\ip{\varphi_u \times \varphi_v}{\varphi_{uv}}
+\]
+
+**** Example: The Torus
+
+Recall
+\[
+\varphi(u, v) = ((\frac{1}{2} \cos(u) + 1)\cos (v), (\frac{1}{2} \cos(u) + 1)\sin (v), \frac{1}{2} \sin(u))
+\]
+\pause
+
+#+BEGIN_latex
+\begin{align*}
+\varphi_u &= (-\frac{1}{2} \sin(u) \cos (v), -\frac{1}{2} sin(u) \sin (v), \frac{1}{2} \cos(u)) \\
+\varphi_v &= (-(\frac{1}{2} \cos(u) + 1)\sin (v), (\frac{1}{2} \cos(u) + 1)\cos (v), 0) \\
+\varphi_{uu} &= (-\frac{1}{2} \cos(u) \cos (v), -\frac{1}{2} cos(u) \sin (v), -\frac{1}{2} \sin(u)) \\
+\varphi_{vv} &= (-(\frac{1}{2} \cos(u) + 1)\cos (v), -(\frac{1}{2} \cos(u) + 1)\sin (v), 0) \\
+\varphi_{uv} &= (\frac{1}{2} \sin(u) \sin (v), -\frac{1}{2} sin(u) \cos (v), 0) \\
+\end{align*}
+#+END_latex
+
+\pause
+
+*Exercise*: Check that \(K\) is as before!
+*** Lecture 9.3: Minimal Surfaces
+**** Minimal or Area Minimising?
+
+#+BEGIN_definition
+An /area minimising/ surface is a surface whose area is less than all other surfaces in some family (such as surfaces with the same boundary).
+#+END_definition
+
+\pause
+
+#+BEGIN_definition
+A /minimal surface/ is a /critical point/ for the area functional.
+#+END_definition
+
+\pause
+
+The term /minimal surface/ is due to Lagrange. Unfortunately, it does not mean area-minimising as one might expect but the terminology has become standard.
+
+\pause
+
+Now we explain what all this means!
+
+**** Variations 
+
+Choose a local parametrisation \(\varphi : U \to S\). Let \(\bar{D} \subseteq U\) be a bounded domain (e.g. closed unit disc \(D(r) = \{u^2 + v^2 \leq r\}\)).
+
+\pause
+
+#+BEGIN_definition
+A /normal variation/ of \(S\) over \(D\) is a map of the form
+\[
+\Phi (u, v, t) = \varphi(u, v) + t h(u, v) N(u, v) \in \RR^3
+\]
+where \(N\) is the normal vector to \(S\) and \(h : \bar{D} \to \RR\) is a smooth function and \(-\epsilon < t < \epsilon\) for some \(\epsilon > 0\).
+#+END_definition
+
+\pause
+
+- For each fixed \(t_0\),
+  \[
+  \varphi_{t_0}(u, v) := \Phi(u, v, t_0)
+  \]
+  parametrises a regular surface \(S_t\): \pause \(d\varphi_t = d\varphi + t d(hN)\) is injective for small \(t\). \pause
+- \(\varphi_0 = \varphi\) parametrises \(S\).
+
+**** Variation of Area
+
+Let us write \(D_t = \varphi_t(D)\). \pause
+
+Recall that the area of \(D_t\) is:
+\[
+A(t) := \operatorname{Area}(D_t) = \int_D \sqrt{\det g_t} dudv = \int_D |\partial_u \varphi_t \times \partial_v \varphi_t| du dv.
+\]
+
+\pause
+
+#+BEGIN_definition
+The regular surface \(D_0\) is a /minimal surface/ if
+\[
+A'(0) = 0
+\]
+for every smooth function \(h : \bar{D} \to \RR\).
+#+END_definition
+
+\pause
+
+Recall \(h\) is the /normal speed/ of the variation \(\varphi(u, v) + t h(u, v) N(u, v)\).
+
+\pause
+
+#+BEGIN_theorem
+The regular surface \(D_0\) is minimal if and only if the mean curvature \(H = 0\).
+#+END_theorem
+
+**** Minimal Surfaces
+
+- The previous definition and theorem says that locally (i.e. on \(\bar{D}\)) a surface is minimal if the mean curvature vanishes on \(\bar{D}\). \pause
+- The mean curvature of \(D_0\) is just the mean curvature of \(S\) restricted to \(S\). \pause
+- We may then make a /global/ definition of minimal surface. \pause
+
+#+BEGIN_definition
+A regular surface \(S\) is a minimal surface if \(H = 0\) everywhere on \(S\).
+#+END_definition
+
+**** Examples
+- Any plane,
+  \[
+  P = \{p \in \RR^3 : \ip{p}{V_0} = C_0\}
+  \]
+  is minimal. \pause
+- The sphere, cylinder and torus are *not* minimal. \pause
+- The graph of a function \(f : U \subseteq \RR^2 \to \RR\) is minimal if and only if
+  \[
+  (1 + (f_u)^2)f_{vv} + (1 + f_v)^2 f_{uu} - 2 f_u f_v f_{uv} = 0, \quad \text{minimal surface equation}
+  \]
+  \pause
+- Bee hives! The walls of honeycomb are minimal surfaces. \pause
+- Catenoid, Helicoid \pause
+- Enneper surface: Not embedded. That is, it intersects itself. \pause
+- Costa's surface: Discovered in 1982 disproving the conjecture that the Plane, Helicoid and Catenoid are the only embedded minimal surfaces formed by puncturing a compact surface. Sparked of a new era of minimal surface research!
+
+**** A Gallery of Minimal Surfaces
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .8\textheight
+[[file:img/minimal_surfaces.png]]
+#+END_center
+
+**** Proof of Theorem
+
+Recall that
+\[
+\varphi_t(u, v) = \varphi(u, v) + t h(u, v) N(u, v).
+\]
+
+\pause
+
+We have
+\begin{align*}
+\partial_u \varphi_t &= \partial_u \varphi + t (\partial_u h) N + t h \partial_u N \\
+\partial_v \varphi_t &= \partial_v \varphi + t (\partial_v h) N + t h \partial_v N
+\end{align*}
+
+\pause
+
+The metric is given by
+#+BEGIN_latex
+\[
+\begin{split}
+g_{uu}(t) &= \ip{\partial_u \varphi_t}{\partial_u \varphi_t} \\
+&= \ip{\partial_u \varphi + t (\partial_u h) N + t h \partial_u N}{\partial_u \varphi + t (\partial_u h) N + t h \partial_u N} \\
+&= g_{uu} + 2 t \left(\partial_u h \ip{\partial_u \varphi}{N} + h\ip{\partial_u \varphi}{\partial_u N}\right) + t^2 \text{ terms} \\
+&= g_{uu} + 2t h A_{uu} + t^2 \text{ terms}
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+Plus similar expressions for \(g_{uv}(t) = g_{vu}(t)\) and \(g_{vv}(t)\).
+
+**** Proof of Theorem
+
+We have
+\[
+g(t) = g + 2t h A + t^2 \text{ terms}.
+\]
+
+\pause
+
+Differentiating and evaluating at \(t = 0\):
+\[
+g'(0) = 2 h A.
+\]
+
+\pause
+
+Recall the area is given by
+\[
+A(t) = \int_{\bar{D}} \sqrt{\det g(t)} du dv.
+\]
+
+\pause
+
+Therefore
+\[
+A'(0) = \int \frac{1}{2 \sqrt{\det g(0)}} \partial_t|_{t=0} (\det g(t)) du dv.
+\]
+and we need to differentiate the determinant.
+
+**** Proof of Theorem
+
+Differentiating a determinant:
+#+BEGIN_latex
+\[
+\begin{split}
+\partial_t \det g(t) &= \partial_t \left[g_{uu}(t) g_{vv}(t) - g_{uv}(t)^2 \right] \\
+&= g_{uu} \partial_t g_{vv} + g_{vv} \partial_t g_{uu} - 2g_{uv} \partial_t g_{uv}.
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+Now the clever part:
+#+BEGIN_latex
+\[
+\begin{split}
+g^{-1} \partial_t g &= \frac{1}{\det g} \begin{pmatrix}
+g_{vv} & -g_{uv} \\
+-g_{vu} & g_{uu}
+\end{pmatrix}
+\begin{pmatrix}
+\partial_t g_{uu} & \partial_t g_{uv} \\
+\partial_t g_{vu} & \partial_t g_{vv}
+\end{pmatrix} \\
+&=
+\frac{1}{\det g} \begin{pmatrix}
+g_{vv}\partial_t g_{uu} - g_{uv} \partial_t g_{vu} & g_{vv}\partial_t g_{uv} - g_{uv} \partial_t g_{vv} \\
+-g_{vu}\partial_t g_{uu} + g_{uu} \partial_t g_{vu} & -g_{vu}\partial_t g_{uv} + g_{uu} \partial_t g_{vv}
+\end{pmatrix}
+\end{split}
+\]
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\[
+\begin{split}
+\operatorname{Trace} \left(g^{-1} \partial_t g\right) &= \frac{1}{\det g} \left(g_{uu} \partial_t g_{vv} + g_{vv} \partial_t g_{uu} - 2g_{uv} \partial_t g_{uv}\right) \\
+&= \frac{1}{\det g} \partial_t \det g.
+\end{split}
+\]
+#+END_latex
+
+**** Proof of Theorem
+
+So we have
+\[
+\partial_t \det g = \det g \operatorname{Trace} \left(g^{-1} \partial_t g\right).
+\]
+
+\pause
+
+Thus we obtain
+#+BEGIN_latex
+\[
+\begin{split}
+A'(0) &= \int \frac{1}{2 \sqrt{\det g(0)}} \partial_t|_{t=0} (\det g(t)) du dv \\
+&= \int \frac{1}{2 \sqrt{\det g(0)}} \det g(0) \operatorname{Trace} (g^{-1} (0) \partial_t|_{t=0} g) du dv \\
+&= \int \frac{1}{2} \operatorname{Trace} (g^{-1} (0) g'(0)) \sqrt{\det g(0)} du dv 
+\end{split}
+\]
+#+END_latex
+
+**** Proof of Theorem
+
+Recall that
+\[
+g'(0) = 2h A(0).
+\]
+
+\pause
+
+Hence
+\[
+\frac{1}{2} \operatorname{Trace} (g^{-1}(0) g'(0)) = \frac{1}{2} \operatorname{Trace} (g^{-1}(0) 2 h A(0)) = h \operatorname{Trace} dN = -2hH.
+\]
+
+\pause
+
+Finally we arrive at
+\[
+A'(0) = -2 \int_{\bar{D}} h H \sqrt{\det g} du dv.
+\]
+
+\pause
+
+Therefore, \(\bar{D}\) is minimal if and only if for every \(h\), \(A'(0) = 0\) if and only if \(H = 0\).
+
+\pause
+
+For example, to show that for an arbitrary \(p\), \(H(p) = 0\) choose \(h = \rho H\) where \(\rho(p) = 1\) and \(\rho \equiv 0\) outside a small neighbourhood around \(p\).
+
 ** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: *Holiday*
-*** Lecture 10.2: Isometries
-- Ref: 4.2
+*** Lecture 10.2: Riemannian Manifolds
+**** Manifolds
+#+BEGIN_definition
+A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that
+1. each \(\varphi_{\alpha}\) is a one-to-one and onto an open set \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) \subseteq \RR^2\),
+2. the transition maps
+   \[
+   \tau_{\alpha\beta} : \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \to \varphi_{\beta} (U_{\alpha}\cap U_{\beta})
+   \]
+   are diffeomorphisms. That is, \(\tau_{\alpha\beta}\) is differentiable and has a differentiable inverse.
+#+END_definition
+
+#+BEGIN_remark
+In fact, it's enough to assume that \(\tau_{\alpha\beta}\) is differentiable for each \(\alpha, \beta\) since \(\tau_{\alpha\beta}^{-1} = \tau_{\beta\alpha}\).
+#+END_remark
+*** Lecture 10.3: Isometries and Intrinsic Geometry
+- Ref: 2.4, 4.2
 - Definition of isometry
 - Examples
   - cylinder, plane, sphere, \mobius{}
   - polar coordinates
+  - cylinder to sphere map is not an isometry - how to prove cylinder and sphere are not isometric though? Theorema Egregium!
+- Length, angle, area preserved
 - Prop 1
   - metrics agree in common param = locally isometric
-*** Lecture 10.3: Isometries and Intrinsic Geometry
-- Ref: 2.4, 3.3, 4.2
-- Length, angle, area preserved
-- Interpretation of Gauss Curvature
-
 ** MATH3405 Differential Geometry: Week 11
-*** Lecture 11.1: Theorema Egregium
-- Ref: 4.3
-*** Lecture 11.2: Theorema Egregium
-- Ref: 4.3
+*** Lecture 11.1: Vector Fields and Covariant Derivatives
+- Ref: 3.4, 4.4
+- We have the Euclidean derivative
+- Show by example (even on the sphere or cylinder) that \(D_X Y\) need not be tangent
+- Example with local coordinate vector fields
+- Invariance under isometry
+*** Lecture 11.2: Parallel Transport and Geodesics
+- Ref: 4.4
+
+*** Lecture 11.3: Curvature Tensor
+- Lie bracket: \([X, Y] = \nabla_X Y - \nabla_Y X\)
+  - Show actually \([X, Y] = D_X Y - D_Y X\) from symmetry of \(A\)
+  - examples (particularly on \(\RR^3\)) of vector fields that don't commute: e.g. \(X = \partial_x\), \(Y = x \partial_y)
+  - coordinate fields commute
+- Higher derivatives - particularly endomorphisms such as \(dN\) and for fixed \(X\), \(Y \mapsto \nabla_Y X\)
+  - examples of where we have to take into account the change in the argument: \(D_X (T(Y)) = (D_X T)(Y) + T(D_X Y)\). Show by example, that we with different \(Y\)'s we get different \(D_X (T(Y))\), so to compute \(D_X T\) we need to subtract off the component \(D_X Y\) corresponding to the change in \(Y\)
+- Curvature Tensor
+- Ricci identity
+- Invariance under isometry
+** MATH3405 Differential Geometry: Week 12
+*** Lecture 12.1: Theorema Egregium
+- Ref: 3.3, 4.3
+- Gauss equation
+- Proof by Curvature tensor and Gauss Equation
+  - https://faculty.etsu.edu/gardnerr/5310/5310pdf/dg1-8.pdf sectional curvature of a two plane is exactly the Gauss curvature!
 - Alternative proof of Gauss Theorem: Use characterisation as limits of areas of shrinking regions
   -  http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
-*** Lecture 11.3: Vector Fields and Covariant Derivatives
-- Ref: 3.4, 4.4
-** MATH3405 Differential Geometry: Week 12
-*** Lecture 12.1: Parallel Transport and Geodesics
-- Ref: 4.4
+- https://services.math.duke.edu/~ng/math/papers/curvature.pdf
+- Interpretation of Gauss Curvature via infinitessimal area, triangles, Gauss map?
+- Try to prove it in a way that matches with the Gauss-Bonnet theorem
 *** Lecture 12.2: Gauss-Bonnet Theorem (Local)
 - Ref: 4.5
+- http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
@@ -1423,13 +2323,136 @@ B(X, Y) = \frac{1}{2}\left[Q(X + Y) - Q(X) - Q(Y)\right].
 - Applications of Gauss-Bonnet
 *** Lecture 13.3: Review
 * Assignments							   :noexport:
-*** Assignment 1
+*** MATH3405: Assignment 3
+
+#+BEGIN_latex
+\begin{center}
+\textbf{Due: 3 Oct 2017, 15:00}
+\end{center}
+#+END_latex
+
+**** Notes							   :noexport:
 - Due Tuesday 3rd Oct, Week 10
 - Topics Weeks 7-9
   - Orientation
   - SFF and Shape
   - Various curvatures
   - Local Taylor Approximation
+**** The Gauss Map of a Closed Surface
+\label{q:gauss_map}
+
+A closed surface \(S \subseteq \RR^3\) is a regular surface such that
+1. $S$ is a closed subset of \(\RR^3\),
+2. $S$ is bounded: there exists an \(R > 0\) such that
+\[
+S \subseteq B_R(0) = \{x^2 + y^2 + z^2 \leq R^2\}.
+\]
+
+Prove that the Gauss map of a closed, oriented surface (compact, no boundary) $S$ is surjective as follows:
+
+a. Suppose there is a plane $P$ intersecting $S$ at $x_0$ such that in an open neighbourhood $V\subset S$ of $x_0$, $S$ lies on one side of $P$, i.e. for $x\in V$ we have $\ip{x - x_0}{\nor} \geq 0$ where $\nor$ is the normal vector to $P$. Prove that $P$ is the tangent plane to $S$ at $x_0$. \label{itm:GM_a}
+
+   \hfill\textbf{[5]}
+
+   /Hint/: In a local parametrisation $\phi: U \to V$, the function $f(u,v) = \ip{\phi(u,v)-x_0}{\nor}$ has a local minimum at $(u_0, v_0) = \phi^{-1}(x_0)$.  Hence the first derivative test implies that $\pd{u} f = \pd{v} f = 0$. Now what are the coordinate tangent vectors at $(u_0,v_0)$?
+
+b. Using the definition of closed surface above, show that for any unit vector $\nor\in \RR^3$, there exists a plane $P$ with unit normal vector $\nor$ such that $P \cap S = \emptyset$. \label{itm:GM_b}
+
+   \hfill\textbf{[3]}
+
+c. Let \(P\) be the plane from part \ref{itm:GM_b}. Consider the map
+   \[
+   \Phi(t, Z) = Z + t \nor, t \in \RR, Z \in P.
+   \]
+   Then for each \(t_0 \in \RR\), \(P(t) = \{\Phi(t_0, Z) : Z \in P\}\) is a plane and \(P(0) = P\).
+
+   Show that there exists a \(t_0 \in \RR\) such that $P(t_0) \cap S \ne \emptyset$ and $S$ lies on one side of $P(t_0)$. That is, letting \(x_0 \in P(t_0) \cap S\), either for every \(x \in S\), \(\ip{x - x_0}{\nor} \geq 0\) or for every \(x \in S\), \(\ip{x - x_0}{\nor} \leq 0\). \label{itm:GM_c}
+
+   \hfill\textbf{[5]}
+
+d. Using part \ref{itm:GM_a} conclude that the plane from part \ref{itm:GM_c}. is the tangent plane at \(x_0\) and hence \(N(x_0) = \nor\), and hence the Gauss map is surjective. \label{itm:GM_d}
+
+   \hfill\textbf{[3]}
+
+e. Prove that the Gauss curvature $\gausscurv \geq 0$ at the point of intersection \(x_0\) of $P$ with $S$ from part \ref{itm:GM_a}. /Hint/: Show it's not a hyperbolic point. \label{itm:GM_e}
+
+   \hfill\textbf{[4]}
+
+**** Surfaces of Revolution
+\label{q:surf_rev}
+
+Let $f: \RR \to \RR$ be a strictly positive function with continuous second derivative and let $S$ be the surface of revolution parameterized locally by
+   \[
+   x(z,\theta) = (f(z) \cos\theta, f(z) \sin\theta, z).
+   \]
+
+For all the following calculations, leave your answer in terms of $f,f',f''$.
+
+a. Show that the matrix representation of $g$ in these coordinates is
+   \[
+   g = \begin{pmatrix}
+   1 + (f')^2 & 0 \\
+   0 & f^2
+   \end{pmatrix}.
+   \]
+
+   \hfill\textbf{[4]}
+
+b. Show that the matrix representation and $A$ in these coordinates is
+   \[
+   A = \pm \frac{1}{\sqrt{1 + (f')^2}} \begin{pmatrix}
+   -f'' & 0 \\
+   0 & f
+   \end{pmatrix}
+   \]
+   and that the matrix representation of $dN$ is
+   \[
+   dN = \pm \frac{1}{\sqrt{1+(f')^2}} \begin{pmatrix}
+   \frac{f''}{1+(f')^2} & 0 \\
+   0 & \frac{-1}{f}
+   \end{pmatrix}.
+   \]
+   where \(\pm\) depends on your chosen orientation.
+
+   \hfill\textbf{[4]}
+
+c. Show that $(1,0)$ and $(0,1)$ are eigenvectors of $dN$ and show that the corresponding eigenvalues are
+   \[
+   k_1 = \tfrac{f''}{(1+(f')^2)^{3/2}}, \quad k_2 = \tfrac{-1}{f\sqrt{1+(f')^2}}.
+   \]
+
+   \hfill\textbf{[2]}
+
+d. Calculate $H,K$.
+
+   \hfill\textbf{[4]}
+
+e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
+
+   \hfill\textbf{[2]}
+
+**** Constant Curvature Spaces
+
+1. Let \(P \subset \RR^3\) be a plane. Show that \(dN \equiv 0\) and conclude that \(K \equiv 0\).
+
+   \hfill\textbf{[2]}
+
+2. The sphere is the surface of revolution given by
+   \[
+   f(z) = \sqrt{1 - z^2}.
+   \]
+   Using the formulae from \ref{q:surf_rev}, show that \(K \equiv 1\).
+
+   \hfill\textbf{[8]}
+
+3. The psuedo-sphere is more easily expressed as the surface of revolution given by
+   \[
+   \varphi(z, \theta) = (\sech (z) \cos(\theta), \sech(z) \sin(\theta), z - \tanh(z)), \quad 0 \leq \theta < 2\pi, -\infty < z < \infty
+   \]
+   Adapting the formulae from \ref{q:surf_rev}, show that \(K \equiv -1\).
+
+   \hfill\textbf{[10]}
+
 *** Assignment 3
 - Due Thursday 26th Oct, Week 13
 - Topics Weeks 10-13
