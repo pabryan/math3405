@@ -2358,6 +2358,77 @@ Transition map defined on \(U_1 \cap U_2 = \{[V] : V_1, V_2 \ne 0\}\). \pause
 \end{example}
 #+END_latex
 
+**** The Tangent Space
+
+Define an equivalence class of curves: \(\gamma \sim \sigma\) if
+\[
+\gamma(0) = \sigma(0)
+\]
+\pause and there is a chart \(\varphi : U \to \RR^2\) with \(\gamma(0) \in U\) such that
+\[
+(\varphi \circ \gamma)'(0) = (\varphi \circ \sigma)'(0).
+\]
+\pause
+Write \([\gamma] = \{\sigma : \sigma \sim \gamma\}\) for the equivalence class of \(\gamma\).
+\pause
+
+#+BEGIN_latex
+\begin{definition}
+The tangent space, $T_x M$ to $M$ at $x$ is the equivalence class of curves through \(x\)
+\[
+T_x M = \{[\gamma] : \gamma(0) = x\}.
+\]
+\end{definition}
+#+END_latex
+
+\pause
+
+If we choose a different chart, \(\psi\)
+#+BEGIN_latex
+\[
+\begin{split}
+(\psi \circ \gamma)'(0) &= (\psi \circ \varphi^{-1} \circ \varphi \circ \gamma)'(0) \\
+&= d(\psi \circ \varphi^{-1}) \cdot (\varphi \circ \gamma)'(0) = d(\psi \circ \varphi^{-1}) \cdot (\varphi \circ \sigma)'(0) \\
+&= (\psi \circ \sigma)'(0).
+\end{split}
+\]
+#+END_latex
+
+**** The Tangent Space of a Regular Surface
+
+Recall that for a regular surface
+\[
+T_x S = \{\gamma'(0) : \gamma(0) = x\}
+\]
+where \(\gamma'(0)\) is the derivative at zero of \(\gamma : (-\epsilon, \epsilon) \to S \subseteq \RR^3\) as a curve in \(\RR^3\).
+
+\pause
+
+The new definition says tangent vectors are equivalence classes of curves \([\gamma]\) in \(S\). \pause
+
+The definitions will be equivalent provided:
+
+- \(\gamma'(0) = \sigma'(0)\) as vectors in \(\RR^3\) if and only if \([\gamma] = [\sigma]\).
+
+**** The Tangent Space of a Regular Surface
+
+Now recall that charts \(\varphi\) are just inverses of local parametrisations \(\psi\). That is \(\varphi = \psi^{-1}\). \pause
+
+We have
+\[
+\gamma'(0) = \sigma'(0) \Leftrightarrow (\varphi^{-1} \circ \varphi \circ \gamma)'(0) = (\varphi^{-1} \circ \varphi \circ \sigma)'(0)
+\]
+\pause if and only if
+\[
+d(\varphi^{-1}) \cdot (\varphi \circ \gamma)'(0) = d(\varphi^{-1}) \cdot (\varphi \circ \sigma)'(0).
+\]
+\pause But \(\psi = \varphi^{-1}\) is a local parametrisation so that \(d(\varphi^{-1})\) injective. Therefore the last equation is equivalent to
+\[
+(\varphi \circ \gamma)'(0) = (\varphi \circ \sigma)'(0).
+\]
+\pause
+That is \([\gamma] = [\sigma]\).
+
 *** Lecture 10.3: Isometries and Intrinsic Geometry
 - Ref: 2.4, 4.2
 - Definition of isometry
