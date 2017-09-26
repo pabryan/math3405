@@ -1627,7 +1627,7 @@ A point \(p \in S\) is called,
 - Planar if \(dN_p = 0\) and hence \(K = 0\) (\(\kappa_1 = \kappa_2 = 0\))
 #+END_definition
 
-**** Some Pictures
+**** Elliptic and Hyperbolic
 ***** Elliptic Point
    :PROPERTIES:
    :BEAMER_col: 0.5
@@ -1635,7 +1635,7 @@ A point \(p \in S\) is called,
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+[[file:img/paraboloid.png]]
 #+END_center
 
 ***** Hyperbolic Point
@@ -1645,10 +1645,10 @@ A point \(p \in S\) is called,
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+[[file:img/hyperbolic.png]]
 #+END_center
 
-**** Some Pictures
+**** Planar and Parabolic
 ***** Planar Point
    :PROPERTIES:
    :BEAMER_col: 0.5
@@ -1656,7 +1656,7 @@ A point \(p \in S\) is called,
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+[[file:img/plane.png]]
 #+END_center
 
 ***** Parabolic Point
@@ -1666,8 +1666,8 @@ A point \(p \in S\) is called,
    :END:
 
 #+BEGIN_center
-#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+#+ATTR_LATEX: :width .8\textwidth :height .5\textheight
+[[file:img/cylinder.png]]
 #+END_center
 
 **** Local Coordinate Expressions
