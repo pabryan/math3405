@@ -2255,7 +2255,7 @@ For example, to show that for an arbitrary \(p\), \(H(p) = 0\) choose \(h = \rho
 ** MATH3405 Differential Geometry: Week 10
 *** Lecture 10.1: Holiday
 *** Lecture 10.2: Riemannian Manifolds
-**** Smooth Manifolds
+**** Smooth Manifolds: Intrinsic Surfaces
 #+BEGIN_definition
 A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that \pause
 1. each \(\varphi_{\alpha}\) is a one-to-one and onto an open set \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) \subseteq \RR^2\), \pause
