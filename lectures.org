@@ -2271,6 +2271,93 @@ A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M
 - In fact, it's enough to assume that \(\tau_{\alpha\beta}\) is differentiable for each \(\alpha, \beta\) since \(\tau_{\alpha\beta}^{-1} = \tau_{\beta\alpha}\). \pause
 - The maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) are called /charts/. \pause
 - The collection of all the charts is called an /atlas/.
+**** Regular Surfaces are Manifolds
+
+#+BEGIN_latex
+\begin{example}
+Let \(S \subset \RR^3\) be a regular surface. Then we have a cover of \(S\) by local parametrisations
+\[
+\psi_{\alpha} : V_{\alpha} \subseteq \RR^2 \to \RR^3.
+\]
+\pause
+Then \(S\) is a smooth manifold with charts given by
+\[
+\varphi_{\alpha} = \psi_{\alpha}^{-1} : U_{\alpha} = \psi_{\alpha}(V_{\alpha}) \subseteq M \to V_{\alpha} \subseteq \RR^2.
+\]
+\end{example}
+#+END_latex
+
+\pause
+
+Note that
+\[
+\tau_{\alpha\beta} = \varphi_{\beta} \circ \varphi_{\alpha}^{-1} = \psi_{\beta}^{-1} \circ \psi_{\alpha}
+\]
+is differentiable by the assumption that \(S\) is a regular surface.
+
+**** Example: The Affine Group.
+
+#+BEGIN_latex
+\begin{example}
+The affine group is the set of matrices:
+\[
+\mathcal{A} = \left\{\begin{pmatrix}
+a & b \\
+0 & 1
+\end{pmatrix}
+: a, b \in \RR, a > 0
+\right\}
+\]
+
+\pause
+
+It corresponds to \emph{orientation preserving affine transformations} \(\RR \to \RR\): \pause
+\[
+x \mapsto a x + b \rightsquigarrow \begin{pmatrix} x \\ 1 \end{pmatrix} \mapsto \begin{pmatrix} a & b \\ 0 & 1\end{pmatrix} \begin{pmatrix} x \\ 1 \end{pmatrix} = \begin{pmatrix} ax + b\\ 1 \end{pmatrix}
+\]
+
+\pause
+
+\begin{itemize}
+\item Smooth manifold with a single chart \(\varphi(A_{ij}) = (A_{11}, A_{12})\) maps bijectively with the open set \(\{(a, b) \in \RR^2 : a > 0\}\). \pause
+\item Also a regular surface, being "half" a plane: \(\{(a, b, 0) \in \RR^3 : a > 0\}\).
+\end{itemize}
+\end{example}
+#+END_latex
+
+**** Example: Projective Space
+
+#+BEGIN_latex
+\begin{example}
+Two dimensional real Projective Space, \(\mathbb{RP}^2\) is the set of lines in \(\RR^3\):
+\[
+\mathbb{RP}^2 = \{[V] : V \ne 0 \in \mathbb{R}^3, \quad [V] = \{\lambda V : \lambda \ne 0\}\}.
+\]
+
+\pause
+
+An atlas is given by three charts. The first:
+\[
+\begin{split}
+\varphi_1 : U_1 &= \{[V] = [(V_1, V_2, V_3)] : V_1 \ne 0\} \to \RR^2 \\
+[V] &\mapsto \left(\frac{V_2}{V_1}, \frac{V_3}{V_1}\right).
+\end{split}
+\]
+This maps bijective with $\RR^2$. Similarly $U_2$ has $V_2 \ne 0$ and $U_3$ has $V_3 \ne 0$.
+
+\pause
+
+Transition map defined on \(U_1 \cap U_2 = \{[V] : V_1, V_2 \ne 0\}\). \pause
+\[
+\begin{split}
+\tau_{12} : (x, y) \overset{\varphi_1^{-1}}{\mapsto} [(1, x, y)] \overset{\varphi_2}{\mapsto} (1/x, y/x)
+\end{split}
+\]
+\pause is differentiable for \((x, y) \in \varphi_1(U_1 \cap U_2)\) since then \(x \ne 0\).
+
+\end{example}
+#+END_latex
+
 *** Lecture 10.3: Isometries and Intrinsic Geometry
 - Ref: 2.4, 4.2
 - Definition of isometry
