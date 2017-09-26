@@ -2429,6 +2429,77 @@ d(\varphi^{-1}) \cdot (\varphi \circ \gamma)'(0) = d(\varphi^{-1}) \cdot (\varph
 \pause
 That is \([\gamma] = [\sigma]\).
 
+**** Coordinate Vector Fields
+
+#+BEGIN_latex
+\begin{definition}
+With respect to chart \(\varphi\), we define \emph{coordinate vector fields}:
+\[
+X_u(x) = [\varphi^{-1}(\varphi(x) + (t, 0))], \quad X_v(x) = [\varphi^{-1}(\varphi(x) + (0, t))]
+\]
+\end{definition}
+#+END_latex
+
+\pause
+
+- That is, \(\varphi : U \to \RR^2\) and so \(\varphi(x) \in \RR^2\). Then \(\varphi(x) + (t, 0)\) is a curve in \(\RR^2\) and
+  \[
+  \gamma_u(t) = \varphi^{-1}(\varphi(x) + (t, 0))
+  \]
+  is a curve in \(M\) with \(\gamma_u(0) = x\). \pause
+- Thus \(X_u(x) = [\gamma_u]\) is a tangent vector at \(x\). \pause
+- We think of \(X_u\) as \(\gamma_u'(0)\) (though strictly speaking, the derivative only makes sense in the chart).
+
+**** Riemannian Metrics
+
+#+BEGIN_latex
+\begin{definition}
+A \emph{Riemannian metric} (or just metric) on \(M\) is a smooth choice, \(g_x\) of positive definite, symmetric bilinear form for each \(x \in M\).
+\end{definition}
+#+END_latex
+
+\pause
+
+There are various ways to interpret the term /smooth/ here. In the present context, perhaps the easiest way to define smooth is with respect to the coordinate vector fields: define \pause
+#+BEGIN_latex
+\[
+\begin{split}
+g_{uu}(x) &= g(X_u(x), X_u(x)), \quad g_{vv}(x) = g(X_v(x), X_v(x)) \\
+g_{uv}(x) &= g(X_u(x), X_v(x)) = g(X_v(x), X_u(x)) = g_{vu}(x) .
+\end{split}
+\]
+
+\pause
+
+Then
+\[
+g_x = \begin{pmatrix}
+g_{uu}(x) & g_{uv} (x) \\
+g_{vu}(x) & g_{vv}(x)
+\end{pmatrix}
+\]
+#+END_latex
+is smooth if and only if the components, \(g_{uu}, g_{uv} = g_{vu}, g_{vv}\) are smooth functions in the chart: \(g_{uu} \circ \varphi : \RR^2 \to \RR\) is smooth etc.
+
+**** Riemannian Geometry
+
+We can define length, angle and area just as for regular surfaces. \pause
+
+\[
+\vert X\vert_g = \sqrt{g(X, X)}, \quad \text{length of a tangent vector}
+\]
+\pause
+\[
+\theta = \arccos\left(\frac{g(X, Y)}{|X|_g |Y|_g} \right) \quad \text{angle between tangent vectors}
+\]
+\pause
+\[
+L[\gamma] = \int_a^b |\gamma'(t) | dt \quad \text{arc-length of a curve}
+\]
+\pause
+\[
+A(R) = \int_R \sqrt{\det g} du dv \quad \text{area of a bounded region}
+\]
 *** Lecture 10.3: Isometries and Intrinsic Geometry
 - Ref: 2.4, 4.2
 - Definition of isometry
