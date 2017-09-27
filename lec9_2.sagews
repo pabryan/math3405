@@ -63,7 +63,18 @@ show(N * phiv)
 
 parametric_plot3d(phi, (u, umin, umax), (v, umin, umax), frame=False)
 ︡4ce0e744-7b30-45e0-9280-3ce578c8e7d6︡{"html":"<div align='center'>$\\displaystyle \\left(\\frac{1}{2} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\cos\\left(v\\right),\\,\\frac{1}{2} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\sin\\left(v\\right),\\,\\frac{1}{2} \\, \\sin\\left(u\\right)\\right)$</div>"}︡{"html":"<div align='center'>$\\displaystyle \\left(-\\frac{1}{2} \\, \\cos\\left(v\\right) \\sin\\left(u\\right),\\,-\\frac{1}{2} \\, \\sin\\left(u\\right) \\sin\\left(v\\right),\\,\\frac{1}{2} \\, \\cos\\left(u\\right)\\right)$</div>"}︡{"html":"<div align='center'>$\\displaystyle \\left(-\\frac{1}{2} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\sin\\left(v\\right),\\,\\frac{1}{2} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\cos\\left(v\\right),\\,0\\right)$</div>"}︡{"html":"<div align='center'>$\\displaystyle \\left(-\\frac{1}{4} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\cos\\left(u\\right) \\cos\\left(v\\right),\\,-\\frac{1}{4} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\cos\\left(u\\right) \\sin\\left(v\\right),\\,-\\frac{1}{4} \\, {\\left(\\cos\\left(u\\right) + 2\\right)} \\sin\\left(u\\right)\\right)$</div>"}︡{"html":"<div align='center'>$\\displaystyle \\frac{1}{4} \\, \\cos\\left(u\\right) + \\frac{1}{2}$</div>"}︡{"html":"<div align='center'>$\\displaystyle \\left(-\\cos\\left(u\\right) \\cos\\left(v\\right),\\,-\\cos\\left(u\\right) \\sin\\left(v\\right),\\,-\\sin\\left(u\\right)\\right)$</div>"}︡{"html":"<div align='center'>$\\displaystyle \\frac{1}{2} \\, \\cos\\left(u\\right) \\cos\\left(v\\right)^{2} \\sin\\left(u\\right) + \\frac{1}{2} \\, \\cos\\left(u\\right) \\sin\\left(u\\right) \\sin\\left(v\\right)^{2} - \\frac{1}{2} \\, \\cos\\left(u\\right) \\sin\\left(u\\right)$</div>"}︡{"html":"<div align='center'>$\\displaystyle 0$</div>"}︡{"file":{"filename":"4ad8fc93-00d1-428c-bd18-22eecc1c8680.sage3d","uuid":"4ad8fc93-00d1-428c-bd18-22eecc1c8680"}}︡{"done":true}︡
+︠c99df965-65d6-46e7-a3ee-85e070b5592cs︠
+# Elliptic point
+paraboloid = surfaces.Paraboloid(1, 3, 2)
+paraboloid.plot(frame=False, aspect_ratio=(1,1,1))
 
+︡ec1d72fe-5be8-4624-886a-e7fb2cb6d9f8︡{"file":{"filename":"a236d468-228e-4393-85bc-6d8cdd0a3add.sage3d","uuid":"a236d468-228e-4393-85bc-6d8cdd0a3add"}}︡{"done":true}︡
+︠4a12ffdd-b145-437f-a8ff-1c285a2ce802s︠
+# Hyperbolic point
+saddle = surfaces.MonkeySaddle()
+saddle.plot(frame=False, aspect_ratio=(1,1,1))
+︡8e3ad458-d22d-4395-85f5-f5255602b48b︡{"file":{"filename":"f4e3684b-c902-4d94-88d5-c8df46ad6eb0.sage3d","uuid":"f4e3684b-c902-4d94-88d5-c8df46ad6eb0"}}︡{"done":true}︡
+︠87e67943-3e06-4748-8af6-7730d8b14c37︠
 
 
 
