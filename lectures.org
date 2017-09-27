@@ -2271,6 +2271,14 @@ A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M
 - In fact, it's enough to assume that \(\tau_{\alpha\beta}\) is differentiable for each \(\alpha, \beta\) since \(\tau_{\alpha\beta}^{-1} = \tau_{\beta\alpha}\). \pause
 - The maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) are called /charts/. \pause
 - The collection of all the charts is called an /atlas/.
+**** Charts on a Manifold
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/manifold_charts.png]]
+#+END_center
+
+
 **** Regular Surfaces are Manifolds
 
 #+BEGIN_latex
