@@ -1627,7 +1627,7 @@ A point \(p \in S\) is called,
 - Planar if \(dN_p = 0\) and hence \(K = 0\) (\(\kappa_1 = \kappa_2 = 0\))
 #+END_definition
 
-**** Some Pictures
+**** Elliptic and Hyperbolic
 ***** Elliptic Point
    :PROPERTIES:
    :BEAMER_col: 0.5
@@ -1635,7 +1635,7 @@ A point \(p \in S\) is called,
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+[[file:img/paraboloid.png]]
 #+END_center
 
 ***** Hyperbolic Point
@@ -1645,10 +1645,10 @@ A point \(p \in S\) is called,
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+[[file:img/hyperbolic.png]]
 #+END_center
 
-**** Some Pictures
+**** Planar and Parabolic
 ***** Planar Point
    :PROPERTIES:
    :BEAMER_col: 0.5
@@ -1656,7 +1656,7 @@ A point \(p \in S\) is called,
 
 #+BEGIN_center
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+[[file:img/plane.png]]
 #+END_center
 
 ***** Parabolic Point
@@ -1666,8 +1666,8 @@ A point \(p \in S\) is called,
    :END:
 
 #+BEGIN_center
-#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
-[[file:img/cylinderandhelix.png]]
+#+ATTR_LATEX: :width .8\textwidth :height .5\textheight
+[[file:img/cylinder.png]]
 #+END_center
 
 **** Local Coordinate Expressions
@@ -2253,22 +2253,253 @@ Therefore, \(\bar{D}\) is minimal if and only if for every \(h\), \(A'(0) = 0\) 
 For example, to show that for an arbitrary \(p\), \(H(p) = 0\) choose \(h = \rho H\) where \(\rho(p) = 1\) and \(\rho \equiv 0\) outside a small neighbourhood around \(p\).
 
 ** MATH3405 Differential Geometry: Week 10
-*** Lecture 10.1: *Holiday*
+*** Lecture 10.1: Holiday
 *** Lecture 10.2: Riemannian Manifolds
-**** Manifolds
+**** Smooth Manifolds: Intrinsic Surfaces
 #+BEGIN_definition
-A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that
-1. each \(\varphi_{\alpha}\) is a one-to-one and onto an open set \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) \subseteq \RR^2\),
+A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that \pause
+1. each \(\varphi_{\alpha}\) is a one-to-one and onto an open set \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) \subseteq \RR^2\), \pause
 2. the transition maps
    \[
-   \tau_{\alpha\beta} : \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \to \varphi_{\beta} (U_{\alpha}\cap U_{\beta})
+   \tau_{\alpha\beta} = \varphi_{\beta} \circ \varphi_{\alpha}^{-1} : \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \to \varphi_{\beta} (U_{\alpha}\cap U_{\beta})
    \]
    are diffeomorphisms. That is, \(\tau_{\alpha\beta}\) is differentiable and has a differentiable inverse.
 #+END_definition
 
-#+BEGIN_remark
-In fact, it's enough to assume that \(\tau_{\alpha\beta}\) is differentiable for each \(\alpha, \beta\) since \(\tau_{\alpha\beta}^{-1} = \tau_{\beta\alpha}\).
-#+END_remark
+\pause
+
+- In fact, it's enough to assume that \(\tau_{\alpha\beta}\) is differentiable for each \(\alpha, \beta\) since \(\tau_{\alpha\beta}^{-1} = \tau_{\beta\alpha}\). \pause
+- The maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) are called /charts/. \pause
+- The collection of all the charts is called an /atlas/.
+**** Regular Surfaces are Manifolds
+
+#+BEGIN_latex
+\begin{example}
+Let \(S \subset \RR^3\) be a regular surface. Then we have a cover of \(S\) by local parametrisations
+\[
+\psi_{\alpha} : V_{\alpha} \subseteq \RR^2 \to \RR^3.
+\]
+\pause
+Then \(S\) is a smooth manifold with charts given by
+\[
+\varphi_{\alpha} = \psi_{\alpha}^{-1} : U_{\alpha} = \psi_{\alpha}(V_{\alpha}) \subseteq M \to V_{\alpha} \subseteq \RR^2.
+\]
+\end{example}
+#+END_latex
+
+\pause
+
+Note that
+\[
+\tau_{\alpha\beta} = \varphi_{\beta} \circ \varphi_{\alpha}^{-1} = \psi_{\beta}^{-1} \circ \psi_{\alpha}
+\]
+is differentiable by the assumption that \(S\) is a regular surface.
+
+**** Example: The Affine Group.
+
+#+BEGIN_latex
+\begin{example}
+The affine group is the set of matrices:
+\[
+\mathcal{A} = \left\{\begin{pmatrix}
+a & b \\
+0 & 1
+\end{pmatrix}
+: a, b \in \RR, a > 0
+\right\}
+\]
+
+\pause
+
+It corresponds to \emph{orientation preserving affine transformations} \(\RR \to \RR\): \pause
+\[
+x \mapsto a x + b \rightsquigarrow \begin{pmatrix} x \\ 1 \end{pmatrix} \mapsto \begin{pmatrix} a & b \\ 0 & 1\end{pmatrix} \begin{pmatrix} x \\ 1 \end{pmatrix} = \begin{pmatrix} ax + b\\ 1 \end{pmatrix}
+\]
+
+\pause
+
+\begin{itemize}
+\item Smooth manifold with a single chart \(\varphi(A_{ij}) = (A_{11}, A_{12})\) maps bijectively with the open set \(\{(a, b) \in \RR^2 : a > 0\}\). \pause
+\item Also a regular surface, being "half" a plane: \(\{(a, b, 0) \in \RR^3 : a > 0\}\).
+\end{itemize}
+\end{example}
+#+END_latex
+
+**** Example: Projective Space
+
+#+BEGIN_latex
+\begin{example}
+Two dimensional real Projective Space, \(\mathbb{RP}^2\) is the set of lines in \(\RR^3\):
+\[
+\mathbb{RP}^2 = \{[V] : V \ne 0 \in \mathbb{R}^3, \quad [V] = \{\lambda V : \lambda \ne 0\}\}.
+\]
+
+\pause
+
+An atlas is given by three charts. The first:
+\[
+\begin{split}
+\varphi_1 : U_1 &= \{[V] = [(V_1, V_2, V_3)] : V_1 \ne 0\} \to \RR^2 \\
+[V] &\mapsto \left(\frac{V_2}{V_1}, \frac{V_3}{V_1}\right).
+\end{split}
+\]
+This maps bijective with $\RR^2$. Similarly $U_2$ has $V_2 \ne 0$ and $U_3$ has $V_3 \ne 0$.
+
+\pause
+
+Transition map defined on \(U_1 \cap U_2 = \{[V] : V_1, V_2 \ne 0\}\). \pause
+\[
+\begin{split}
+\tau_{12} : (x, y) \overset{\varphi_1^{-1}}{\mapsto} [(1, x, y)] \overset{\varphi_2}{\mapsto} (1/x, y/x)
+\end{split}
+\]
+\pause is differentiable for \((x, y) \in \varphi_1(U_1 \cap U_2)\) since then \(x \ne 0\).
+
+\end{example}
+#+END_latex
+
+**** The Tangent Space
+
+Define an equivalence class of curves: \(\gamma \sim \sigma\) if
+\[
+\gamma(0) = \sigma(0)
+\]
+\pause and there is a chart \(\varphi : U \to \RR^2\) with \(\gamma(0) \in U\) such that
+\[
+(\varphi \circ \gamma)'(0) = (\varphi \circ \sigma)'(0).
+\]
+\pause
+Write \([\gamma] = \{\sigma : \sigma \sim \gamma\}\) for the equivalence class of \(\gamma\).
+\pause
+
+#+BEGIN_latex
+\begin{definition}
+The tangent space, $T_x M$ to $M$ at $x$ is the equivalence class of curves through \(x\)
+\[
+T_x M = \{[\gamma] : \gamma(0) = x\}.
+\]
+\end{definition}
+#+END_latex
+
+\pause
+
+If we choose a different chart, \(\psi\)
+#+BEGIN_latex
+\[
+\begin{split}
+(\psi \circ \gamma)'(0) &= (\psi \circ \varphi^{-1} \circ \varphi \circ \gamma)'(0) \\
+&= d(\psi \circ \varphi^{-1}) \cdot (\varphi \circ \gamma)'(0) = d(\psi \circ \varphi^{-1}) \cdot (\varphi \circ \sigma)'(0) \\
+&= (\psi \circ \sigma)'(0).
+\end{split}
+\]
+#+END_latex
+
+**** The Tangent Space of a Regular Surface
+
+Recall that for a regular surface
+\[
+T_x S = \{\gamma'(0) : \gamma(0) = x\}
+\]
+where \(\gamma'(0)\) is the derivative at zero of \(\gamma : (-\epsilon, \epsilon) \to S \subseteq \RR^3\) as a curve in \(\RR^3\).
+
+\pause
+
+The new definition says tangent vectors are equivalence classes of curves \([\gamma]\) in \(S\). \pause
+
+The definitions will be equivalent provided:
+
+- \(\gamma'(0) = \sigma'(0)\) as vectors in \(\RR^3\) if and only if \([\gamma] = [\sigma]\).
+
+**** The Tangent Space of a Regular Surface
+
+Now recall that charts \(\varphi\) are just inverses of local parametrisations \(\psi\). That is \(\varphi = \psi^{-1}\). \pause
+
+We have
+\[
+\gamma'(0) = \sigma'(0) \Leftrightarrow (\varphi^{-1} \circ \varphi \circ \gamma)'(0) = (\varphi^{-1} \circ \varphi \circ \sigma)'(0)
+\]
+\pause if and only if
+\[
+d(\varphi^{-1}) \cdot (\varphi \circ \gamma)'(0) = d(\varphi^{-1}) \cdot (\varphi \circ \sigma)'(0).
+\]
+\pause But \(\psi = \varphi^{-1}\) is a local parametrisation so that \(d(\varphi^{-1})\) injective. Therefore the last equation is equivalent to
+\[
+(\varphi \circ \gamma)'(0) = (\varphi \circ \sigma)'(0).
+\]
+\pause
+That is \([\gamma] = [\sigma]\).
+
+**** Coordinate Vector Fields
+
+#+BEGIN_latex
+\begin{definition}
+With respect to chart \(\varphi\), we define \emph{coordinate vector fields}:
+\[
+X_u(x) = [\varphi^{-1}(\varphi(x) + (t, 0))], \quad X_v(x) = [\varphi^{-1}(\varphi(x) + (0, t))]
+\]
+\end{definition}
+#+END_latex
+
+\pause
+
+- That is, \(\varphi : U \to \RR^2\) and so \(\varphi(x) \in \RR^2\). Then \(\varphi(x) + (t, 0)\) is a curve in \(\RR^2\) and
+  \[
+  \gamma_u(t) = \varphi^{-1}(\varphi(x) + (t, 0))
+  \]
+  is a curve in \(M\) with \(\gamma_u(0) = x\). \pause
+- Thus \(X_u(x) = [\gamma_u]\) is a tangent vector at \(x\). \pause
+- We think of \(X_u\) as \(\gamma_u'(0)\) (though strictly speaking, the derivative only makes sense in the chart).
+
+**** Riemannian Metrics
+
+#+BEGIN_latex
+\begin{definition}
+A \emph{Riemannian metric} (or just metric) on \(M\) is a smooth choice, \(g_x\) of positive definite, symmetric bilinear form for each \(x \in M\).
+\end{definition}
+#+END_latex
+
+\pause
+
+There are various ways to interpret the term /smooth/ here. In the present context, perhaps the easiest way to define smooth is with respect to the coordinate vector fields: define \pause
+#+BEGIN_latex
+\[
+\begin{split}
+g_{uu}(x) &= g(X_u(x), X_u(x)), \quad g_{vv}(x) = g(X_v(x), X_v(x)) \\
+g_{uv}(x) &= g(X_u(x), X_v(x)) = g(X_v(x), X_u(x)) = g_{vu}(x) .
+\end{split}
+\]
+
+\pause
+
+Then
+\[
+g_x = \begin{pmatrix}
+g_{uu}(x) & g_{uv} (x) \\
+g_{vu}(x) & g_{vv}(x)
+\end{pmatrix}
+\]
+#+END_latex
+is smooth if and only if the components, \(g_{uu}, g_{uv} = g_{vu}, g_{vv}\) are smooth functions in the chart: \(g_{uu} \circ \varphi : \RR^2 \to \RR\) is smooth etc.
+
+**** Riemannian Geometry
+
+We can define length, angle and area just as for regular surfaces. \pause
+
+\[
+\vert X\vert_g = \sqrt{g(X, X)}, \quad \text{length of a tangent vector}
+\]
+\pause
+\[
+\theta = \arccos\left(\frac{g(X, Y)}{|X|_g |Y|_g} \right) \quad \text{angle between tangent vectors}
+\]
+\pause
+\[
+L[\gamma] = \int_a^b |\gamma'(t) | dt \quad \text{arc-length of a curve}
+\]
+\pause
+\[
+A(R) = \int_R \sqrt{\det g} du dv \quad \text{area of a bounded region}
+\]
 *** Lecture 10.3: Isometries and Intrinsic Geometry
 - Ref: 2.4, 4.2
 - Definition of isometry
