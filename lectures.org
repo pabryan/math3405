@@ -2508,6 +2508,212 @@ L[\gamma] = \int_a^b |\gamma'(t) | dt \quad \text{arc-length of a curve}
 A(R) = \int_R \sqrt{\det g} du dv \quad \text{area of a bounded region}
 \]
 *** Lecture 10.3: Isometries and Intrinsic Geometry
+**** Isometries
+
+- Let \((S_1, g_1)\) and \((S_2, g_2)\) be two-dimensional Riemannian manifolds. \pause
+
+- If you prefer, you can think of them as regular surfaces with
+  \[
+  g_i(X, Y) = \ip{d\varphi_i(X)}{d\varphi_i(Y)}
+  \]
+  in a local parametrisation with \(X = X^u \varphi_u + X^v \varphi_v\) (likewise for \(Y\)). \pause
+
+#+BEGIN_definition
+A diffeomorphism \(f : S_1 \to S_2\) is called an /isometry/ if
+\[
+g_2(df(X), df(Y)) = g_1(X, Y)
+\]
+for all tangent vectors \(X, Y\). If there is an isometry \(f : (S_1, g_1) \to (S_2, g_2)\), then \(S_1, S_2\) are called /isometric/.
+#+END_definition
+
+\pause
+
+#+BEGIN_definition
+A /local isometry/ is a diffeomorphism \(f : U_1 \to U_2\) for \(U_1 \subseteq S_1\), \(U_2 \subseteq S_2\) open sets. \(S_1\) and \(S_2\) are called /locally isometric/ if there is a cover of \(S_1\) by open sets \(U_{\alpha}\) and local isometries \(f_{\alpha} : U_{\alpha} \to V_{\alpha} \subseteq S_2\).
+#+END_definition
+
+**** Example: The Cylinder and Plane
+
+Recall the local parametrisation of the cylinder, \(C\):
+\[
+\varphi(u, v) = (\cos u, \sin u, v), \quad 0 < u < 2\pi, \quad -1 < v < 1.
+\]
+\pause
+
+Then \(U = \{\varphi(u, v)\} = \{(x, y, z) : x^2 + y^2 = 1, y \ne 0, -1 < z < 1\}\) is an open set. \pause
+
+- *Claim*: \(\varphi\) is a local isometry \(P \to C\) for any plane \(P\). For example \(P = \{z = 0\}\).
+
+**** Example: The Cylinder and Plane
+
+The coordinate vector fields on \(P\) are:
+\begin{align*}
+e_u(u, v) &= \partial_t|_{t=0} (u + t, v) =(1, 0), \\
+e_v(u, v) &= \partial_t|_{t=0} (u, v + t) = (0, 1).
+\end{align*}
+
+\pause
+
+The metric on the plane is just the usual metric:
+\[
+g_P(X^ue_u + X^ve_v, Y^ue_u + Y^ve_v) = X^u Y^u + X^v Y^v.
+\]
+
+\pause
+
+The cylinder metric is
+#+BEGIN_latex
+\[
+\begin{split}
+g_C(X, Y) &= \ip{X^u \varphi_u + X^v \varphi_v}{X^u \varphi_u + X^v \varphi_v} \\
+&= X^u Y^u \ip{\varphi_u}{\varphi_u} + 2 X^u Y^v \ip{\varphi_u}{\varphi_v} + X^v Y^v \ip{\varphi_v}{\varphi_v} \\
+&= X^u Y^u g_{uu} + 2 X^u Y^v g_{uv} + X^v Y^v g_{vv}.
+\end{split}
+\]
+#+END_latex
+
+**** Example: The Cylinder and Plane
+
+For the cylinder, \(\varphi(u, v) = (\cos u, \sin u, v)\):
+\begin{align*}
+\varphi_u &= \partial_u \varphi = (-\sin u, \cos u, 0) \\
+\varphi_v &= \partial_v \varphi = (0, 0, 1)
+\end{align*}
+
+\pause
+
+\begin{align*}
+g_{uu} &= \ip{\varphi_u}{\varphi_u} = \ip{(-\sin u, \cos u, 0)}{(-\sin u, \cos u, 0)} \\
+&= \sin^2 u + \cos^2 u = 1.
+\end{align*}
+\pause
+\[
+g_{uv} = \ip{\varphi_u}{\varphi_v} = \ip{(-\sin u, \cos u, 0)}{(0, 0, 1)} = 0.
+\]
+\pause
+\[
+g_{vv} = \ip{\varphi_u}{\varphi_u} = \ip{(0, 0, 1)}{(0, 0, 1)} = 1.
+\]
+
+\pause
+
+\[
+g_C(X, Y) = X^u Y^u + X^v Y^v = g_P(X, Y).
+\]
+
+**** Example: The Cylinder and Sphere
+Parametrise the sphere
+\[
+\varphi(u, v) = (\cos u \sin v, \sin u \sin v, \cos v).
+\]
+\pause
+
+\begin{align*}
+\varphi_u &= \partial_u \varphi = (-\sin u \sin v, \cos u \sin v, 0) \\
+\varphi_v &= \partial_v \varphi = (\cos u \cos v, \sin u \cos v, -\sin v)
+\end{align*}
+\pause
+
+\[
+g_{uu} = \sin^2 v, \quad g_{uv} = 0, \quad g_{vv} = 1
+\]
+
+\pause
+
+- Thus the map \(\varphi : P \to \sphere^2\) is /not/ an isometry. \pause
+
+- *But*: there could be some other map that is an isometry. \pause
+
+- Later we will see that this is not true. That is there is no local isometry between the plane and the sphere.
+
+**** Local Coordinate Isometries
+
+#+BEGIN_theorem
+Let \((S_1, g_1)\), \((S_2, g_2)\) be regular surfaces (or Riemannian manifolds). Then \(S_1\) and \(S_2\) locally isometric if and only if there exists local parametrisations \(\varphi_i : U \to S_i\) on a common domain \(U \subset \RR^2\) such that
+\[
+g_1 = g_2
+\]
+over the common parametrisation.
+#+END_theorem
+
+\pause
+
+The ideas is that the map
+\[
+f = \varphi_2 \circ \varphi_1^{-1} : \varphi_1(U) \subseteq S_1 \to S_2
+\]
+is a local isometry.
+
+**** Local Coordinate Isometries
+
+#+BEGIN_proof
+Suppose that there exist such local parametrisations whose metrics agree over a common parametrisation. That is, we have \((g_1)_{uu} = (g_2)_{uu}\), hence
+\[
+(g_1)_{uu} = \ip{\partial_u \varphi_1}{\partial_u \varphi_1},
+\]
+and
+\[
+(g_2)_{uu} = \ip{\partial_u \varphi_2}{\partial_u \varphi_2}
+\]
+\pause
+
+Then
+#+BEGIN_latex
+\[
+\begin{split}
+g_2(df(\partial_u \varphi_1), df(\partial_u \varphi_1)) &= g_2(d(\varphi_2 \circ \varphi_1^{-1}) \partial_u \varphi_1, d(\varphi_2 \circ \varphi_1^{-1}) \partial_u \varphi_1) \\
+&= g_2(\partial_u \varphi_2, \partial_u \varphi_2) = (g_2)_{uu} \\
+&= (g_1)_{uu} = g_1(\partial_u \varphi, \partial_u \varphi).
+\end{split}
+\]
+#+END_latex
+Likewise \((g_2)_{uv} = (g_1)_{uv}\), \((g_2)_{vv} = (g_1)_{vv}\) and we have a local isometry.
+#+END_proof
+
+**** Local Coordinate Isometries
+#+BEGIN_proof
+Conversely, suppose that there is a local isometry
+\[
+f : W \subseteq S_1 \to S_2.
+\]
+
+\pause
+
+- Take a local parametrisations \(\varphi_1 : U \to V \subseteq W\). \pause
+- Define the local parametristation, \(\varphi_2 = f \circ \varphi_1\). \pause
+- Since \(f\) is a diffeomorphism, \(d\varphi_2 = df \cdot d\varphi_1\) is injective and hence \(\varphi_2\) is a local parametrisation of \(S_2\). \pause
+- Then
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  (g_2)_{uu} &= g_2(\partial_u \varphi_2, \partial_u \varphi_2) = g_2(df \cdot \partial_u \varphi_1, df \cdot \partial_u \varphi_1) \\
+  &\underset{f \text{ isometry}}{=} g_1(\partial_u \varphi_1, \partial_u \varphi_1) \\
+  &= (g_1)_{uu}.
+  \end{split}
+  \]
+  #+END_latex
+  \pause
+  Similarly for \((g_2)_{uv}\) and \((g_2)_{vv}\).
+#+END_proof
+**** Isometries Preserve Geometry
+Let \(f : (S_1, g_1) \to (S_2, g_2)\) be an isometry. \pause
+- Let \(X, Y\) be tangent vectors:
+  \begin{align*}
+  \abs{df(X)}_{g_2} &= g_2(df(X), df(X)) = g_1(X, X) = \abs{X}_{g_1} \\
+  \theta(df(X), df(Y)) &= \frac{1}{\abs{df(X)}_{g_2} \abs{df(Y)}_{g_2}} g_2(df(X), df(Y)) \\
+  &= \frac{1}{\abs{X}_{g_1} \abs{Y}_{g_1}} g_1(X, Y) = \theta(X, Y).
+  \end{align*}
+  \pause
+- For a curve \(\gamma : [a, b] \to S_1\) we have
+  \[
+  L[f \circ \gamma] = \int_a^b \abs{(f \circ \gamma)'}_{g_2} dt = \int_a^b \abs{(df \circ \gamma'}_{g_2} dt = \int_a^b \abs{\gamma'}_{g_1} dt = L[\gamma].
+  \]
+  \pause
+- For a region \(R = \varphi_1 (U) \subset S_1\):
+  \[
+  \text{Area}_{g_2} (f(R)) = \int_{U} \sqrt{\det g_2} du dv = \int_U \sqrt{\det g_1} du dv = \text{Area}_{g_1} (R).
+  \]
+**** Notes							   :noexport:
 - Ref: 2.4, 4.2
 - Definition of isometry
 - Examples
