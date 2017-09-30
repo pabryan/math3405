@@ -2257,7 +2257,7 @@ For example, to show that for an arbitrary \(p\), \(H(p) = 0\) choose \(h = \rho
 *** Lecture 10.2: Riemannian Manifolds
 **** Smooth Manifolds: Intrinsic Surfaces
 #+BEGIN_definition
-A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that \pause
+A set \(M\) is a (two-dimensional) /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that \pause
 1. each \(\varphi_{\alpha}\) is a one-to-one and onto an open set \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) \subseteq \RR^2\), \pause
 2. the transition maps
    \[
@@ -2277,7 +2277,6 @@ A set \(M\) is a /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M
 #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
 [[file:img/manifold_charts.png]]
 #+END_center
-
 
 **** Regular Surfaces are Manifolds
 
