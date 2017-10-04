@@ -2473,6 +2473,7 @@ X_u(x) = [\varphi^{-1}(\varphi(x) + (t, 0))], \quad X_v(x) = [\varphi^{-1}(\varp
 - Thus \(X_u(x) = [\gamma_u]\) is a tangent vector at \(x\). \pause
 - We think of \(X_u\) as \(\gamma_u'(0)\) (though strictly speaking, the derivative only makes sense in the chart).
 
+*** Lecture 10.3: Isometries and Intrinsic Geometry
 **** Riemannian Metrics
 
 #+BEGIN_latex
@@ -2523,7 +2524,7 @@ L[\gamma] = \int_a^b |\gamma'(t) | dt \quad \text{arc-length of a curve}
 \[
 A(R) = \int_R \sqrt{\det g} du dv \quad \text{area of a bounded region}
 \]
-*** Lecture 10.3: Isometries and Intrinsic Geometry
+
 **** Isometries
 
 - Let \((S_1, g_1)\) and \((S_2, g_2)\) be two-dimensional Riemannian manifolds. \pause
@@ -2816,9 +2817,29 @@ a. Suppose there is a plane $P$ intersecting $S$ at $x_0$ such that in an open n
 
    /Hint/: In a local parametrisation $\phi: U \to V$, the function $f(u,v) = \ip{\phi(u,v)-x_0}{\nor}$ has a local minimum at $(u_0, v_0) = \phi^{-1}(x_0)$.  Hence the first derivative test implies that $\pd{u} f = \pd{v} f = 0$. Now what are the coordinate tangent vectors at $(u_0,v_0)$?
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   We have
+   \[
+   0 = \partial_u f = \ip{\phi_u}{\nor} \text{ and } 0 = \partial_v f = \ip{\phi_v}{\nor}.
+   \]
+   \hfill\textbf{[3]}
+
+   Therefore \(\phi_u, \phi_v \in P\). But \(\phi_u, \phi_v\) span \(T_{x_0} S\), and hence \(T_{x_0} S = P\).    \hfill\textbf{[2]}
+   #+END_tcolorbox
+
 b. Using the definition of closed surface above, show that for any unit vector $\nor\in \RR^3$, there exists a plane $P$ with unit normal vector $\nor$ such that $P \cap S = \emptyset$. \label{itm:GM_b}
 
    \hfill\textbf{[3]}
+
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   We can take for example the tangent plane to \(\sphere^2(R) = \partial B_R(0)\) at the point \(R\nor \in \sphere^2(R)\).
+
+   \hfill\textbf{[3]}
+   #+END_tcolorbox
 
 c. Let \(P\) be the plane from part \ref{itm:GM_b}. Consider the map
    \[
@@ -2830,13 +2851,55 @@ c. Let \(P\) be the plane from part \ref{itm:GM_b}. Consider the map
 
    \hfill\textbf{[5]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   We have \(P(0) \intersect S = \emptyset\) and \(\RR^3 = \union_{t \in \RR} P(t)\) so that \(\{t : P(t) \intersect S \neq \emptyset\} \neq \emptyset\). \hfill\textbf{[1]}
+
+
+   Probably the idea is to look at the function
+   \[
+   f(x, t) = \ip{x - x_0(t)}{\nor}
+   \]
+   for \(x \in S\) and \(x_0(t) = Z_0 + t n \in P(t)\) for any fixed \(Z_0 \in P\).
+
+   Then since \(S \cap P(0) = \emptyset\), either \(f(x, 0) < 0\) or \(f(x, 0) > 0\). Without loss of generality, assume \(f(x, 0) > 0\) (the proof is basically the same if \(f(x, 0) < 0\) or may be obtained by changing the normal \(\nor \mapsto -\nor\) which won't mess up the rest of the proof since any unit vector in \(\R^3\) may be written \(-\nor\) for some (in fact unique) unit vector in \(\RR^3\)).
+
+   Without loss of generality, assume that \(P(t) \intersect S \neq \emptyset\) for some \(t > 0\). Let \(t_0 = \inf\{t > 0 : P(t) \neq \emptyset\}\). Then \(t_0\) will be our desired \(t\) provided the set \(X = \{t: P(t) = \emptyset\}\) is open: in that case \(t_0 \notin X\) because otherwise we would have \((t - \epsilon, t + \epsilon) \subseteq X\) contradicting the definition of the infimum. Also by definition of the infimum, \(P(t) \cap S = \emptyset
+
+   To get openness, 
+
+   \hfill\textbf{[3]}
+   #+END_tcolorbox
+
+
 d. Using part \ref{itm:GM_a} conclude that the plane from part \ref{itm:GM_c}. is the tangent plane at \(x_0\) and hence \(N(x_0) = \nor\), and hence the Gauss map is surjective. \label{itm:GM_d}
 
    \hfill\textbf{[3]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   The plane from part \ref{itm:GM_c} satisfies the requirements of part \ref{itm:GM_a} hence is the tangent plane. \hfill\textbf{[1]}
+
+   But then the unit normal to \(S\) at \(x_0\) is by definition the normal to the tangent plane which equals the plane from part \ref{itm:GM_c}. Thus the unit normal at \(x_0\) is the normal to the plane. That is, for any \(\nor\), there exists an \(x_0\) such that \(N(x_0) = \nor\) as required.
+
+   \hfill\textbf{[2]}
+   #+END_tcolorbox
+
+
 e. Prove that the Gauss curvature $\gausscurv \geq 0$ at the point of intersection \(x_0\) of $P$ with $S$ from part \ref{itm:GM_a}. /Hint/: Show it's not a hyperbolic point. \label{itm:GM_e}
 
    \hfill\textbf{[4]}
+
+
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   By construction the surface \(S\) lies on one side of the tangent plane \(T_{x_0} S\). \hfill\textbf{[2]}
+
+   If \(K < 0\), we have a hyperbolic point, but at such points \(S\) does not lie on one side of \(T_{x_0} S\). Thus \(K \geq 0\). \hfill\textbf{[2]}
+   #+END_tcolorbox
 
 **** Surfaces of Revolution
 \label{q:surf_rev}
@@ -2858,6 +2921,30 @@ a. Show that the matrix representation of $g$ in these coordinates is
 
    \hfill\textbf{[4]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   We have
+   \[
+   x_z = (f'(z) \cos\theta, f'(z) \sin\theta, 1), \quad x_{\theta} = (-f(z) \sin\theta, f(z) \cos\theta, 0).
+   \]
+   \hfill\textbf{[1]}
+
+   Then we just compute
+   \[
+   g_{zz} = \ip{x_z}{x_z} = (f')^2 \cos^2\theta + (f')^2 \sin^2 \theta + 1 = 1 + (f')^2
+   \]
+   \hfill\textbf{[1]}
+   \[
+   g_{z\theta} = \ip{x_z}{x_{\theta}} = -ff' \cos\theta \sin\theta + ff' \sin\theta\cos\theta = 0.
+   \]
+   \hfill\textbf{[1]}
+   \[
+   g_{\theta\theta} = \ip{x_{\theta}}{x_{\theta}} = f^2 \sin^2\theta + f^2 \cos^2\theta = f^2
+   \]
+   \hfill\textbf{[1]}
+   #+END_tcolorbox
+
 b. Show that the matrix representation and $A$ in these coordinates is
    \[
    A = \pm \frac{1}{\sqrt{1 + (f')^2}} \begin{pmatrix}
@@ -2876,6 +2963,44 @@ b. Show that the matrix representation and $A$ in these coordinates is
 
    \hfill\textbf{[4]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   We have
+   \[
+   N = \pm \frac{1}{\sqrt{1 + (f')^2}} (-\cos\theta, -\sin\theta, f')
+   \]
+   \hfill\textbf{[1]}
+
+   Then
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   N_z &= \pm \left[\frac{f'f''}{(1 + (f')^2)^{3/2}} (\cos\theta, \sin\theta, -f') \right. \\
+   &\quad + \left.\frac{1}{\sqrt{1 + (f')^2}} (0, 0, f'')\right] \\
+   &= \pm \frac{f''}{\sqrt{1 + (f')^2}} x_z
+   \end{split}
+   \]
+   #+END_latex
+   \[
+   N_{\theta} = \pm \frac{1}{\sqrt{1 + (f')^2}} (-\sin\theta, \cos\theta, 0) = \mp \frac{1}{\sqrt{1 + (f')^2}} \frac{1}{f} x_{\theta}
+   \]
+   \hfill\textbf{[1.5]}
+
+   \[
+   A(x_z, x_z) = -g(N_z, x_z) = \pm \frac{-f''}{(1 + (f')^2)^{3/2}} g_{zz} = \pm \frac{-f''}{\sqrt{1 + (f')^2}}
+   \]
+   \[
+   A(x_z, x_{\theta}) = -g(N_{\theta}, x_z) = \mp \frac{1}{\sqrt{1 + (f')^2}} \frac{1}{f} x_{\theta} g_{z\theta} = 0.
+   \]
+   \[
+   A(x_{\theta}, x_{\theta}) = -g(N_{\theta}, x_{\theta}) = \pm \frac{1}{\sqrt{1 + (f')^2}} \frac{1}{f} x_{\theta}g_{\theta\theta} = \pm \frac{f}{\sqrt{1 + (f')^2}}.
+   \]
+
+   \hfill\textbf{[1.5]}
+   #+END_tcolorbox
+
+
 c. Show that $(1,0)$ and $(0,1)$ are eigenvectors of $dN$ and show that the corresponding eigenvalues are
    \[
    k_1 = \tfrac{f''}{(1+(f')^2)^{3/2}}, \quad k_2 = \tfrac{-1}{f\sqrt{1+(f')^2}}.
@@ -2883,19 +3008,60 @@ c. Show that $(1,0)$ and $(0,1)$ are eigenvectors of $dN$ and show that the corr
 
    \hfill\textbf{[2]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   The matrix \(dN\) is diagonal so the eigenvalues are precisely the diagonal entries of \(dN\).
+   \hfill\textbf{[2]}
+   #+END_tcolorbox
+
 d. Calculate $H,K$.
 
    \hfill\textbf{[4]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   \[
+   H = \frac{1}{2} (\kappa_1 + \kappa_2) = \frac{1}{2}\left(\tfrac{f''}{(1+(f')^2)^{3/2}} + \tfrac{-1}{f\sqrt{1+(f')^2}}\right) = \frac{ff'' - (f')^2 - 1}{2f(1 + (f')^2)^{3/2}}
+   \]
+
+   \hfill\textbf{[2]}
+
+   \[
+   K = \kappa_1 \kappa_2) = \tfrac{f''}{(1+(f')^2)^{3/2}} \tfrac{-1}{f\sqrt{1+(f')^2}} = \tfrac{-f''}{f(1+(f')^2)^2}.
+   \]
+
+   \hfill\textbf{[2]}
+
+   #+END_tcolorbox
+
+
 e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
 
    \hfill\textbf{[2]}
+
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   From the formula for \(K\), \(K \equiv 0\) if and only if \(f'' = 0\) if and only if \(f(z) = a z + b\).
+   \hfill\textbf{[2]}
+   #+END_tcolorbox
 
 **** Constant Curvature Spaces
 
 1. Let \(P \subset \RR^3\) be a plane. Show that \(dN \equiv 0\) and conclude that \(K \equiv 0\).
 
    \hfill\textbf{[2]}
+
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   A plane always has \(N(x) \equiv N_0\) is constant, hence \(dN \equiv 0\) hence \(K = \det 0 = 0\).
+
+   \hfill\textbf{[2]}
+   #+END_tcolorbox
+
 
 2. The sphere is the surface of revolution given by
    \[
@@ -2905,6 +3071,38 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
 
    \hfill\textbf{[8]}
 
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   \[
+   f'(z) = \frac{-z}{\sqrt{1-z^2}}
+   \]   
+   \hfill\textbf{[1]}
+
+   \[
+   f''(z) = \frac{-1}{\sqrt{(1-z^2}} - \frac{z^2}{(1-z^2)^{3/2}} = \frac{-1}{(1-z^2)^{3/2}}
+   \]
+   \hfill\textbf{[1]}
+
+   The formula for \(K\) is:
+   \[
+   K = \tfrac{-f''}{f(1+(f')^2)^2}.
+   \]
+   \hfill\textbf{[2]}
+
+   \[
+   f(1 + (f')^2)^2 = \sqrt{1-z^2} \frac{1}{(1-z^2)^2} = \frac{1}{(1-z^2)^{3/2}}.
+   \]
+   \hfill\textbf{[2]}
+
+   \[
+   K = \frac{-f''}{f(1+(f')^2)^2} = \frac{1}{(1-z^2)^{3/2}} (1-z^2)^{3/2} = 1.
+   \]
+
+   \hfill\textbf{[2]}
+   #+END_tcolorbox
+
+
 3. The psuedo-sphere is more easily expressed as the surface of revolution given by
    \[
    \varphi(z, \theta) = (\sech (z) \cos(\theta), \sech(z) \sin(\theta), z - \tanh(z)), \quad 0 \leq \theta < 2\pi, -\infty < z < \infty
@@ -2912,6 +3110,13 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
    Adapting the formulae from \ref{q:surf_rev}, show that \(K \equiv -1\).
 
    \hfill\textbf{[10]}
+
+   #+BEGIN_tcolorbox
+   *Solution*
+
+   \hfill\textbf{[10]}
+   #+END_tcolorbox
+
 
 *** Assignment 3
 - Due Thursday 26th Oct, Week 13
