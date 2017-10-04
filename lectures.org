@@ -2336,9 +2336,9 @@ x \mapsto a x + b \rightsquigarrow \begin{pmatrix} x \\ 1 \end{pmatrix} \mapsto 
 
 #+BEGIN_latex
 \begin{example}
-Two dimensional real Projective Space, \(\mathbb{RP}^2\) is the set of lines in \(\RR^3\):
+Two dimensional real Projective Space, \(\mathbb{RP}^2\) is the set of lines through the origin in \(\RR^3\):
 \[
-\mathbb{RP}^2 = \{[V] : V \ne 0 \in \mathbb{R}^3, \quad [V] = \{\lambda V : \lambda \ne 0\}\}.
+\mathbb{RP}^2 = \{[V] : V \ne 0 \in \mathbb{R}^3, \quad [V] = \{\lambda V : V \ne 0\}\}.
 \]
 
 \pause
@@ -2350,18 +2350,34 @@ An atlas is given by three charts. The first:
 [V] &\mapsto \left(\frac{V_2}{V_1}, \frac{V_3}{V_1}\right).
 \end{split}
 \]
-This maps bijective with $\RR^2$. Similarly $U_2$ has $V_2 \ne 0$ and $U_3$ has $V_3 \ne 0$.
+This maps bijectively with $\RR^2$. Similarly $U_2$ has $V_2 \ne 0$ and $U_3$ has $V_3 \ne 0$.
+\end{example}
+#+END_latex
 
+**** Example: Projective Space
+
+#+BEGIN_latex
+\begin{example}
+\begin{itemize}
+\item The transition map is defined on \(U_1 \cap U_2 = \{[V] : V_1, V_2 \ne 0\}\). \pause
+\item Then we have
+\[
+\begin{split}
+\varphi_1(U_1 \cap U_2) &= \{\varphi_1([V]) : V_1, V_2 \ne 0\} \\
+&= \left\{\left(\frac{V_2}{V_1}, \frac{V_3}{V_1}\right) : V_1, V_2 \ne 0\right\} \\
+&= \{(x, y) : x \ne 0\}.
+\end{split}
+\]
 \pause
-
-Transition map defined on \(U_1 \cap U_2 = \{[V] : V_1, V_2 \ne 0\}\). \pause
+\item Explicitly
 \[
 \begin{split}
 \tau_{12} : (x, y) \overset{\varphi_1^{-1}}{\mapsto} [(1, x, y)] \overset{\varphi_2}{\mapsto} (1/x, y/x)
 \end{split}
 \]
-\pause is differentiable for \((x, y) \in \varphi_1(U_1 \cap U_2)\) since then \(x \ne 0\).
-
+\pause
+\item \(\tau_{12}\) is differentiable for \((x, y) \in \varphi_1(U_1 \cap U_2)\) since then \(x \ne 0\).
+\end{itemize}
 \end{example}
 #+END_latex
 
