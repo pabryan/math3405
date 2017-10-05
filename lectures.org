@@ -2999,6 +2999,21 @@ with \(\nabla_X Y\) a vector field, and such that for functions \(f, f^1, f^2 : 
 2. Product (Leibniz) rule: \(\nabla_X (f Y) = (\nabla_X f) Y + f \nabla_X Y)\).
 #+END_definition
 
+\pause
+
+- Check directly \(D\) is a covariant derivative on \(\RR^3\). \pause
+- On a regular surface (Product Rule):
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  \nabla_X (f Y) &= D_X (f Y) - \ip{D_X (f Y)}{N} \\
+  &= (D_X f) Y + f D_X Y - \ip{(D_X f) Y + f D_X Y}{N} \\
+  &= f(D_X Y - \ip{D_X Y}{N}) + (D_X f) Y \\
+  &= f \nabla_X Y + (\nabla_X f) Y
+  \end{split}
+  \]
+  #+END_latex
+
 **** Coordinate Vector Fields and Christoffel Symbols
 
 In local coordinates \(\varphi : U \subseteq S\to V \subseteq \RR^2\),
