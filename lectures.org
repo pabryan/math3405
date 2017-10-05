@@ -2742,6 +2742,275 @@ Let \(f : (S_1, g_1) \to (S_2, g_2)\) be an isometry. \pause
   - metrics agree in common param = locally isometric
 ** MATH3405 Differential Geometry: Week 11
 *** Lecture 11.1: Vector Fields and Covariant Derivatives
+**** Vector Fields
+
+#+BEGIN_definition
+A /vector field/ on a regular surface is a smooth function \(X : S \to \RR^3\) such that \(X(x) \in T_x S\) for each \(x \in S\).
+#+END_definition
+
+\pause
+
+- For a manifold \(M\), we take \(X(x) \in T_x M\) for each \(x\) and smoothness can be defined as follows: \pause
+
+  In local coordinates (i.e. in a chart \(U\)), we may uniquely write:
+  \[
+  X(x) = X^u(x) e_u(x) + X^v(x) e_v(x)
+  \]
+  where \(e_u, e_v\) are the coordinate vector fields. \pause
+
+  Then \(X\) is smooth if the functions \(X^u, X^v : U \to \RR\) are smooth.
+
+**** Some Examples
+
+#+BEGIN_latex
+\begin{example}[On the cylinder]
+\[
+X(x, y, z) = (-y, x, 0), \quad X(z, \theta) = (-\sin \theta, \cos \theta, 0)
+\]
+\end{example}
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{example}[On the sphere]
+\[
+X(x, y, z) = (1, 0, 0) - \ip{(1, 0, 0)}{(x, y, z)} (x, y, z) = (1-x^2, -xy, -xz)
+\]
+\end{example}
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{example}[On a graph, \(S = \{(u, v, f(u, v))\}\)]
+\[
+X(u, v) = (1, 0, f_u(u, v)), \quad X(u, v) = (0, 1, f_v(u, v))
+\]
+\end{example}
+#+END_latex
+
+**** Directional Derivative
+
+- Let \(X, Y : \RR^3 \to \RR^3\) be vector fields, which we may write uniquely as
+  \[
+  X(u) = X^x(u) e_x + X^y(u) e_y + X^y(u) e_y, \quad u = (x, y, z) \in \RR^3.
+  \]
+  and similarly for \(Y\).
+
+\pause
+
+#+BEGIN_definition
+The directional derivative, \(D_X Y\) is the vector field,
+#+BEGIN_latex
+\[
+\begin{split}
+(D_X Y) (u) = &\Big[X^x(u) \partial_x Y^x(u) + X^y(u) \partial_y Y^x(u) + X^z(u) \partial_z Y^x(u)\Big] e_x \\
++ &\Big[X^x(u) \partial_x Y^y(u) + X^y(u) \partial_y Y^y(u) + X^z(u) \partial_z Y^y(u)\Big] e_y \\
++ &\Big[X^x(u) \partial_x Y^z(u) + X^y(u) \partial_y Y^z(u) + X^z(u) \partial_z Y^z(u)\Big] e_z
+\end{split}
+\]
+#+END_latex
+#+END_definition
+
+\pause
+
+- That is, we just differentiate the components: \(D_X Y = (D_X Y^x) e_x + (D_X Y^y) e_y + (D_X Y^z) e_z\).
+
+**** Directional Derivative
+
+- We may also interpret the directional derivative as
+  \[
+  D_X Y = \partial_t|_{t=0} Y(\gamma(t))
+  \]
+  where \(\gamma'(0) = X\). \pause
+- Partial Derivatives
+  \[
+  \partial_x f (u) = \partial_t|_{t=0} f(u + t e_x) = D_{e_x} f,
+  \]
+  \pause
+  and
+  \[
+  \partial_x Y = D_{e_x} Y = \partial_x Y^x e_x + \partial_x Y^y e_y + \partial_x Y^x e_z.
+  \]
+  \pause
+
+- We may think of directional derivatives as an operator on smooth functions and vector fields:
+  \[
+  D_X : f \mapsto D_X f, \quad D_X : Y \mapsto D_X Y
+  \]
+
+**** Notation for Vector Fields
+
+- Since \(\partial_x f = D_{e_x} f\), we write
+  \[
+  e_x = \partial_x, e_y = \partial_y, e_z = \partial_z.
+  \]
+  and
+  \[
+  X = X^x \partial_x + X^y \partial_y + X^z \partial_z
+  \]
+  \pause
+  Then
+  \[
+  D_X Y = \sum_{i,j=1}^3 X^i (\partial_i Y^j) \partial_j
+  \]
+  where \(x_1 = x, x_2 = y, x_3 = z\) and \(\partial_i = \partial_{x_i}\).
+  \pause
+- Einstein Summation Notation (because writing \(\sum\) is too much effort!):
+  \[
+  D_X Y = X^i \partial_i Y^j \partial_j
+  \]
+  and anytime there is an upper index repeated as a lower index, there is an implies sum:\pause For example
+  \[
+  X^i \partial_i = \sum_{i=1}^3 X^i \partial_i = X^1 \partial_1 + X^2 \partial_2 + X^3 \partial_3.
+  \]
+
+**** First Attempt at Directional Derivative on a Regular Surface
+
+#+BEGIN_latex
+\begin{definition}[First Attempt]
+Let \(S\) be a regular surface, with \(X, Y : S \to \RR^3\) tangent vector fields. Define
+\[
+\nabla_X Y = D_X Y.
+\]
+\end{definition}
+#+END_latex
+
+\pause
+
+#+BEGIN_latex
+\begin{example}[On the Sphere]
+Let \(X = (1 - x^2, -xy, -xz)\). \pause Then
+\[
+\begin{split}
+D_X X &= \Big[(1-x^2) \partial_x - xy \partial_y -xz \partial_z\Big] \Big[(1-x^2) \partial_x - xy \partial_y -xz \partial_z\Big] \\
+&= \Big[(1-x^2)(-2x)\Big]\partial_x + \Big[(1-x^2) (-y) - xy(-x)\Big]\partial_y \\
+&\quad  + \Big[(1-x^2)(-z) - xz(-x)\Big] \partial_z \\
+&= (2x^3 - 2x) \partial_x + (2x^2y - y) \partial_y + (2x^2z - z) \partial_z.
+\end{split}
+\]
+\end{example}
+#+END_latex
+
+**** First Attempt at Directional Derivative on a Regular Surface
+
+#+BEGIN_latex
+\begin{example}[On the Sphere (continued)]
+\begin{itemize}
+\item We have \(D_X X = (2x^3 - 2x) \partial_x + (2x^2y - y) \partial_y + (2x^2z - z) \partial_z.\) \pause
+\item Recall \(N(u) = (x, y, z) = x\partial_x + y \partial_y + z\partial_z\) \pause
+\item But
+\[
+\begin{split}
+\ip{D_X X}{N} &= \Big\langle(2x^3 - 2x) \partial_x + (2x^2y - y) \partial_y + (2x^2z - z) \partial_z, \\
+&\quad x \partial_x + y \partial_y + z \partial_z\Big\rangle \\
+&= x(2x^3 - 2x) + y(2x^2y - y) + z(2x^2 z - z) \\
+&= 2x^2(x^2 + y^2 + z^2) - x^2 - (x^2 + y^2 + z^2) \\
+&= x^2 - 1.
+\end{split}
+\]
+\pause
+\item Therefore \(\ip{D_X X (u)}{N(u)} = x^2 - 1 \not\equiv 0\) and hence \(D_X X\) is not tangent in general.
+\end{itemize}
+\end{example}
+#+END_latex
+
+**** Covariant Derivative
+
+#+BEGIN_definition
+The covariant derivative \(\nabla_X Y\) is defined by
+\[
+\nabla_X Y = D_X Y - \ip{D_X Y}{N}N
+\]
+#+END_definition
+\pause
+
+That is,
+\[
+\nabla_X Y = \pi_{TS} (D_X Y)
+\]
+is the projection of \(D_X Y\) onto the tangent space! \pause
+
+Explicitly, we can see \(\nabla_X Y\) is tangential:
+\[
+\ip{\nabla_X Y}{N} = \ip{D_X Y - \ip{D_X Y}{N}N}{N} = \ip{D_X Y}{N} - \ip{D_X Y}{N} \ip{N}{N} = 0
+\]
+since the normal is unit length: \(\ip{N}{N} = 1\).
+
+**** Covariant Derivative on the Sphere
+
+On the sphere, we simply have
+\[
+\nabla_X Y (u) = D_X Y (u) - \ip{D_X Y(u)}{u}.
+\]
+\pause
+
+#+BEGIN_latex
+\begin{example}[On the Sphere (revisited)]
+For \(X = (1 - x^2, -xy, -xz)\) we have
+\[
+D_X X = (2x^3 - 2x) \partial_x + (2x^2y - y) \partial_y + (2x^2z - z) \partial_z.
+\]
+and
+\[
+\ip{D_X X}{N} = x^2 - 1.
+\]
+\end{example}
+#+END_latex
+
+**** Covariant Derivative on the Sphere
+
+#+BEGIN_latex
+\begin{example}[On the Sphere (revisited)]
+
+Thus
+\[
+\begin{split}
+\nabla_X X &= (2x^3 - 2x) \partial_x + (2x^2y - y) \partial_y + (2x^2z - z) \partial_z \\
+&\quad - (x^2 - 1)\big[x \partial_x + y \partial_y + z \partial_z\big] \\
+&= \hphantom{+} \big[(2x^3 - 2x) - x(x^2 - 1)\big] \partial_x \\
+&\hphantom{=} + \big[(2x^2y - y) - y(x^2 - 1) \big]\partial_y \\
+&\hphantom{=} + \big[(2x^2z - z) - z(x^2-1)\big]\partial_z \\
+&= (x^3 - x) \partial_x  + x^2y \partial_y  + x^2 z\partial_z \\
+\end{split}
+\]
+\pause
+Check:
+\[
+\begin{split}
+\ip{\nabla_X Y}{N} &= \ip{(x^3 - x) \partial_x  + x^2y \partial_y  + x^2 z\partial_z}{x \partial_x + y \partial_y + z\partial_z} \\
+&= x^4 - x^2 + x^2 y^2 + x^2z^2 \\
+&= x^2(x^2 + y^2 + z^2 - 1) = 0.
+\end{split}
+\]
+\end{example}
+#+END_latex
+
+**** Covariant Derivatives on Manifolds
+
+#+BEGIN_definition
+A /covariant derivative/ is a map
+\[
+(X, Y) \mapsto \nabla_X Y
+\]
+with \(\nabla_X Y\) a vector field, and such that for functions \(f, f^1, f^2 : M \to \RR\),
+1. Linearity in \(X\): \(\nabla_{f^1 X_1 + f^2 X_2} Y = f^1 \nabla_{X^1} Y + f^2 \nabla-{X^2} Y\).
+2. Product (Leibniz) rule: \(\nabla_X (f Y) = (\nabla_X f) Y + f \nabla_X Y)\).
+#+END_definition
+
+**** Coordinate Vector Fields and Christoffel Symbols
+
+In local coordinates \(\varphi : U \subseteq S\to V \subseteq \RR^2\),
+\[
+X = X^u \partial_u + X^v \partial_v, \quad Y = Y^u \partial_u + Y^v \partial_v.
+\]
+\pause
+
+Let \(Z = \nabla_X Y\). We want to work out \(Z^u, Z^v\) in terms of \(X^u, X^v, Y^u, Y^v\).
+
+**** Fundamental Theorem: Metric Compatability
+**** Notes							   :noexport:
 - Ref: 3.4, 4.4
 - We have the Euclidean derivative
 - Show by example (even on the sphere or cylinder) that \(D_X Y\) need not be tangent
