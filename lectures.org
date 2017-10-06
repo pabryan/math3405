@@ -2996,20 +2996,20 @@ A /covariant derivative/ is a map
 \]
 with \(\nabla_X Y\) a vector field, and such that for functions \(f, f^1, f^2 : M \to \RR\),
 1. Linearity in \(X\): \(\nabla_{f^1 X_1 + f^2 X_2} Y = f^1 \nabla_{X^1} Y + f^2 \nabla-{X^2} Y\).
-2. Product (Leibniz) rule: \(\nabla_X (f Y) = (\nabla_X f) Y + f \nabla_X Y)\).
+2. Product (Leibniz) rule: \(\nabla_X (f Y) = df(X) Y + f \nabla_X Y\).
 #+END_definition
 
 \pause
 
 - Check directly \(D\) is a covariant derivative on \(\RR^3\). \pause
-- On a regular surface (Product Rule):
+- On a regular surface (Product Rule. You should check linearity in \(X\)!):
   #+BEGIN_latex
   \[
   \begin{split}
-  \nabla_X (f Y) &= D_X (f Y) - \ip{D_X (f Y)}{N} \\
-  &= (D_X f) Y + f D_X Y - \ip{(D_X f) Y + f D_X Y}{N} \\
-  &= f(D_X Y - \ip{D_X Y}{N}) + (D_X f) Y \\
-  &= f \nabla_X Y + (\nabla_X f) Y
+  \nabla_X (f Y) &= D_X (f Y) - \ip{D_X (f Y)}{N}N \\
+  &= df(X) Y + f D_X Y - \ip{df(X)Y + f D_X Y}{N}N \\
+  &= f(D_X Y - \ip{D_X Y}{N}N) + df(X) Y \\
+  &= f \nabla_X Y + df(X) Y.
   \end{split}
   \]
   #+END_latex
@@ -3021,11 +3021,74 @@ In local coordinates \(\varphi : U \subseteq S\to V \subseteq \RR^2\),
 X = X^u \partial_u + X^v \partial_v, \quad Y = Y^u \partial_u + Y^v \partial_v.
 \]
 \pause
+Let \(Z = \nabla_X Y\). We want to work out \(Z^u, Z^v\) in terms of \(X^u, X^v, Y^u, Y^v\). \pause
+Linearity:
+\[
+\nabla_X Y = X^u \nabla_{\partial_u} \left(Y^u \partial_u\right) + X^u \nabla_{\partial_u}\left(Y^v \partial_v\right) + X^v \nabla_{\partial_v} \left(Y^u \partial_u\right) + X^v \nabla_{\partial_v} \left(Y^v \partial_v\right)
+\]
+\pause Product rule:
+\[
+\nabla_{\partial_u} \left(Y^u \partial_u\right) = (\nabla_u Y^u) \partial_u + Y^u \nabla_u \partial_u
+\]
+\pause Christoffel Symbols. Write \(\nabla_u \partial_u\) in terms of \(\partial_u, \partial_v\):
+\[
+\nabla_u \partial_u = \Gamma^u_{uu} \partial_u + \Gamma^v_{uu} \partial_v.
+\]
 
-Let \(Z = \nabla_X Y\). We want to work out \(Z^u, Z^v\) in terms of \(X^u, X^v, Y^u, Y^v\).
+**** Example: Polar Coordinates
 
-**** Fundamental Theorem: Metric Compatability
-**** Notes							   :noexport:
+Choose local coordinates \((r, \theta)\) for the plane:
+\[
+\phi(r, \theta) = (r \cos \theta, r \sin \theta), \quad \phi^{-1} (x, y) = (\sqrt{x^2 + y^2}, \arctan(y/x)).
+\]
+\pause
+\begin{align*}
+\partial_r &= \cos\theta \partial_x + \sin\theta \partial_y & \partial_x &= \frac{x}{\sqrt{x^2 + y^2}} \partial_r - \frac{y}{x^2 + y^2} \partial_{\theta} \\
+\partial_{\theta} &= -r\sin\theta \partial_x + r\cos\theta \partial_y & \partial_y &= \frac{y}{\sqrt{x^2 + y^2}} \partial_r + \frac{x}{x^2 + y^2} \partial_{\theta}
+\end{align*}
+
+\pause
+#+BEGIN_latex
+\[
+\begin{split}
+D_{\partial_r} \partial_r &= D_{\cos\theta \partial_x + \sin\theta \partial_y} \cos\theta \partial_x + \sin\theta \partial_y \\
+&= \Big[(\cos\theta \partial_x + \sin\theta \partial_y) \cos\theta\Big] \partial_x + \Big[(\cos\theta \partial_x + \sin\theta \partial_y) \sin\theta\Big] \partial_y \\
+&= \Big[\partial_r \cos \theta\Big]\partial_x + \Big[\partial_r \sin \theta\Big]\partial_y = 0.
+\end{split}
+\]
+#+END_latex
+\pause
+Therefore
+\[
+\Gamma^r_{rr} = \Gamma^{\theta}_{rr} = 0.
+\]
+
+**** Example: Polar Coordinates
+
+#+BEGIN_latex
+\[
+\begin{split}
+D_{\partial_{\theta}} \partial_{\theta} &= D_{\partial_{\theta}} \Big[-r\sin\theta \partial_x + r\cos\theta \partial_y\Big] \\
+&= -\Big[\partial_{\theta} r\sin\theta\Big] \partial_x + \Big[\partial_{\theta} r\cos\theta\Big] \partial_y \\
+&= -r\cos\theta \partial_x - r \sin\theta \partial_y \\
+&= -r \partial_r.
+\end{split}
+\]
+#+END_latex
+\pause
+Therefore
+\[
+\Gamma^r_{\theta\theta} = -r \quad \Gamma^{\theta}_{\theta\theta} = 0.
+\]
+\pause
+
+*Exercise*: Calculate
+\begin{align*}
+D_{\partial_r} \partial_{\theta} &= \Gamma^r_{r\theta} \partial_{r} + \Gamma^{\theta}_{r\theta} \partial_{\theta} \\
+D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^{\theta}_{\theta r} \partial_{\theta}
+\end{align*}
+
+**** Notes 							   :noexport:
 - Ref: 3.4, 4.4
 - We have the Euclidean derivative
 - Show by example (even on the sphere or cylinder) that \(D_X Y\) need not be tangent
