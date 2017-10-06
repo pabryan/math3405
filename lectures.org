@@ -3095,9 +3095,15 @@ D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^
 - Example with local coordinate vector fields
 - Invariance under isometry
 *** Lecture 11.2: Parallel Transport and Geodesics
-- Ref: 4.4
+
+**** Parallel Transport
+**** Geodesics
+**** Geodesics of the Sphere
+**** Metric Compatibility
 
 *** Lecture 11.3: Curvature Tensor
+- Vector fields as derivations
+  - simple example on \(\RR^n\)
 - Lie bracket: \([X, Y] = \nabla_X Y - \nabla_Y X\)
   - Show actually \([X, Y] = D_X Y - D_Y X\) from symmetry of \(A\)
   - examples (particularly on \(\RR^3\)) of vector fields that don't commute: e.g. \(X = \partial_x\), \(Y = x \partial_y)
@@ -3106,10 +3112,10 @@ D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^
   - examples of where we have to take into account the change in the argument: \(D_X (T(Y)) = (D_X T)(Y) + T(D_X Y)\). Show by example, that we with different \(Y\)'s we get different \(D_X (T(Y))\), so to compute \(D_X T\) we need to subtract off the component \(D_X Y\) corresponding to the change in \(Y\)
 - Curvature Tensor
 - Ricci identity
-- Invariance under isometry
 ** MATH3405 Differential Geometry: Week 12
 *** Lecture 12.1: Theorema Egregium
 - Ref: 3.3, 4.3
+- Invariance of curvature under isometry
 - Gauss equation
 - Proof by Curvature tensor and Gauss Equation
   - https://faculty.etsu.edu/gardnerr/5310/5310pdf/dg1-8.pdf sectional curvature of a two plane is exactly the Gauss curvature!
