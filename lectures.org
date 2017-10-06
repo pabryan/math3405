@@ -3095,7 +3095,65 @@ D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^
 - Example with local coordinate vector fields
 - Invariance under isometry
 *** Lecture 11.2: Parallel Transport and Geodesics
+**** Dependence of \(\nabla\) along curves
 
+- Let \(\gamma(t) \in S\) be a smooth curve and \(Y\) a smooth vector field. \pause
+- Then \(Y \circ \gamma (t)\) is a vector field /along \(\gamma\)/. \pause
+- Define \(\frac{D^{\gamma}}{dt} Y = \nabla_{\gamma'(t)} Y(\gamma(t))\) \pause
+- When \(\gamma\) is clear from context, we just write \(\frac{D}{dt}\). \pause
+- Write
+  \[
+  Y(\gamma(t)) = Y^u(t) e_u(\gamma(t)) + Y^v e_v(\gamma(t))
+  \]
+  \pause
+- Then
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  \frac{D}{dt} Y &= \left(\partial_t Y^u(\gamma(t))\right) e_u + \left(\partial_t Y^v(\gamma(t))\right) e_v \\
+  &\quad + Y^u(\gamma(t)) \nabla_{\gamma'(t)} e_u + Y^v(\gamma(t)) \nabla_{\gamma'(t)} e_v
+  \end{split}
+  \]
+  #+END_latex
+
+**** Dependence of \(\nabla\) along curves
+
+- We have
+  \[
+  \frac{D}{dt} Y = (Y^u \circ \gamma)' e_u + (Y^v \circ \gamma)' e_v + Y^u \nabla_{\gamma'} e_u + Y^v \nabla_{\gamma'} e_v.
+  \]
+  \pause
+- In particular, writing \(\gamma' = \gamma^u e_u + \gamma^v e_v\): \pause
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  \nabla_{\gamma'} e_u &= \gamma^u \nabla_{e_u} e_u + \gamma^v \nabla_{e_v} e_u \\
+  &= \gamma^u \Gamma^u_{uu} e_u + \gamma^u \Gamma^v_{uu} e_v + \gamma^v \Gamma^u_{vu} e_u + \gamma^v \Gamma^v_{vu} e_v \\
+  &= \left(\gamma^u \Gamma^u_{uu} + \gamma^v \Gamma^u_{vu}\right) e_u + \left(\gamma^u \Gamma^v_{uu} + \gamma^v \Gamma^v_{vu}\right) e_v.
+  \end{split}
+  \]
+  #+END_latex
+  \pause
+  For \(i,j, k \in \{u,v\}\) we have:
+  \[
+  \gamma^i = \gamma^i(t), \quad \Gamma^i_{jk} = \Gamma^i_{jk} (\gamma(t)), \quad e_i = e_i(\gamma(t))
+  \]
+  and \(e_i, \Gamma^i_{jk}\) locally defined independently of \(\gamma\).
+
+**** Dependence of \(\nabla\) along curves
+
+- Then \(\frac{D}{dt} Y\) depends on
+  \[
+  Y^i(\gamma(t)), \quad (Y^i \circ \gamma)'(t), \quad \Gamma^{ij}_k (\gamma(t)), \quad e_i(\gamma(t)), \quad i = u,v.
+  \]
+  \pause
+  That is, if two vector fields, \(Y, Z\) agree along \(\gamma\): \(Y\circ \gamma = Z \circ \gamma\), we have \(\frac{D}{dt} Y = \frac{D}{dt} Z\).
+- If two curves define the same tangent vector \(X = \gamma'(t_0) = \sigma'(t_0)\), then
+  \[
+  \left.\frac{D^{\gamma}}{dt}\right|_{t=t_0} Y = \left.\frac{D^{\sigma}}{dt}\right|_{t=t_0} Y
+  \]
+  \pause
+  Thus at a point \(t_0\), \(\tfrac{D}{dt} Y\) depends on \(Y\) for points along \(\gamma\) (but not in a whole neighbourhood) and only on \(\gamma'(t_0)\) at the point \(t_0\).
 **** Parallel Transport
 **** Geodesics
 **** Geodesics of the Sphere
