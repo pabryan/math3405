@@ -3209,18 +3209,11 @@ c. Let \(P\) be the plane from part \ref{itm:GM_b}. Consider the map
 
    We have \(P(0) \intersect S = \emptyset\) and \(\RR^3 = \union_{t \in \RR} P(t)\) so that \(\{t : P(t) \intersect S \neq \emptyset\} \neq \emptyset\). \hfill\textbf{[1]}
 
+   Without loss of generality, assume that \(P(t) \intersect S \neq \emptyset\) for some \(t > 0\). Let \(t_0 = \inf\{t > 0 : P(t) \neq \emptyset\}\).
 
-   Probably the idea is to look at the function
-   \[
-   f(x, t) = \ip{x - x_0(t)}{\nor}
-   \]
-   for \(x \in S\) and \(x_0(t) = Z_0 + t n \in P(t)\) for any fixed \(Z_0 \in P\).
+   Then \(t_0\) will be our desired \(t\) provided the set \(X = \{t: P(t) = \emptyset\}\) is open: in that case \(t_0 \notin X\) because otherwise we would have \((t - \epsilon, t + \epsilon) \subseteq X\) contradicting the definition of the infimum. Moreover, by definition of the infimum, \(P(t) \cap S = \emptyset\) for \(0 < t < t_0\). But then \(S\) lies on the side of \(P(t_0)\) with \(t > t_0\).
 
-   Then since \(S \cap P(0) = \emptyset\), either \(f(x, 0) < 0\) or \(f(x, 0) > 0\). Without loss of generality, assume \(f(x, 0) > 0\) (the proof is basically the same if \(f(x, 0) < 0\) or may be obtained by changing the normal \(\nor \mapsto -\nor\) which won't mess up the rest of the proof since any unit vector in \(\R^3\) may be written \(-\nor\) for some (in fact unique) unit vector in \(\RR^3\)).
-
-   Without loss of generality, assume that \(P(t) \intersect S \neq \emptyset\) for some \(t > 0\). Let \(t_0 = \inf\{t > 0 : P(t) \neq \emptyset\}\). Then \(t_0\) will be our desired \(t\) provided the set \(X = \{t: P(t) = \emptyset\}\) is open: in that case \(t_0 \notin X\) because otherwise we would have \((t - \epsilon, t + \epsilon) \subseteq X\) contradicting the definition of the infimum. Also by definition of the infimum, \(P(t) \cap S = \emptyset
-
-   To get openness, 
+   To get openness, just observe that if \(S \cap P(t_1) = \emptyset\), then \(|x - Z| \geq \epsilon > 0\) for all \(x \in S\) and \(Z \in P(t_1)\) and some \(\epsilon > 0\). Therefore, \(\|x - Z| \geq \epsilon/2\) for all \(x \in S\) and all \(Z \in P(t)\) for \(t \in (t_1 -\delta, t_1 + \delta)\) and some \(\delta > 0\) depending on \(\epsilon\) and \(S\).
 
    \hfill\textbf{[3]}
    #+END_tcolorbox
@@ -3470,8 +3463,7 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
    \hfill\textbf{[10]}
    #+END_tcolorbox
 
-
-*** Assignment 3
+*** MATH3405 Assignment 4
 - Due Thursday 26th Oct, Week 13
 - Topics Weeks 10-13
   - Isometries
