@@ -3329,6 +3329,276 @@ Locally we see it's non-linear (but solutions still exist and are unique):
 #+END_proof
 
 *** Lecture 11.3: Curvature Tensor
+**** Vector fields as derivations
+
+#+BEGIN_definition
+A vector field \(X\) acts as a /derivation/ on smooth functions \(f\):
+\[
+X(f) (x) = df_x (X(x)).
+\]
+#+END_definition
+\pause
+- That, is \(X(f)\) is the smooth function \(x \mapsto df_x (X(x))\). \pause
+- Product rule:
+  \[
+  X(fg) = fX(g) + gX(f).
+  \]
+  \pause
+
+#+BEGIN_latex
+\begin{example}
+\[
+e_u (f) = \partial_u f, \text{ local partial derivative}.
+\]
+\pause
+\end{example}
+#+END_latex
+
+**** Vector fields as derivations
+
+#+BEGIN_latex
+\begin{example}
+\(X = x \partial_x + y \partial_y = \partial_r\) \pause
+\[
+X(f) = x \partial_x f + y \partial_y f.
+\]
+\pause
+\[
+X(f) = \partial_r \left[f(r \cos\theta, r\sin\theta)\right] = r \cos \theta \partial_x f + r \sin\theta \partial_y f.
+\]
+\end{example}
+#+END_latex
+
+**** Commutator (The Lie Bracket)
+
+#+BEGIN_definition
+The /Lie Bracket/ or /Commutator/ of two vector fields is the derivation,
+\[
+[X, Y] (f) = X(Y(f)) - Y(X(f)).
+\]
+#+END_definition
+
+\pause
+
+- This is at first sight a second order operator - i.e. involving two derivatives of \(f\). \pause
+- But the second derivative terms all cancel (summation convention!):
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  [X, Y] f &= [X^i \partial_i, Y^j \partial_j] f = X^i \partial_i (Y^j \partial_j f) - Y^j \partial_j (X^i \partial_i f) \\
+  &= X^i \partial_i Y^j \partial_j f + X^i Y^j \partial_i \partial_j f - Y^j \partial_j X^i \partial_i f - Y^j X^i \partial_j \partial_i f \\
+  &= X^i \partial_i Y^j \partial_j f - Y^j \partial_j X^i \partial_i f
+  \end{split}
+  \]
+  #+END_latex
+
+**** Commutator (The Lie Bracket)
+
+- Relabel the indices (swap \(i\) and \(j\) in the second sum)
+  \[
+  [X, Y] f = X^i \partial_i Y^j \partial_j f - Y^i \partial_i X^j \partial_j f = (X^i \partial_i Y^j - Y^i \partial_i X^j) \partial_j (f).
+  \]
+  \pause
+  Thus \([X, Y]\) is the vector field with local components,
+  \[
+  Z^j = (X^i \partial_i Y^j - Y^i \partial_i X^j).
+  \]
+  \pause
+
+#+BEGIN_latex
+\begin{example}
+Let \(X = e_i, Y = e_j\) so that
+\[
+[e_i, e_j] f = \partial_i \partial_j f - \partial_j \partial_i f = 0.
+\]
+\pause
+
+Let \(X = y \partial_x, Y = \partial_y\) so that
+\[
+[X, Y] f = y\partial_x \partial_y f - \partial_y (y \partial_x f) = -\partial_x f = -e_x (f).
+\]
+\end{example}
+#+END_latex
+**** Covariant Derivative Again
+
+- Recall that
+  \[
+  \nabla_X f = df(X).
+  \]
+  \pause
+  That is, rather than computing \(\nabla_X f\) anew for each vector field \(X\), we can compute \(df\) first, then simply apply it to \(X\) for each vector field \(X\). \pause
+- In local coordinates,
+  \[
+  df = \begin{pmatrix} f_u & f_v \end{pmatrix}.
+  \]
+  \pause
+- We can do something similar for covariant derivatives: Given \(Y\), define
+  \[
+  (\nabla X) (Y) = \nabla_Y X
+  \]
+  \pause
+- \(\nabla X\) is a linear map, taking a vector field \(Y\) as input, and outputting the new vector field \(\nabla_Y X\).
+
+**** Covariant Derivative Again
+
+#+BEGIN_latex
+\begin{example}
+\begin{itemize}
+\item Consider the "height" function \(h : \sphere^2 \to \RR\).  \(h(x, y, z) = z\). \pause
+\item In polar coordinates: \(h(\theta, \varphi) = \cos\varphi\) and
+\[
+dh = -\sin\varphi d\varphi
+\]
+where
+\[
+d\varphi(\partial_{\theta}) = 0, \quad d\varphi(\partial_{\varphi}) = 1.
+\]
+\pause
+\item Consider how the height varies along the path \(\gamma(t) = (\tfrac{1}{\sqrt{2}}\sin(t), \tfrac{1}{\sqrt{2}}\sin(t), \cos(t)\) in polar coordinates:
+\[
+\gamma(t) = (\theta = \pi/4, \varphi = t), \gamma'(t) = \partial_{\varphi}.
+\]
+\pause
+Then
+\[
+dh (\gamma'(t)) = -\sin\varphi d\varphi(\partial_{\varphi}) = -\sin(t).
+\]
+\end{itemize}
+\end{example}
+#+END_latex
+
+**** Covariant Derivative Again
+
+#+BEGIN_latex
+\begin{example}
+On the other hand,
+\[
+h (\gamma(t)) = \cos(t)
+\]
+satisfies
+\[
+(h \circ \gamma)'(t) = -\sin(t).
+\]
+\end{example}
+#+END_latex
+
+
+**** Covariant Derivative Again
+
+In the example,
+- \(\nabla_Y X\) is analogous to \((h\circ \gamma)'(t)\), while
+- \(\nabla X (Y)\) is analogous to \(dh(\gamma'(t))\). \pause
+
+Suppose \(X\) is the vector field (e.g. representing the wind) on the sphere,
+\[
+X(\theta, \varphi) = \varphi \partial_{\theta}.
+\]
+Then
+#+BEGIN_latex
+\[
+\begin{split}
+(\nabla X) (\partial_{\theta}) &= \nabla_{\partial_{\theta}} (\varphi_{\partial_{\theta}}) = \varphi \Gamma^{\theta}_{\theta\theta} \partial_{\theta} + \varphi \Gamma^{\varphi}_{\theta\theta} \partial_{\varphi} \\
+&= -\varphi \sin \varphi \cos \varphi \partial_{\varphi}
+\end{split}
+\]
+#+END_latex
+and
+#+BEGIN_latex
+\[
+\begin{split}
+(\nabla X) (\partial_{\varphi}) &= \nabla_{\partial_{\varphi}} (\varphi_{\partial_{\theta}}) = \partial_{\theta} + \varphi \Gamma^{\theta}_{\varphi\theta} \partial_{\theta} + \varphi \Gamma^{\varphi}_{\varphi\theta} \partial_{\varphi} \\
+&= (1 + \varphi\cot\varphi) \partial_{\theta}
+\end{split}
+\]
+#+END_latex
+
+**** Covariant Derivative Again
+Therefore the vector field
+\[
+X(\theta, \varphi) = \varphi \partial_{\theta}.
+\]
+has covariant derivative \(\nabla X\) given by the linear map
+#+BEGIN_latex
+\[
+\nabla X = \begin{pmatrix}
+0 & (1 + \varphi\cot\varphi) \\
+-\varphi \sin \varphi \cos \varphi & 0
+\end{pmatrix}
+\]
+#+END_latex
+in the basis \(\{\partial_{\theta}, \partial_{\varphi}\}\). \pause
+
+Along the path \(\gamma(t) = (\theta = \pi/4, \varphi = t)\), the vector field \(X\) varies as
+\[
+\nabla X (\gamma') = \nabla X (\partial_{\varphi}) = (1 + \varphi \cot \varphi) \partial_{\theta}.
+\]
+**** Differentiating Linear Maps
+
+- Consider a linear map \(T : TS \to TS\). For example
+  \[
+  \mathcal{W} = -dN, \quad \text{or} \quad \nabla X.
+  \]
+  \pause
+- For a vector field \(X\), \(T(X)\) is a vector field. \pause
+- We can differentiate the vector field \(T(X)\) to get \(\nabla (T(X))\). \pause
+- Thus for another vector field \(Y\), we have
+  \[
+  [\nabla (T(X))] (Y) = \nabla_Y (T(X)).
+  \]
+  \pause
+- We want to isolate the change in \(T\) but \(X\) may also be changing and we don't want to include the change of \(X\). \pause
+- Thus we define a new linear map, \(\nabla_Y T\):
+  \[
+  (\nabla_Y T) (X) = \nabla_Y(T(X)) - T(\nabla_Y X).
+  \]
+
+**** Second Covariant Derivative
+
+#+BEGIN_definition
+Let \(X\) be a vector field. The second covariant derivative of \(X\) is defined to be the covariant derivative of \(T = \nabla X\)
+\[
+(\nabla_Y (\nabla X)) (Z) = \nabla_Y(\nabla X (Z)) - \nabla X (\nabla_Y Z) = \nabla_Y(\nabla_Z X) - \nabla_{\nabla_Y Z} X.
+\]
+#+END_definition
+
+\pause
+
+We also write
+\[
+\nabla^2 X (Y, Z) = (\nabla_Y (\nabla X)) (Z).
+\]
+\pause
+or
+\[
+\nabla^2_{Y, Z} X = (\nabla_Y (\nabla X)) (Z).
+\]
+**** The Curvature Tensor
+
+#+BEGIN_definition
+The /curvature tensor/ is the commutator of second derivatives,
+#+BEGIN_latex
+\[
+\begin{split}
+\Rm(X, Y) Z &= \nabla^2 Z (X, Y) - \nabla^2 Z (Y, X) \\
+&= \nabla_X (\nabla_Y Z) - \nabla_Y(\nabla_X Z) - \nabla_{\nabla_X Y - \nabla_Y X} Z.
+\end{split}
+\]
+#+END_latex
+#+END_definition
+\pause
+
+We can write \(\Rm\) as a commutator
+\[
+\Rm(X, Y) = \nabla^2_{X, Y} - \nabla^2_{Y, X}.
+\]
+\pause
+
+Next time we will see
+1. \(\Rm(X, Y) Z = \nabla_Y (\nabla_X Z) - \nabla_X (\nabla_Y Z) - \nabla_{[X, Y]} Z\). \pause
+   The \([X, Y]\) term compensates for the fact that \(\nabla^2_{X, Y}\) and \(\nabla^2_{Y, X}\) might not commute simply because \(X\) and \(Y\) might not commute. \pause
+2. \(\Rm\) is in fact a measure of curvature.
+
+**** Notes							   :noexport:
 - Vector fields as derivations
   - simple example on \(\RR^n\)
 - Lie bracket: \([X, Y] = \nabla_X Y - \nabla_Y X\)
