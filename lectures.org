@@ -3103,7 +3103,7 @@ D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^
 - When \(\gamma\) is clear from context, we just write \(\frac{D}{dt}\). \pause
 - Write
   \[
-  Y(\gamma(t)) = Y^u(t) e_u(\gamma(t)) + Y^v e_v(\gamma(t))
+  Y(\gamma(t)) = Y^u(t) e_u(\gamma(t)) + Y^v(t) e_v(\gamma(t))
   \]
   \pause
 - Then
@@ -3144,16 +3144,17 @@ D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^
 
 - Then \(\frac{D}{dt} Y\) depends on
   \[
-  Y^i(\gamma(t)), \quad (Y^i \circ \gamma)'(t), \quad \Gamma^{ij}_k (\gamma(t)), \quad e_i(\gamma(t)), \quad i = u,v.
+  Y^i(\gamma(t)), \quad (Y^i \circ \gamma)'(t), \quad \gamma^i(t), \quad \Gamma^{ij}_k (\gamma(t)), \quad e_i(\gamma(t)), \quad i = u,v.
   \]
   \pause
-  That is, if two vector fields, \(Y, Z\) agree along \(\gamma\): \(Y\circ \gamma = Z \circ \gamma\), we have \(\frac{D}{dt} Y = \frac{D}{dt} Z\).
+  That is, if two vector fields, \(Y, Z\) agree along \(\gamma\): \(Y\circ \gamma = Z \circ \gamma\), we have \(\frac{D}{dt} Y = \frac{D}{dt} Z\). \pause
 - If two curves define the same tangent vector \(X = \gamma'(t_0) = \sigma'(t_0)\), then
   \[
   \left.\frac{D^{\gamma}}{dt}\right|_{t=t_0} Y = \left.\frac{D^{\sigma}}{dt}\right|_{t=t_0} Y
   \]
   \pause
-  Thus at a point \(t_0\), \(\tfrac{D}{dt} Y\) depends on \(Y\) for points along \(\gamma\) (but not in a whole neighbourhood) and only on \(\gamma'(t_0)\) at the point \(t_0\).
+  Thus at a point \(t_0\), \(\tfrac{D}{dt} Y\) depends on \(Y\) for points along \(\gamma\) (but not in a whole neighbourhood) and only on \(\gamma'(t_0)\) at the point \(t_0\). \pause
+- Therefore, covariant differentiation along a curve is well defined.
 
 **** Parallel Transport
 
@@ -3256,8 +3257,76 @@ The projection onto the normal is
 #+END_latex
 
 **** Geodesics
-**** Geodesics of the Sphere
-**** Metric Compatibility
+
+#+BEGIN_definition
+A curve \(\gamma\) is a /geodesic/ if \(\nabla_{\gamma'} \gamma' = 0\).
+#+END_definition
+
+\pause
+
+- Geodesics are curves with zero /acceleration/. \pause
+- On Euclidean space
+  \[
+  \text{Acceleration} = \gamma'' = D_{\gamma'} \gamma'.
+  \]
+  \pause
+  A curve \(\gamma(t) = (x(t), y(t))\) is thus a geodesic if and only if
+  \[
+  (x'', y'') = 0 \Leftrightarrow \gamma = (x, y) = (at + b, ct + d) = t(a, c) + (b,d).
+  \]
+  That is, if and only if \(\gamma\) is a straight line.
+
+**** Existence and Uniqueness of Parallel Transport
+
+#+BEGIN_theorem
+Let \(\gamma\) be a curve through \(x \in S\) so \(\gamma(0) = x\). Given \(Y_0 \in T_x S\), there exists a unique parallel vector field \(Y\) along \(\gamma\) such that \(Y(0) = Y_0\).
+#+END_theorem
+
+\pause
+
+#+BEGIN_proof
+This is an existence/uniqueness result for the ODE
+#+BEGIN_latex
+\[
+\begin{cases}
+\nabla_{\gamma'} Y &= 0 \\
+Y(0) &= Y_0.
+\end{cases}
+\]
+#+END_latex
+\pause
+Locally, this is the system of linear ODE's for \(Y^u, Y^v\):
+\[
+\partial_t Y^i(t) = - \Gamma^i_{jk} (\gamma^j)' Y^k(t).
+\]
+#+END_proof
+
+**** Existence and Uniqueness of Geodesics
+
+#+BEGIN_theorem
+Given any \(x \in S\) and \(Y_0 \in T_x S\), there exists a unique geodesic \(\gamma\) through \(x\) such that \(\gamma'(0) = Y_0\).
+#+END_theorem
+
+\pause
+
+#+BEGIN_proof
+This time it's a second order ODE for \(\gamma\):
+#+BEGIN_latex
+\[
+\begin{cases}
+\nabla_{\gamma'} \gamma' &= 0 \\
+\gamma(0) &= x \\
+\gamma'(0) &= Y_0.
+\end{cases}
+\]
+#+END_latex
+\pause
+
+Locally we see it's non-linear (but solutions still exist and are unique):
+\[
+(\gamma^i)'' + \Gamma^i_{jk} (\gamma^j)' (\gamma^k)' = 0
+\]
+#+END_proof
 
 *** Lecture 11.3: Curvature Tensor
 - Vector fields as derivations
