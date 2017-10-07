@@ -3154,7 +3154,61 @@ D_{\partial_{\theta}} \partial_{r} &= \Gamma^r_{\theta r} \partial_{r} + \Gamma^
   \]
   \pause
   Thus at a point \(t_0\), \(\tfrac{D}{dt} Y\) depends on \(Y\) for points along \(\gamma\) (but not in a whole neighbourhood) and only on \(\gamma'(t_0)\) at the point \(t_0\).
+
 **** Parallel Transport
+
+#+BEGIN_definition
+A vector field \(Y\) is said to be /parallel/ along a curve \(\gamma\) if \(\frac{D^{\gamma}}{dt} Y = 0\).
+#+END_definition
+\pause
+
+#+BEGIN_latex
+\begin{example}[On the plane, \(\RR^2\)]
+Let \(Y(x, y) = e_i\) be a coordinate vector field, \(i = 1, 2\). For any \(\gamma\),
+\[
+\frac{D}{dt} Y = D_{\gamma'} e_i = 0.
+\]
+\pause
+
+Let \(\gamma(t) = (t, t^2)\) and \(Y(x, y) = x e_1 + y e_2\). Then
+\[
+Y(\gamma(t)) = t e_1 + t^2 e_2
+\]
+\pause
+and hence
+\[
+\frac{D^{\gamma}}{dt} Y = (\partial_t t)e_1 + (\partial_t t^2) e_2 = e_1 + 2t e_2 \ne 0.
+\]
+\end{example}
+#+END_latex
+
+**** Parallel Transport
+
+#+BEGIN_latex
+\begin{example}[On the sphere, \(\sphere^2\)]
+Polar coordinates: \((\cos\theta \sin\varphi, \sin\theta\sin\varphi, \cos\varphi)\). \pause
+
+Let
+\[
+\begin{split}
+Y &= \sin\varphi \partial_{\theta} = -\sin\theta \sin^2\varphi \partial_x + \cos\theta\sin^2\varphi \partial_y \\
+&= -\sqrt{1 - z^2} y \partial_x + \sqrt{1-z^2} x \partial_x
+\end{split}
+\]
+\pause
+
+Let \(\gamma(t) = (\cos(t), \sin(t), 0)\) parametrise the equator. Then
+\[
+Y(\gamma(t)) = -\sin(t) \partial_x + \cos(t) \partial_y.
+\]
+\pause
+Therefore,
+\[
+\nabla_{\gamma'} Y = \pi_{T\sphere^2} (D_{\gamma'} Y) = -\pi_{T\sphere^2} (\cos(t) \partial_x + \sin t \partial_y) = \pi_{T\sphere^2} (N_{\sphere^2} (\gamma(t))) = 0.
+\]
+\end{example}
+#+END_latex
+
 **** Geodesics
 **** Geodesics of the Sphere
 **** Metric Compatibility
