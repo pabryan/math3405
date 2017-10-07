@@ -3518,7 +3518,53 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
    #+BEGIN_tcolorbox
    *Solution*
 
-   \hfill\textbf{[10]}
+   We have
+   \begin{align*}
+   \varphi_z &= \left(-\cos(\theta) \sech (z) \tanh (z),\, -\sech(z) \sin(\theta) \tanh(z),\, \tanh(z)^2\right) \\
+   \varphi_{\theta} &= \left(-\sech(z) \sin(\theta),\, \cos(\theta) \operatorname{sech}(z), \,0\right)
+   \end{align*}
+   and
+   \begin{align*}
+   \varphi_{zz} &= \left(\cos\left(\theta\right) \sech\left(z\right)(\tanh^2(z) - \sech^2(z)),\right. \\
+   &\quad \left.\sin(\theta) \sech\left(z\right)(\tanh^2(z) - \sech^2(z)),\, 2 \sech^2(z) \tanh\left(z\right)\right) \\
+   \varphi_{z\theta} &= \left(\operatorname{sech}\left(z\right) \sin\left(\theta\right) \tanh\left(z\right),\,-\cos\left(\theta\right) \operatorname{sech}\left(z\right) \tanh\left(z\right),\,0\right) \\
+   \varphi_{\theta\theta} &= \left(-\cos\left(\theta\right) \operatorname{sech}\left(z\right),\,-\operatorname{sech}\left(z\right) \sin\left(\theta\right),\,0\right)
+   \end{align*}
+   \hfill\textbf{[2]}
+
+   The metric is
+   \[
+   g = \begin{pmatrix}
+   \tanh(z)^2 & 0 \\
+   0 & \sech(z)^2
+   \end{pmatrix}
+   \]
+
+   \hfill\textbf{[2]}
+
+   The normal is
+   \[
+   N = \frac{\varphi_z \times \varphi_{\theta}}{\|\varphi_z \times \varphi_{\theta}\|} = \left(-\cos\left(\theta\right) \tanh\left(z\right),\,-\sin\left(\theta\right) \tanh\left(z\right),\,-\operatorname{sech}\left(z\right)\right)
+   \]
+
+   \hfill\textbf{[2]}
+
+   The second fundamental form (e.g. by the formula \(A_{ij} = g(\partial^2_{ij} \varphi, N)\)) is
+   \[
+   A = \begin{pmatrix}
+   -\operatorname{sech}\left(z\right) \tanh\left(z\right) & 0 \\
+   0 & \operatorname{sech}\left(z\right) \tanh\left(z\right)
+   \end{pmatrix}
+   \]
+
+   \hfill\textbf{[2]}
+
+   The Gauss curvature is
+   \[
+   K = \det (g^{-1} A) = \frac{\det A}{\det g} = \frac{-\sech^2(z) \tanh^2(z)}{\tanh^2(z) \sech^2(z)} = -1
+   \]
+
+   \hfill\textbf{[2]}
    #+END_tcolorbox
 
 *** MATH3405 Assignment 4
