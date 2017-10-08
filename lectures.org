@@ -4007,6 +4007,59 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
    #+END_tcolorbox
 
 *** MATH3405 Assignment 4
+**** Frenet Equations on an Oriented Surface
+
+Let \(S\) be an oriented, regular surface with unit normal \(\nu\), metric \(g\), and covariant derivative \(\nabla\). Let \(\gamma : (a, b) \to S\) be a /regular curve/. That is \(\gamma'(t) \ne 0\) for all \(t \in (a, b)\). Let \(T = \tfrac{\gamma'}{\abs{\gamma'}_g}\) be the unit tangent vector to \(\gamma\).
+
+
+a. Show that \(N = \nu \times T\) is tangent to \(S\) and \(g\) orthogonal to \(T\). Thus \(N\) is the intrinsic, oriented unit normal to \(\gamma\).
+
+   \hfill\textbf{[2]}
+
+b. Show that \(\{T, N, \nu\}\) is positively oriented - that is, it satisfies the right hand rule, \(\nu = T \times N\).
+
+   \hfill\textbf{[2]}
+
+c. Using metric compatibility and the fact that \(\abs{T}_g = 1\) show that
+   \[
+   g(\nabla_T T, T) = 0.
+   \]
+
+   \hfill\textbf{[2]}
+
+d. Define the /geodesic curvature/ \(\kappa = g(\nabla_T T, N)\). Verify the Frenet-Serret equations
+   #+BEGIN_latex
+   \[
+   \begin{pmatrix}
+   \nabla_T T \\
+   \nabla_T N
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+   0 & \kappa \\
+   -\kappa & 0
+   \end{pmatrix}
+   \begin{pmatrix}
+   T \\
+   N
+   \end{pmatrix}.
+   \]
+   #+END_latex
+
+   \hfill\textbf{[4]}
+
+e. Let \(\kappa_{\RR^3}\) be the curvature of \(\gamma\) though of as a curve in \(\RR^3\) and let \(\kappa_N = A(T, T)\) be the normal curvature of \(\gamma\). Show that
+   \[
+   \kappa_{\RR^3}^2 = \kappa^2 + \kappa_N^2.
+   \]
+
+   /Hint/: Use the definition of \(\nabla\): \(\nabla_X Y = D_X Y - \ip{D_X Y}{\nu}\nu\).
+
+   \hfill\textbf{[5]}
+
+**** Geodesics on Surfaces
+**** Curvature of Surfaces of Revolution, Gauss Theorem and Gauss-Bonnet
+**** Notes							   :noexport:
 - Due Thursday 26th Oct, Week 13
 - Topics Weeks 10-13
   - Isometries
@@ -4014,6 +4067,8 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
   - Gauss Theorem
   - Covariant derivatives, parallel transport and geodesics
   - Gauss-Bonnet (local)
+
+
 * Exam								   :noexport:
 * Notes 							   :noexport:
 ** General
