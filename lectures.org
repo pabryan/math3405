@@ -4123,7 +4123,18 @@ Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \k
    \]
    are constant.
 
+   #+BEGIN_soln
+   We have
+   \[
+   \nabla_{\gamma'} g(\gamma', Y) = g(\nabla_{\gamma'} \gamma', Y) + g(\gamma', \nabla_{\gamma'} Y) = 0
+   \]
+   so \(g(\gamma', Y)\) is constant. Likewise
+   \[
+   \nabla_{\gamma'} g(Y, Y) = 2g(\nabla_{\gamma'} Y, Y) = 0.
+   \]
+
    \hfill\textbf{[2]}
+   #+END_soln
 
    Conclude that geodesics always have constant speed \(\abs{\gamma'}_g\).
 
@@ -4131,17 +4142,42 @@ Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \k
 
 2. Prove that \(\gamma\) is a geodesic if and only if \(D_T T \perp TS\) if and only if \(\kappa \equiv 0\).
 
+   #+BEGIN_soln
+   \(\gamma\) is a geodesic if and only if
+   \[
+   0 = \nabla_{\gamma'} \gamma' = D_{\gamma'} \gamma' - \ip{D_{\gamma'} \gamma'}{\nu} \nu
+   \]
+   if and only if
+   \[
+   D_{\gamma'} \gamma' = \ip{D_{\gamma'} \gamma'}{\nu}\nu
+   \]
+   if and only if \(D_{\gamma'} \gamma'\) is normal.
+
+   The equivalence with \(\kappa = 0\) follows from
+   \[
+   \nabla_T T = \kappa N.
+   \]
+
    \hfill\textbf{[2]}
+   #+END_soln
 
 3. Let \(\gamma = P \cap \sphere^2\) where \(P\) is a plane in \(\RR^3\) through the origin. Prove that \(\gamma\) is a geodesic.
 
+   #+BEGIN_soln
+   \(\gamma\) is equal to the unit circle in the plane \(P\). In that case \(D_T T = \nu\) and so the previous question applies.
+
    \hfill\textbf{[2]}
+   #+END_soln
 
    Conversely, let \(\gamma\) be a geodesic on the sphere \(\sphere^2\). Prove that \(\gamma\) is the intersection of a plane through the origin \(\sphere^2\).
 
    /Hint/: Use the existence and uniqueness theorem.
 
+   #+BEGIN_soln
+   Pick any \(t_0\) and let \(V = \gamma'(t_0)\). Let \(P\) be the plane through the origin spanned by \(\gamma(t_0)\) and \(\gamma'(t_0)\). Note this is indeed a plane since \(\gamma(t_0)\) is a point on the sphere, and hence normal to the sphere while \(\gamma'(t_0)\) is tangent to the sphere. Then from the previous part, \(P \cap \sphere^2\) is also a geodesic with through \(\gamma(t_0)\) and with tangent vector \(\gamma'(t_0)\). Uniqueness ensures that \(\gamma = P \cap \sphere^2\).
+
    \hfill\textbf{[2]}
+   #+END_soln
 
 4. Let \(\gamma\) be a curve on a regular surface \(S\) defined for \(t \in (a, b)\). Suppose there exists a function \(\varphi = \varphi(t, s) : (a, b) \times (-\epsilon, \epsilon) \to S\) for some \(\epsilon > 0\) and such that
    \[
