@@ -11,7 +11,8 @@
 #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
 #+LaTeX_HEADER: \input{local_definitions}
-# #+LaTeX_HEADER: \usepackage[shortlabels]{enumitem}
+# Hide solution by default
+#+LaTeX_HEADER: \RenewEnviron{soln}{}
 
 * Timetable							   :noexport:
 
@@ -4006,8 +4007,8 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
    \hfill\textbf{[2]}
    #+END_tcolorbox
 
-*** MATH3405 Assignment 4
-**** Frenet Equations on an Oriented Surface
+*** MATH3405: Assignment 4
+**** Frenet-Serret Equations on an Oriented Surface
 
 Let \(S\) be an oriented, regular surface with unit normal \(\nu\), metric \(g\), and covariant derivative \(\nabla\). Let \(\gamma : (a, b) \to S\) be a /regular curve/. That is \(\gamma'(t) \ne 0\) for all \(t \in (a, b)\). Let \(T = \tfrac{\gamma'}{\abs{\gamma'}_g}\) be the unit tangent vector to \(\gamma\).
 
@@ -4057,9 +4058,162 @@ e. Let \(\kappa_{\RR^3}\) be the curvature of \(\gamma\) though of as a curve in
 
    \hfill\textbf{[5]}
 
-**** Geodesics on Surfaces
-**** Curvature of Surfaces of Revolution, Gauss Theorem and Gauss-Bonnet
-**** Notes							   :noexport:
+**** Geodesics and Length Minimisation
+
+Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \kappa\). Recall a geodesic is a curve with zero acceleration \(\nabla_{\gamma'} \gamma' \equiv 0\).
+
+1. Using metric compatibility, show that if \(Y\) is a parallel vector field along a geodesic \(\gamma\), then
+   \[
+   g(\gamma', Y) \text{ and } \abs{Y}_g
+   \]
+   are constant.
+
+   \hfill\textbf{[2]}
+
+   Conclude that geodesics always have constant speed \(\abs{\gamma'}_g\).
+
+   \hfill\textbf{[2]}
+
+2. Prove that \(\gamma\) is a geodesic if and only if \(D_T T \perp TS\) if and only if \(\kappa \equiv 0\).
+
+   \hfill\textbf{[2]}
+
+3. Let \(\gamma = P \cap \sphere^2\) where \(P\) is a plane in \(\RR^3\) through the origin. Prove that \(\gamma\) is a geodesic.
+
+   \hfill\textbf{[2]}
+
+   Conversely, let \(\gamma\) be a geodesic on the sphere \(\sphere^2\). Prove that \(\gamma\) is the intersection of a plane through the origin \(\sphere^2\).
+
+   /Hint/: Use the existence and uniqueness theorem.
+
+   \hfill\textbf{[2]}
+
+4. Let \(\gamma\) be a curve on a regular surface \(S\) defined for \(t \in (a, b)\). Suppose there exists a function \(\varphi = \varphi(t, s) : (a, b) \times (-\epsilon, \epsilon) \to S\) for some \(\epsilon > 0\) and such that
+   \[
+   \varphi(t, 0) = \gamma(t), \quad \forall t \in (a, b).
+   \]
+   Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\partial_t) = \partial_t \varphi\), \(V = d\varphi(\partial_s) = \partial_s \varphi\). Assume that \(\gamma\) is parametrised by arc length so that \(1 = \abs{\gamma'(t)} = \abs{T(t, 0)}\). We /don't/ assume that \(\abs{T(t, s)} = 1\) for \(s \ne 0\).
+
+   a. Show that
+      \[
+      \nabla_T V = \nabla_V T.
+      \]
+
+      /Hint/: Use the formula \(\nabla_T V - \nabla_V T = [T, V]\) and that effectively \(T = \partial_t\) and \(V = \partial_s\).
+
+      \hfill\textbf{[2]}
+
+   b. Show that for \(s = 0\),
+      \[
+      \nabla_{V_0} \abs{T_0} = \frac{\partial}{\partial t} g(V_0, T_0) - g(V_0, \nabla_{T_0} T_0)
+      \]
+      where \(T_0(t) = T(t, 0)\) is the unit tangent vector to \(\gamma\) and \(V_0(t) = V(t, 0)\) is the variation vector \(V\) restricted to \(s = 0\) - i.e. along \(\gamma\).
+
+      \hfill\textbf{[4]}
+
+   c. Integrate the previous formula to conclude that
+      \[
+      \partial_s|_{s=0} L[\gamma_s] = g(T_0, V_0)|_{t=a}^{t=b} - \int_a^b g(V_0, \nabla_{T_0} T_0) dt
+      \]
+      where for each fixed \(s\), \(\gamma_s\) is the curve
+      \[
+      \gamma_s(t) = \varphi(t, s).
+      \]
+
+      /Hint/: You may freely differentiate under the integral sign.
+
+      \hfill\textbf{[4]}
+
+   d. Suppose that \(\varphi(a, s) = \varphi(a, 0) = \gamma(a)\) and \(\varphi(b, s) = \varphi(b, 0) = \gamma(0)\) for all \(s\). That is \(\gamma_s(a) = \gamma(a), \gamma(b) = \gamma_s(b)\). We say \(\varphi\) fixes the endpoints of \(\gamma\).
+
+      Show that in this case,
+      \[
+      \partial_s|_{s=0} L[\gamma_s] = - \int_a^b g(V_0, \nabla_{T_0} T_0) dt
+      \]
+
+      \hfill\textbf{[2]}
+
+   e. Conclude that the critical points of the length functional with fixed end points - i.e. those curves \(\gamma\) such that \(\partial_s|_{s=0} L[\gamma_s] = 0\) for all variations \(\varphi\) - must be geodesics.
+
+      \hfill\textbf{[2]}
+
+**** Curvature of Surfaces of Revolution
+
+Let \(S = (f(z) \cos \theta, f(z) \sin(\theta), z)\) be a surface of revolution for \(\theta \in (0, 2\pi), z \in (a, b)\).
+
+Recall that
+\[
+g = \begin{pmatrix}
+1 + (f')^2 & 0 \\
+0 & f^2
+\end{pmatrix},
+\]
+\[
+N = \frac{1}{\sqrt{1 + (f')^2}} (-\cos\theta\partial_x -\sin\theta \partial_y +  f'\partial_z),
+\]
+\[
+A = \frac{1}{\sqrt{1 + (f')^2}} \begin{pmatrix}
+-f'' & 0 \\
+0 & f
+\end{pmatrix}
+\]
+and that the matrix representation of $dN$ is
+\[
+dN = \pm \frac{1}{\sqrt{1+(f')^2}} \begin{pmatrix}
+\frac{f''}{1+(f')^2} & 0 \\
+0 & \frac{-1}{f}
+\end{pmatrix}.
+\]
+\[
+K = \tfrac{-f''}{f(1+(f')^2)^2}.
+\]
+
+1. Show that
+   \begin{align*}
+   \nabla_{\partial_{\theta}} \partial_{\theta} &= -\frac{ff'}{1 + (f')^2} \partial_z \\
+   \nabla_{\partial_{\theta}} \partial_z &= \frac{f'}{f} \partial_{\theta} \\
+   \nabla_{\partial_z} \partial_{\theta} &= \frac{f'}{f} \partial_{\theta} \\
+   \nabla_{\partial_z} \partial_z &= \frac{f'f''}{1 + (f')^2} \partial_z
+   \end{align*}
+
+   \hfill\textbf{[4]}
+
+2. Show that the curvature tensor is given by
+   \[
+   g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = -\frac{ff''}{1 + (f')^2}
+   \]
+
+   /Hint/: It's not too difficult to compute directly, or you could just use the Gauss equation...
+
+   \hfill\textbf{[4]}
+
+3. Verify explicitly that
+   \[
+   g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = K\left[g(\partial_z, \partial_{\theta})^2 - g(\partial_z, \partial_z) g(\partial_{\theta}\partial_{\theta})\right].
+   \]
+
+   \hfill\textbf{[4]}
+
+4. Let \(\lambda > 0\),
+   \[
+   S_{\lambda} = \{\lambda (f\cos\theta, f\sin\theta, z)\}.
+   \]
+   Show that
+   \[
+   \operatorname{Area}(S_{\lambda}) = \lambda^2 \operatorname{Area}(S).
+   \]
+
+   \hfill\textbf{[2]}
+
+5. In the same notation as the previous question show directly that
+   \[
+   \int_S K dA = \int_{S_{\lambda}} K dA
+   \]
+   as predicted by the Gauss-Bonnet theorem.
+
+   \hfill\textbf{[2]}
+
+**** Notes 							   :noexport:
 - Due Thursday 26th Oct, Week 13
 - Topics Weeks 10-13
   - Isometries
@@ -4068,8 +4222,7 @@ e. Let \(\kappa_{\RR^3}\) be the curvature of \(\gamma\) though of as a curve in
   - Covariant derivatives, parallel transport and geodesics
   - Gauss-Bonnet (local)
 
-
-* Exam								   :noexport:
+* Exam 								   :noexport:
 * Notes 							   :noexport:
 ** General
 - Make use of Ximera?
