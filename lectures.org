@@ -4138,7 +4138,7 @@ e. Let \(\kappa_{\RR^3}\) be the curvature of \(\gamma\) though of as a curve in
 
    #+END_soln
 
-**** Geodesics and Length Minimisation
+**** Geodesics
 
 Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \kappa\). Recall a geodesic is a curve with zero acceleration \(\nabla_{\gamma'} \gamma' \equiv 0\).
 
@@ -4204,54 +4204,141 @@ Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \k
    \hfill\textbf{[2]}
    #+END_soln
 
-4. Let \(\gamma\) be a curve on a regular surface \(S\) defined for \(t \in (a, b)\). Suppose there exists a function \(\varphi = \varphi(t, s) : (a, b) \times (-\epsilon, \epsilon) \to S\) for some \(\epsilon > 0\) and such that
+**** Geodesics and Length
+
+Let \(\gamma\) be a curve on a regular surface \(S\) defined for \(t \in (a, b)\). Suppose there exists a function \(\varphi = \varphi(t, s) : (a, b) \times (-\epsilon, \epsilon) \to S\) for some \(\epsilon > 0\) and such that
+\[
+\varphi(t, 0) = \gamma(t), \quad \forall t \in (a, b).
+\]
+Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\partial_t) = \partial_t \varphi\), \(V = d\varphi(\partial_s) = \partial_s \varphi\). Assume that \(\gamma\) is parametrised by arc length so that \(1 = \abs{\gamma'(t)} = \abs{T(t, 0)}\). We /don't/ assume that \(\abs{T(t, s)} = 1\) for \(s \ne 0\).
+
+1. Show that
    \[
-   \varphi(t, 0) = \gamma(t), \quad \forall t \in (a, b).
+   \nabla_T V = \nabla_V T.
    \]
-   Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\partial_t) = \partial_t \varphi\), \(V = d\varphi(\partial_s) = \partial_s \varphi\). Assume that \(\gamma\) is parametrised by arc length so that \(1 = \abs{\gamma'(t)} = \abs{T(t, 0)}\). We /don't/ assume that \(\abs{T(t, s)} = 1\) for \(s \ne 0\).
 
-   a. Show that
-      \[
-      \nabla_T V = \nabla_V T.
-      \]
+   /Hint/: Use the formula \(\nabla_T V - \nabla_V T = [T, V]\) and that effectively \(T = \partial_t\) and \(V = \partial_s\).
 
-      /Hint/: Use the formula \(\nabla_T V - \nabla_V T = [T, V]\) and that effectively \(T = \partial_t\) and \(V = \partial_s\).
+   #+BEGIN_soln
+   Let \(f : S \to \RR\) be  a smooth function. Then
+   \[
+   Tf = df(T) = \partial_t f \circ \varphi.
+   \]
+   Likewise for \(Vf\).
 
-      \hfill\textbf{[2]}
+   Then
+   \[
+   [T, V] = T(V(f)) - V(T(f)) = \partial_t \partial_s f \circ \varphi - \partial_s \partial_t f\circ\varphi = 0.
+   \]
 
-   b. Show that for \(s = 0\),
-      \[
-      \nabla_{V_0} \abs{T_0} = \frac{\partial}{\partial t} g(V_0, T_0) - g(V_0, \nabla_{T_0} T_0)
-      \]
-      where \(T_0(t) = T(t, 0)\) is the unit tangent vector to \(\gamma\) and \(V_0(t) = V(t, 0)\) is the variation vector \(V\) restricted to \(s = 0\) - i.e. along \(\gamma\).
+   Therefore,
+   \[
+   \nabla_T V - \nabla_V T = [T, V] = 0.
+   \]
 
-      \hfill\textbf{[4]}
+   \hfill\textbf{[2]}
+   #+END_soln
 
-   c. Integrate the previous formula to conclude that
-      \[
-      \partial_s|_{s=0} L[\gamma_s] = g(T_0, V_0)|_{t=a}^{t=b} - \int_a^b g(V_0, \nabla_{T_0} T_0) dt
-      \]
-      where for each fixed \(s\), \(\gamma_s\) is the curve
-      \[
-      \gamma_s(t) = \varphi(t, s).
-      \]
+2. Show that for \(s = 0\),
+   \[
+   \nabla_{V_0} \abs{T_0} = \frac{\partial}{\partial t} g(V_0, T_0) - \kappa g(V_0, N)
+   \]
+   where \(T_0(t) = T(t, 0)\) is the unit tangent vector to \(\gamma\) and \(V_0(t) = V(t, 0)\) is the variation vector \(V\) restricted to \(s = 0\) - i.e. along \(\gamma\).
 
-      /Hint/: You may freely differentiate under the integral sign.
+   #+BEGIN_soln
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \nabla_V \abs{T} &= \partial_s \sqrt{g(T, T)} = \frac{1}{\sqrt{g(T, T)}} g(\nabla_V T, T) \\
+   &= \frac{1}{\sqrt{g(T, T)}} g(\nabla_T V, T)
+   \end{split}
+   \]
+   #+END_latex
+   by the previous part.
 
-      \hfill\textbf{[4]}
+   \hfill\textbf{[2]}
 
-   d. Suppose that \(\varphi(a, s) = \varphi(a, 0) = \gamma(a)\) and \(\varphi(b, s) = \varphi(b, 0) = \gamma(0)\) for all \(s\). That is \(\gamma_s(a) = \gamma(a), \gamma(b) = \gamma_s(b)\). We say \(\varphi\) fixes the endpoints of \(\gamma\).
+   Now we just reverse the process and use that \(\abs{T_0} = 1\). At \(s=0\),
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \nabla_{V_0} \abs{T_0} &= g(\nabla_{T_0} V_0, T_0) \\
+   &= \partial_t g(V_0, T_0) - g(T_0, \nabla_{T_0} T_0) \\
+   &= \partial_t g(V_0, T_0) - \kappa g(V_0, N_0).
+   \end{split}
+   \]
+   #+END_latex
 
-      Show that in this case,
-      \[
-      \partial_s|_{s=0} L[\gamma_s] = - \int_a^b g(V_0, \nabla_{T_0} T_0) dt
-      \]
+   \hfill\textbf{[2]}
+   #+END_soln
 
-      \hfill\textbf{[2]}
+3. Integrate the previous formula to conclude that
+   \[
+   \partial_s|_{s=0} L[\gamma_s] = g(T_0, V_0)|_{t=a}^{t=b} - \int_a^b \kappa g(V_0, N_0) dt
+   \]
+   where for each fixed \(s\), \(\gamma_s\) is the curve
+   \[
+   \gamma_s(t) = \varphi(t, s).
+   \]
 
-   e. Conclude that the critical points of the length functional with fixed end points - i.e. those curves \(\gamma\) such that \(\partial_s|_{s=0} L[\gamma_s] = 0\) for all variations \(\varphi\) - must be geodesics.
+   /Hint/: You may freely differentiate under the integral sign since we are integrating over a closed and bounded interval.
 
-      \hfill\textbf{[2]}
+   #+BEGIN_soln
+   \[
+   \partial_s L[\gamma_s] = \partial_s \int_a^b \abs{T} dt = \int_a^b \partial_s \abs{T} dt
+   \]
+
+   \hfill\textbf{[2]}
+
+   Applying the previous part,
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \partial_s L[\gamma_s] &= \int_a^b \partial_s \abs{T} dt \\
+   &= \int_a^b \partial_t g(V_0, T_0) - \kappa g(V_0, N_0) dt \\
+   &= g(V_0, T_0)|_a^b - \int_a^b \kappa g(V_0, N_0) dt \\
+   \end{split}
+   \]
+   #+END_latex
+   #+END_soln
+
+4. Suppose that \(\varphi(a, s) = \varphi(a, 0) = \gamma(a)\) and \(\varphi(b, s) = \varphi(b, 0) = \gamma(0)\) for all \(s\). That is \(\gamma_s(a) = \gamma(a), \gamma(b) = \gamma_s(b)\). We say \(\varphi\) fixes the endpoints of \(\gamma\).
+
+   Show that in this case,
+   \[
+   \partial_s|_{s=0} L[\gamma_s] = - \int_a^b g(V_0, \nabla_{T_0} T_0) dt
+   \]
+
+   #+BEGIN_soln
+   If \(\varphi(a, s) = \varphi(a, 0)\) for all \(s\), then
+   \[
+   V(a, s) = \partial_s \varphi(a, s) = 0
+   \]
+   and like wise \(V(b, s) = 0\).
+
+   So the boundary term in the previous part vanishes.
+
+   \hfill\textbf{[2]}
+   #+END_soln
+
+5. Conclude that the critical points of the length functional with fixed end points - i.e. those curves \(\gamma\) such that \(\partial_s|_{s=0} L[\gamma_s] = 0\) for all variations \(\varphi\) - must be geodesics.
+
+   /Hint/: You may assume that given any \(V_0\) a vector field along \(\gamma\), there exists a variation \(\varphi\) such that \(\partial_s|_{s=0} \varphi = V_0\).
+
+   #+BEGIN_soln
+   Suppose that \(\gamma\) is a critical point so that
+   \[
+   0 = \partial_s L[\gamma_s] = - \int_a^b \kappa g(V_0, N_0) dt
+   \]
+   for every \(V_0\). Then for any smooth function \(\rho\) and \(V_0 = \rho N_0\) we get
+   \[
+   \int_a^b \kappa \rho dt = 0
+   \]
+
+   and hence \(\kappa \equiv 0\) (e.g. by choosing bump functions \(\rho\) that vanish outside of \((t_0-\delta, t_0 + \delta)\) for each \(t_0 \in (a, b)\) and \(\delta > 0\)).
+
+   \hfill\textbf{[2]}
+   #+END_soln
 
 **** Curvature of Surfaces of Revolution
 
