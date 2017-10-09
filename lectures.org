@@ -7,7 +7,7 @@
 #+LaTeX_HEADER: \input{local_definitions}
 
 #+OPTIONS: H:2 toc:nil
-#+LaTeX_CLASS: amsart
+#+LaTeX_CLASS: article
 
 # #+OPTIONS: H:2 toc:t
 # #+LaTeX_CLASS: beamer
@@ -4114,6 +4114,8 @@ d. Define the /geodesic curvature/ \(\kappa = g(\nabla_T T, N)\). Verify the Fre
    \hfill\textbf{[2]}
    #+END_soln
 
+   \hfill\textbf{[4]}
+
 e. Let \(\kappa_{\RR^3}\) be the curvature of \(\gamma\) though of as a curve in \(\RR^3\) and let \(\kappa_{\nu} = A(T, T)\) be the normal curvature of \(\gamma\). Show that
    \[
    \kappa_{\RR^3}^2 = \kappa^2 + \kappa_{\nu}^2.
@@ -4138,9 +4140,11 @@ e. Let \(\kappa_{\RR^3}\) be the curvature of \(\gamma\) though of as a curve in
    \[
    \kappa_{\RR^3}^2 = \abs{\kappa_{\RR^3} N_{\RR^3}}^2 + \abs{\kappa N}^2 + \abs{\kappa_{\nu} \nu}^2 = \kappa^2 + \kappa_{\nu}^2.
    \]
-   \hfill\textbf{[2]}
 
+   \hfill\textbf{[2]}
    #+END_soln
+
+   \hfill\textbf{[5]}
 
 **** Geodesics
 
@@ -4161,15 +4165,19 @@ Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \k
    \[
    \nabla_{\gamma'} g(Y, Y) = 2g(\nabla_{\gamma'} Y, Y) = 0.
    \]
+   #+END_soln
 
    \hfill\textbf{[2]}
-   #+END_soln
 
    Conclude that geodesics always have constant speed \(\abs{\gamma'}_g\).
 
+   #+BEGIN_soln
+   Along a geodesic \(Y = \gamma'\) is parallel and the previous part applies.
+   #+END_soln
+
    \hfill\textbf{[2]}
 
-2. Prove that \(\gamma\) is a geodesic if and only if \(D_T T \perp TS\) if and only if \(\kappa \equiv 0\).
+2. Prove that \(\gamma\) is a geodesic if and only if \(D_T T\) is normal to \(S\) if and only if \(\kappa \equiv 0\).
 
    #+BEGIN_soln
    \(\gamma\) is a geodesic if and only if
@@ -4186,29 +4194,29 @@ Retain the notation of the Frenet-Serret question for \(S, \nu, \gamma, T, N, \k
    \[
    \nabla_T T = \kappa N.
    \]
+   #+END_soln
 
    \hfill\textbf{[2]}
-   #+END_soln
 
 3. Let \(\gamma = P \cap \sphere^2\) where \(P\) is a plane in \(\RR^3\) through the origin. Prove that \(\gamma\) is a geodesic.
 
    #+BEGIN_soln
    \(\gamma\) is equal to the unit circle in the plane \(P\). In that case \(D_T T = \nu\) and so the previous question applies.
-
-   \hfill\textbf{[2]}
    #+END_soln
 
-   Conversely, let \(\gamma\) be a geodesic on the sphere \(\sphere^2\). Prove that \(\gamma\) is the intersection of a plane through the origin \(\sphere^2\).
+   \hfill\textbf{[2]}
+
+   Conversely, let \(\gamma\) be a geodesic on the sphere \(\sphere^2\). Prove that \(\gamma\) is the intersection of \(\sphere^2\) with a plane through the origin.
 
    /Hint/: Use the existence and uniqueness theorem.
 
    #+BEGIN_soln
-   Pick any \(t_0\) and let \(V = \gamma'(t_0)\). Let \(P\) be the plane through the origin spanned by \(\gamma(t_0)\) and \(\gamma'(t_0)\). Note this is indeed a plane since \(\gamma(t_0)\) is a point on the sphere, and hence normal to the sphere while \(\gamma'(t_0)\) is tangent to the sphere. Then from the previous part, \(P \cap \sphere^2\) is also a geodesic with through \(\gamma(t_0)\) and with tangent vector \(\gamma'(t_0)\). Uniqueness ensures that \(\gamma = P \cap \sphere^2\).
-
-   \hfill\textbf{[2]}
+   Pick any \(t_0\) and let \(V = \gamma'(t_0)\). Let \(P\) be the plane through the origin spanned by \(\gamma(t_0)\) and \(\gamma'(t_0)\). Note this is indeed a plane since \(\gamma(t_0)\) is a point on the sphere, and hence normal to the sphere while \(\gamma'(t_0)\) is tangent to the sphere. Then from the previous part, \(P \cap \sphere^2\) is also a geodesic through \(\gamma(t_0)\) and with tangent vector \(\gamma'(t_0)\). Uniqueness ensures that \(\gamma = P \cap \sphere^2\).
    #+END_soln
 
-**** Geodesics and Length
+   \hfill\textbf{[2]}
+
+**** Geodesics and Length					   :noexport:
 
 Let \(\gamma\) be a curve on a regular surface \(S\) defined for \(t \in (a, b)\). Suppose there exists a function \(\varphi = \varphi(t, s) : (a, b) \times (-\epsilon, \epsilon) \to S\) for some \(\epsilon > 0\) and such that
 \[
@@ -4239,9 +4247,9 @@ Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\par
    \[
    \nabla_T V - \nabla_V T = [T, V] = 0.
    \]
+   #+END_soln
 
    \hfill\textbf{[2]}
-   #+END_soln
 
 2. Show that for \(s = 0\),
    \[
@@ -4276,6 +4284,8 @@ Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\par
    \hfill\textbf{[2]}
    #+END_soln
 
+   \hfill\textbf{[4]}
+
 3. Integrate the previous formula to conclude that
    \[
    \partial_s|_{s=0} L[\gamma_s] = g(T_0, V_0)|_{t=a}^{t=b} - \int_a^b \kappa g(V_0, N_0) dt
@@ -4304,7 +4314,11 @@ Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\par
    \end{split}
    \]
    #+END_latex
+
+   \hfill\textbf{[2]}
    #+END_soln
+
+   \hfill\textbf{[4]}
 
 4. Suppose that \(\varphi(a, s) = \varphi(a, 0) = \gamma(a)\) and \(\varphi(b, s) = \varphi(b, 0) = \gamma(0)\) for all \(s\). That is \(\gamma_s(a) = \gamma(a), \gamma(b) = \gamma_s(b)\). We say \(\varphi\) fixes the endpoints of \(\gamma\).
 
@@ -4321,9 +4335,9 @@ Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\par
    and like wise \(V(b, s) = 0\).
 
    So the boundary term in the previous part vanishes.
+   #+END_soln
 
    \hfill\textbf{[2]}
-   #+END_soln
 
 5. Conclude that the critical points of the length functional with fixed end points - i.e. those curves \(\gamma\) such that \(\partial_s|_{s=0} L[\gamma_s] = 0\) for all variations \(\varphi\) - must be geodesics.
 
@@ -4340,9 +4354,9 @@ Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\par
    \]
 
    and hence \(\kappa \equiv 0\) (e.g. by choosing bump functions \(\rho\) that vanish outside of \((t_0-\delta, t_0 + \delta)\) for each \(t_0 \in (a, b)\) and \(\delta > 0\)).
+   #+END_soln
 
    \hfill\textbf{[2]}
-   #+END_soln
 
 **** Curvature of Surfaces of Revolution
 
@@ -4366,11 +4380,12 @@ A = \frac{1}{\sqrt{1 + (f')^2}} \begin{pmatrix}
 \]
 and that the matrix representation of $dN$ is
 \[
-dN = \pm \frac{1}{\sqrt{1+(f')^2}} \begin{pmatrix}
+dN = \frac{1}{\sqrt{1+(f')^2}} \begin{pmatrix}
 \frac{f''}{1+(f')^2} & 0 \\
 0 & \frac{-1}{f}
 \end{pmatrix}.
 \]
+The Gauss curvature is
 \[
 K = \tfrac{-f''}{f(1+(f')^2)^2}.
 \]
@@ -4440,12 +4455,22 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
 
    /Hint/: It's not too difficult to compute directly, or you could just use the Gauss equation...
 
+   #+BEGIN_soln
+
+   \hfill\textbf{[4]}
+   #+END_soln
+
    \hfill\textbf{[4]}
 
 3. Verify explicitly that
    \[
    g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = K\left[g(\partial_z, \partial_{\theta})^2 - g(\partial_z, \partial_z) g(\partial_{\theta}\partial_{\theta})\right].
    \]
+
+   #+BEGIN_soln
+
+   \hfill\textbf{[4]}
+   #+END_soln
 
    \hfill\textbf{[4]}
 
@@ -4458,6 +4483,11 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
    \operatorname{Area}(S_{\lambda}) = \lambda^2 \operatorname{Area}(S).
    \]
 
+
+   #+BEGIN_soln
+
+   #+END_soln
+
    \hfill\textbf{[2]}
 
 5. In the same notation as the previous question show directly that
@@ -4465,6 +4495,11 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
    \int_S K dA = \int_{S_{\lambda}} K dA
    \]
    as predicted by the Gauss-Bonnet theorem.
+
+   #+BEGIN_soln
+
+   #+END_soln
+
 
    \hfill\textbf{[2]}
 
