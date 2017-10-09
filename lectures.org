@@ -4026,6 +4026,13 @@ e. Show that $K \equiv 0$ if and only if $f(z) = az + b$ for some $a,b\in\RR$.
    #+END_tcolorbox
 
 *** MATH3405: Assignment 4
+
+#+BEGIN_latex
+\begin{center}
+\textbf{Due: 26 Oct 2017, 15:00}
+\end{center}
+#+END_latex
+
 **** Frenet-Serret Equations on an Oriented Surface
 
 Let \(S\) be an oriented, regular surface with unit normal \(\nu\), metric \(g\), and covariant derivative \(\nabla\). Let \(\gamma : (a, b) \to S\) be a /regular curve/. That is \(\gamma'(t) \ne 0\) for all \(t \in (a, b)\). Let \(T = \tfrac{\gamma'}{\abs{\gamma'}_g}\) be the unit tangent vector to \(\gamma\).
