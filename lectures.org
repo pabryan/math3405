@@ -4,15 +4,19 @@
 
 #+SETUPFILE: ~/.emacs.d/org-templates/bibliography.org
 
-#+OPTIONS: H:2 toc:t
-#+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [presentation]
-#+BEAMER_THEME: Boadilla
-#+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
-
 #+LaTeX_HEADER: \input{local_definitions}
+
+#+OPTIONS: H:2 toc:nil
+#+LaTeX_CLASS: amsart
+
+# #+OPTIONS: H:2 toc:t
+# #+LaTeX_CLASS: beamer
+# #+LaTeX_CLASS_OPTIONS: [presentation]
+# #+BEAMER_THEME: Boadilla
+# #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
+
 # Hide solution by default
-# #+LaTeX_HEADER: \RenewEnviron{soln}{}
+#+LaTeX_HEADER: \RenewEnviron{soln}{}
 
 * Timetable							   :noexport:
 
