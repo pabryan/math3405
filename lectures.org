@@ -3634,6 +3634,7 @@ Next time we will see
 - Ricci identity
 ** MATH3405 Differential Geometry: Week 12
 *** Lecture 12.1: Theorema Egregium
+**** Notes							   :noexport:
 - Ref: 3.3, 4.3
 - Invariance of curvature under isometry
 - Gauss equation
@@ -3644,15 +3645,30 @@ Next time we will see
 - https://services.math.duke.edu/~ng/math/papers/curvature.pdf
 - Interpretation of Gauss Curvature via infinitessimal area, triangles, Gauss map?
 - Try to prove it in a way that matches with the Gauss-Bonnet theorem
+**** Metric Compatibility
+**** The Connection and Curvature are Intrinsic
+**** Symmetries of the Curvature Tensor
+**** Gauss' Theorema Egregium (Remarkable Theorem)
 *** Lecture 12.2: Gauss-Bonnet Theorem (Local)
+**** Notes							   :noexport:
 - Ref: 4.5
 - http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
+- Parallel postulate!
+- Give the interpretation of Gauss curvature as area deformation of Gauss map
+- Triangles
+- Winding number in the plane and total curvature
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
+**** Notes							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
 *** Lecture 13.1: Gauss-Bonnet Theorem (Global)
+**** Notes							   :noexport:
 - Ref: 4.5
+- Euler characteristic etc.
+- Constant curvature spaces
+- Uniformisation Theorem
 *** Lecture 13.2: Extension Lecture: Global Geometry
+**** Notes							   :noexport:
 - Ref: 4.5
 - Applications of Gauss-Bonnet
 *** Lecture 13.3: Review
