@@ -16,7 +16,7 @@
 # #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
 # Hide solution by default
-# #+LaTeX_HEADER: \RenewEnviron{soln}{}
+#+LaTeX_HEADER: \RenewEnviron{soln}{}
 
 * Timetable							   :noexport:
 
@@ -3646,6 +3646,14 @@ Next time we will see
 - Interpretation of Gauss Curvature via infinitessimal area, triangles, Gauss map?
 - Try to prove it in a way that matches with the Gauss-Bonnet theorem
 **** Metric Compatibility
+
+#+BEGIN_theorem
+The covariant derivative is /metric compatible/. That is, for all tangent vector fields \(X, Y, Z)
+\[
+\nabla_X \left[g(Y, Z)\right] = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
+\]
+#+END_theorem
+
 **** The Connection and Curvature are Intrinsic
 **** Symmetries of the Curvature Tensor
 **** Gauss' Theorema Egregium (Remarkable Theorem)
@@ -4459,14 +4467,14 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
 
    \hfill\textbf{[2]}
 
-   The remaining parts are similar and worth \textbf{[2]} points each..
+   The remaining parts are similar and worth \textbf{[2]} points each.
    #+END_soln
 
    \hfill\textbf{[8]}
 
 2. Show that the curvature tensor is given by
    \[
-   g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = -\frac{ff''}{1 + (f')^2}
+   g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = \frac{ff''}{1 + (f')^2}
    \]
 
    /Hint/: It's not too difficult to compute directly, or you could just use the Gauss equation...
@@ -4474,7 +4482,7 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
    #+BEGIN_soln
    Using the Gauss equation:
    \[
-   g(\Rm(\partial_r, \partial_{\theta}) \partial_r, \partial_{\theta}) = A(\partial_r, \partial_r) A(\partial_{\theta},\partial_{\theta}) - A(\partial_r, \partial_{\theta}) A(\partial_{\theta}, \partial_r)
+   g(\Rm(\partial_r, \partial_{\theta}) \partial_r, \partial_{\theta}) = A(\partial_r, \partial_{\theta}) A(\partial_{\theta}, \partial_r) - A(\partial_r, \partial_r) A(\partial_{\theta},\partial_{\theta})
    \]
    \hfill\textbf{[2]}
 
@@ -4487,7 +4495,7 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
    \]
    we get
    \[
-   g(\Rm(\partial_r, \partial_{\theta}) \partial_r, \partial_{\theta}) = \frac{-f''}{\sqrt{1 + (f')^2}} \frac{f}{{\sqrt{1 + (f')^2}}} = -\frac{ff''}{1 + (f')^2}.
+   g(\Rm(\partial_r, \partial_{\theta}) \partial_r, \partial_{\theta}) = -\frac{-f''}{\sqrt{1 + (f')^2}} \frac{f}{{\sqrt{1 + (f')^2}}} = \frac{ff''}{1 + (f')^2}.
    \]
 
    \hfill\textbf{[2]}
@@ -4559,7 +4567,7 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
    #+BEGIN_soln
    From the previous part we have
    \[
-   g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = -\frac{ff''}{1 + (f')^2}
+   g(\Rm(\partial_z, \partial_{\theta}) \partial_z, \partial_{\theta}) = \frac{ff''}{1 + (f')^2}
    \]
 
    We also have
@@ -4580,7 +4588,7 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
    \[
    \begin{split}
    K\left[g(\partial_z, \partial_{\theta})^2 - g(\partial_z, \partial_z) g(\partial_{\theta}\partial_{\theta})\right] &= \tfrac{-f''}{f(1+(f')^2)^2} \left[-f^2(1 + (f')^2)\right] \\
-   &= -\frac{ff''}{1 + (f')^2}.
+   &= \frac{ff''}{1 + (f')^2}.
    \end{split}
    \]
    #+END_latex
