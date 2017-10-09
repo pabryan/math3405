@@ -4346,7 +4346,7 @@ Such a function is called a /variation/ of \(\gamma\). Write \(T = d\varphi(\par
 
 **** Curvature of Surfaces of Revolution
 
-Let \(S = (f(z) \cos \theta, f(z) \sin(\theta), z)\) be a surface of revolution for \(\theta \in (0, 2\pi), z \in (a, b)\).
+Let \(S = (f(r) \cos \theta, f(r) \sin(\theta), r)\) be a surface of revolution for \(\theta \in (0, 2\pi), r \in (a, b)\).
 
 Recall that
 \[
@@ -4377,13 +4377,61 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
 
 1. Show that
    \begin{align*}
-   \nabla_{\partial_{\theta}} \partial_{\theta} &= -\frac{ff'}{1 + (f')^2} \partial_z \\
-   \nabla_{\partial_{\theta}} \partial_z &= \frac{f'}{f} \partial_{\theta} \\
-   \nabla_{\partial_z} \partial_{\theta} &= \frac{f'}{f} \partial_{\theta} \\
-   \nabla_{\partial_z} \partial_z &= \frac{f'f''}{1 + (f')^2} \partial_z
+   \nabla_{\partial_{\theta}} \partial_{\theta} &= -\frac{ff'}{1 + (f')^2} \partial_r \\
+   \nabla_{\partial_{\theta}} \partial_r &= \frac{f'}{f} \partial_{\theta} \\
+   \nabla_{\partial_r} \partial_{\theta} &= \frac{f'}{f} \partial_{\theta} \\
+   \nabla_{\partial_r} \partial_r &= \frac{f'f''}{1 + (f')^2} \partial_r
    \end{align*}
 
-   \hfill\textbf{[4]}
+   #+BEGIN_soln
+   We have
+   \[
+   \partial_r = f'\cos\theta \partial_x + f' \sin\theta \partial_y + \partial_z
+   \]
+   and
+   \[
+   \partial_{\theta} = -f \sin\theta \partial_x + f \cos\theta \partial_y.
+   \]
+
+   Then
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   D_{\partial_r} \partial_r &= \partial_r \big(f' \cos\theta\big) \partial_x + \partial_r \big(f' \sin\theta\big) \partial_y + \partial_r \big(1\big)\partial_z \\
+   &= f'' \cos\theta \partial_x + f'' \sin\theta \partial_y.
+   \end{split}
+   \]
+   #+END_latex
+   Projecting onto the normal
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \ip{D_{\partial_r} \partial_r}{N} &= \Big\langle f''\big(\cos\theta \partial_x + \sin\theta \partial_y\big), \\
+   &\quad \frac{1}{\sqrt{1 + (f')^2}} \big(-\cos\theta\partial_x -\sin\theta \partial_y +  f'\partial_z\big)\Big\rangle \\
+   &= -\frac{f''}{\sqrt{1 + (f')^2}}.
+   \end{split}
+   \]
+   #+END_latex
+   Then
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \nabla_{\partial_r} \partial_r &= D_{\partial_r} \partial_r - \ip{D_{\partial_r} \partial_r}{N} N \\
+   &=f'' \cos\theta \partial_x + f'' \sin\theta \partial_y \\
+   &\quad + \frac{f''}{\sqrt{1 + (f')^2}} \frac{1}{\sqrt{1 + (f')^2}} \big(-\cos\theta\partial_x -\sin\theta \partial_y +  f'\partial_z\big) \\
+   &= f''\left(1 - \frac{1}{1 + (f')^2}\right) \left(\cos\theta\partial_x + \sin\theta\partial_y\right) + \frac{ff''}{1 + (f')^2} \partial_z \\
+   &= \frac{f'f''}{1 + (f')^2} \left(f'\cos\theta\partial_x + f'\sin\theta\partial_y\right) + \frac{ff''}{1 + (f')^2} \partial_z \\
+   &= \frac{ff''}{1 + (f')^2} \partial_r.
+   \end{split}
+   \]
+   #+END_latex
+
+   \hfill\textbf{[2]}
+
+   The remaining parts are similar and worth \textbf{[2]} points each..
+   #+END_soln
+
+   \hfill\textbf{[8]}
 
 2. Show that the curvature tensor is given by
    \[
