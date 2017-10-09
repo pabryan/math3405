@@ -2260,6 +2260,7 @@ For example, to show that for an arbitrary \(p\), \(H(p) = 0\) choose \(h = \rho
 #+BEGIN_definition
 A set \(M\) is a (two-dimensional) /smooth manifold/ if there exists a cover \(U_{\alpha}\) of \(M\) and maps \(\varphi_{\alpha} : U_{\alpha} \to \RR^2\) such that \pause
 1. each \(\varphi_{\alpha}\) is a one-to-one and onto an open set \(V_{\alpha} = \varphi_{\alpha}(U_{\alpha}) \subseteq \RR^2\), \pause
+2. \(\varphi_{\alpha}(U_{\alpha} \intersect U_{\beta})\) is open, \pause
 2. the transition maps
    \[
    \tau_{\alpha\beta} = \varphi_{\beta} \circ \varphi_{\alpha}^{-1} : \varphi_{\alpha}(U_{\alpha} \cap U_{\beta}) \to \varphi_{\beta} (U_{\alpha}\cap U_{\beta})
@@ -2724,7 +2725,7 @@ Let \(f : (S_1, g_1) \to (S_2, g_2)\) be an isometry. \pause
   \pause
 - For a curve \(\gamma : [a, b] \to S_1\) we have
   \[
-  L[f \circ \gamma] = \int_a^b \abs{(f \circ \gamma)'}_{g_2} dt = \int_a^b \abs{(df \circ \gamma'}_{g_2} dt = \int_a^b \abs{\gamma'}_{g_1} dt = L[\gamma].
+  L[f \circ \gamma] = \int_a^b \abs{(f \circ \gamma)'}_{g_2} dt = \int_a^b \abs{df (\gamma')}_{g_2} dt = \int_a^b \abs{\gamma'}_{g_1} dt = L[\gamma].
   \]
   \pause
 - For a region \(R = \varphi_1 (U) \subset S_1\):
@@ -2795,7 +2796,7 @@ X(u, v) = (1, 0, f_u(u, v)), \quad X(u, v) = (0, 1, f_v(u, v))
 
 - Let \(X, Y : \RR^3 \to \RR^3\) be vector fields, which we may write uniquely as
   \[
-  X(u) = X^x(u) e_x + X^y(u) e_y + X^y(u) e_y, \quad u = (x, y, z) \in \RR^3.
+  X(u) = X^x(u) e_x + X^y(u) e_y + X^z(u) e_z, \quad u = (x, y, z) \in \RR^3.
   \]
   and similarly for \(Y\).
 
@@ -2817,6 +2818,19 @@ The directional derivative, \(D_X Y\) is the vector field,
 \pause
 
 - That is, we just differentiate the components: \(D_X Y = (D_X Y^x) e_x + (D_X Y^y) e_y + (D_X Y^z) e_z\).
+
+**** Directional Derivative on \(\RR^2\)
+
+- Perhaps a more familiar way to write \(D_X Y\) is as follows: \pause
+- On \(\RR^2\), write \(X = (a, b)\), \(Y = (u, v)\). Then
+  \[
+  D_X Y = \left(a \frac{\partial u}{\partial x} + b \frac{\partial u}{\partial y}, a \frac{\partial v}{\partial x} + b \frac{\partial v}{\partial y}\right).
+  \]
+  \pause
+- In terms of the basis \(e_x = (1, 0)\), \(e_y = (0, 1)\), this is the same as above, just with less components (4 as opposed to 9):
+  \[
+    D_X Y = \left(a \partial_x u + b \partial_y u\right) e_x + \left(a \partial_x v + b \partial_y v\right) e_y.
+  \]
 
 **** Directional Derivative
 
@@ -2943,7 +2957,7 @@ since the normal is unit length: \(\ip{N}{N} = 1\).
 
 On the sphere, we simply have
 \[
-\nabla_X Y (u) = D_X Y (u) - \ip{D_X Y(u)}{u}.
+\nabla_X Y (u) = D_X Y (u) - \ip{D_X Y(u)}{u} u.
 \]
 \pause
 
@@ -2997,6 +3011,7 @@ A /covariant derivative/ is a map
 \]
 with \(\nabla_X Y\) a vector field, and such that for functions \(f, f^1, f^2 : M \to \RR\),
 1. Linearity in \(X\): \(\nabla_{f^1 X_1 + f^2 X_2} Y = f^1 \nabla_{X^1} Y + f^2 \nabla-{X^2} Y\).
+2. Additivity in \(Y\): \(\nabla_X (Y_1 + Y_2) = \nabla_X Y_1 + \nabla_X Y_2\).
 2. Product (Leibniz) rule: \(\nabla_X (f Y) = df(X) Y + f \nabla_X Y\).
 #+END_definition
 
@@ -3035,7 +3050,10 @@ Linearity:
 \[
 \nabla_u \partial_u = \Gamma^u_{uu} \partial_u + \Gamma^v_{uu} \partial_v.
 \]
-
+\pause
+\[
+\nabla_X Y = X^i \nabla_{\partial_i} (Y^j \partial_j) = X^i (\partial_i Y^j) \partial_j + X^i Y^j \Gamma_{ij}^k \partial_k = \left(X^i \partial_i Y^j + X^i Y^k \Gamma_{ik}^j\right) \partial_j
+\]
 **** Example: Polar Coordinates
 
 Choose local coordinates \((r, \theta)\) for the plane:
