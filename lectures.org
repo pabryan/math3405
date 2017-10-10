@@ -3697,18 +3697,24 @@ Now the covariant derivative
 **** Levi-Civita Connection
 
 #+BEGIN_theorem
-[without proof]
+[Fundamental Theorem of Riemannian Geometry]
+
 On a Riemannian manifold, there exists a unique covariant derivative \(\nabla\) such that
 1. \(\nabla\) is /metric compatible/,
 2. \(\nabla\) is /symmetric/. That is \(\nabla_X Y - \nabla_Y X = [X, Y]\).
 #+END_theorem
 
+\pause
+
 - This covariant derivative is called the Levi-Civita connection. \pause
-- On a regular surface, the covariant derivative satisfies these properties. \pause
-- The theorem says that if \(\bar{\nabla}\) is any other covariant derivative (satisfies linearity and the product rule) that is also metric compatible and symmetric, then \(\bar{\nabla} = \nabla\).
+- On a regular surface, we've just seen that the covariant derivative is metric compatible and we already knew it was symmetric. \pause
+- The theorem says moreover, that if \(\bar{\nabla}\) is any other covariant derivative (satisfies linearity and the product rule) that is metric compatible and symmetric, then \(\bar{\nabla} = \nabla\).
 
 **** Covariant Derivative and Curvature are Intrinsic
 
+- We won't prove the theorem here (though it's not difficult). \pause
+- The theorem says that we may write \(\nabla = \nabla(g)\). That is \(\nabla\) may be obtained in a *unique* way from \(g\). \pause
+- Thus we obtain: \pause
 #+BEGIN_corollary
 If \((S_1, g_1)\) and \((S_2, g_2)\) are isometric, then \(\nabla_1 = \nabla_2\).
 #+END_corollary
@@ -3829,10 +3835,54 @@ For any vectors \(X, Y, Z, W\),
    \end{align*}
 
    \pause
-   The rest is a little involved. One adds each line and uses symmetry along with the /Jacobi/ identity
+   Then we use the symmetry \(\nabla_Y Z - \nabla_Z Y = [Y, Z]\):
+   \[
+   \nabla_X (\nabla_Y Z) = \nabla_X(\nabla_Z Y + [Y, Z]) = \nabla_X \nabla_Z Y + \nabla_X [Y, Z].
+   \]
+   \pause
+   Notice that the second term in the last of the three lines above contains a term \(-\nabla_X \nabla_Z Y\) which cancels with the \(\nabla_X \nabla_Z Y\) term here.
+#+END_proof
+
+**** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@3] Using the same cancelling for the other terms results in
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \Rm(X, Y) Z &+ \Rm(Y, Z) X + \Rm(Z, X) Y \\
+   &= \nabla_X [Y, Z] + \nabla_Y [Z, X] + \nabla_Z [X, Y] \\
+   &\quad - \nabla_{[Y, Z]} X - \nabla_{[Z, X]} Y - \nabla_{[X, Y]} Z \\
+   &= [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]].
+   \end{split}
+   \]
+   #+END_latex
+   again by using symmetry to get the last line.
+#+END_proof
+
+**** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@3] To proof is completed by showing the /Jacobi Identity/:
    \[
    [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0.
    \]
+   \pause
+
+   This is little tedious but is easily computed directly
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   [X, [Y, Z]] (f) &= X([Y, Z] f) - [Y, Z](X f) \\
+   &= XYZf - XZYf - YZXf + ZYXf \\
+   [Y, [Z, X]] (f) &= YZXf - YXZ f - ZXYf + XZYf \\
+   [Z, [X, Y]] (f) &= ZXYf - ZYXf - XYZf + YXZf.
+   \end{split}
+   \]
+   #+END_latex
+   \pause
+
+   Summing the three lines everything cancels.
 #+END_proof
 
 **** Gauss' Theorema Egregium (Remarkable Theorem)
