@@ -6,14 +6,14 @@
 
 #+LaTeX_HEADER: \input{local_definitions}
 
-#+OPTIONS: H:2 toc:nil
-#+LaTeX_CLASS: article
+# #+OPTIONS: H:2 toc:nil
+# #+LaTeX_CLASS: article
 
-# #+OPTIONS: H:2 toc:t
-# #+LaTeX_CLASS: beamer
-# #+LaTeX_CLASS_OPTIONS: [presentation]
-# #+BEAMER_THEME: Boadilla
-# #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
+#+OPTIONS: H:2 toc:t
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: Boadilla
+#+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
 # Hide solution by default
 #+LaTeX_HEADER: \RenewEnviron{soln}{}
@@ -3633,7 +3633,7 @@ Next time we will see
 - Curvature Tensor
 - Ricci identity
 ** MATH3405 Differential Geometry: Week 12
-*** Lecture 12.1: Theorema Egregium
+*** Lecture 12.1: Curvature Tensor and Gauss Theorema Egregium
 **** Notes							   :noexport:
 - Ref: 3.3, 4.3
 - Invariance of curvature under isometry
@@ -3648,14 +3648,193 @@ Next time we will see
 **** Metric Compatibility
 
 #+BEGIN_theorem
-The covariant derivative is /metric compatible/. That is, for all tangent vector fields \(X, Y, Z)
+The covariant derivative is /metric compatible/. That is, for all tangent vector fields \(X, Y, Z\)
 \[
 \nabla_X \left[g(Y, Z)\right] = g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
 \]
 #+END_theorem
 
-**** The Connection and Curvature are Intrinsic
+\pause
+
+#+BEGIN_proof
+First note that the Euclidean directional is metric compatible:
+
+We write
+\[
+\ip{X}{Y} = \sum_i X^i Y^i = \delta_{ij} X^i Y^j, \quad \delta_{ij} = \begin{cases}
+1, & i = j \\
+0, & i \ne j
+\end{cases}
+\]
+
+\pause
+
+#+BEGIN_latex
+\[
+\begin{split}
+D_X \ip{Y}{Z} &= D_X (\delta_{ij} Y^i Z^j) = \delta_{ij} (D_X Y^i) Z^j + \delta_{ij} Y^i (D_X Z^j) \\
+&= \ip{D_X Y}{Z} + \ip{Y}{D_X Z}.
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** Metric Compatibility
+
+#+BEGIN_proof
+Now the covariant derivative
+#+BEGIN_latex
+\[
+\begin{split}
+\nabla_X g(Y, Z) &= D_X \ip{Y}{Z} = \ip{D_X Y}{Z} + \ip{Y}{D_X Z} \\
+&= \ip{D_X Y - \ip{D_X Y}{N}N}{Z} + \ip{Y}{D_X Z - \ip{D_X Z}{N}N} \\
+&= \ip{\nabla_X Y}{Z} + \ip{Y}{\nabla_X Z}
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** Levi-Civita Connection
+
+#+BEGIN_theorem
+[without proof]
+On a Riemannian manifold, there exists a unique covariant derivative \(\nabla\) such that
+1. \(\nabla\) is /metric compatible/,
+2. \(\nabla\) is /symmetric/. That is \(\nabla_X Y - \nabla_Y X = [X, Y]\).
+#+END_theorem
+
+- This covariant derivative is called the Levi-Civita connection. \pause
+- On a regular surface, the covariant derivative satisfies these properties. \pause
+- The theorem says that if \(\bar{\nabla}\) is any other covariant derivative (satisfies linearity and the product rule) that is also metric compatible and symmetric, then \(\bar{\nabla} = \nabla\).
+
+**** Covariant Derivative and Curvature are Intrinsic
+
+#+BEGIN_corollary
+If \((S_1, g_1)\) and \((S_2, g_2)\) are isometric, then \(\nabla_1 = \nabla_2\).
+#+END_corollary
+
+\pause
+
+#+BEGIN_corollary
+If \((S_1, g_1)\) and \((S_2, g_2)\) are isometric, then \(\Rm_1 = \Rm_2\).
+#+END_corollary
+
 **** Symmetries of the Curvature Tensor
+
+#+BEGIN_theorem
+For any vectors \(X, Y, Z, W\),
+1. \(\Rm(X, Y) Z = - \Rm(Y, X) Z\),
+2. \(g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)\),
+3. \(\Rm(X, Y) Z + \Rm(Y, Z) X + \Rm(Z, X) Y = 0\) (/Bianchi Identity/),
+#+END_theorem
+
+\pause
+
+#+BEGIN_proof
+1. Anti-symmetry in the first two slots:
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \Rm(X, Y) Z &= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z \\
+   &= -\nabla_Y \nabla_Y Z + \nabla_Y \nabla_X Z - \nabla_{-[Y, X]} Z \\
+   &= - \Rm(Y, X) Z.
+   \end{split}
+   \]
+   #+END_latex
+#+END_proof
+
+**** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@2] Anti-symmetry in the last two slots. This is a little more involved:
+   We use metric compatability.
+   \begin{align*}
+   g(\nabla_X \nabla_Y Z, W) &= \nabla_X g(\nabla_Y Z, W) - g(\nabla_Y Z, \nabla_X W) \\
+   &= \nabla_X \nabla_Y g(Z, W) - \nabla_X g(Z, \nabla_Y W) \\
+   &\quad - \nabla_Y g(Z, \nabla_X W) + g(Z, \nabla_Y \nabla_X W).
+   \end{align*}
+   \pause
+   Similarly,
+   \begin{align*}
+   g(\nabla_Y \nabla_X Z, W) &= \nabla_Y g(\nabla_X Z, W) - g(\nabla_X Z, \nabla_Y W) \\
+   &= \nabla_Y \nabla_X g(Z, W) - \nabla_Y g(Z, \nabla_X W) \\
+   &\quad -\nabla_X g(Z, \nabla_Y W) + g(Z, \nabla_X \nabla_Y W).
+   \end{align*}
+
+#+END_proof
+
+**** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+
+1. [@2]
+   Thus,
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X, W) &= (\nabla_X \nabla_Y - \nabla_Y \nabla_X) g(Z, W) \\
+   &\quad - g(Z, \nabla_X \nabla_Y W - \nabla_Y \nabla_X W)
+   \end{split}
+   \]
+   #+END_latex
+   \pause
+
+   Subtracting,
+   \[
+   g(\nabla_{[X, Y]} Z, W) = \nabla_{[X, Y]} g(Z, W) - g(Z, \nabla_{[X, Y]} W)
+   \]
+   we obtain, \pause
+   \begin{align*}
+   g(\Rm(X, Y) Z, W) &= g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z, W) \\
+   &= (\nabla_X \nabla_Y - \nabla_Y \nabla_X - \nabla_{[X, Y]}) g(Z, W) \\
+   &\quad - g(Z, \nabla_X \nabla_Y W - \nabla_Y \nabla_X W - \nabla_{[X, Y]} W) \\
+   &= \Rm(X, Y) [g(Z, W)] - g(\Rm(X, Y) W, Z).
+   \end{align*}
+#+END_proof
+
+**** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@2] So far we have
+   \[
+   g(\Rm(X, Y) Z, W) = R(X, Y) [g(Z, W)] - g(\Rm(X, Y) W, Z)
+   \]
+   where for the smooth function \(f = g(Z, W)\) we have
+   #+BEGIN_latex
+   \[
+   \begin{split}
+   \Rm(X, Y) f &= \nabla_X \nabla_Y f - \nabla_Y \nabla_X f - \nabla_{[X, Y]} f \\
+   &= X(Y(f)) - Y(X(f)) - [X, Y] (f) \\
+   &= [X,Y] (f) - [X, Y] (f) = 0.
+   \end{split}
+   \]
+   #+END_latex
+   \pause
+
+   Thus we have
+   \[
+   g(\Rm(X, Y) Z, W) = - g(\Rm(X, Y) W, Z)
+   \]
+#+END_proof
+
+**** Symmetries of the Curvature Tensor
+
+#+BEGIN_proof
+1. [@3]
+
+   \begin{align*}
+   \Rm(X, Y) Z &= \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z \\
+   \Rm(Y, Z) X &= \nabla_Y \nabla_Z X  - \nabla_Z \nabla_Y X - \nabla_{[Y, Z]} X \\
+   \Rm(Z, X) Y &= \nabla_Z \nabla_X Y - \nabla_X \nabla_Z Y - \nabla_{[Z, X]} Y 
+   \end{align*}
+
+   \pause
+   The rest is a little involved. One adds each line and uses symmetry along with the /Jacobi/ identity
+   \[
+   [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0.
+   \]
+#+END_proof
+
 **** Gauss' Theorema Egregium (Remarkable Theorem)
 *** Lecture 12.2: Gauss-Bonnet Theorem (Local)
 **** Notes							   :noexport:
