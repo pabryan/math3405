@@ -3633,7 +3633,7 @@ Next time we will see
 - Curvature Tensor
 - Ricci identity
 ** MATH3405 Differential Geometry: Week 12
-*** Lecture 12.1: Curvature Tensor and Gauss Theorema Egregium
+*** Lecture 12.1: Curvature Tensor
 **** Notes							   :noexport:
 - Ref: 3.3, 4.3
 - Invariance of curvature under isometry
@@ -3885,8 +3885,35 @@ For any vectors \(X, Y, Z, W\),
    Summing the three lines everything cancels.
 #+END_proof
 
-**** Gauss' Theorema Egregium (Remarkable Theorem)
-*** Lecture 12.2: Gauss-Bonnet Theorem (Local)
+**** Multi-linearity of the Curvature Tensor
+
+- The curvature tensor is a /multi-linear/ map. That is, for each fixed \(Y, Z, W\), the map \(X \mapsto g(\Rm(X, Y) Z, W)\) is linear. \pause The same goes for the other three slots. \pause
+- Thus for example, writing \(X = X^u \partial_u + X^v \partial_v\),
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  &g(\Rm(X^u\partial_u + X^v\partial_v, Y)Z, W) \\
+  &\quad = X^u g(\Rm(\partial_u, Y)Z, W) + X^v g(\Rm(\partial_v, Y)Z, W).
+  \end{split}
+  \]
+  #+END_latex
+  \pause
+- *Note*: The last two terms in the map \(X \mapsto \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z\) are not linear because of the Leibniz rule. \pause But the extra terms all cancel:
+  \[
+  \nabla_{fX} \nabla_Y Z = f \nabla_X \nabla_Y Z
+  \]
+  \pause
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  \nabla_Y \nabla_{fX} Z - \nabla_{[Y, fX]} Z &= f \nabla_Y \nabla_X Z + Y(f) \nabla_X Z \\
+  &\quad - f\nabla_{[Y, X]} Z - Y(f) \nabla_X Z \\
+  &= f(\nabla_Y \nabla_X Z - \nabla_{[Y, X]} Z).
+  \end{split}
+  \]
+  #+END_latex
+
+*** Lecture 12.2: Amazing Facts About the Gauss Curvature
 **** Notes							   :noexport:
 - Ref: 4.5
 - http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
@@ -3894,6 +3921,141 @@ For any vectors \(X, Y, Z, W\),
 - Give the interpretation of Gauss curvature as area deformation of Gauss map
 - Triangles
 - Winding number in the plane and total curvature
+**** Curvature Tensor of a Surface
+- Multi-linearity means we only need to compute the curvature tensor on basis elements (summation convention!):
+  \[
+  g(\Rm(X^i \partial_i, Y^j \partial_j), Z^k \partial_k, W^l \partial_l) = X^i Y^j Z^k W^l g(\Rm(\partial_i, \partial_j)\partial_k, \partial_l).
+  \]
+  \pause
+- In two dimensions, we only have \(\partial_u, \partial_v\). \pause
+- Then
+  \[
+  \Rm(\partial_u, \partial_u) \partial_v = -\Rm(\partial_u, \partial_u) \partial_v
+  \]
+  hence
+  \[
+  \Rm(\partial_u, \partial_u) \partial_v = 0.
+  \]
+  \pause
+- Applying the other symmetries, we find the only non-zero component is
+  \[
+  g(\Rm(\partial_u, \partial_v) \partial_u, \partial_v).
+  \]
+  \pause
+
+**** Curvature Tensor of a Surface
+- All other terms can be obtained from the single term. For example,
+  \[
+  g(\Rm(\partial_u, \partial_v) \partial_u, \partial_v) = -g(\Rm(\partial_v, \partial_u) \partial_u, \partial_v)
+  \]
+  etc. \pause
+- Thus we may write
+  \[
+  g(\Rm(\partial_u, \partial_v) \partial_u, \partial_v) = F(\partial_u, \partial_v)
+  \]
+  for some scalar valued function.
+**** The Gauss Equation
+
+We can express the curvature tensor in terms of the second fundamental form (i.e. the curvature we already know about). \pause
+
+#+BEGIN_lemma
+\[
+g(\Rm(X, Y) X, Y) = - \left(A(X, X)A(Y, Y) - A(X, Y)^2\right) = -\det A(X, Y).
+\]
+#+END_lemma
+\pause
+
+#+BEGIN_proof
+Recall that we have
+\[
+\nabla_X V = D_X V - \ip{D_X V}{N} N.
+\]
+\pause
+Applying this formula to \(V = \nabla_Y Z\), we get
+#+BEGIN_latex
+\[
+\begin{split}
+g(\nabla_X \nabla_Y Z, W) &= \ip{\nabla_X \nabla_Y Z}{W} \\
+&= \ip{D_X \nabla_Y Z - \ip{D_X \nabla_Y Z}{N}N}{W} \\
+&= \ip{D_X \nabla_Y Z}{W}.
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** The Gauss Equation
+
+#+BEGIN_proof
+From the previous slide:
+\[
+g(\nabla_X \nabla_Y Z, W) = \ip{D_X \nabla_Y Z}{W}.
+\]
+\pause
+
+Computing \(D_X \nabla_Y Z\) gives
+#+BEGIN_latex
+\[
+\begin{split}
+D_X \nabla_Y Z &= D_X \left(D_Y Z - \ip{D_Y Z}{N} N\right) \\
+&= D_X D_Y Z - \ip{D_X D_Y Z}{N}N - \ip{D_Y Z}{D_X N}N - \ip{D_Y Z}{N} D_X N.
+\end{split}
+\]
+#+END_latex
+\pause
+
+Since we are taking the inner product with \(W\), we may ignore the middle two (normal) terms. \pause
+#+BEGIN_latex
+\[
+\begin{split}
+g(\nabla_X \nabla_Y Z, W) &= \ip{D_X D_Y Z - \ip{D_Y Z}{N} D_X N}{W} \\
+&= \ip{D_X D_Y Z}{W} -A(Y, Z) A(X, W).
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** The Gauss Equation
+
+#+BEGIN_proof
+
+A similar formula holds for \(g(\nabla_Y \nabla_X Z, W)\) so that\pause
+#+BEGIN_latex
+\[
+\begin{split}
+g(\Rm(X, Y)Z, W) &= g(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z, W) \\
+&= \ip{D_X D_Y Z}{W} - A(Y, Z) A(X, W) \\
+&\quad - \ip{D_Y D_X Z}{W} + A(X, Z) A(Y, W) \\
+&\quad - \ip{D_{[X, Y]} Z}{W} \\
+&= \ip{\Rm_D(X, Y) Z}{W} \\
+&\quad + A(X, Z) A(Y, W) - A(Y, Z) A(X, W).
+\end{split}
+\]
+#+END_latex
+\pause
+
+But \(\Rm_D \equiv 0\) (Euclidean space has zero curvature!) since
+\[
+D_{\partial_i} D_{\partial_j} \partial_k = 0.
+\]
+#+END_proof
+
+**** Gauss' Theorema Egregium (Remarkable Theorem)
+
+#+BEGIN_theorem
+The Gauss curvature is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are isometric, then \(K_1 = K_2\).
+#+END_theorem
+\pause
+
+#+BEGIN_proof
+For any \(X, Y\) linearly independent,
+\[
+K = \frac{\det A(X, Y)}{\det g(X, Y)} = -\frac{g(\Rm(X, Y)X, Y)}{\det g(X, Y)}.
+\]
+\pause
+
+That's it! The curvature tensor is intrinsic \(\Rm = \Rm(\nabla) = \Rm(\nabla(g))\).
+#+END_proof
+
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
 **** Notes							   :noexport:
 - Ref: 4.5
