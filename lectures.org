@@ -4164,6 +4164,60 @@ Here is an example of surfaces \(S_1, S_2\) for which \(K_1 = K_2\) but \(g_1 \n
 #+END_eg
 
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
+**** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_theorem
+[Turning Tangents]
+Let \(\gamma : [0, L] \to \RR^2\) closed plane curve parametrised by arc-length. Then
+\[
+I := \frac{1}{2\pi} \int_0^L \kappa(s) ds \in \ZZ.
+\]
+\pause
+The integer, \(I\) is called the /winding number/. In particular, if \(\gamma\) is a simple, closed curve then
+\[
+\int_0^L \kappa(s) ds = \pm 2\pi.
+\]
+#+END_theorem
+\pause
+
+The sign \(\pm\) is just the orientation.
+
+**** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_proof
+- The function
+  \[
+  \theta(s) = \int_0^s \kappa(\tilde{s}) d\tilde{s}
+  \]
+  satisfies
+  \[
+  \partial_s \theta = \kappa.
+  \]
+  \pause
+- Since \(\partial_s \theta = \kappa\) we have
+  \[
+  \theta(L) - \theta(0) = \int_0^L \kappa(s) ds.
+  \]
+#+END_proof
+
+**** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_proof
+- On the other hand, since \(T(s) = \gamma'(s)\) is unit length,
+  \[
+  T(s) = (\cos(\theta(s)), \sin(\theta(s)))
+  \]
+  for a differentiable function \(\theta: [0, L] \to \RR\) by the implicit function theorem. \pause \(\theta\) is just the angle of \(T\) with the x-axis.
+- But \(T(L) = T(0)\) and hence
+  \[
+  \theta(L) = \theta(0) + 2\pi I
+  \]
+  for an integer \(I\). \pause
+- Putting it all together,
+  \[
+  2\pi I = \theta(L) - \theta(0) = \int_0^L \kappa ds.
+  \]
+#+END_proof
 **** Notes							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
