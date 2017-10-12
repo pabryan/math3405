@@ -4231,8 +4231,35 @@ The sign \(\pm\) is just the orientation.
 ** MATH3405 Differential Geometry: Week 13
 *** Lecture 13.1: Gauss-Bonnet Theorem (Global)
 **** Euler Characteristic
+
+#+BEGIN_definition
+The Euler Characteristic, \(\chi\) of a polyhedron is equal to
+\[
+\chi = V - E + F
+\]
+where \(V\) is the number of vertices, \(E\) the number of edges and \(F\) the number of faces.
+#+END_definition
+
 **** Regular Polygons and Platonic Solids
 **** Triangulations
+
+- The Euler characteristic may be defined for regular surfaces. \pause
+- The Euler characteristic is a /topological invariant/. \pause
+- In particular, if \(\varphi : P \to S\) is a homeomorphism, then the Euler characteristic of \(S\) is \(\chi(S) = \chi(P)\). \pause
+
+#+BEGIN_defn
+A /triangulation/ of a regular surface \(S\) is a finite set of triangles, \(\{T_i\}_{i=1}^n\) such that
+1. \(S = \union_{i=1}^n T_i\),
+2. Each intersection \(T_i \cap T_j\) is either empty, a common edge of \(T_i\) and \(T_j\) or a common vertex of \(T_i\) and \(T_j\).
+
+The Euler characteristic of \(\{T_i\}_{i=1}^n\) equals \(V - E + F\).
+#+END_defn
+
+#+BEGIN_theorem
+[without proof]
+The Euler characteristic of a surface equals the Euler characteristic of any triangulation, which is independent of the choice of triangulation.
+#+END_theorem
+
 **** Classification of Closed Surfaces
 **** Global Gauss-Bonnet
 **** Notes							   :noexport:
