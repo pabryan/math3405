@@ -4042,7 +4042,7 @@ D_{\partial_i} D_{\partial_j} \partial_k = 0.
 **** Gauss' Theorema Egregium (Remarkable Theorem)
 
 #+BEGIN_theorem
-The Gauss curvature is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are isometric, then \(K_1 = K_2\).
+The Gauss curvature is intrinsic. That is, if \((S_1, g_1)\) and \((S_2, g_2)\) are locally isometric, then \(K_1 = K_2\).
 #+END_theorem
 \pause
 
@@ -4055,6 +4055,112 @@ K = \frac{\det A(X, Y)}{\det g(X, Y)} = -\frac{g(\Rm(X, Y)X, Y)}{\det g(X, Y)}.
 
 That's it! The curvature tensor is intrinsic \(\Rm = \Rm(\nabla) = \Rm(\nabla(g))\).
 #+END_proof
+
+**** Non-isometric Surfaces
+
+#+BEGIN_eg
+The surfaces
+- Sphere: \(K \equiv 1\)
+- Torus: \(K\) non-constant but changing sign
+- Cylinder: \(K \equiv 0\)
+- Paraboloid: \(K\) non-constant and positive
+are not locally isometric.\pause
+#+END_eg
+
+- Besides the cylinder, none of these surfaces can be flattened out (even locally!) without distorting the geometry - stretching, crumpling etc. \pause
+- In particular, all surfaces are locally diffeomorphic to the plane (via the local parametrisations) so they share the Calculus with the plane. \pause
+- But typically, they do not share the /Geometry/ with the plane. \pause
+
+/Even though plane calculus may be brought to bear on the study of surface geometry, the geometry itself is not plane geometry/.
+
+**** Corrugation
+#+BEGIN_eg
+- Folding a sheet of (paper, metal, cardboard) along a line introduces curvature but does not change the geometry provided no stretching occurs. \pause
+- Thus one principal curvature is non-zero, but Gauss' theorem forces the other to vanish since \(0 \underset{\text{Gauss Theorem}}{=} K = \kappa_1 \kappa_2\). \pause
+- Introduces rigidity in one direction and flexibility in the other.
+#+END_eg
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/corrugation.png]]
+#+END_center
+
+**** Map Making
+
+#+BEGIN_eg
+- No map exists preserving length, angle and area! \pause
+- Archimedes Cylinder to Sphere map preserves area: \((x, y, z) \in C \mapsto (\sqrt{1 - z^2} x, \sqrt{1 - z^2} y, z)\). \pause
+- The Mercator projection preserves angles. Good for navigation! \pause
+#+END_eg
+
+***** Pictures
+****** Archimedes
+       :PROPERTIES:
+       :beamer_col: 0.5
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/archimdes_tomb.png]]
+
+#+END_center
+
+****** Mercator
+       :PROPERTIES:
+       :beamer_col: 0.5
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/Mercator-proj.png]]
+#+END_center
+
+**** Helicoid and Catenoid
+
+#+BEGIN_eg
+- Helicoid: \((v\cos(u), v\sin(u), u)\), \pause
+- Catenoid: \((\sinh(v) \cos(u), \sinh(v) \sin(u), u)\). \pause
+The Helicoid and Catenoid are locally isometric with Gauss curvature
+\[
+K = -\frac{1}{(1 + u^2)^2}
+\]
+#+END_eg
+
+***** Pictures
+****** Catenoid
+       :PROPERTIES:
+       :beamer_col: 0.5
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/catenoid.png]]
+
+#+END_center
+
+****** Helicoid
+       :PROPERTIES:
+       :beamer_col: 0.5
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/helicoid.jpg]]
+#+END_center
+
+**** The Converse of Gauss' Theorem is false
+
+#+BEGIN_eg
+Here is an example of surfaces \(S_1, S_2\) for which \(K_1 = K_2\) but \(g_1 \ne g_2\). \pause
+
+- \(\varphi(u, v) = (u\cos(v), u\sin(v), \ln(u))\) \pause
+- \(\psi(u, v) = (u\cos(v), u\sin(v), v)\) \pause
+
+*Exercise*:
+- Check that \(K_{\varphi}(u, v) = K_{\psi}(u, v)\) \\
+- Check that \(g_{\varphi} (u, v) \ne g_{\psi}\).
+\pause
+
+- Thus we have surfaces with the equal Gauss curvature that are not isometric. \pause
+- Gauss Theorem: \(g_1 = g_2 \Rightarrow K_1 = K_2\). \pause
+- Converse is false: \(K_1 = K_2 \not\Rightarrow g_1 = g_2\).
+#+END_eg
 
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
 **** Notes							   :noexport:
