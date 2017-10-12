@@ -4116,13 +4116,14 @@ are not locally isometric.\pause
 **** Helicoid and Catenoid
 
 #+BEGIN_eg
-- Helicoid: \((v\cos(u), v\sin(u), u)\), \pause
+- Helicoid: \((v\cos(u), v\sin(u), u)\),
 - Catenoid: \((\sinh(v) \cos(u), \sinh(v) \sin(u), u)\). \pause
 The Helicoid and Catenoid are locally isometric with Gauss curvature
 \[
 K = -\frac{1}{(1 + u^2)^2}
 \]
 #+END_eg
+\pause
 
 ***** Pictures
 ****** Catenoid
@@ -4149,12 +4150,12 @@ K = -\frac{1}{(1 + u^2)^2}
 #+BEGIN_eg
 Here is an example of surfaces \(S_1, S_2\) for which \(K_1 = K_2\) but \(g_1 \ne g_2\). \pause
 
-- \(\varphi(u, v) = (u\cos(v), u\sin(v), \ln(u))\) \pause
+- \(\varphi(u, v) = (u\cos(v), u\sin(v), \ln(u))\)
 - \(\psi(u, v) = (u\cos(v), u\sin(v), v)\) \pause
 
 *Exercise*:
 - Check that \(K_{\varphi}(u, v) = K_{\psi}(u, v)\) \\
-- Check that \(g_{\varphi} (u, v) \ne g_{\psi}\).
+- Check that \(g_{\varphi} (u, v) \ne g_{\psi} (u, v)\).
 \pause
 
 - Thus we have surfaces with the equal Gauss curvature that are not isometric. \pause
@@ -5155,6 +5156,11 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
   - Gauss-Bonnet (local)
 
 * Exam 								   :noexport:
+** Study Guide
+*** Parametrised Curves
+*** Regular Surfaces
+*** Curvature of Surfaces
+*** Intrinsic Geometry
 * Notes 							   :noexport:
 ** General
 - Make use of Ximera?
