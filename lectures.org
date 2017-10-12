@@ -4218,6 +4218,14 @@ The sign \(\pm\) is just the orientation.
   2\pi I = \theta(L) - \theta(0) = \int_0^L \kappa ds.
   \]
 #+END_proof
+
+**** Parallel Postulate, Triangles and Constant Curvature Geometry
+**** Parallel Postulate, Triangles and Constant Curvature Geometry
+**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
+**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
+**** Gauss-Bonnet Theorem (Local)
+**** Applications of Gauss-Bonnet
+**** A Little Comparison Geometry
 **** Notes							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
