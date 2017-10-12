@@ -4230,6 +4230,11 @@ The sign \(\pm\) is just the orientation.
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
 *** Lecture 13.1: Gauss-Bonnet Theorem (Global)
+**** Euler Characteristic
+**** Regular Polygons and Platonic Solids
+**** Triangulations
+**** Classification of Closed Surfaces
+**** Global Gauss-Bonnet
 **** Notes							   :noexport:
 - Ref: 4.5
 - Euler characteristic etc.
