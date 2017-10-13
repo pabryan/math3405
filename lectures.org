@@ -3239,13 +3239,13 @@ Therefore,
 \begin{example}[On the sphere, \(\sphere^2\)]
 Let \(\gamma(t) = (\sqrt{1-z_0^2} \cos(t), \sqrt{1-z_0^2}\sin(t), z_0)\) parametrise the a circle of latitude at height \(z_0\). Then
 \[
-Y(\gamma(t)) = -\sqrt{1-z_0^2} \sin(t) \partial_x + \sqrt{1-z_0^2} \cos(t) \partial_y.
+Y(\gamma(t)) = -(1-z_0^2) \sin(t) \partial_x + (1-z_0^2) \cos(t) \partial_y.
 \]
 \pause
 Therefore,
 \[
 \begin{split}
-\nabla_{\gamma'} Y &= \pi_{T\sphere^2} (D_{\gamma'} Y) = -\sqrt{1-z_0^2} \pi_{T\sphere^2} (\cos(t) \partial_x + \sin t \partial_y).
+\nabla_{\gamma'} Y &= \pi_{T\sphere^2} (D_{\gamma'} Y) = -(1-z_0^2) \pi_{T\sphere^2} (\cos(t) \partial_x + \sin t \partial_y).
 \end{split}
 \]
 \end{example}
@@ -3255,10 +3255,10 @@ Therefore,
 
 #+BEGIN_latex
 \begin{example}[On the sphere, \(\sphere^2\)]
-We obtained \(\nabla_{\gamma'} Y = -\sqrt{1-z_0^2} \pi_{T\sphere^2} (\cos(t) \partial_x + \sin t \partial_y)\).
+We obtained \(\nabla_{\gamma'} Y = -(1-z_0^2) \pi_{T\sphere^2} (\cos(t) \partial_x + \sin t \partial_y)\).
 \pause
 
-The normal \(N(\gamma(t)) = \sqrt{1-z_0^2} \cos(t)\partial_x + \sqrt{1-z_0^2}\sin(t) \partial_y +  z_0\partial_z\).
+Take the normal \(N(\gamma(t)) = \sqrt{1-z_0^2} \cos(t)\partial_x + \sqrt{1-z_0^2}\sin(t) \partial_y + z_0\partial_z\).
 \pause
 
 The projection onto the normal is
@@ -3271,9 +3271,9 @@ The projection onto the normal is
 \pause
 \[
 \begin{split}
-\nabla_{\gamma'} Y &= -\sqrt{1-z_0^2} (\cos(t) \partial_x + \sin t \partial_y) \\
-&\quad + \sqrt{1-z_0^2}\left(\sqrt{1-z_0^2} \cos(t)\partial_x + \sqrt{1-z_0^2}\sin(t) \partial_y +  z_0\partial_z\right) \\
-&= (1-z_0^2 - \sqrt{1-z_0^2})\left(\cos(t) \partial_x + \sin(t) \partial_y\right) + z_0\sqrt{1-z_0^2} \partial_z.
+\nabla_{\gamma'} Y &= -(1-z_0^2) (\cos(t) \partial_x + \sin t \partial_y) \\
+&\quad + (1-z_0^2)\sqrt{1-z_0^2}\left(\sqrt{1-z_0^2} \cos(t)\partial_x + \sqrt{1-z_0^2}\sin(t) \partial_y +  z_0\partial_z\right) \\
+&= ((1-z_0^2)^2 - (1-z_0^2))\left(\cos(t) \partial_x + \sin(t) \partial_y\right) + z_0(1-z_0^2)^{3/2} \partial_z.
 \end{split}
 \]
 \end{example}
