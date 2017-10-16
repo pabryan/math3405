@@ -112,6 +112,12 @@ p1 = (28*pi/16, pi/2)
 p2 = (25*pi/16, pi/4)
 p3 = (31*pi/16, pi/4)
 
+p1 = (18*pi/11, 0.01)
+p2 = (18*pi/11, 5*pi/11)
+p3 = (21.9*pi/11, 0.01)
+p4 = (21.9*pi/11, 5*pi/11)
+
+
 def sphere_arc(p, q):
     P = S2.point(p, name="P")
     T = P.plot(X3, mapping=F, size=20, color="red")
@@ -122,16 +128,16 @@ def sphere_arc(p, q):
     return graph
 
 T1 = sphere_arc(p1, p2)
-T2 = sphere_arc(p2, p3)
-T3 = sphere_arc(p3, p1)
+T2 = sphere_arc(p3, p4)
+T3 = sphere_arc(p2, p4)
 
-graph_S2 = XS.plot(X3, mapping=F, number_values=11, color='black')
+graph_S2 = XS.plot(X3, mapping=F, number_values=11, color='gray')
 
 p = graph_S2 + T1 + T2 + T3
 p.show(frame=False)
 p.save("img/sphere_triangle.png", frame=False, aspect_ratio=1)
 
-︡a1c21333-684e-49bd-b7bd-736a337c2226︡{"file":{"filename":"d494c5aa-600d-498e-b0c9-3937000b7da6.sage3d","uuid":"d494c5aa-600d-498e-b0c9-3937000b7da6"}}︡{"done":true}︡
+︡4da16265-867f-41c6-98c7-0303a3176f8e︡{"file":{"filename":"a6ea0834-50eb-470e-9fbf-a860a25b90d5.sage3d","uuid":"a6ea0834-50eb-470e-9fbf-a860a25b90d5"}}︡{"done":true}︡
 
 
 
