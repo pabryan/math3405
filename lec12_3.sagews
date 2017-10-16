@@ -70,7 +70,7 @@ p = plot(L1 + L2 + P5)
 p.show(axes=False)
 p.save("img/euclid5.png", axes=False)
 ︡43fe9902-1a9a-472a-a946-0dd003aef16d︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/203/tmp_Pk3_Gd.svg","show":true,"text":null,"uuid":"3727f832-8fa1-43e3-9605-8e0757285207"},"once":false}︡{"done":true}︡
-︠eb2def55-d0e9-4e62-bb76-faeb4147b306s︠
+︠eb2def55-d0e9-4e62-bb76-faeb4147b306︠
 p1 = (0, 0)
 p2 = (1/2, 1)
 p3 = (-1, 1/2)
@@ -98,7 +98,7 @@ p += plot(arc1 + arc2 + arc3)
 p.show(axes=False)
 p.save("img/euclidean_triangle.png", axes=False)
 ︡8ddc9e82-dfb7-425c-ba50-8d21b1f7646a︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/11205/tmp_2H27QS.svg","show":true,"text":null,"uuid":"29ea3735-501a-4c11-9c88-dca6034bd2dc"},"once":false}︡{"done":true}︡
-︠8763f44c-e075-4d2b-81f0-d72d63b0bfecs︠
+︠8763f44c-e075-4d2b-81f0-d72d63b0bfec︠
 %var t
 
 S2 = Manifold(2, 'S^2')
@@ -137,7 +137,40 @@ p = graph_S2 + T1 + T2 + T3
 p.show(frame=False)
 p.save("img/sphere_triangle.png", frame=False, aspect_ratio=1)
 
-︡4da16265-867f-41c6-98c7-0303a3176f8e︡{"file":{"filename":"a6ea0834-50eb-470e-9fbf-a860a25b90d5.sage3d","uuid":"a6ea0834-50eb-470e-9fbf-a860a25b90d5"}}︡{"done":true}︡
+︡7f665fe6-025b-43ce-97c5-1a0a9616863e︡{"file":{"filename":"a6ea0834-50eb-470e-9fbf-a860a25b90d5.sage3d","uuid":"a6ea0834-50eb-470e-9fbf-a860a25b90d5"}}︡{"done":true}︡
+︠a6bf2004-8ac8-46a5-b919-2899a6ab12bbr︠
+%var t
+
+PS2 = Manifold(2, 'PS^2')
+U = PS2.open_subset('U')
+XS.<th,r> = U.chart(r'th:(0,2*pi):\theta r:(-4,4):r')
+R3 = Manifold(3, 'R^3')
+X3.<x,y,z> = R3.chart()
+F = PS2.diff_map(R3, {(XS, X3): [sech(r)*cos(th), sech(r)*sin(th), r - tanh(r)]}, name='F')
+
+p1 = (20*pi/11, 3)
+p2 = (18*pi/11, 1)
+p3 = (21.9*pi/11, 1)
+
+def pseudosphere_arc(p, q):
+    P = PS2.point(p, name="P")
+    T = P.plot(X3, mapping=F, size=20, color="red")
+    L = t*vector(p) + (1-t)*vector(q)
+    c = PS2.curve([L[0], L[1]], (t, 0, 1), name='c')
+    graph = c.plot(mapping=F, max_range=40, plot_points=200, thickness=2, label_axes=False)
+
+    return graph
+
+T1 = pseudosphere_arc(p1, p2)
+T2 = pseudosphere_arc(p2, p3)
+T3 = pseudosphere_arc(p3, p1)
+
+graph_PS2 = XS.plot(X3, mapping=F, number_values=11, color='gray')
+
+p = graph_PS2 + T1 + T2 + T3
+p.show(frame=False)
+p.save("img/pseudosphere_triangle.png", frame=False, aspect_ratio=1)
+︡4c8190da-e2e5-4a38-9258-9a87d67e0766︡
 
 
 
