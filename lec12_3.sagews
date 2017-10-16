@@ -129,9 +129,9 @@ graph_S2 = XS.plot(X3, mapping=F, number_values=11, color='black')
 
 p = graph_S2 + T1 + T2 + T3
 p.show(frame=False)
-p.save("img/sphere_triangle.png", frame=False)
+p.save("img/sphere_triangle.png", frame=False, aspect_ratio=1)
 
-︡75b07c1c-53d3-4149-9209-5a4d441debe6︡{"file":{"filename":"d494c5aa-600d-498e-b0c9-3937000b7da6.sage3d","uuid":"d494c5aa-600d-498e-b0c9-3937000b7da6"}}︡{"done":true}︡
+︡a1c21333-684e-49bd-b7bd-736a337c2226︡{"file":{"filename":"d494c5aa-600d-498e-b0c9-3937000b7da6.sage3d","uuid":"d494c5aa-600d-498e-b0c9-3937000b7da6"}}︡{"done":true}︡
 
 
 
