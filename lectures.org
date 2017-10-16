@@ -3382,7 +3382,7 @@ e_u (f) = \partial_u f, \text{ local partial derivative}.
 
 #+BEGIN_latex
 \begin{example}
-\(X = x \partial_x + y \partial_y = \partial_r\) \pause
+\(X = x \partial_x + y \partial_y = r \partial_r\) \pause
 \[
 X(f) = x \partial_x f + y \partial_y f.
 \]
@@ -3420,7 +3420,7 @@ The /Lie Bracket/ or /Commutator/ of two vector fields is the derivation,
 
 - Relabel the indices (swap \(i\) and \(j\) in the second sum)
   \[
-  [X, Y] f = X^i \partial_i Y^j \partial_j f - Y^i \partial_i X^j \partial_j f = (X^i \partial_i Y^j - Y^i \partial_i X^j) \partial_j (f).
+  [X, Y] f = X^i \partial_i Y^j \partial_j f - Y^i \partial_i X^j \partial_j f = (X^i \partial_i Y^j - Y^i \partial_i X^j) \partial_j f.
   \]
   \pause
   Thus \([X, Y]\) is the vector field with local components,
@@ -3716,9 +3716,8 @@ by symmetry of \(A\). \pause So we only need to verify the lemma for \(D\).
 #+BEGIN_latex
 \[
 \begin{split}
-(D_X Y - D_Y X) f &= \left(D_{X^i \partial_i} Y^j \partial_j - D_{Y^k \partial_k} X^l \partial_l\right) f = X^i \partial_i(Y^j) \partial_j f + X^i Y^j \partial_i \partial_j f \\
-&\quad -Y^k \partial_k(X^l) \partial_l f - Y^k X^l \partial_k \partial_l f \\
-&= X^i \partial_i(Y^j) \partial_j f - Y^k \partial_k(X^l) \partial_l \\
+(D_X Y - D_Y X) f &= \left(D_{X^i \partial_i} Y^j \partial_j - D_{Y^k \partial_k} X^l \partial_l\right) f \\
+&= X^i \partial_i(Y^j) \partial_j f + X^i Y^j \partial_i \partial_j f - Y^k \partial_k(X^l) \partial_l f + Y^k X^l \partial_k \partial_l f \\
 &= \left(X^i \partial_i(Y^j) - Y^i \partial_i(X^j) \right)\partial_j f \\
 &= [X, Y] f.
 \end{split}
@@ -3766,10 +3765,8 @@ We can write \(\Rm\) as a commutator
 \]
 \pause
 
-Next time we will see
-1. \(\Rm(X, Y) Z = \nabla_Y (\nabla_X Z) - \nabla_X (\nabla_Y Z) - \nabla_{[X, Y]} Z\). \pause
-   The \([X, Y]\) term compensates for the fact that \(\nabla^2_{X, Y}\) and \(\nabla^2_{Y, X}\) might not commute simply because \(X\) and \(Y\) might not commute. \pause
-2. \(\Rm\) is in fact a measure of curvature...
+- We may write\(\Rm(X, Y) Z = \nabla_Y (\nabla_X Z) - \nabla_X (\nabla_Y Z) - \nabla_{[X, Y]} Z\). \pause
+- The \([X, Y]\) term compensates for the fact that \(\nabla^2_{X, Y}\) and \(\nabla^2_{Y, X}\) might not commute simply because \(X\) and \(Y\) might not commute. \pause
 
 **** Metric Compatibility
 
@@ -3814,7 +3811,8 @@ Now the covariant derivative
 \begin{split}
 \nabla_X g(Y, Z) &= D_X \ip{Y}{Z} = \ip{D_X Y}{Z} + \ip{Y}{D_X Z} \\
 &= \ip{D_X Y - \ip{D_X Y}{N}N}{Z} + \ip{Y}{D_X Z - \ip{D_X Z}{N}N} \\
-&= \ip{\nabla_X Y}{Z} + \ip{Y}{\nabla_X Z}
+&= \ip{\nabla_X Y}{Z} + \ip{Y}{\nabla_X Z} \\
+&= g(\nabla_X Y, Z) + g(Y, \nabla_X Z).
 \end{split}
 \]
 #+END_latex
@@ -4067,7 +4065,6 @@ For any vectors \(X, Y, Z, W\),
   \[
   g(\Rm(\partial_u, \partial_v) \partial_u, \partial_v).
   \]
-  \pause
 
 **** Curvature Tensor of a Surface
 - All other terms can be obtained from the single term. For example,
