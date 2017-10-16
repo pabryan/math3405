@@ -1,3 +1,4 @@
+
 #+TITLE: MATH3405 Differential Geometry - UQ
 #+AUTHOR: Paul Bryan
 #+EMAIL: pabryan@gmail.com
@@ -3351,7 +3352,7 @@ Locally we see it's non-linear (but solutions still exist and are unique):
 \]
 #+END_proof
 
-*** Lecture 11.3: Curvature Tensor
+*** Lecture 11.3: Covariant Derivatives as Differential Operators
 **** Vector fields as derivations
 
 #+BEGIN_definition
@@ -3505,7 +3506,6 @@ satisfies
 \end{example}
 #+END_latex
 
-
 **** Covariant Derivative Again
 
 In the example,
@@ -3575,6 +3575,156 @@ Along the path \(\gamma(t) = (\theta = \pi/4, \varphi = t)\), the vector field \
   (\nabla_Y T) (X) = \nabla_Y(T(X)) - T(\nabla_Y X).
   \]
 
+**** Differentiating Linear Maps
+
+#+BEGIN_eg
+On \(\RR^2\), let
+\[
+M(x) = \begin{pmatrix}
+xy && \cos(x) \\
+0 && x^2 - y
+\end{pmatrix}
+\]
+\pause
+
+Then
+\[
+D_{\partial_x} M = \begin{pmatrix}
+y && -\sin(x) \\
+0 && 2x
+\end{pmatrix}
+\]
+\pause
+
+Observe that
+#+BEGIN_latex
+\[
+D_{\partial_x}\left[M(x) (\partial_x) \right] = \partial_x \left[\begin{pmatrix}
+xy && \cos(x) \\
+0 && x^2 - y
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix}
+\right]
+= \partial_x \begin{pmatrix}
+xy \\
+0
+\end{pmatrix}
+= \begin{pmatrix}
+y \\
+0
+\end{pmatrix}
+\]
+#+END_latex
+\pause
+\[
+D_{\partial_x}[M(x) (\partial_x)] = [D_{\partial_x} M(x)] (\partial_x) + M(x) (D_{\partial_x} \partial_x) = [D_{\partial_x} M(x)] (\partial_x).
+\]
+#+END_eg
+
+**** Differentiating Linear Maps
+
+#+BEGIN_eg
+Take the same \(M\) and let \(X(x, y) = x \partial_x\). \pause
+
+\[
+D_{\partial_x} X = \partial_x.
+\]
+\pause
+#+BEGIN_latex
+\[
+D_{\partial_x}\left[M(x) (X) \right] = \partial_x \left[\begin{pmatrix}
+xy && \cos(x) \\
+0 && x^2 - y
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+0
+\end{pmatrix}
+\right]
+= \partial_x \begin{pmatrix}
+x^2y \\
+0
+\end{pmatrix}
+= \begin{pmatrix}
+2xy \\
+0
+\end{pmatrix}
+\]
+#+END_latex
+\pause
+
+\[
+D_{\partial_x} M = \begin{pmatrix}
+y && -\sin(x) \\
+0 && 2x
+\end{pmatrix}
+\]
+\pause
+\[
+\left[D_{\partial_x}M(x)\right] (X) = xy\partial_x
+\]
+\pause
+\[
+M(x) (D_{\partial_x} X) = xy \partial_x
+\]
+\pause
+\[
+D_{\partial_x}[M(x) (\partial_x)] = [D_{\partial_x} M(x)] (\partial_x) + M(x) (D_{\partial_x} \partial_x).
+\]
+
+#+END_eg
+
+**** Notes 							   :noexport:
+- Vector fields as derivations
+  - simple example on \(\RR^n\)
+- Lie bracket: \([X, Y] = \nabla_X Y - \nabla_Y X\)
+  - Show actually \([X, Y] = D_X Y - D_Y X\) from symmetry of \(A\)
+  - examples (particularly on \(\RR^3\)) of vector fields that don't commute: e.g. \(X = \partial_x\), \(Y = x \partial_y)
+  - coordinate fields commute
+- Higher derivatives - particularly endomorphisms such as \(dN\) and for fixed \(X\), \(Y \mapsto \nabla_Y X\)
+  - examples of where we have to take into account the change in the argument: \(D_X (T(Y)) = (D_X T)(Y) + T(D_X Y)\). Show by example, that we with different \(Y\)'s we get different \(D_X (T(Y))\), so to compute \(D_X T\) we need to subtract off the component \(D_X Y\) corresponding to the change in \(Y\)
+- Curvature Tensor
+- Ricci identity
+** MATH3405 Differential Geometry: Week 12
+*** Lecture 12.1: Curvature Tensor
+**** Notes							   :noexport:
+- Ref: 3.3, 4.3
+- Invariance of curvature under isometry
+- Gauss equation
+- Proof by Curvature tensor and Gauss Equation
+  - https://faculty.etsu.edu/gardnerr/5310/5310pdf/dg1-8.pdf sectional curvature of a two plane is exactly the Gauss curvature!
+- Alternative proof of Gauss Theorem: Use characterisation as limits of areas of shrinking regions
+  -  http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
+- https://services.math.duke.edu/~ng/math/papers/curvature.pdf
+- Interpretation of Gauss Curvature via infinitessimal area, triangles, Gauss map?
+- Try to prove it in a way that matches with the Gauss-Bonnet theorem
+**** Commuting Covariant Derivatives
+#+BEGIN_lemma
+\[
+\nabla_X Y - \nabla_Y X = [X, Y].
+\]
+#+END_lemma
+
+#+BEGIN_proof
+\[
+\nabla_X Y - \nabla_Y X = D_X Y - A(X, Y) - (D_Y X - A(Y, X)) = D_X Y - D_Y X
+\]
+by symmetry of \(A\). \pause So we only need to verify the lemma for \(D\).
+#+BEGIN_latex
+\[
+\begin{split}
+(D_X Y - D_Y X) f &= \left(D_{X^i \partial_i} Y^j \partial_j - D_{Y^k \partial_k} X^l \partial_l\right) f = X^i \partial_i(Y^j) \partial_j f + X^i Y^j \partial_i \partial_j f \\
+&\quad -Y^k \partial_k(X^l) \partial_l f - Y^k X^l \partial_k \partial_l f \\
+&= X^i \partial_i(Y^j) \partial_j f - Y^k \partial_k(X^l) \partial_l \\
+&= \left(X^i \partial_i(Y^j) - Y^i \partial_i(X^j) \right)\partial_j f \\
+&= [X, Y] f.
+\end{split}
+\]
+#+END_latex
+#+END_proof
 **** Second Covariant Derivative
 
 #+BEGIN_definition
@@ -3619,32 +3769,8 @@ We can write \(\Rm\) as a commutator
 Next time we will see
 1. \(\Rm(X, Y) Z = \nabla_Y (\nabla_X Z) - \nabla_X (\nabla_Y Z) - \nabla_{[X, Y]} Z\). \pause
    The \([X, Y]\) term compensates for the fact that \(\nabla^2_{X, Y}\) and \(\nabla^2_{Y, X}\) might not commute simply because \(X\) and \(Y\) might not commute. \pause
-2. \(\Rm\) is in fact a measure of curvature.
+2. \(\Rm\) is in fact a measure of curvature...
 
-**** Notes							   :noexport:
-- Vector fields as derivations
-  - simple example on \(\RR^n\)
-- Lie bracket: \([X, Y] = \nabla_X Y - \nabla_Y X\)
-  - Show actually \([X, Y] = D_X Y - D_Y X\) from symmetry of \(A\)
-  - examples (particularly on \(\RR^3\)) of vector fields that don't commute: e.g. \(X = \partial_x\), \(Y = x \partial_y)
-  - coordinate fields commute
-- Higher derivatives - particularly endomorphisms such as \(dN\) and for fixed \(X\), \(Y \mapsto \nabla_Y X\)
-  - examples of where we have to take into account the change in the argument: \(D_X (T(Y)) = (D_X T)(Y) + T(D_X Y)\). Show by example, that we with different \(Y\)'s we get different \(D_X (T(Y))\), so to compute \(D_X T\) we need to subtract off the component \(D_X Y\) corresponding to the change in \(Y\)
-- Curvature Tensor
-- Ricci identity
-** MATH3405 Differential Geometry: Week 12
-*** Lecture 12.1: Curvature Tensor
-**** Notes							   :noexport:
-- Ref: 3.3, 4.3
-- Invariance of curvature under isometry
-- Gauss equation
-- Proof by Curvature tensor and Gauss Equation
-  - https://faculty.etsu.edu/gardnerr/5310/5310pdf/dg1-8.pdf sectional curvature of a two plane is exactly the Gauss curvature!
-- Alternative proof of Gauss Theorem: Use characterisation as limits of areas of shrinking regions
-  -  http://wwwf.imperial.ac.uk/~skdona/lecturenotes/GAUSS.PDF
-- https://services.math.duke.edu/~ng/math/papers/curvature.pdf
-- Interpretation of Gauss Curvature via infinitessimal area, triangles, Gauss map?
-- Try to prove it in a way that matches with the Gauss-Bonnet theorem
 **** Metric Compatibility
 
 #+BEGIN_theorem
