@@ -24,6 +24,31 @@ p = plot(L + Lext)
 p.show(axes=False)
 p.save("img/euclid2.png", axes=False)
 ︡0b3b9435-17b7-45b3-bd09-e4789b5fa2da︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/203/tmp_aOgjdP.svg","show":true,"text":null,"uuid":"b0a3132e-4e0f-4a30-a7e0-ca9fbd0b7933"},"once":false}︡{"done":true}︡
+︠a799fb45-7074-4a8a-a97e-0a675fb1bd64s︠
+p1 = (0, 0)
+r1 = 1
+
+P1 = point(p1, size=50)
+C1 = circle(p1, r1)
+
+p = plot(P1 + C1)
+p.show(axes=False)
+p.save("img/euclid3.png", axes=False)
+︡9798d17c-573d-47bf-a3c6-de3808070f2f︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/203/tmp_4G9gl9.svg","show":true,"text":null,"uuid":"ecc983de-0cd6-4c6e-bfdd-b72528ebe9de"},"once":false}︡{"done":true}︡
+︠af54e6fb-7bb5-42be-af34-ff4744c0962as︠
+p0 = (0, 0)
+p1 = (-1, 0)
+p2 = (1, 0)
+p3 = (0, 1)
+
+P0 = point(p0, size=50)
+L0 = line([p1, p2])
+L1 = line([p0, p3], linestyle="dashed")
+
+p = plot(P0 + L0 + L1)
+p.show(axes=False)
+p.save("img/euclid4.png", axes=False)
+︡4d9da48d-a9a7-4b72-a600-96bb8c83f337︡{"file":{"filename":"/home/user/.sage/temp/project-746c2d02-fba9-41f7-86c8-dbce79185bad/203/tmp_zAPPd2.svg","show":true,"uuid":"e3e001f5-e055-4010-bfcb-a3da11f8c17e"},"once":false}︡{"done":true}
 
 
 
