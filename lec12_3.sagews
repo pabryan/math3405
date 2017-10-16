@@ -143,7 +143,7 @@ p.save("img/sphere_triangle.png", frame=False, aspect_ratio=1)
 
 PS2 = Manifold(2, 'PS^2')
 U = PS2.open_subset('U')
-XS.<th,r> = U.chart(r'th:(0,2*pi):\theta r:(-4,4):r')
+XS.<th,r> = U.chart(r'th:(0,2*pi):\theta r:(0,4):r')
 R3 = Manifold(3, 'R^3')
 X3.<x,y,z> = R3.chart()
 F = PS2.diff_map(R3, {(XS, X3): [sech(r)*cos(th), sech(r)*sin(th), r - tanh(r)]}, name='F')
@@ -170,7 +170,7 @@ graph_PS2 = XS.plot(X3, mapping=F, number_values=11, color='gray')
 p = graph_PS2 + T1 + T2 + T3
 p.show(frame=False)
 p.save("img/pseudosphere_triangle.png", frame=False, aspect_ratio=1)
-︡4c8190da-e2e5-4a38-9258-9a87d67e0766︡
+︡7900cb6e-0738-4642-96fa-f16090e93703︡
 
 
 
