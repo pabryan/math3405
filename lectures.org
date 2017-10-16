@@ -4287,7 +4287,118 @@ Here is an example of surfaces \(S_1, S_2\) for which \(K_1 = K_2\) but \(g_1 \n
 #+END_eg
 
 *** Lecture 12.3: Gauss-Bonnet Theorem (Local)
+**** Euclid's Axioms for Geometry:
+
+The development of Riemannian geometry began with investigations into whether non-Euclidean geometries exist. \pause Euclidean axioms: \pause
+
+1. Through any two points lies a line, \pause
+2. Any (finite) line may be extended indefinitely and uniquely a a straight line \pause
+3. Through any point and given any positive number, there exists a circle centred on the point with radius the given number \pause
+4. Through any point on a line, there is a unique perpendicular line. \pause
+
+***** Euclid's First Four Axioms
+
+****** Axiom 1
+       :PROPERTIES:
+       :BEAMER_col: 0.25
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/euclid1.png]]
+#+END_center
+
+****** Axiom 2
+       :PROPERTIES:
+       :BEAMER_col: 0.25
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/euclid2.png]]
+#+END_center
+
+****** Axiom 3
+       :PROPERTIES:
+       :BEAMER_col: 0.25
+       :END:
+#+BEGIN_center
+# #+ATTR_LATEX: :width .4\textwidth :height .5\textheight
+[[file:img/euclid3.png]]
+#+END_center
+
+****** Axiom 4
+       :PROPERTIES:
+       :BEAMER_col: 0.25
+       :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .3\textheight
+[[file:img/euclid4.png]]
+#+END_center
+
+**** Parallel Postulate
+
+The first four axioms (or postulates) are relatively self evident and non-controversial. \pause
+
+Of a rather different nature is the famous /fifth postulate/: \pause
+
+5. [@5] Given any line and point not on the line, there /exists a unique/ line through the point not intersecting the original line.
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .6\textwidth :height .4\textheight
+[[file:img/euclid5.png]]
+#+END_center
+
+**** Parallel Postulate and Triangles
+
+The fifth postulate is equivalent to:
+
+- Sum of the interior angles of a triangle: \(\theta_1 + \theta_2 + \theta_3 = \pi\). \pause
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .8\textheight
+[[file:img/euclidean_triangle.png]]
+#+END_center
+
+**** Triangles in non-Euclidean Geometry
+
+- Sphere \(K > 0\)
+- Euclidean Space \(K = 0\)
+- Pseudosphere \(K < 0\)
+
+***** Constant Curvature Geometries
+
+****** Sphere
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/sphere_triangle.png]]
+#+END_center
+
+****** Euclidean Space
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/euclidean_triangle.png]]
+#+END_center
+
+****** Pseudosphere
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/pseudosphere_triangle.png]]
+#+END_center
+
 **** Turning Tangents and Total Curvature of Plane Curves
+
+Our first /Global/ result for curves. Generalising this result will lead us to the Gauss-Bonnet theorem. \pause
 
 #+BEGIN_theorem
 [Turning Tangents]
@@ -4342,14 +4453,12 @@ The sign \(\pm\) is just the orientation.
   \]
 #+END_proof
 
-**** Parallel Postulate, Triangles and Constant Curvature Geometry
-**** Parallel Postulate, Triangles and Constant Curvature Geometry
+**** General Turning Tangents Theorem
 **** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Gauss-Bonnet Theorem (Local)
 **** Applications of Gauss-Bonnet
-**** A Little Comparison Geometry
-**** Notes							   :noexport:
+**** Notes 							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
 *** Lecture 13.1: Gauss-Bonnet Theorem (Global)
