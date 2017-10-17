@@ -4360,9 +4360,9 @@ The fifth postulate is equivalent to:
 
 **** Triangles in non-Euclidean Geometry
 
-- Sphere \(K > 0\)
-- Euclidean Space \(K = 0\)
-- Pseudosphere \(K < 0\)
+- Sphere \(K > 0\): \(\theta_1 + \theta_2 + \theta_3 > \pi\)
+- Euclidean Space \(K = 0\): \(\theta_1 + \theta_2 + \theta_3 = \pi\)
+- Pseudosphere \(K < 0\): \(\theta_1 + \theta_2 + \theta_3 < \pi\)
 
 ***** Constant Curvature Geometries
 
@@ -4396,6 +4396,36 @@ The fifth postulate is equivalent to:
 [[file:img/pseudosphere_triangle.png]]
 #+END_center
 
+**** Piecewise Regular Curves
+
+#+BEGIN_definition
+A /piecewise/ regular curve \(\gamma : [a, b] \to S\) is a /continuous/ curve such that there exists a partition
+\[
+a = t_0 < t_1 < \cdots < t_{k-1} < t_k = b
+\]
+with \(\gamma\) is regular on \([t_i, t_{i+1}]\).
+#+END_definition
+\pause
+
+/Regular/ means differentiable and \(\gamma' \ne 0\) with left and right continuous limits: \(\lim_{t\to^+ t_i} \gamma'(t)\) and \(\lim_{t\to^- t_i} \gamma'(t)\) are defined and non-zero.
+
+\pause
+
+We write
+\[
+\gamma'_-(t_i) = \lim_{t\to^- t_i} \gamma'(t), \quad \gamma'_+(t_i) = \lim_{t\to^+ t_i} \gamma'(t).
+\]
+
+**** Simple Closed Curves
+
+#+BEGIN_definition
+A /closed curve/ is a continuous curve \(\gamma : [a, b] \to S\) with \(\gamma(a) = \gamma(b)\). A /simple curve/ is a curve with no self intersections: \(\gamma(t) = \gamma(r) \Rightarrow t = r\).
+#+END_definition
+\pause
+
+We consider piecewise regular, simple, closed curves.
+
+**** Angle
 **** Turning Tangents and Total Curvature of Plane Curves
 
 Our first /Global/ result for curves. Generalising this result will lead us to the Gauss-Bonnet theorem. \pause
@@ -4439,25 +4469,46 @@ The sign \(\pm\) is just the orientation.
 #+BEGIN_proof
 - On the other hand, since \(T(s) = \gamma'(s)\) is unit length,
   \[
-  T(s) = (\cos(\theta(s)), \sin(\theta(s)))
+  T(s) = (\cos(\varphi(s)), \sin(\varphi(s)))
   \]
-  for a differentiable function \(\theta: [0, L] \to \RR\) by the implicit function theorem. \pause \(\theta\) is just the angle of \(T\) with the x-axis.
+  for a differentiable (by the implicit function theorem) function \(\varphi: [0, L] \to \RR\). \pause
 - But \(T(L) = T(0)\) and hence
   \[
-  \theta(L) = \theta(0) + 2\pi I
+  \varphi(L) = \varphi(0) + 2\pi I
   \]
   for an integer \(I\). \pause
-- Putting it all together,
+- We also have
   \[
-  2\pi I = \theta(L) - \theta(0) = \int_0^L \kappa ds.
+  \kappa = \ip{\partial_s T}{N} = \ip{\partial_s \varphi(-\sin\varphi, \cos\varphi)}{(-\sin\varphi, \cos\varphi)} = \partial_s \varphi.
   \]
 #+END_proof
 
+**** Turning Tangents and Total Curvature of Plane Curves
+
+#+BEGIN_proof
+- We have
+  \[
+  \partial_s \varphi = \partial_s \theta \Rightarrow \varphi(s) = \theta(s) + C
+  \]
+  for some constant \(C\). \pause
+
+- Therefore,
+  \[
+  \varphi(L) - \varphi(0) = (\theta(L) + C) - (\theta(0) + C) = \theta(L) - \theta(0)
+  \]
+  \pause
+- Putting it all together, we have
+  \[
+  2\pi I = \varphi(L) - \varphi(0) = \theta(L) - \theta(0) = \int_0^L \kappa ds.
+  \]
+  \pause
+-  Note \(\theta\) is just the angle of \(T\) with a fixed vector (such as the x-axis).
+#+END_proof
+
 **** General Turning Tangents Theorem
-**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
-**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Gauss-Bonnet Theorem (Local)
-**** Applications of Gauss-Bonnet
+**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
+**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Notes 							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
