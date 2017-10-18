@@ -4721,6 +4721,131 @@ By Gauss-Bonnet
 #+END_center
 
 **** Regular Tilings
+
+#+BEGIN_definition
+A /regular \(n\)-gon/ of \(S\) is a piecewise regular, simple, closed curved with \(n\) vertices, bounding a disc whose arcs are all geodesics of the same length meeting at the same angle \(\theta\).
+#+END_definition
+
+\pause
+
+Let \(P_i\) denote a regular \(n\)-gon including the boundary curve and the interior.
+
+\pause
+
+#+BEGIN_definition
+A /regular tiling/ of \(S\) is a set of regular \(n\)-gons \(P_i\) all of the same area such that
+1. \(S = \union_i P_i\)
+2. For \(i \ne j\), \(P_i \intersect P_j\) is either empty, a vertex, or an entire arc.
+#+END_definition
+
+**** Planar Regular Tilings
+
+- In the plane, the interior angle of a regular \(n\)-gon is
+  \[
+  \theta = \pi - 2\pi/n.
+  \]
+  \pause
+- Let \(k\) be the number of \(n\)-gons meeting at a vertex so that adding \(k\) copies of \(\theta\) gives \(2\pi\):
+  \[
+  2\pi = k \theta = k(\pi - 2\pi/n) = \frac{kn - 2k}{n} \pi
+  \]
+  \pause
+- Therefore
+  \[
+  2n = kn - 2k
+  \]
+  \pause
+- That is
+  \[
+  0 = kn - 2k - 2n = k(n-2) - 2(n-2) - 4 = (k-2)(n-2) - 4
+  \]
+
+**** Planar Regular Tilings
+- The only solutions \((k, n)\) to
+  \[
+  (k-2)(n-2) = 4
+  \]
+  are
+  \[
+  (k, n) = (6, 3), (4, 4), (3, 6).
+  \]
+  \pause
+
+***** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/1-uniform_n11.png]]
+#+END_center
+
+***** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/1-uniform_n5.png]]
+#+END_center
+
+***** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/1-uniform_n1.png]]
+#+END_center
+
+**** Spherical Regular Tilings
+
+#+BEGIN_eg
+On the sphere:
+  \[
+  2\pi > \frac{kn - 2k}{n} \pi.
+  \]
+  Hence
+  \[
+  (k - 2)(n - 2) < 4
+  \]
+  \pause
+  Not many solutions...
+#+END_eg
+\pause
+
+- /Congruent/ but not regular polygons allows more possibilities:
+
+***** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/sphere_tiling.png]]
+#+END_center
+
+**** Hyperbolic Tiling
+
+The \poincare{} disc is the unit disc \(D = \{x^2 + y^2 < 1\}\) equipped with a metric \(g\) such that \(K \equiv -1\). \pause Gauss-Bonnet applies. \pause
+
+#+BEGIN_eg
+- Now we have
+  \[
+  (k - 2)(n - 2) > 4
+  \]
+  Infinitely many solutions! \pause
+#+END_eg
+
+***** Picture
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+#+BEGIN_center
+#+ATTR_LATEX: :width 1.2\textwidth :height .4\textheight
+[[file:img/tess_5_4.png]]
+#+END_center
+
 **** Notes 							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
