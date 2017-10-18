@@ -4653,8 +4653,74 @@ as required. \pause
 - The formula for \(K\) can be obtained from expressing \(\Rm\) in terms of \(g\) and using the Gauss equation. \pause
 - The entire proof may be re-written (in a coordinate free way) using the language of /differential forms/ where the Gauss-Green theorem appears as Stokes' theorem for differential forms.
 
-**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
-**** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
+**** Triangles Again
+
+#+BEGIN_definition
+A /geodesic triangle/ is a piecewise regular, simple closed curve with precisely three vertices that is the boundary of a region \(D\) homeomorphic to a disc and such that each regular arc is a geodesic.
+#+END_definition
+\pause
+
+Let \(\varphi_i = \pi - \theta_i \in (0, 2\pi)\) be the /interior angles/. \pause Then
+\[
+2\pi - (\theta_1 + \theta_2 + \theta_3) = 2\pi - (\pi - \varphi_1 + \pi - \varphi_2 + \pi - \varphi_3) = \varphi_1 + \varphi_2 + \varphi_3 - \pi.
+\]
+\pause
+
+By Gauss-Bonnet
+\[
+\int_D K dA = 2\pi - (\theta_1 + \theta_2 + \theta_3) = \varphi_1 + \varphi_2 + \varphi_3 - \pi.
+\]
+
+**** Triangles in Constant Curvature
+
+#+BEGIN_eg
+- Sphere \(K \equiv 1\): \(0 < \operatorname{Area} (D) = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi.\) \pause
+- Plane \(K \equiv 0\): \(0 = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi.\) \pause
+- Pseudosphere \(K \equiv -1\): \(0 > -\operatorname{Area} (D) = \int_D K dA = \varphi_1 + \varphi_2 + \varphi_3 - \pi.\)
+#+END_eg
+
+- On the sphere and pseudosphere, the angles determine the area of the triangle!
+- On the plane, congruent triangles have the same angles but not generally the same area.
+
+**** Triangles in non-Euclidean Geometry
+
+- Sphere \(K > 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = \operatorname{Area}(D) +  \pi > \pi\)
+- Euclidean Space \(K = 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = \pi\)
+- Pseudosphere \(K < 0\): \(\varphi_1 + \varphi_2 + \varphi_3 = -\operatorname{Area}(D) + \pi < \pi\)
+
+***** Constant Curvature Geometries
+
+****** Sphere
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/sphere_triangle.png]]
+#+END_center
+
+****** Euclidean Space
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/euclidean_triangle.png]]
+#+END_center
+
+****** Pseudosphere
+       :PROPERTIES:
+       :BEAMER_col: 0.3
+       :END:
+
+#+BEGIN_center
+#+ATTR_LATEX: :width .8\textwidth :height .4\textheight
+[[file:img/pseudosphere_triangle.png]]
+#+END_center
+
+**** Regular Tilings
 **** Notes 							   :noexport:
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
