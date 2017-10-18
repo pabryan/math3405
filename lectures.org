@@ -1,4 +1,3 @@
-
 #+TITLE: MATH3405 Differential Geometry - UQ
 #+AUTHOR: Paul Bryan
 #+EMAIL: pabryan@gmail.com
@@ -4425,7 +4424,6 @@ A /closed curve/ is a continuous curve \(\gamma : [a, b] \to S\) with \(\gamma(a
 
 We consider piecewise regular, simple, closed curves.
 
-**** Angle
 **** Turning Tangents and Total Curvature of Plane Curves
 
 Our first /Global/ result for curves. Generalising this result will lead us to the Gauss-Bonnet theorem. \pause
@@ -4505,8 +4503,76 @@ The sign \(\pm\) is just the orientation.
 -  Note \(\theta\) is just the angle of \(T\) with a fixed vector (such as the x-axis).
 #+END_proof
 
-**** General Turning Tangents Theorem
+**** Angle in General
+
+Define the angle \(\theta_i\) between \(\gamma'_-(t_i)\) and \(\gamma'_+(t_1)\) as follows:
+1. \[
+   \abs{\theta} = \abs{\arccos g(T_i^-, T_i^+)} \in (0, \pi).
+   \]
+   where \(T = \gamma'/\abs{\gamma'}\) is the unit tangent. \pause
+2. We take \(\theta \in (-\pi, \pi)\) by choosing the sign so that \(\theta > 0\) whenever
+   \[
+   \{T_i^-, T_i^+\}
+   \]
+   is positively oriented and \(\theta < 0\) otherwise.
+3. The case of a /cusp/ is when \(\theta = \pi\) in which case it's possibly to choose the sign so that \(\theta\) varies continuously.
+
 **** Gauss-Bonnet Theorem (Local)
+
+#+BEGIN_theorem
+Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regular, simple, closed curve, \(\gamma\). Then
+\[
+\int_D K dA + \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
+\]
+#+END_theorem
+\pause
+
+- Since \(\gamma\) is only piecewise regular, the curvature is not defined at the vertices \(t_i\) so we make the definition,
+  \[
+  \int_{\gamma} \kappa ds = \sum_{i=1}^k \int_{t_{i-1}}^{t_i} \kappa ds.
+  \]
+  \pause
+- In the plane \(K \equiv 0\), and the proof follows from:
+  \[
+  \int_{t_{i-1}}^{t_i} \kappa ds = \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \theta(t_i) - \theta(t_{i-1}).
+  \]
+
+**** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+[sketch in the case \(D\) is contained in a local parametrisation]
+
+- On a surface, we may change coordinates so that
+  \[
+  g = \begin{pmatrix}
+  g_{uu} & 0 \\
+  0 & g_{vv}
+  \end{pmatrix}.
+  \]
+  \pause
+- The geodesic curvature of \(\gamma(s) = (u(s), v(s))\) may be expressed as
+  \[
+  \kappa = -\frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_u g_{uu} \partial_s u - \partial_v g_{vv} \partial_s v\right) + \partial_s \theta.
+  \]
+  \pause
+  *Note*: In the plane, \(g_{uu} = g_{vv} = 1\) and so the first term vanishes recovering the plane case.
+#+END_proof
+
+**** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+- Integrating the geodesic curvature,
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  \int_{t_{i-1}}^{t_i} \kappa ds &= \int_{t_{i-1}}^{t_i} -\frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_u g_{uu} \partial_s u - \partial_v g_{vv} \partial_s v\right) ds + \int_{t_{i-1}}^{t_i} \partial_s \theta ds \\
+  &= -\int_{t_{i-1}}^{t_i} \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s u - \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s v ds \\
+  &\quad + \theta(t_i) - \theta(t_{i-1})
+  \end{split}
+  \]
+  #+END_latex
+#+END_proof
+
 **** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Notes 							   :noexport:
