@@ -33,7 +33,6 @@
 |          |                                      |                                    |                                         |
 
 * Lectures
-
 ** MATH3405 Differential Geometry: Week 7
 *** Lecture 7.1: Recap on Regular Curves and Surfaces
     :PROPERTIES:
@@ -4402,7 +4401,7 @@ A /piecewise/ regular curve \(\gamma : [a, b] \to S\) is a /continuous/ curve su
 \[
 a = t_0 < t_1 < \cdots < t_{k-1} < t_k = b
 \]
-with \(\gamma\) is regular on \([t_i, t_{i+1}]\).
+with \(\gamma\) is regular on \([t_i, t_{i+1}]\). The points \(\gamma(t_i)\) are called the vertices.
 #+END_definition
 \pause
 
@@ -4531,11 +4530,28 @@ Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regula
   \[
   \int_{\gamma} \kappa ds = \sum_{i=1}^k \int_{t_{i-1}}^{t_i} \kappa ds.
   \]
-  \pause
-- In the plane \(K \equiv 0\), and the proof follows from:
+
+**** Proof in the Plane
+- In the plane \(K \equiv 0\) so Gauss-Bonnet becomes
   \[
-  \int_{t_{i-1}}^{t_i} \kappa ds = \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \theta(t_i) - \theta(t_{i-1}).
+  \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
   \]
+  \pause
+- For \(\gamma\) regular (no vertices) Turning Tangents gives
+  \[
+  \int_{\gamma} \kappa ds = 2\pi.
+  \]
+  \pause
+- For piecewise regular, break up the integral at the vertices:
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  \int_{\gamma} \kappa ds &= \sum \int_{t_{i-1}}^{t_i} \kappa ds = \sum \int_{t_{i-1}}^{t_i} \partial_s \theta ds = \sum \theta^-(t_i) - \theta^+(t_{i-1}) \\
+  &= \theta(t_k)^- - \theta(t_0)^+ + \sum \theta^-(t_i) - \theta^+(t_i) \\
+  &= 2\pi - \sum \theta_i.
+  \end{split}
+  \]
+  #+END_latex
 
 **** Proof of Gauss-Bonnet
 
