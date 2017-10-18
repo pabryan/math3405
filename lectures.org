@@ -4532,6 +4532,7 @@ Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regula
   \]
 
 **** Proof in the Plane
+
 - In the plane \(K \equiv 0\) so Gauss-Bonnet becomes
   \[
   \int_{\gamma} \kappa ds = 2\pi - \sum_{i=1}^k \theta_i.
@@ -4568,7 +4569,7 @@ Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regula
   \pause
 - The geodesic curvature of \(\gamma(s) = (u(s), v(s))\) may be expressed as
   \[
-  \kappa = -\frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_u g_{uu} \partial_s u - \partial_v g_{vv} \partial_s v\right) + \partial_s \theta.
+  \kappa = \frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_v g_{vv} \partial_s v - \partial_u g_{uu} \partial_s u\right) + \partial_s \theta.
   \]
   \pause
   *Note*: In the plane, \(g_{uu} = g_{vv} = 1\) and so the first term vanishes recovering the plane case.
@@ -4581,13 +4582,76 @@ Let \(D \subseteq S\) be homeomorphic to a disc with boundary a piecewise regula
   #+BEGIN_latex
   \[
   \begin{split}
-  \int_{t_{i-1}}^{t_i} \kappa ds &= \int_{t_{i-1}}^{t_i} -\frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_u g_{uu} \partial_s u - \partial_v g_{vv} \partial_s v\right) ds + \int_{t_{i-1}}^{t_i} \partial_s \theta ds \\
-  &= -\int_{t_{i-1}}^{t_i} \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s u - \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s v ds \\
+  \int_{t_{i-1}}^{t_i} \kappa ds &= \int_{t_{i-1}}^{t_i} \frac{1}{2\sqrt{g_{uu}g_{vv}}} \left(\partial_v g_{vv} \partial_s v - \partial_u g_{uu} \partial_s u \right) ds + \int_{t_{i-1}}^{t_i} \partial_s \theta ds \\
+  &= \int_{t_{i-1}}^{t_i} \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) \partial_s v - \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s u ds \\
   &\quad + \theta(t_i) - \theta(t_{i-1})
   \end{split}
   \]
   #+END_latex
 #+END_proof
+
+**** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+Apply the Gauss-Green Theorem:
+\[
+\int_{\gamma} P \partial_u s + Q \partial_v s ds = \int_D \partial_u Q - \partial_v P dA
+\]
+\pause
+to
+#+BEGIN_latex
+\[
+\begin{split}
+\int_{\gamma} \kappa ds &= \sum \int_{t_{i-1}}^{t_i} \kappa ds \\
+&= \int_{t_{i-1}}^{t_i} \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) \partial_s v - \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) \partial_s u ds \\
+&\quad + \sum \theta(t_i) - \theta(t_{i-1})
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+By Gauss-Green with
+\[
+P = - \frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}, \quad Q = \frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}
+\]
+\pause we get
+
+#+BEGIN_latex
+\[
+\begin{split}
+\int_{\gamma} \kappa ds &= \int_D \partial_u \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) + \partial_v \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right) dA \\
+&\quad  + \sum \theta(t_i) - \theta(t_{i-1})
+\end{split}
+\]
+#+END_latex
+#+END_proof
+
+**** Proof of Gauss-Bonnet
+
+#+BEGIN_proof
+In our coordinate system with (\(g_{uv} = g_{vu} = 0\)) the integrand just so happens to be the Gauss curvature:
+\[
+K = \partial_u \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_v g_{vv}\right) + \partial_v \left(\frac{1}{2\sqrt{g_{uu}g_{vv}}} \partial_u g_{uu}\right)
+\]
+\pause
+
+Thus
+\[
+\int_{\gamma} \kappa ds = \int_D K + \sum \theta(t_i) - \theta(t_{i-1}) = \int_D K + 2\pi - \sum \theta_i
+\]
+as required. \pause
+#+END_proof
+
+**** Remarks
+
+- We used a form of the Turning Tangents theorem without proof. \pause
+- The existence of the desired coordinate system may be proven by \pause
+- The formula for \(\kappa\) can be obtained by a similar manner to the plane case \(\partial_s \theta = \kappa\) but taking into account the changing metric. \pause
+- The formula for \(K\) can be obtained from expressing \(\Rm\) in terms of \(g\) and using the Gauss equation. \pause
+- The entire proof may be re-written (in a coordinate free way) using the language of /differential forms/ where the Gauss-Green theorem appears as Stokes' theorem for differential forms.
 
 **** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
 **** Gauss Curvature as Infinitesimal Gauss Map Area Deformation
