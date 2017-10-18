@@ -1462,12 +1462,12 @@ dN = \begin{pmatrix}
 #+BEGIN_definition
 The /Mean Curvature/ is
 \[
-H := \operatorname{Tr} (dN) = \frac{1}{2} \left(\kappa_1 + \kappa_2\right).
+H := \operatorname{Tr} (\mathcal{W}) = \operatorname{Tr} (-dN) = \frac{1}{2} \left(\kappa_1 + \kappa_2\right).
 \]
 \pause
 The /Gauss Curvature/ is
 \[
-K := \det (dN) = \kappa_1 \kappa_2.
+K := \det(\mathcal{W}) = \det (-dN) = \kappa_1 \kappa_2.
 \]
 #+END_definition
 
@@ -1754,7 +1754,7 @@ Parametrise part of a torus by,
 \pause
 
 \[
-N = (\cos(u) \cos(v), \cos(u) \sin(v), \sin(u))
+N = -(\cos(u) \cos(v), \cos(u) \sin(v), \sin(u))
 \]
 
 **** Example: The Torus
@@ -1763,8 +1763,8 @@ Compute \(dN\):
 
 #+BEGIN_latex
 \begin{align*}
-\partial_u N &= (-\sin(u) \cos(v), -\sin(u) \sin(v), \cos(u)) = \frac{1}{2} \varphi_u \\
-\partial_v N &= (-\cos(u) \sin(v), \cos(u) \cos(v), 0) = \frac{\cos(u)}{(\frac{1}{2} \cos(u) + 1)} \varphi_v
+\partial_u N &= -(-\sin(u) \cos(v), -\sin(u) \sin(v), \cos(u)) = \frac{1}{2} \varphi_u \\
+\partial_v N &= -(-\cos(u) \sin(v), \cos(u) \cos(v), 0) = \frac{\cos(u)}{(\frac{1}{2} \cos(u) + 1)} \varphi_v
 \end{align*}
 #+END_latex
 
@@ -1773,7 +1773,7 @@ Compute \(dN\):
 That is
 #+BEGIN_latex
 \[
-dN = \begin{pmatrix}
+dN = -\begin{pmatrix}
 1/2 & 0 \\
 0 & \frac{\cos(u)}{\frac{1}{2} \cos(u) + 1}
 \end{pmatrix}
