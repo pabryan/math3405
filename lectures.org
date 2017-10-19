@@ -6,14 +6,14 @@
 
 #+LaTeX_HEADER: \input{local_definitions}
 
-# #+OPTIONS: H:2 toc:nil
-# #+LaTeX_CLASS: article
+#+OPTIONS: H:2 toc:nil date:nil
+#+LaTeX_CLASS: article
 
-#+OPTIONS: H:2 toc:t
-#+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [presentation]
-#+BEAMER_THEME: Boadilla
-#+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
+# #+OPTIONS: H:2 toc:t
+# #+LaTeX_CLASS: beamer
+# #+LaTeX_CLASS_OPTIONS: [presentation]
+# #+BEAMER_THEME: Boadilla
+# #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
 # Hide solution by default
 #+LaTeX_HEADER: \RenewEnviron{soln}{}
@@ -4892,6 +4892,40 @@ The Euler characteristic of a surface equals the Euler characteristic of any tri
 - Ref: 4.5
 - Applications of Gauss-Bonnet
 *** Lecture 13.3: Review
+* Supplements
+** Covariant Derivative and Curvature in Coordinates
+*** Covariant Derivative
+
+Let \(\partial_u, \partial_v\) be coordinate vector fields. For \(i, j \in \{u, v\}\), \(\nabla_{\partial_i} \partial_j\) is a vector field and hence we may write it in terms of the coordinate vector fields:
+\[
+\nabla_{\partial_i} \partial_j = \Gamma_{ij}^k \partial_k
+\]
+for some scalar valued functions \(\Gamma_{ij}^k\). Note the Einstein summation convention - there is a sum over \(k\). That is fixing \(i\) and \(j\),
+\[
+\nabla_{\partial_i} \partial_j = \Gamma_{ij}^u \partial_u + \Gamma_{ij}^v \partial_v
+\]
+so that \(\Gamma_{ij}^u\) is the \(\partial_u\) component of \(\nabla_{\partial_i} \partial_j\) while \(\Gamma_{ij}^v\) is the \(\partial_v\) component.
+
+The scalar functions \(\Gamma_{ij}^k\) are known as the /Christoffel symbols/.
+
+In full,
+\begin{align*}
+\nabla_{\partial_u} \partial_u &= \Gamma_{uu}^u \partial_u + \Gamma_{uu}^v \partial_v \\
+\nabla_{\partial_v} \partial_v &= \Gamma_{vv}^u \partial_u + \Gamma_{vv}^v \partial_v \\
+\nabla_{\partial_u} \partial_v &= \Gamma_{uv}^u \partial_u + \Gamma_{uv}^v \partial_v \\
+\nabla_{\partial_v} \partial_u &= \Gamma_{vu}^u \partial_u + \Gamma_{vu}^v \partial_v.
+\end{align*}
+
+By symmetry of the connection and since \([\partial_u, \partial_v] = 0\) we have
+\[
+\nabla_{\partial_u} \partial_v = \nabla_{\partial_v} \partial_v.
+\]
+In other words, the last two rows of the full list of Christoffel symbols above are equal and hence the Christoffel symbols are symmetric in the lower two indices:
+\[
+\Gamma_{ij}^k = \Gamma_{ji}^k.
+\]
+Thus there are precisely \(6\) independent Christoffel symbols determined by the covariant derivative.
+
 * Assignments							   :noexport:
 *** MATH3405: Assignment 3
 
