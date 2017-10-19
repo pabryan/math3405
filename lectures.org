@@ -5173,6 +5173,55 @@ Applying this to the Christoffel symbols gives
 \Gamma_{ik}^m = \delta^m_l \Gamma_{ik}^l = g^{mj} g_{jl} \Gamma_{ik}^l = \frac{1}{2} g^{mj} (\partial_i g_{jk} - \partial_j g_{ki} + \partial_k g_{ij}).
 \]
 
+*** The Curvature in Terms of the Metric
+
+Recall the curvature tensor is defined to be
+\[
+\Rm(X, Y) Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z
+\]
+and it is completely determined by
+\[
+\Rm_{uvuv} = g(\Rm(\partial_u, \partial_v)\partial_u, \partial_v) = g(\nabla_{\partial_u} \nabla_{\partial_v} \partial_u - \nabla_{\partial_v} \nabla_{\partial_u} \partial_u, \partial_v).
+\]
+Note that the commutator term \([\partial_u, \partial_v]\) vanishes for coordinate vector fields.
+
+Now we compute
+#+BEGIN_latex
+\[
+\begin{split}
+\nabla_{\partial_u} \nabla_{\partial_v} \partial_u &= \nabla_{\partial_u} (\Gamma_{vu}^k \partial_k) \\
+&= (\partial_u \Gamma_{vu}^k) \partial_k + \Gamma_{vu}^k \Gamma_{uk}^l \partial_l \\
+&= (\partial_u \Gamma_{vu}^k + \Gamma_{vu}^m \Gamma_{um}^k) \partial_k.
+\end{split}
+\]
+#+END_latex
+
+Likewise
+\[
+\nabla_{\partial_v} \nabla_{\partial_u} \partial_u = (\partial_v \Gamma_{uu}^k + \Gamma_{uu}^m \Gamma_{vm}^k) \partial_k.
+\]
+
+Thus
+#+BEGIN_latex
+\[
+\begin{split}
+{\Rm_{uvu}}^k &= \partial_u \Gamma_{vu}^k + \Gamma_{vu}^m \Gamma_{um}^k - \partial_v \Gamma_{uu}^k - \Gamma_{uu}^m \Gamma_{vm}^k \\
+&= \partial_u \Gamma_{vu}^k - \partial_v \Gamma_{uu}^k + \Gamma_{vu}^m \Gamma_{um}^k - \Gamma_{uu}^m \Gamma_{vm}^k
+\end{split}
+\]
+#+END_latex
+and
+\[
+\Rm_{uvuv} = g_{vk} {\Rm_{uvu}}^k = g_{vk} \left(\partial_u \Gamma_{vu}^k - \partial_v \Gamma_{uu}^k + \Gamma_{vu}^m \Gamma_{um}^k - \Gamma_{uu}^m \Gamma_{vm}^k\right).
+\]
+
+Finally, one can substitute the expression for \(\Gamma_{ij}^k\) in terms of the expression to obtain an expression for \(\Rm\) in terms of the metric only. This is rather more tedious than the preceding tedious computations so we omit it. In principle, we can obtain an expression for \(\Rm\) involving only \(g\) thus showing it is intrinsic.
+
+Let us just note that \(\Gamma_{ij}^k\) involves derivatives of the metric and the curvature tensor involves derivatives of \(\Gamma_{ij}^k\) so the curvature tensor expression will contain terms such as
+\[
+\partial_i \partial_j g_{kl}.
+\]
+That is, \(\Rm\) involves \(g\), it's first derivatives \(\partial_i g\), and it's second derivatives \(\partial_i \partial_j g\). /Curvature is second order/.
 
 
 * Assignments 							   :noexport:
