@@ -4895,6 +4895,7 @@ The Euler characteristic of a surface equals the Euler characteristic of any tri
 * Supplements
 ** Covariant Derivative and Curvature in Coordinates
 *** Covariant Derivative
+\label{sec:coord_covariant_derivative}
 
 Let \(\partial_u, \partial_v\) be coordinate vector fields. For \(i, j \in \{u, v\}\), \(\nabla_{\partial_i} \partial_j\) is a vector field and hence we may write it in terms of the coordinate vector fields:
 \[
@@ -5096,6 +5097,83 @@ we obtain the Gauss curvature
 K = - \frac{\Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2}
 \]
 in terms of the metric and the curvature tensor.
+
+*** The Covariant Derivative in Terms of the Metric
+
+Using metric compatibility
+\[
+\nabla_X [g(Y, Z)] = g(\nabla_X Y, Z) + g(Y, \nabla_X Z),
+\]
+and symmetry
+\[
+\nabla_X Y - \nabla_Y X = [X, Y],
+\]
+we can write the Christoffel symbols in terms of the metric. First
+#+BEGIN_latex
+\[
+\begin{split}
+\partial_i g_{jk} &= \partial_i [g(\partial_j, \partial_k)] = g(\nabla_{\partial_i} \partial_j, \partial_k) + g(\partial_j, \nabla_{\partial_i} \partial_k) \\
+&= g(\Gamma_{ij}^l \partial_l, \partial_k) + g(\partial_j, \Gamma_{ik}^l \partial_l) \\
+&= \Gamma_{ij}^l g_{lk} + \Gamma_{ik}^l g_{jl}.
+\end{split}
+\]
+#+END_latex
+and similarly for cyclic permutations of \(i,j,k\). Thus we have
+\begin{align*}
+\partial_i g_{jk} &= \Gamma_{ij}^l g_{lk} + \Gamma_{ik}^l g_{jl}, \\
+\partial_j g_{ki} &= \Gamma_{jk}^l g_{li} + \Gamma_{ji}^l g_{kl}, \\
+\partial_k g_{ij} &= \Gamma_{ki}^l g_{lj} + \Gamma_{kj}^l g_{il}.
+\end{align*}
+
+As already observed in section \ref{sec:coord_covariant_derivative}, from the symmetry of the connection, the Christoffel symbols are symmetric in the lower two indices
+\[
+\Gamma_{ij}^k = \Gamma_{ji}^k.
+\]
+
+Now we take an alternating sum to isolate a single Christoffel symbol
+#+BEGIN_latex
+\[
+\begin{split}
+\partial_i g_{jk} - \partial_j g_{ki} + \partial_k g_{ij} &= (\Gamma_{ij}^l g_{lk} + \Gamma_{ik}^l g_{jl}) - (\Gamma_{jk}^l g_{li} + \Gamma_{ji}^l g_{kl}) + (\Gamma_{ki}^l g_{lj} + \Gamma_{kj}^l g_{il}) \\
+&= (\Gamma_{ik}^l g_{jl} + \Gamma_{ki}^l g_{lj}) + (\Gamma_{ij}^l g_{lk} - \Gamma_{ji}^l g_{kl}) + (\Gamma_{kj}^l g_{il} - \Gamma_{jk}^l g_{li}) \\
+&= 2 \Gamma_{ik}^l g_{jl}
+\end{split}
+\]
+#+END_latex
+
+Thus
+\[
+g_{jl} \Gamma_{ik}^l = \frac{1}{2}(\partial_i g_{jk} - \partial_j g_{ki} + \partial_k g_{ij})
+\]
+determines \(\Gamma_{ik}^l\) in terms of the metric.
+
+Note that \(g_{jl}\) is an invertible matrix so once can solve for \(\Gamma_{ik}^l\). To keep the notation from getting too out of hand, it is traditional to write
+\[
+g^{ij}
+\]
+for the components of the inverse matrix of \(g\).
+
+Recall that writing matrix multiplication in components one has
+\[
+(AB)_i^j = A_{ik} B^{kj}.
+\]
+The placement of upper and lower indices is chosen here in just such a way to allow us to use Einstein summation. In other words, the \({}_i^j\) component of the product \(AB\) is given by the \(\sum_k A_{ik} B^{kj}\).
+
+Thus by definition of the inverse, \(g g^{-1} = \operatorname{Id}\) we obtain
+\[
+\delta_i^j = \operatorname{Id}_i^j = (g g^{-1})_i^j = g_{ik} g^{kj}
+\]
+where \(\delta_i^j\) equals \(1\) when \(i=j\) and \(0\) otherwise. Likewise
+\[
+\delta_i^j = g^{jk}g_{ki}.
+\]
+
+Applying this to the Christoffel symbols gives
+\[
+\Gamma_{ik}^m = \delta^m_l \Gamma_{ik}^l = g^{mj} g_{jl} \Gamma_{ik}^l = \frac{1}{2} g^{mj} (\partial_i g_{jk} - \partial_j g_{ki} + \partial_k g_{ij}).
+\]
+
+
 
 * Assignments 							   :noexport:
 *** MATH3405: Assignment 3
