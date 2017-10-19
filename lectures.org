@@ -5067,6 +5067,36 @@ Similarly we obtain expressions for \({\Rm_{uvv}}^u\) and \({\Rm_{uvv}}^v\). In 
 \end{align*}
 Notice that everything is expressed in terms of \(g\) and the single component \(\Rm_{uvuv}\) on the right hand side. All other components vanish involve a repeated index in the first two slots and hence vanish.
 
+*** The Gauss Equation
+
+Recall we have
+\[
+g(\Rm(X, Y) Z, W) = A(X, W) A(Y, Z) - A(X, Z) A(Y, W).
+\]
+Writing
+\[
+A_{ij} = A(\partial_i, \partial_j)
+\]
+we obtain the Gauss equation in coordinates
+\[
+\Rm_{ijkl} = A_{il}A_{jk} - A_{ik} A_{jl}.
+\]
+In terms of our single component of the curvature tensor,
+\[
+\Rm_{uvuv} = A_{uv}^2 - A_{uu} A_{vv}.
+\]
+since \(A_{vu} = A_{uv}\).
+
+Recalling also that
+\[
+K = \frac{\det A}{\det g} = \frac{A_{uu} A_{vv} - A_{uv}^2}{g_{uu}g_{vv} - g_{uv}^2}
+\]
+we obtain the Gauss curvature
+\[
+K = - \frac{\Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2}
+\]
+in terms of the metric and the curvature tensor.
+
 * Assignments 							   :noexport:
 *** MATH3405: Assignment 3
 
