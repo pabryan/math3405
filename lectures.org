@@ -4926,7 +4926,148 @@ In other words, the last two rows of the full list of Christoffel symbols above 
 \]
 Thus there are precisely \(6\) independent Christoffel symbols determined by the covariant derivative.
 
-* Assignments							   :noexport:
+*** The Curvature Tensor
+
+Recall the curvature tensor is defined to be
+\[
+\Rm(X, Y) Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z.
+\]
+
+In coordinates
+\[
+\Rm(\partial_i, \partial_j) \partial_k = {\Rm_{ijk}}^l \partial_l.
+\]
+That is, fixing \(i,j,k\) \({\Rm_{ijk}}^l\) is the \(\partial_l\) component of \(\Rm(\partial_i, \partial_j) \partial_k\). Again the Einstein summation convention applies so there is a sum over \(l\):
+\[
+\Rm(\partial_i, \partial_j) \partial_k = {\Rm_{ijk}}^u \partial_u + {\Rm_{ijk}}^v \partial_v.
+\]
+
+Now, there are \(2^3 = 8\) possible choices for \(i,j,k\) with each choice \(\Rm(\partial_i, \partial_j) \partial_k\) being a sum over \(2\) two terms giving a total of \(16\) possible components. However, as with the Christoffel symbols, the symmetries of the curvature tensor reduces the number of independent components.
+
+First of all we use anti-symmetry in the first two slots
+\[
+\Rm(Y, X) Z = - \Rm(X, Y) Z.
+\]
+This yields
+\[
+{\Rm_{iik}}^l = 0
+\]
+since
+\[
+{\Rm_{iik}}^l \partial_l = \Rm(\partial_i, \partial_i)\partial_k = 0
+\]
+and thus each of the components \({\Rm_{iik}}^l\) must vanish since \(\{\partial_l\}\) is a basis. By similar reasoning, we also have
+\[
+{\Rm_{jik}}^l \partial_l = \Rm(\partial_j, \partial_i)\partial_k = - \Rm(\partial_i, \partial_j)\partial_k = -{\Rm_{ijk}}^l \partial_l.
+\]
+and hence for each fixed \(k,l\)
+\[
+{\Rm_{jik}}^l = -{\Rm_{ijk}}^l
+\]
+
+Therefore, for each of the four possible choices of fixed \(k,l\), we have
+\[
+{\Rm_{uuk}}^l = {\Rm_{vvk}}^l = 0
+\]
+and
+\[
+{\Rm_{vuk}}^l = - {\Rm_{uvk}}^l.
+\]
+So for each fixed \(k, l\) we can recover all components of the curvature tensor from just \({\Rm_{uvk}}^l\). In other words, we have reduced the \(2^4 = 16\) components down to only \(4\) independent components corresponding to each fixed \(k,l\)!
+
+But we are not done since there are further symmetries of the curvature tensor. We also have anti-symmetry in the last two slots
+\[
+g(\Rm(X, Y)Z, W) = - g(\Rm(X, Y)W, Z).
+\]
+Let us now write
+\[
+\Rm_{ijkl} = g(\Rm(\partial_i) \partial_j) \partial_k, \partial_l)
+\]
+From the previous reduction, we can take \(i=u\), \(j=v\), leaving four possible combinations of \(k,l\). The anti-symmetry in the last two slots gives
+\[
+\Rm_{uvuu} = \Rm_{uvvv} = 0
+\]
+and
+\[
+\Rm_{uvvu} = -\Rm_{uvuv}.
+\]
+
+Thus we may compute \(\Rm_{ijkl}\) from the single component
+\[
+\Rm_{uvuv}.
+\]
+Down from \(16\) possible components to just a single independent component!
+
+To recover \({\Rm_{ijk}}^l\) from \(\Rm_{ijkl}\) we do the following: Write
+\[
+g_{ij} = g(\partial_i, \partial_j)
+\]
+so that
+\[
+\Rm_{ijkl} = g({\Rm_{ijk}}^m \partial_m, \partial_l) = {\Rm_{ijk}}^m g(\partial_m, \partial_l) = {\Rm_{ijk}}^m g(\partial_l, \partial_m) = g_{lm} {\Rm_{ijk}}^m.
+\]
+This is known as /lowering an index/ (with the metric).
+
+If we keep \(i,j,k\) fixed, we can write this in matrix form
+#+BEGIN_latex
+\[
+\begin{pmatrix}
+\Rm_{ijku} \\
+\Rm_{ijkv}
+\end{pmatrix}
+=
+\begin{pmatrix}
+g_{uu} & g_{uv} \\
+g_{vu} & g_{vv}
+\end{pmatrix}
+\begin{pmatrix}
+{\Rm_{ijk}}^u \\
+{\Rm_{ijk}}^v
+\end{pmatrix}
+\]
+#+END_latex
+
+Since \(g\) is a metric, the matrix is positive definite and hence invertible. Thus we obtain
+#+BEGIN_latex
+\[
+\begin{pmatrix}
+{\Rm_{ijk}}^u \\
+{\Rm_{ijk}}^v
+\end{pmatrix}
+=
+\frac{1}{g_{uu}g_{vv} - g_{uv}^2}
+\begin{pmatrix}
+g_{vv} & -g_{uv} \\
+-g_{vu} & g_{uu}
+\end{pmatrix}
+\begin{pmatrix}
+\Rm_{ijku} \\
+\Rm_{ijkv}
+\end{pmatrix}
+\]
+#+END_latex
+
+Explicitly, for example,
+\[
+{\Rm_{uvu}}^u = \frac{1}{g_{uu}g_{vv} - g_{uv}^2} (g_{vv}\Rm_{uvuu} - g_{uv} \Rm_{uvuv}) = -\frac{g_{uv} \Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2}
+\]
+Notice in particular, that while \(\Rm_{uvuu} = 0\), it is not true in general that \({\Rm_{uvu}}^u = 0\). That is a repeated index in the last two slots, \({\Rm_{ijk}}^k\) need not vanish in general. If we had, \(\partial_u,\partial_v\) orthogonal, then \(g_{uv} = 0\) and in this case we do indeed have \({\Rm_{uvu}}^u = 0\).
+
+The \(v\) component is
+\[
+{\Rm_{uvu}}^v = \frac{g_{uu} \Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2}.
+\]
+
+Similarly we obtain expressions for \({\Rm_{uvv}}^u\) and \({\Rm_{uvv}}^v\). In summary
+\begin{align*}
+-{\Rm_{vuu}}^u &= {\Rm_{uvu}}^u = -\frac{g_{uv} \Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2} \\
+-{\Rm_{vuu}}^v &= {\Rm_{uvu}}^v = \frac{g_{vv} \Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2} \\
+-{\Rm_{vuv}}^u &= {\Rm_{uvv}}^u = \frac{g_{vv} \Rm_{uvvu}}{g_{uu}g_{vv} - g_{uv}^2} = -\frac{g_{vv} \Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2} \\
+-{\Rm_{vuv}}^v &= {\Rm_{uvv}}^v = -\frac{g_{vu} \Rm_{uvvu}}{g_{uu}g_{vv} - g_{uv}^2} = \frac{g_{vu} \Rm_{uvuv}}{g_{uu}g_{vv} - g_{uv}^2}.
+\end{align*}
+Notice that everything is expressed in terms of \(g\) and the single component \(\Rm_{uvuv}\) on the right hand side. All other components vanish involve a repeated index in the first two slots and hence vanish.
+
+* Assignments 							   :noexport:
 *** MATH3405: Assignment 3
 
 #+BEGIN_latex
