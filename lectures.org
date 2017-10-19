@@ -5223,6 +5223,274 @@ Let us just note that \(\Gamma_{ij}^k\) involves derivatives of the metric and t
 \]
 That is, \(\Rm\) involves \(g\), it's first derivatives \(\partial_i g\), and it's second derivatives \(\partial_i \partial_j g\). /Curvature is second order/.
 
+** Covariant Derivative and Curvature of the Sphere
+
+We work in polar coordinates
+\[
+F(\theta, \varphi) = (\sin\varphi\cos\theta, \sin\varphi\sin\theta, \cos\varphi).
+\]
+
+The outer, unit normal is
+\[
+N(\theta, \varphi) = \sin\varphi\cos\theta \partial_x + \sin\varphi\sin\theta \partial_y + \cos\varphi\partial_z.
+\]
+
+The coordinate vectors are
+\[
+\partial_{\theta} = -\sin\varphi \sin\theta \partial_x + \sin\varphi\cos\theta \partial_y
+\]
+and
+\[
+\partial_{\varphi} = \cos\varphi\cos\theta \partial_x + \cos\varphi\sin\theta \partial_y - \sin\varphi \partial_z.
+\]
+
+The metric is
+\[
+g_{\theta\theta} = \sin^2 \varphi, \quad g_{\theta\varphi} = 0, \quad g_{\varphi\varphi} = 1.
+\]
+
+*** Covariant derivative by tangential projection
+
+The Christoffel symbols may now be computed. For example,
+#+BEGIN_latex
+\[
+\begin{split}
+D_{\partial_{\theta}} \partial_{\theta} &= D_{\partial_{\theta}} (-\sin\varphi \sin\theta \partial_x + \sin\varphi\cos\theta \partial_y) \\
+&= \partial_{\theta} (-\sin\varphi \sin\theta) \partial_x + \partial_{\theta}(\sin\varphi\cos\theta) \partial_y \\
+&= -\sin\varphi \cos\theta \partial_x - \sin\varphi\sin\theta \partial_y.
+\end{split}
+\]
+#+END_latex
+
+Projecting onto the normal (and using that \(\{\partial_x, \partial_y, \partial_z\}\) are othonormal),
+#+BEGIN_latex
+\[
+\begin{split}
+\ip{D_{\partial_{\theta}} \partial_{\theta}}{N} &= \ip{-\sin\varphi \cos\theta \partial_x - \sin\varphi\sin\theta \partial_y}{\sin\varphi\cos\theta \partial_x + \sin\varphi\sin\theta \partial_y + \cos\varphi\partial_z} \\
+&= -\sin\varphi \cos\theta\sin\varphi\cos\theta - \sin\varphi\sin\theta \sin\varphi\sin\theta \\
+&= -\sin^2\varphi
+\end{split}
+\]
+#+END_latex
+
+Therefore
+#+BEGIN_latex
+\[
+\begin{split}
+\nabla_{\partial_{\theta}} \partial_{\theta} &= D_{\partial_{\theta}} \partial_{\theta} - \ip{D_{\partial_{\theta}} \partial_{\theta}}{N} N \\
+&= -\sin\varphi \cos\theta \partial_x - \sin\varphi\sin\theta \partial_y + \sin^2\varphi \left(\sin\varphi\cos\theta \partial_x + \sin\varphi\sin\theta \partial_y + \cos\varphi\partial_z\right) \\
+&= (\sin^2\varphi -1) \sin\varphi\cos\theta \partial_x + (\sin^2\varphi -1) \sin\varphi\sin\theta \partial_y + \sin^2\varphi \cos\varphi \partial_z \\
+&= -\cos^2\varphi \sin\varphi\cos\theta \partial_x -\cos^2\varphi \sin\varphi\sin\theta \partial_y + \sin^2\varphi \cos\varphi \partial_z \\
+&= -\cos\varphi\sin\varphi\left(\cos\varphi\cos\theta \partial_x + \cos\varphi\sin\theta \partial_y - \sin\varphi \partial_z\right) \\
+&= -\cos\varphi\sin\varphi \partial_{\varphi}.
+\end{split}
+\]
+#+END_latex
+
+Thus
+\begin{align*}
+\Gamma_{\theta\theta}^{\theta} &= 0 \\
+\Gamma_{\theta\theta}^{\varphi} &= -\cos\varphi\sin\varphi.
+\end{align*}
+
+The other Christoffel symbols are computed similarly.
+
+*** Covariant derivative from the metric
+
+Alternatively, one may use the expression for the Christoffel symbols in terms of the metric
+\[
+\Gamma_{ij}^k = \frac{1}{2} g^{kl} (\partial_i g_{jl} + \partial_j g_{il} - \partial_l g_{ij}).
+\]
+
+For this we require the inverse metric
+\[
+g^{\theta\theta} = \frac{1}{\sin^2\varphi}, \quad g^{\theta\varphi} = 0, \quad g^{\varphi\varphi} = 1.
+\]
+
+For example,
+\[
+\Gamma_{\varphi\varphi}^{\theta} = \frac{1}{2} g^{\theta l} (\partial_{\varphi} g_{\varphi l} + \partial_{\varphi} g_{\varphi l} - \partial_l g_{\varphi\varphi}).
+\]
+
+There is a sum over \(l = \varphi, \theta\) but \(g^{\theta \varphi} = 0\) and so
+\[
+\Gamma_{\varphi\varphi}^{\theta} = \frac{1}{2} g^{\theta\theta} (\partial_{\varphi} g_{\varphi\theta} + \partial_{\varphi} g_{\varphi\theta} - \partial_{\theta} g_{\varphi\varphi}) = 0
+\]
+since \(g_{\varphi\theta} = 0\) and \(g_{\varphi\varphi} = 1\).
+
+More interestingly
+#+BEGIN_latex
+\[
+\begin{split}
+\Gamma_{\varphi\theta}^{\theta} &= \frac{1}{2} g^{\theta\theta} (\partial_{\varphi} g_{\theta\theta} + \partial_{\theta} g_{\varphi\theta} - \partial_{\theta} g_{\varphi\theta}) \\
+&= \frac{1}{2} \sin^{-2}\varphi (\partial_{\varphi} \sin^2 \varphi) \\
+&= \frac{1}{2} \sin^{-2}\varphi 2\sin \varphi\cos\varphi) \\
+&= \frac{\cos\varphi}{\sin\varphi} \\
+&= \cot \varphi
+\end{split}
+\]
+#+END_latex
+
+*** Curvature from the Covariant Derivative
+
+It's now possible to compute the curvature from the Christoffel symbols. We only need compute
+\[
+\Rm(\partial_{\theta}, \partial_{\varphi}) \partial_{\theta} = \nabla_{\partial_{\theta}} \nabla_{\partial_{\varphi}} \partial_{\theta} - \nabla_{\partial_{\varphi}} \nabla_{\partial_{\theta}} \partial_{\theta}
+\]
+
+Our Christoffel symbols are
+\begin{align*}
+\Gamma_{\theta\theta}^{\varphi} &= -\cos\varphi\sin\varphi \\
+\Gamma_{\theta\varphi}^{\theta} &= \Gamma_{\varphi\theta}^{\theta} = \cot \varphi.
+\end{align*}
+All remaining Christoffel symbols vanish.
+
+Then we have
+#+BEGIN_latex
+\[
+\begin{split}
+\nabla_{\partial_{\theta}} \nabla_{\partial_{\varphi}} \partial_{\theta} &= \nabla_{\partial_{\theta}}  \left(\Gamma_{\varphi\theta}^{\theta} \partial_{\theta} + \Gamma_{\varphi\theta}^{\varphi} \partial_{\varphi}\right) \\
+&= \nabla_{\partial_{\theta}}  \left(\cot\varphi\partial_{\theta}\right) \\
+&= -\cot\varphi\cos\varphi\sin\varphi \partial_{\varphi} \\
+&= -\cos^2 \varphi \partial_{\varphi}
+\end{split}
+\]
+#+END_latex
+
+The other term is
+#+BEGIN_latex
+\[
+\begin{split}
+\nabla_{\partial_{\varphi}} \nabla_{\partial_{\theta}} \partial_{\theta} &= \nabla_{\partial_{\varphi}} \left(\Gamma_{\theta\theta}^{\theta} \partial_{\theta} + \Gamma_{\theta\theta}^{\varphi} \partial_{\varphi}\right) \\
+&= -\nabla_{\partial_{\varphi}}  \left(\cos\varphi\sin\varphi\partial_{\varphi}\right) \\
+&= -\left(-\sin^2\varphi + \cos^2\varphi\right)\partial_{\varphi}
+\end{split}
+\]
+#+END_latex
+
+Therefore
+\[
+\Rm(\partial_{\theta}, \partial_{\varphi}) \partial_{\theta} = -\cos^2 \varphi \partial_{\varphi} + \left(-\sin^2\varphi + \cos^2\varphi\right)\partial_{\varphi} = - \sin^2\varphi \partial_{\varphi}
+\]
+and
+\[
+g(\Rm(\partial_{\theta}, \partial_{\varphi}) \partial_{\theta}, \partial_{\varphi}) = -\sin^2\varphi g(\partial_{\varphi}, \partial_{\varphi}) = -\sin^2 \varphi.
+\]
+
+The Gauss curvature is
+\[
+K = \frac{g(\Rm(\partial_{\theta}, \partial_{\varphi}) \partial_{\theta}, \partial_{\varphi})}{g_{\theta\varphi}^2 - g_{\theta\theta}g_{\varphi\varphi}} = \frac{-\sin^2\varphi}{-\sin^2\varphi} = 1.
+\]
+
+*** Curvature From the Gauss Equation
+
+It's considerably easier to compute the curvature tensor of the sphere from the Gauss equation. Recall that for \(x \in \sphere^2\),
+\[
+N(x) = -x
+\]
+and hence
+\[
+\mathcal{W} = -dN = \operatorname{Id}
+\]
+as well as
+\[
+A(X, Y) = g(\mathcal{W}(X), Y) = g(X, Y).
+\]
+That is,
+\[
+A = g.
+\]
+
+The Gauss curvature can be computed easily in terms of \(A\) and \(g\)
+\[
+K = \frac{\det A}{\det g} = \frac{\det g}{\det g} = 1.
+\]
+Even better is to compute directly
+\[
+K = \det \mathcal{W} = \det\operatorname{Id} = 1.
+\]
+
+For the curvature tensor, by using the Gauss equation we obtain
+#+BEGIN_latex
+\[
+\begin{split}
+g(\Rm(X, Y) Z, W) &= A(X, W) A(Y, Z) - A(X, Z) A(Y, W) \\
+&= g(X, W) g(Y, Z) - g(X, Z) g(Y, W).
+\end{split}
+\]
+#+END_latex
+
+In coordinates
+#+BEGIN_latex
+\[
+\begin{split}
+g(\Rm(\partial_{\theta}, \partial_{\varphi}) \partial_{\theta}, \partial_{\varphi}) &= g(\partial_{\theta}, \partial_{\varphi}) g(\partial_{\varphi}, \partial_{\theta}) - g(\partial_{\theta}, \partial_{\theta}) g(\partial_{\varphi}, \partial_{\varphi}) \\
+&= -\sin^2\varphi
+\end{split}
+\]
+#+END_latex
+exactly as we obtained by computing with Christoffel symbols, but with considerably more ease!
+
+*** Comparing the methods
+
+Let us remark that the calculations given above actually work in arbitrary dimension to compute the curvature of the \(n\)-dimensional sphere:
+\[
+\sphere^n = \{(x_1, \dots, x_{n+1}) : x_1^2 + \cdots + x_{n+1}^2 = 1\}.
+\]
+In fact, no change is required when using the Gauss equation since once again \(N(x) = -x\) and we may repeat the entire argument - nothing required that we were working in \(2\) dimensions.
+
+Computing with the Christoffel symbols however, becomes a daunting prospect in \(n\) dimensions when one considers that the Christoffel symbols have three indices each with \(n\) numbers giving \(n^3\) components! But we don't need to compute all \(n^3\) components. The symmetries of the Christoffel symbols allow us to determine the number of independent components:
+
+For each index \(k\) there are a total of \(n^2\) pairs \(i,j\). But since \(\Gamma_{ij}^k = \Gamma_{ji}^k\) we need only count the diagonal entries \(\Gamma_{ii}^i\) (there are \(n\) of these) and half of the off diagonal entries (with \(i\ne j\)). There are \(n^2 - n = n(n-1)\) total indices with \(i\ne j\) since we just subtract the number, \(n\) of indices with \(j=i\) from the total number \(n^2\) of all indices. Adding the number of diagonal entries to half the number of off-diagonal entries, for each fixed \(k\), there are
+\[
+n + \frac{1}{2}n(n-1) = \frac{1}{2}n(n+1)
+\]
+total independent components.
+
+This is for each \(k\), and there are \(n\) possible indices for \(k\) giving the total number of independent components as
+\[
+n \times \frac{1}{2}n(n+1) = \frac{1}{2}n^2(n+1) = \frac{1}{2}(n^3 + n^2).
+\]
+For \(n=2\) we get
+\[
+\frac{1}{2}(2^3 + 2^2) = \frac{1}{2}(8 + 4) = 6
+\]
+independent components.
+
+The number of components grows cubically and for example, if \(n=3\) we obtain
+\[
+\frac{1}{2}(3^3 + 3^2) = \frac{1}{2}(27 + 9) = 18
+\]
+components to compute! If \(n = 4\) we obtain
+\[
+\frac{1}{2}(4^3 + 4^2) = \frac{1}{2}(64 + 16) = 40
+\]
+components to compute!
+
+In the particular case of the sphere however, it turns out we can bootstrap the \(2\) dimensional case by use the symmetry of the sphere under rotations to compute all the components from just the two-dimensional case.
+
+/Nevertheless, the Gauss equation is still much easier/!
+
+Finally, let us note that similar analysis may be employed to show that the curvature tensor has
+\[
+\frac{1}{12}n^2(n^2 - 1)
+\]
+independent components. This is more involved than the Christoffel symbols computation because the symmetries are more complex.
+
+For \(n=2\) we get
+\[
+\frac{1}{12}n^2(n^2 - 1) = \frac{1}{12}4(4-1) = 1.
+\]
+This recovers what we saw earlier - the symmetries of the curvature tensor imply that for surfaces, we only need to compute one component. This makes surfaces very special.
+
+For \(n=3\) we get
+\[
+\frac{1}{12}n^2(n^2 - 1) = \frac{1}{12}9(9-1) = 6.
+\]
+For \(n=4\) we get
+\[
+\frac{1}{12}n^2(n^2 - 1) = \frac{1}{12}16(16-1) = 20.
+\]
 
 * Assignments 							   :noexport:
 *** MATH3405: Assignment 3
