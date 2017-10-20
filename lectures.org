@@ -5492,6 +5492,57 @@ For \(n=4\) we get
 \frac{1}{12}n^2(n^2 - 1) = \frac{1}{12}16(16-1) = 20.
 \]
 
+** Symmetry of the Second Fundamental Form
+
+#+BEGIN_prop
+The second fundamental form is symmetric. That is for any tangent vectors \(X, Y\),
+\[
+A(X, Y) = A(Y, X).
+\]
+#+END_prop
+
+#+BEGIN_proof
+By definition
+\[
+A(X, Y) = g(\mathcal{W}(X), Y) = \ip{\mathcal{W} (X)}{Y} = \ip{-dN(X)}{Y}.
+\]
+
+Using metric compatibility
+\[
+A(X, Y) = \ip{-dN(X)}{Y} = -\ip{D_X N}{Y} = -D_X \ip{N}{Y} + \ip{N}{D_X Y} = \ip{N}{D_X Y}.
+\]
+Similarly
+\[
+A(Y, X) = \ip{N}{D_Y X}.
+\]
+
+Thus
+\[
+A(X, Y) - A(Y, X) = \ip{N}{D_X Y - D_Y X} = \ip{N}{[X, Y]} = \ip{N}{\nabla_X Y - \nabla_Y X} = 0
+\]
+with the last equality following since both \(\nabla_X Y\) and \(\nabla_Y X\) are tangential.
+#+END_proof
+
+#+BEGIN_remark
+Notice that in the proof we obtained the formula
+\[
+A(X, Y) = \ip{D_X Y}{N}.
+\]
+Recall that \(\nabla_X Y\) is the tangential projection of \(D_X Y\):
+\[
+\nabla_X Y = D_X Y - \ip{D_X Y}{N} N.
+\]
+Thus we see that
+\[
+\nabla_X Y = D_X Y - A(X, Y) N.
+\]
+In other words,
+\[
+D_X Y = \nabla_X Y + A(X, Y) N
+\]
+with \(\nabla_X Y\) the tangential part of \(D_X Y\) and \(A(X, Y)\) the normal part. Thus we could make the equivalent definition of the second fundamental form to be the normal component of \(D_X Y\).
+#+END_remark
+
 * Assignments 							   :noexport:
 *** MATH3405: Assignment 3
 
