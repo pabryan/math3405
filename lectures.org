@@ -5543,6 +5543,37 @@ D_X Y = \nabla_X Y + A(X, Y) N
 with \(\nabla_X Y\) the tangential part of \(D_X Y\) and \(A(X, Y)\) the normal part. Thus we could make the equivalent definition of the second fundamental form to be the normal component of \(D_X Y\).
 #+END_remark
 
+** MATH3405 Course Summary
+*** Curves
+- Regular curves.
+- Arc-length
+- Frenet frame: - curvature, torsion, normal, bi-normal
+- Plane curves: orientation allows curvature to have a sign
+*** Surfaces
+- Parametrised surfaces
+- Graphs, surfaces of revolution, regular values
+- Smooth maps
+- Tangent plane
+- Differential of smooth maps
+- Metric (first fundamental form)
+- Area, length, angle
+*** Curvature of Surfaces
+- Orientation and Gauss map
+- Second fundamental form/Weingarten shape operator
+- Principal curvatures
+- Normal and geodesic curvature of curves
+- Mean curvature and Gauss curvature
+- Umbilic points
+- Elliptic, hyperbolic, parabolic, planar points
+*** Intrinsic Geometry
+- Isometries
+- Vector fields
+- Covariant Differentiation
+- Parallel Transport and Geodesics
+- Gauss Theorema Egregium
+  - You won't be examined on the curvature tensor or on how to prove the theorem. But you should understand what it means and the implications. For the purposes of assessment, the important thing is the applications.
+- Gauss-Bonnet Theorem
+  - You won't be examined on how to prove this theorem either. You should understand the statements of the theorems (local and global) however, and be able to apply them. For the purposes of assessment, the important thing is the applications.
 * Assignments 							   :noexport:
 *** MATH3405: Assignment 3
 
