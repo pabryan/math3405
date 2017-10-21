@@ -6,14 +6,14 @@
 
 #+LaTeX_HEADER: \input{local_definitions}
 
-#+OPTIONS: H:2 toc:nil date:nil
-#+LaTeX_CLASS: article
+# #+OPTIONS: H:2 toc:nil date:nil
+# #+LaTeX_CLASS: article
 
-# #+OPTIONS: H:2 toc:t
-# #+LaTeX_CLASS: beamer
-# #+LaTeX_CLASS_OPTIONS: [presentation]
-# #+BEAMER_THEME: Boadilla
-# #+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
+#+OPTIONS: H:2 toc:t
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+BEAMER_THEME: Boadilla
+#+LaTeX_HEADER: \AtBeginSection[]{\begin{frame}\frametitle{Table of Contents}\tableofcontents[currentsection]\end{frame}}
 
 # Hide solution by default
 #+LaTeX_HEADER: \RenewEnviron{soln}{}
@@ -4647,8 +4647,8 @@ as required. \pause
 
 **** Remarks
 
+- The desired coordinate system (\(g_{uv} = 0\)) is called orthogonal and exists on surfaces locally \pause
 - We used a form of the Turning Tangents theorem without proof. \pause
-- The existence of the desired coordinate system may be proven by \pause
 - The formula for \(\kappa\) can be obtained by a similar manner to the plane case \(\partial_s \theta = \kappa\) but taking into account the changing metric. \pause
 - The formula for \(K\) can be obtained from expressing \(\Rm\) in terms of \(g\) and using the Gauss equation. \pause
 - The entire proof may be re-written (in a coordinate free way) using the language of /differential forms/ where the Gauss-Green theorem appears as Stokes' theorem for differential forms.
