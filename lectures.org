@@ -4850,44 +4850,82 @@ The \poincare{} disc is the unit disc \(D = \{x^2 + y^2 < 1\}\) equipped with a 
 - Ref: 4.5
 ** MATH3405 Differential Geometry: Week 13
 *** Lecture 13.1: Gauss-Bonnet Theorem (Global)
+**** Triangulations
+
+#+BEGIN_definition
+A /triangulation/ of a regular surface \(S\) is a finite set of triangles, \(\{T_i\}_{i=1}^n\) such that
+1. \(S = \union_{i=1}^n T_i\), \pause
+2. Each intersection \(T_i \cap T_j\) is either empty, a common edge of \(T_i\) and \(T_j\) or a common vertex of \(T_i\) and \(T_j\).
+#+END_definition
+\pause
+
+A fundamental fact we use (without proof) is that there always exists triangulations of surfaces. \pause
+
+Let
+\begin{align*}
+F &= \text{number of triangles (faces)} \\
+E &= \text{number of edges} \\
+V &= \text{number of vertices} \\
+\end{align*}
+counted with multiplicity - e.g. common vertices are counted twice.
+
 **** Euler Characteristic
 
 #+BEGIN_definition
-The Euler Characteristic, \(\chi\) of a polyhedron is equal to
+The Euler characteristic, \(\chi\) of \(\{T_i\}_{i=1}^n\) is defined be
 \[
-\chi = V - E + F
+\chi = V - E + F.
 \]
-where \(V\) is the number of vertices, \(E\) the number of edges and \(F\) the number of faces.
 #+END_definition
-
-**** Regular Polygons and Platonic Solids
-**** Triangulations
-
-- The Euler characteristic may be defined for regular surfaces. \pause
-- The Euler characteristic is a /topological invariant/. \pause
-- In particular, if \(\varphi : P \to S\) is a homeomorphism, then the Euler characteristic of \(S\) is \(\chi(S) = \chi(P)\). \pause
-
-#+BEGIN_defn
-A /triangulation/ of a regular surface \(S\) is a finite set of triangles, \(\{T_i\}_{i=1}^n\) such that
-1. \(S = \union_{i=1}^n T_i\),
-2. Each intersection \(T_i \cap T_j\) is either empty, a common edge of \(T_i\) and \(T_j\) or a common vertex of \(T_i\) and \(T_j\).
-
-The Euler characteristic of \(\{T_i\}_{i=1}^n\) equals \(V - E + F\).
-#+END_defn
+\pause
 
 #+BEGIN_theorem
 [without proof]
-The Euler characteristic of a surface equals the Euler characteristic of any triangulation, which is independent of the choice of triangulation.
+The Euler characteristic is independent of the choice of triangulation. Thus we may define the Euler characteristic of a surface, \(\chi(S)\) to be equal to the (common) Euler characteristic of any triangulation.
+#+END_theorem
+\pause
+
+The Euler characteristic is a /complete topological invariant/ for compact surfaces \(S_1, S_2\):
+#+BEGIN_theorem
+[without proof]
+If \(\varphi : S_1 \to S_1\) is a homeomorphism, then \(\chi(S_1) = \chi(S_1)\). Conversely, if \(\chi(S_1) = \chi(S_2)\), then there exists a homeomorphism \(S_1 \to S_2\).
 #+END_theorem
 
+**** Examples
+- sphere
+- torus
+- \(g\) handles
+**** Classification of Closed Surfaces (compact, no boundary)
+
+#+BEGIN_definition
+A genus \(g \in \NN = \{0, 1, 2, \dots\}\) surface \(S_g\) is homeomorphic to a sphere with \(g\) handles attached.
+#+END_definition
+\pause
+
+For every \(g \in \NN\), there exists such a surface.
+\pause
+
+#+BEGIN_theorem
+[without proof]
+1. \(\chi(S_g) = 2(1-g)\) \pause
+2. Every compact surface has \(\chi(S) \in \{-2, 0, -2, -4, \dots, -2k, \dots\}\). \pause
+Therefore every compact surface is homeomorphic to \(S_g\) for some \(g\).
+#+END_theorem
+\pause
+
+The proof follows by first showing that \(\chi(\sphere^2) = 2\), and then \(\chi(S + \text{handle}) = \chi(S) - 2\).
+
 **** Classification of Closed Surfaces
+
+Pictures
+
 **** Global Gauss-Bonnet
 **** Notes							   :noexport:
 - Ref: 4.5
 - Euler characteristic etc.
 - Constant curvature spaces
 - Uniformisation Theorem
-*** Lecture 13.2: Extension Lecture: Global Geometry
+*** Lecture 13.2: Applications of Gauss-Bonnet
 **** Notes							   :noexport:
 - Ref: 4.5
 - Applications of Gauss-Bonnet
