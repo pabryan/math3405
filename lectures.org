@@ -4920,6 +4920,75 @@ The proof follows by first showing that \(\chi(\sphere^2) = 2\), and then \(\chi
 Pictures
 
 **** Global Gauss-Bonnet
+
+Let \(R \subseteq S\) be a /regular region/. That is, \(R\) is a region bounded by finitely many piecewise regular, simple, closed curves \(\{C_i\}_{i=1}^k\).
+
+#+BEGIN_theorem
+[Global Gauss-Bonnet]
+\[
+\int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{i,j}\right) = 2\pi\chi(R).
+\]
+#+END_theorem
+\pause
+
+- We define
+  \[
+  \int_R K dA = \sum_n \int_{T_n} K du dv
+  \]
+  where \(\{T_n\}\) is a triangulation of \(R\) with each triangle contained in a local parametrisation. \pause
+- For each \(i\), \(\{\theta_{i,j}\}_{j=1}^{N_i}\) denotes the exterior angles of \(C_i\) at the vertices.
+**** Global Gauss-Bonnet Corollaries
+
+#+BEGIN_corollary
+Let \(S\) be a compact, orientable, regular surface. Then
+\[
+\int_S K dA = 2\pi\chi(S).
+\]
+#+END_corollary
+\pause
+
+- This is quite an amazing result! Compare all the possible /topological/ sphere with widely varying geometry. No matter what, the Gauss curvature distributes itself in such a way that the total Gauss curvature \(K\) (i.e. \(\int_S K dA\)) is the same.
+
+**** Global Gauss-Bonnet Corollaries
+
+- The standard torus and coffee cup are homeomorphic hence have the same total Gauss curvature. \pause
+- A \(g\) holed torus and the sphere with \(g\) handles attached are homeomorphic, hence have the same total Gauss curvature. \pause
+- The Gauss-Bonnet theorem holds also for compact two-dimensional Riemannian manifolds without boundary (closed Riemannian surface). In each homeomorphism class (all surfaces with the same Euler characterstic), there exists a unique (up to scale) closed Riemannian surface, \(M\) with constant Gauss curvature given by
+  \[
+  K \equiv \frac{2\pi\chi(M)}{\operatorname{Area}(M)}.
+  \]
+
+**** Global Gauss-Bonnet Corollaries
+
+#+BEGIN_corollary
+Any compact, regular surface, \(S\) with \(K > 0\) is homeomorphic to the sphere.
+#+END_corollary
+\pause
+
+#+BEGIN_proof
+Gauss-Bonnet implies
+\[
+\chi(S) = \int K dA > 0
+\]
+and hence \(\chi(S) = 2\), hence \(S\) is homeomorphic to the sphere since \(\chi\) is a complete invariant.
+#+END_proof
+
+**** Global Gauss-Bonnet Corollaries
+
+- In fact, every compact, regular surface \(S\) has an elliptic point (a point where \(K > 0\)).\pause
+- This follows in a similar manner to the proof of the surjectivity of the Gauss map, but rather than taking a plane and moving it until it touches \(S\), one takes a sphere containing \(S\) and shrinks it until it touches \(S\). The second derivative test applied to the same function as in the Gauss map proof shows \(K > 0\).
+\pause
+
+#+BEGIN_corollary
+Every compact, regular surface with \(\chi \leq 0\) has points of positive /and/ negative Gauss curvature.
+#+END_corollary
+\pause
+
+#+BEGIN_corollary
+[A variant of Hilbert's Theorem]
+There are no compact, regular surfaces with /everywhere/ negative Gauss curvature.
+#+END_corollary
+
 **** Notes							   :noexport:
 - Ref: 4.5
 - Euler characteristic etc.
