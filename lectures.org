@@ -4865,9 +4865,8 @@ Let
 \begin{align*}
 F &= \text{number of triangles (faces)} \\
 E &= \text{number of edges} \\
-V &= \text{number of vertices} \\
+V &= \text{number of vertices}.
 \end{align*}
-counted with multiplicity - e.g. common vertices are counted twice.
 
 **** Euler Characteristic
 
@@ -4891,6 +4890,10 @@ The Euler characteristic is a /complete topological invariant/ for compact surfa
 If \(\varphi : S_1 \to S_1\) is a homeomorphism, then \(\chi(S_1) = \chi(S_1)\). Conversely, if \(\chi(S_1) = \chi(S_2)\), then there exists a homeomorphism \(S_1 \to S_2\).
 #+END_theorem
 
+**** Examples
+- disc
+- square
+- annulis
 **** Examples
 - sphere
 - torus
@@ -4917,7 +4920,7 @@ The proof follows by first showing that \(\chi(\sphere^2) = 2\), and then \(\chi
 
 **** Classification of Closed Surfaces
 
-Pictures
+- Some pictures of genus \(g\) surfaces.
 
 **** Global Gauss-Bonnet
 
@@ -4926,7 +4929,7 @@ Let \(R \subseteq S\) be a /regular region/. That is, \(R\) is a region bounded 
 #+BEGIN_theorem
 [Global Gauss-Bonnet]
 \[
-\int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{i,j}\right) = 2\pi\chi(R).
+\int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{ij}\right) = 2\pi\chi(R).
 \]
 #+END_theorem
 \pause
@@ -4936,7 +4939,7 @@ Let \(R \subseteq S\) be a /regular region/. That is, \(R\) is a region bounded 
   \int_R K dA = \sum_n \int_{T_n} K du dv
   \]
   where \(\{T_n\}\) is a triangulation of \(R\) with each triangle contained in a local parametrisation. \pause
-- For each \(i\), \(\{\theta_{i,j}\}_{j=1}^{N_i}\) denotes the exterior angles of \(C_i\) at the vertices.
+- For each \(i\), \(\{\theta_{ij}\}_{j=1}^{N_i}\) denotes the exterior angles of \(C_i\) at the vertices.
 **** Global Gauss-Bonnet Corollaries
 
 #+BEGIN_corollary
@@ -4984,43 +4987,154 @@ Every compact, regular surface with \(\chi \leq 0\) has points of positive /and/
 #+END_corollary
 \pause
 
-#+BEGIN_corollary
+#+BEGIN_theorem
 [A variant of Hilbert's Theorem]
 There are no compact, regular surfaces with /everywhere/ negative Gauss curvature.
-#+END_corollary
+#+END_theorem
 
 **** Proof of Global Gauss-Bonnet Theorem
 
-Applying the local Gauss-Bonnet Theorem to each triangle \(T_n\) with boundary arcs \(\gamma_n^1, \gamma_n^2, \gamma_n^3\) in a triangulation,
-\[
-\int_{T_n} K dA + \sum_{m=1}^3 \left(\int_{\gamma_n^m} \kappa ds + \alpha_{nm}\right) = 2\pi.
-\]
-where \(\alpha_{j1}, \alpha_{j2}, \alpha_{j3}\) are the external angles of the triangle \(T_j\).
-\pause
+- Applying the local Gauss-Bonnet Theorem to each triangle \(T_n\) with boundary arcs \(\gamma_n^1, \gamma_n^2, \gamma_n^3\) in a triangulation,
+  \[
+  \int_{T_n} K dA + \sum_{m=1}^3 \left(\int_{\gamma_n^m} \kappa ds + \alpha_{nm}\right) = 2\pi.
+  \]
+  where \(\alpha_{j1}, \alpha_{j2}, \alpha_{j3}\) are the external angles of the   triangle \(T_j\). \pause
 
-Summing over the number \(F\) of triangles, all /interior/ arcs appear exactly twice with opposite orientation hence cancel and all that is left are the boundary arcs \(C_i\) (see figure). Therefore,
-\[
-\int_R K dA + \sum_{i=1}^k \int_{C_i} \kappa ds + \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = 2\pi F.
-\]
+- Summing over the number \(F\) of triangles, all /interior/ arcs appear exactly twice with opposite orientation hence cancel and all that is left are the boundary arcs \(C_i\) (see figure). Therefore,
+  \[
+  \int_R K dA + \sum_{i=1}^k \int_{C_i} \kappa ds + \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = 2\pi F.
+  \]
 
 **** Proof of Global Gauss-Bonnet Theorem
 
-We have
-\[
-\int_R K dA + \sum_{i=1}^k \int_{C_i} \kappa ds + \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = 2\pi F.
-\]
-\pause
+- We have
+  \[
+  \int_R K dA + \sum_{i=1}^k \int_{C_i} \kappa ds + \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = 2\pi F.
+  \]
+  \pause
 
-Recall the theorem states that
-\[
-\int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{i,j}\right) = 2\pi\chi(R) = 2\pi(F - E + V).
-\]
-\pause
+- Recall the theorem states that
+  \[
+  \int_R K dA + \sum_{i=1}^k \left(\int_{C_i} \kappa ds + \sum_{j=1}^{N_i} \theta_{ij}\right) = 2\pi\chi(R) = 2\pi(F - E + V).
+  \]
+  \pause
 
-Thus to prove the theorem we need to prove that
-\[
-\sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = \sum_{i=1}^k \sum_{j=1}^{N_i} \theta_{i,j} + 2\pi(E - V)
-\]
+- Thus to prove the theorem we need to prove that
+  \[
+  \sum_{n=1}^{F}\sum_{m=1}^3 \alpha_{nm} = \sum_{i=1}^k \sum_{j=1}^{N_i} \theta_{ij} + 2\pi(E - V)
+  \]
+
+**** Proof of Global Gauss-Bonnet Theorem
+
+- Let \(\beta_{nm} = \pi - \alpha_{nm}\) be the /internal/ angles of the triangle \(T_n\). \pause
+
+- Recall the sum is over \(1 \leq n \leq F\) and \(1 \leq m \leq 3\). \pause
+
+- Then
+  \[
+  \sum \alpha_{nm} = \sum \pi - \beta_{nm} = 3\pi F - \sum \beta_{nm}.
+  \]
+  \pause
+
+- Thus we now want to show that
+  \[
+  3\pi F - \sum \beta_{nm} = \sum \theta_{ij} + 2\pi(E - V)
+  \]
+
+**** Proof of Global Gauss-Bonnet Theorem
+
+- The idea is now to keep track of the edges that lie on a boundary curve \(C_i\) (/exterior edges/) and those that lie in the interior of \(R\) (/interior edges/). \pause
+- Thus we define
+  \begin{align*}
+  E_{\text{ext}} &= \text{number of exterior edges} \\
+  E_{\text{int}} &= \text{number of interior edges} \\
+  V_{\text{ext}} &= \text{number of exterior vertices} \\
+  V_{\text{int}} &= \text{number of interior vertices} \\
+  \end{align*}
+
+**** Proof of Global Gauss-Bonnet Theorem
+
+- Because the \(C_i\) are simple, closed curves, we have \(V_{\text{ext}} = E_{\text{ext}}\). \pause
+- By induction on the number of triangles: \(3F = 2E_{\text{int}} + E_{\text{ext}}\). \pause
+
+- Thus we have
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  3\pi F - \sum \beta_{nm} &= 2\pi E_{\text{int}} + \pi E_{\text{ext}} - \sum \beta_{nm} + 2\pi E_{\text{ext}} - 2\pi V_{\text{ext}} \\
+  &= 2\pi E_{\text{int}} + 2\pi E_{\text{ext}} + \pi E_{\text{ext}} - 2\pi V_{\text{ext}} - \sum \beta_{nm} \\
+  &= 2\pi E - \pi V_{\text{ext}} - \sum \beta_{nm}.
+  \end{split}
+  \]
+  #+END_latex
+  \pause
+
+- To finally finish we need to show that
+  #+BEGIN_latex
+  \[
+  - \pi V_{\text{ext}} - \sum \beta_{nm} = -2\pi V + \sum \theta_{ij}.
+  \]
+  #+END_latex
+
+**** Proof of Global Gauss-Bonnet Theorem
+
+- Divide the \(\beta_{nm}\) into internal and external vertices
+  \[
+  \sum \beta_{mn} = \sum_a \beta_{\text{int}, a} + \sum_b \beta_{\text{ext}, b}
+  \]
+  \pause
+
+- For the internal vertices, the sum of the angles equals to \(2\pi\), hence
+  \[
+  \sum_a \beta_{\text{int}, a} = 2\pi V_{\text{int}}.
+  \]
+  \pause
+
+- For the external vertices, let \(V_{\text{ext},C}\) denote the number of vertices of the triangulation that are also vertices of a boundary arc \(C_i\). \pause
+- Let \(V_{\text{ext,T}}\) denote the number of external vertices of the triangulation that are not also vertices of any boundary arc \(C_i\). \pause
+- Thus
+  \[
+  V_{\text{ext}} = V_{\text{ext}, C} + V_{\text{ext}, T}.
+  \]
+**** Proof of Global Gauss-Bonnet Theorem
+
+- Divide the external vertices of the triangulation into those from the arcs \(C_i\) and those from the triangulation alone so that
+  \[
+  \sum_b \beta_{\text{ext}, b} = \sum_c \beta_{\text{ext}, C, c} + \sum_d \beta_{\text{ext}, T, d}.
+  \]
+  \pause
+
+- For vertices \(\beta_{\text{ext}, T, d}\) of the triangulation but not of of an arc \(C_i\), each vertex is a regular point of the curve \(C_i\) so that the sum of the two angles equals \(\pi\). Thus
+  \[
+  \sum_d \beta_{\text{ext}, T, d} = \pi V_{\text{ext},T}.
+  \]
+  \pause
+
+- The remaining angles are /internal/ angles at vertices of some \(C_i\) so that
+  \[
+  \sum_c \beta_{\text{ext}, C, d} = \sum_{ij} \varphi_{ij} = \sum_{ij} \pi - \theta_{ij} = \pi V_{\text{ext}, C} - \sum_{ij} \theta_{ij}.
+  \]
+
+**** Proof of Global Gauss-Bonnet Theorem
+
+- Thus we come to the end of the proof: we need to show
+  #+BEGIN_latex
+  \[
+  - \pi V_{\text{ext}} - \sum \beta_{nm} = -2\pi V + \sum \theta_{ij}.
+  \]
+  #+END_latex
+  \pause
+- Summing up all our group of angles (internal, external and part of a \(C_i\), external and not part of a \(C_i\)):
+  #+BEGIN_latex
+  \[
+  \begin{split}
+  - \pi V_{\text{ext}} - \sum \beta_{nm} &= -\pi V_{\text{ext}} - 2\pi V_{\text{int}} - \pi V_{\text{ext},T} - \left(\pi V_{\text{ext}, C} - \sum_{ij} \theta_{ij}\right) \\
+  &= -\pi V_{\text{ext}} - \pi(V_{\text{ext},T} + \pi V_{\text{ext}, C}) - 2\pi V_{\text{int}} + \sum_{ij} \theta_{ij} \\
+  &= -2\pi V_{\text{ext}} - 2\pi V_{\text{int}} + \sum_{ij} \theta_{ij} \\
+  &= -2\pi V + \sum_{ij} \theta_{ij}.
+  \end{split}
+  \]
+  #+END_latex
 **** Notes							   :noexport:
 - Ref: 4.5
 - Euler characteristic etc.
@@ -6816,3 +6930,4 @@ K = \tfrac{-f''}{f(1+(f')^2)^2}.
 - Handle Bodies
 - Global Gauss-Bonnet
 ***** Applications
+
